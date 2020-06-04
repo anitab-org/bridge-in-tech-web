@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-// import MainNavPublic from "./js/components/MainNavPublic";
-import Home from "./js/Home";
+import Home from "./Home";
 import { Navbar, Nav } from "react-bootstrap";
 
 
