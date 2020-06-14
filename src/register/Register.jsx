@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import "./register.css";
+import "./Register.css";
 
 
 export default function Register() {
-    // set user data state
     const [validName, setValidName] = useState(true);
     const [validUsername, setValidUsername] = useState(true);
     const [validEmail, setValidEmail] = useState(true);
@@ -16,11 +15,9 @@ export default function Register() {
 
     const handleSubmit = async e => {
         e.preventDefault();
-        console.log(e.target)
         let userInput = {}
 
         new FormData(e.target).forEach((value, key) => {
-            console.log(key, " ", value);
             if (key === "name")
                 userInput[key] = value;
             else if (key === "username")
@@ -74,13 +71,10 @@ export default function Register() {
             .then(async response => {
 
                 data = await response.json();
-                console.log(typeof (data));
                 setResponseMessage(data.slice(12, -1));
 
             })
             .catch(error => {
-                console.log("testst")
-                console.error("There was an error", data.slice(12, -1));
                 setResponseMessage(data.slice(12, -1));
             });
 
@@ -241,7 +235,6 @@ export default function Register() {
                             </div>
                         </form-group>
                         <div>
-                            {console.log(responseMessage)}
                             {responseMessage !== null && <span className="error">{responseMessage}</span>}
                         </div>
                         <div className="row">
