@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
 import Home from "./Home";
-import Register from "./Register";
+import Register from "./register/Register6";
 import Login from "./Login";
 export default (
   <BrowserRouter>
