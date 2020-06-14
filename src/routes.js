@@ -1,6 +1,8 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./Home";
+import Register from "./register/Register";
+import Login from "./Login";
 import { Navbar, Nav } from "react-bootstrap";
 
 
@@ -28,7 +30,9 @@ export default (
           </Navbar.Collapse>
       </Navbar>
       <Switch>
-        <Route exact path="/" component={Home} />
+      <Route exact path="/" component={Home} />
+        <Route path="/register" component={Register} />
+        <Route path="/login" component={Login} />
       </Switch>
     </div>
   </BrowserRouter>
