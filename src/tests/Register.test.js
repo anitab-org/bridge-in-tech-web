@@ -5,24 +5,19 @@ import { render, fireEvent, screen, waitForElement } from '@testing-library/reac
 import '@testing-library/jest-dom';
 import Register from "../register/Register";
 
-const payload = {
-    name: "My Name",
-    username: "MyUsername",
-    password: "myemail@xxx.xxx",
-    email: "12345678",
-    terms_and_conditions_checked: true,
-    need_mentoring: true,
-    available_to_mentor: true
-};
+
 const server = setupServer(
     rest.post('http://127.0.0.1:5000/register', (req, res, ctx) => {
-        req.method = "POST"
-        req.headers = {
-            "Accept": "application/json",
-            "Content-Type": "application/json",
-        }
-        req.body = JSON.stringify(payload)
-        expect(req.body).toBe(JSON.stringify(payload))
+        const payload = {
+            name: "My Name",
+            username: "MyUsername",
+            password: "12345678",
+            email: "myemail@xxx.xxx",
+            terms_and_conditions_checked: true,
+            need_mentoring: true,
+            available_to_mentor: true
+        };
+        expect(req.body).toEqual(payload)
         return res(ctx.json({ message: "User was created successfully. A confirmation email has been sent via email. After confirming your email you can login." }))
     })
 )
@@ -35,7 +30,7 @@ it('allows the user to register successfully', async () => {
     render(<Register />)
 
     fireEvent.change(screen.getByPlaceholderText('Full Name'), {
-        target: { value: 'My name' },
+        target: { value: 'My Name' },
     })
     fireEvent.change(screen.getByPlaceholderText('Username'), {
         target: { value: 'MyUsername' },
@@ -67,8 +62,5 @@ it('allows the user to register successfully', async () => {
     await waitForElement(() => screen.getByLabelText('response'))
 
     expect(screen.getByLabelText('response')).toHaveTextContent("User was created successfully. A confirmation email has been sent via email. After confirming your email you can login.")
-    expect(screen.getByLabelText('mentor', { name: 'available_to_mentor'}).checked).toEqual(true)
-    expect(screen.getByLabelText('mentee', { name: 'need_mentoring'}).checked).toEqual(true)
-    expect(screen.getByLabelText('termsCheck', { name: 'terms_and_conditions_checked'}).checked).toEqual(true)
     
 })
