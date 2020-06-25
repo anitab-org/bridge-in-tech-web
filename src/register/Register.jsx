@@ -71,11 +71,11 @@ export default function Register() {
             .then(async response => {
 
                 data = await response.json();
-                setResponseMessage(data.slice(12, -1));
+                setResponseMessage(data["message"]);
 
             })
             .catch(error => {
-                setResponseMessage(data.slice(12, -1));
+                setResponseMessage(data["message"]);
             });
 
     }
@@ -189,6 +189,7 @@ export default function Register() {
                                                     <div className="col-sm">
                                                         <input
                                                             name="available_to_mentor"
+                                                            aria-label="mentor"
                                                             type={type}
                                                             value={"on" ? true : false}
                                                             onChange={e => setAvailableToMentor(e.target.value)}
@@ -198,6 +199,7 @@ export default function Register() {
                                                     <div className="col-sm">
                                                         <input
                                                             name="need_mentoring"
+                                                            aria-label="mentee"
                                                             type={type}
                                                             value={"on" ? true : false}
                                                             onChange={e => setNeedMentoring(e.target.value)}
@@ -218,6 +220,7 @@ export default function Register() {
                                         <input
                                             type="checkbox"
                                             name="terms_and_conditions_checked"
+                                            aria-label="termsCheck"
                                             value={"on" ? true : false}
                                             onChange={e => setTermsAndConditionsChecked(e.target.value)}
                                             required
@@ -235,7 +238,7 @@ export default function Register() {
                             </div>
                         </form-group>
                         <div>
-                            {responseMessage !== null && <span className="error">{responseMessage}</span>}
+                            {responseMessage !== null && <span className="error" name="response" aria-label="response" role="alert">{responseMessage}</span>}
                         </div>
                         <div className="row">
                             <label>Already register? Login here.</label>
