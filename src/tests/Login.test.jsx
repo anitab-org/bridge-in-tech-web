@@ -76,3 +76,34 @@ it('handles wrong credentials', async () => {
     
     expect(screen.getByLabelText('errorMessage')).toHaveTextContent("Username or password is wrong.")
   })
+
+  it('handles server down', async () => {
+    server.use(
+      rest.post('http://127.0.0.1:5000/login', (req, res, ctx) => {
+        const wrongPayload = {
+            username: "MyUsername",
+            password: "87654321",
+        };
+        expect(req.body).toEqual(wrongPayload)
+        return res(ctx.status(500), ctx.json({message: 'The server is currently unavailable. Try again later'}))
+      }),
+    )
+   
+    render(<Login />)
+   
+    fireEvent.change(screen.getByPlaceholderText('Username or Email'), {
+        target: { value: 'MyUsername' },
+    })
+    fireEvent.change(screen.getByPlaceholderText('Password'), {
+        target: { value: '87654321' },
+    })
+    expect(screen.queryByLabelText("errorMessage")).not.toBeInTheDocument();
+    
+    fireEvent.click(screen.getByRole('button', { name: "Login" }), {
+        target: { value: 'true' },
+    })
+
+    await waitForElement(() => screen.getByLabelText('errorMessage'))
+    
+    expect(screen.getByLabelText('errorMessage')).toHaveTextContent("The server is currently unavailable. Try again later")
+  })

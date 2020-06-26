@@ -26,22 +26,16 @@ export default function Login() {
             body: JSON.stringify(payload)
         };
 
-        let data = "";
-        let resStatus = 0;
         fetch("http://127.0.0.1:5000/login", requestLogin)
             .then(async response => {
-                resStatus = response.status
-                data = await response.json();
-            })
-            .then(res => {
-                if (resStatus === 200)
+                let data = await response.json();
+                if (response.status === 200) {
                     setIsAuthenticated(true);
-                else
-                    setErrorMessage(data["message"]);
-            })
-            .catch(error => {
+                    return;
+                }
                 setErrorMessage(data["message"]);
-            });
+            })
+            .catch(() => setErrorMessage("The server is currently unavailable. Try again later"));
     }
 
     if (isAuthenticated === true) {
