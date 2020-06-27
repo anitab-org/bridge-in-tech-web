@@ -43,15 +43,15 @@ it('allows the user to register successfully', async () => {
     })
     expect(screen.getByLabelText('mentor', { name: 'available_to_mentor'}).checked).toEqual(false)
     fireEvent.click(screen.getByLabelText('mentor', { name: "available_to_mentor" }), {
-        target: { value: 'true' },
+        target: { value: true },
     })
     expect(screen.getByLabelText('mentee', { name: 'need_mentoring'}).checked).toEqual(false)
     fireEvent.click(screen.getByLabelText('mentee', { name: "need_mentoring" }), {
-        target: { value: 'true' },
+        target: { value: true },
     })
     expect(screen.getByLabelText('termsCheck', { name: 'terms_and_conditions_checked'}).checked).toEqual(false)
     fireEvent.click(screen.getByLabelText('termsCheck', { name: "terms_conditions_checked" }), {
-        target: { value: 'true' },
+        target: { value: true },
     })
     expect(screen.queryByLabelText("response")).not.toBeInTheDocument();
     

@@ -2,7 +2,8 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./Home";
 import Register from "./register/Register";
-import Login from "./Login";
+import Login from "./login/Login";
+import MySpace from "./myspace/MySpace";
 import { Navbar, Nav } from "react-bootstrap";
 
 
@@ -24,6 +25,7 @@ export default (
               <Nav.Link href="/programs">Programs</Nav.Link>
               <Nav.Link href="/organizations">Organizations</Nav.Link>
               <Nav.Link href="/members">Members</Nav.Link>
+              <Nav.Link href="/my-space">My Space</Nav.Link>
               <Nav.Link href="/register">Register</Nav.Link>
               <Nav.Link href="/login">Login</Nav.Link>
             </Nav>
@@ -33,6 +35,7 @@ export default (
       <Route exact path="/" component={Home} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
+        <Route path="/my-space" component={MySpace} />
       </Switch>
     </div>
   </BrowserRouter>

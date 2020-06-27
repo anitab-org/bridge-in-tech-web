@@ -7,56 +7,21 @@ export default function Register() {
     const [validUsername, setValidUsername] = useState(true);
     const [validEmail, setValidEmail] = useState(true);
     const [validPassword, setValidPassword] = useState(true);
-    const [terms_and_conditions_checked, setTermsAndConditionsChecked] = useState(false);
-    const [need_mentoring, setNeedMentoring] = useState(false);
-    const [available_to_mentor, setAvailableToMentor] = useState(false);
     const [responseMessage, setResponseMessage] = useState(null);
-
 
     const handleSubmit = async e => {
         e.preventDefault();
-        let userInput = {}
-
+        let payload = {}
         new FormData(e.target).forEach((value, key) => {
-            if (key === "name")
-                userInput[key] = value;
-            else if (key === "username")
-                userInput[key] = value;
-            else if (key === "password")
-                userInput[key] = value;
-            else if (key === "email")
-                userInput[key] = value;
-            else if (key === "terms_and_conditions_checked") {
+            if (key === "terms_and_conditions_checked" || key === "need_mentoring" || key === "available_to_mentor")
                 if (value === "true")
-                    userInput[key] = true;
+                    payload[key] = true;
                 else
-                    userInput[key] = false;
-            }
-            else if (key === "need_mentoring") {
-                if (value === "true")
-                    userInput[key] = true;
-                else
-                    userInput[key] = false;
-            }
-            else {
-                if (value === "true")
-                    userInput[key] = true;
-                else
-                    userInput[key] = false;
-
-            }
-        });
-
-
-        const payload = {
-            name: userInput["name"],
-            username: userInput["username"],
-            password: userInput["password"],
-            email: userInput["email"],
-            terms_and_conditions_checked: userInput["terms_and_conditions_checked"],
-            need_mentoring: userInput["need_mentoring"],
-            available_to_mentor: userInput["available_to_mentor"]
-        };
+                    payload[key] = false;
+            else
+                payload[key] = value;
+            });
+            
         const requestRegister = {
             method: "POST",
             headers: {
@@ -64,20 +29,18 @@ export default function Register() {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(payload)
-
         };
+
         let data = "";
         fetch("http://127.0.0.1:5000/register", requestRegister)
             .then(async response => {
 
                 data = await response.json();
                 setResponseMessage(data["message"]);
-
             })
             .catch(error => {
                 setResponseMessage(data["message"]);
             });
-
     }
 
     const validateName = e => {
@@ -92,8 +55,7 @@ export default function Register() {
     const validatePassword = e => {
         setValidPassword(e.target.checkValidity());
     };
-
-
+    
     return (
         <div className="container">
             <div className="row mb-5">
@@ -192,7 +154,6 @@ export default function Register() {
                                                             aria-label="mentor"
                                                             type={type}
                                                             value={"on" ? true : false}
-                                                            onChange={e => setAvailableToMentor(e.target.value)}
                                                             id={`inline-${type}-1`} />
                                                         <label htmlFor="mentor">Mentor</label>
                                                     </div>
@@ -202,7 +163,6 @@ export default function Register() {
                                                             aria-label="mentee"
                                                             type={type}
                                                             value={"on" ? true : false}
-                                                            onChange={e => setNeedMentoring(e.target.value)}
                                                             id={`inline-${type}-2`} />
                                                         <label htmlFor="mentee">Mentee</label>
                                                     </div>
@@ -222,7 +182,6 @@ export default function Register() {
                                             name="terms_and_conditions_checked"
                                             aria-label="termsCheck"
                                             value={"on" ? true : false}
-                                            onChange={e => setTermsAndConditionsChecked(e.target.value)}
                                             required
                                         />
                                     </p>
