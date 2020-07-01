@@ -37,17 +37,10 @@ export default function Routes() {
             <Nav className="mr-auto">
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/members">Members</Nav.Link>
-              if (!user) {
-                <>
                 <Nav.Link href="/register">Register</Nav.Link>
                 <Nav.Link href="/login">Login</Nav.Link>
-                </>
-              } else {
-                <>
               <Nav.Link href="/my-space">My Space</Nav.Link>
               <Nav.Link href="/logout">Logout</Nav.Link>
-              </>
-            }
             </Nav>
           </Navbar.Collapse>
         </Navbar>
