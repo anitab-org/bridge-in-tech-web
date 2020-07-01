@@ -1,16 +1,16 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
-const ProtectedRoute = ({ component: Component, user, ...rest }) => {
+const ProtectedRoute = ({ component: Component, user, pagePath, ...rest }) => {
   return (
     <Route {...rest} render={
       props => {
         if (user) {
-            return <Component {...rest} {...props} />
+            return <Component exact path={pagePath} {...rest} {...props} />
         } else {
           return <Redirect to={
             {
-              pathname: '/login',
+              pathname: '/unauthorized',
               state: {
                 from: props.location
               }

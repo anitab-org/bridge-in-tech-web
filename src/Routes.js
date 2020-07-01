@@ -5,8 +5,9 @@ import Members from "./membes/Members";
 import Register from "./register/Register";
 import Login from "./login/Login";
 import MySpace from "./myspace/MySpace";
-import { Navbar, Nav } from "react-bootstrap";
 import ProtectedRoute from "./ProtectedRoute";
+import Navigation from "./Navigation";
+import Unauthorized from "./Unauthorized";
 
 export default function Routes() {
 
@@ -22,28 +23,10 @@ export default function Routes() {
     setUser(false);
   }
   return (
-    <Router>
-      <div>
-        <Navbar bg="light" expand="lg">
-          <Navbar.Brand href="/">
-            <img
-              className="d-inline-block align-top"
-              src="public/assets/images/AnitaBLogo.png"
-              alt="Logo"
-            />
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mr-auto">
-              <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/members">Members</Nav.Link>
-                <Nav.Link href="/register">Register</Nav.Link>
-                <Nav.Link href="/login">Login</Nav.Link>
-              <Nav.Link href="/my-space">My Space</Nav.Link>
-              <Nav.Link href="/logout">Logout</Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Navbar>
+
+    <div>
+      <Navigation user={user} />
+      <Router>
         <Switch>
           <Route exact path="/" handleLogin={handleLogin}>
             <Home user={user} handleLogin={handleLogin} />
@@ -55,7 +38,7 @@ export default function Routes() {
           <Route path="/register">
             <Register user={user} />
           </Route>
-          <Route path="/login" component={Login}/>
+          <Route path="/login" component={Login} />
           <ProtectedRoute
             exact
             path="/my-space"
@@ -66,9 +49,13 @@ export default function Routes() {
           <Route path="/logout">
             <Home user={user} />
           </Route>
+          <Route exact path="/unauthorized">
+            <Unauthorized />
+          </Route>
         </Switch>
-      </div>
-    </Router>
+      </Router>
+    </div>
+
   );
 
 }

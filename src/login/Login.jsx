@@ -5,7 +5,7 @@ import MySpace from "../myspace/MySpace";
 
 
 
-export default function Login() {
+export default function Login({props}) {
     const [errorMessage, setErrorMessage] = useState(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -43,9 +43,10 @@ export default function Login() {
         return (
             <Route
               render={props => {
-                return <MySpace user={isAuthenticated} component={MySpace} />;
+                return <MySpace exact path="my-space" user={isAuthenticated} component={MySpace} />;
               }}
             />
+            
           );
     }
 
