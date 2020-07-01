@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Register.css";
 
 
-export default function Register() {
+export default function Register({user}) {
     const [validName, setValidName] = useState(true);
     const [validUsername, setValidUsername] = useState(true);
     const [validEmail, setValidEmail] = useState(true);
@@ -58,6 +58,7 @@ export default function Register() {
     
     return (
         <div className="container">
+            <div><p>Logged in status: {user.toString()}</p></div>
             <div className="row mb-5">
                 <div className="col-lg-12 text-center">
                     <h1 className="mt-5">Register Form</h1>

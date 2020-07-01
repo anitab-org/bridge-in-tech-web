@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import "./Login.css";
-import { Redirect } from "react-router-dom";
-import "../myspace/MySpace";
+import { Route, Redirect } from "react-router-dom";
+import MySpace from "../myspace/MySpace";
+
 
 
 export default function Login() {
     const [errorMessage, setErrorMessage] = useState(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-    
+
     const handleSubmit = async e => {
         e.preventDefault();
-        
+
         let payload = {}
         new FormData(e.target).forEach((value, key) => {
             payload[key] = value;
@@ -38,8 +39,14 @@ export default function Login() {
             .catch(() => setErrorMessage("The server is currently unavailable. Try again later"));
     }
 
-    if (isAuthenticated === true) {
-        return <Redirect to="/my-space" />
+    if (isAuthenticated) {
+        return (
+            <Route
+              render={props => {
+                return <MySpace user={isAuthenticated} component={MySpace} />;
+              }}
+            />
+          );
     }
 
     return (

@@ -1,12 +1,12 @@
 import React from "react";
 
-export default function Home({user}) {
+export default function Members({user}) {
     return (
         <div className="container-fluid" id="home">
           <div className="top">
           <p>Logged in status: {user.toString()}</p>
             <h1>
-              Welcome to Bridge In Tech Landing page
+              This is the Public page for Members list
             </h1>
           </div>
           <div className="middle">
