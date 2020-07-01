@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Login.css";
-import { Route, Redirect } from "react-router-dom";
-import MySpace from "../myspace/MySpace";
+import { Route, Redirect, Link } from "react-router-dom";
+import Home from "../Home";
 
 
 
@@ -43,7 +43,7 @@ export default function Login({props}) {
         return (
             <Route
               render={props => {
-                return <MySpace exact path="my-space" user={isAuthenticated} component={MySpace} />;
+                return (<Home to="/" user={isAuthenticated} component={Home} />);
               }}
             />
             
