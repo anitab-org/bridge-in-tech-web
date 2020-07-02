@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Register.css";
+import _ from "underscore";
 
 
 export default function Register() {
@@ -197,7 +198,7 @@ export default function Register() {
                             </div>
                         </form-group>
                         <div>
-                            {responseMessage !== null && <span className="error" name="response" aria-label="response" role="alert">{responseMessage}</span>}
+                            {!_.isEmpty(responseMessage) && <span className="error" name="response" aria-label="response" role="alert">{responseMessage}</span>}
                         </div>
                         <div className="row">
                             <label>Already register? Login here.</label>

@@ -87,7 +87,7 @@ export default function Login() {
                         </form-group>
                         <div><br></br></div>
                         <div>
-                            {errorMessage !== null && <span className="error" name="errorMessage" aria-label="errorMessage" role="alert">{errorMessage}</span>}
+                            {!_.isEmpty(errorMessage) && <span className="error" name="errorMessage" aria-label="errorMessage" role="alert">{errorMessage}</span>}
                         </div>
                         <div className="row">
                             <label>Not yet register? Sign Up here.</label>
