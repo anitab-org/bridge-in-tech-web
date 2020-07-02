@@ -1,10 +1,10 @@
 import React from "react";
 
-export default function Home({user}) {
+export default function Home() {
     return (
         <div className="container-fluid" id="home">
           <div className="top">
-          <p>Logged in status: {user.toString()}</p>
+          {/* <p>Logged in status: {user.toString()}</p> */}
             <h1>
               Welcome to Bridge In Tech Landing page
             </h1>
@@ -20,4 +20,3 @@ export default function Home({user}) {
         </div>
     )
 }
-

@@ -1,25 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom"
+import { SessionUser } from "./Routes";
 
-
-const authenticationChecker = (user) => {
+const authenticationChecker = ({ user }) => {
     return user ?
         <Nav className="mr-auto">
+            <Nav.Link tag={Link} href="/">Home</Nav.Link>
+            <Nav.Link tag={Link} href="/members">Members</Nav.Link>
+            <Nav.Link tag={Link} href="/my-space">My Space</Nav.Link>
+            <Nav.Link tag={Link} href="/logout">Logout</Nav.Link>
+        </Nav>
+        :
+        <Nav>
             <Nav.Link tag={Link} href="/">Home</Nav.Link>
             <Nav.Link tag={Link} href="/members">Members</Nav.Link>
             <Nav.Link tag={Link} href="/my-space">My Space</Nav.Link>
             <Nav.Link tag={Link} href="/register">Register</Nav.Link>
             <Nav.Link tag={Link} href="/login">Login</Nav.Link>
         </Nav>
-        :
-        <Nav>
-            <Nav.Link tag={Link} href="/logout">Logout</Nav.Link>
-        </Nav>
 }
 
-export default function Navigation({user}) {
-
+export default function Navigation() {
+    const user = useContext(SessionUser);
     return (
         <div>
             <Navbar bg="light" expand="lg">

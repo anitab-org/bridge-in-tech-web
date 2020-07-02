@@ -1,10 +1,10 @@
 import React from "react";
 
-export default function Members({user}) {
+export default function Members() {
     return (
         <div className="container-fluid" id="home">
           <div className="top">
-          <p>Logged in status: {user.toString()}</p>
+          {/* <p>Logged in status: {user.toString()}</p> */}
             <h1>
               This is the Public page for Members list
             </h1>
@@ -20,4 +20,3 @@ export default function Members({user}) {
         </div>
     )
 }
-

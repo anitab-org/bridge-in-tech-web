@@ -1,25 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Route, Redirect } from 'react-router-dom';
+import { SessionUser } from "./Routes";
 
-const ProtectedRoute = ({ component: Component, user, ...rest }) => {
-  return (
-    <Route {...rest} render={
-      props => {
-        if (user) {
-            return <Component exact path={Component.pathname} {...rest} {...props} />
-        } else {
-          return <Redirect to={
-            {
-              pathname: '/login',
-              state: {
-                from: props.location
-              }
-            }
-          } />
-        }
-      }
-    } />
-  )
+export default function ProtectedRoute({ component: Component, ...rest }) {
+    const user = useContext(SessionUser);
+    if (user !== undefined) {
+        return (
+            <Route {...rest} render={props => {
+                return <Component exact path={Component.pathname} {...rest} {...props} />
+            }} />
+        )
+    }
+    else 
+        return  <Redirect to="/login" />
 }
-
-export default ProtectedRoute;

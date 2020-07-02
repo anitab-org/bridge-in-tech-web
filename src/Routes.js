@@ -1,61 +1,56 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, createContext } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./Home";
-import Members from "./membes/Members";
+import Members from "./members/Members";
 import Register from "./register/Register";
 import Login from "./login/Login";
+import Logout from "./Logout";
 import MySpace from "./myspace/MySpace";
 import ProtectedRoute from "./ProtectedRoute";
 import Navigation from "./Navigation";
-import Unauthorized from "./Unauthorized";
+import Cookies from "js-cookie";
 
+
+export const SessionUser = createContext(Cookies.get("user"));
+  
 export default function Routes() {
 
-  const [user, setUser] = useState(false);
-
-  const handleLogin = e => {
-    e.preventDefault();
-    setUser(true);
-  }
-
-  const handleLogout = e => {
-    e.preventDefault();
-    setUser(false);
-  }
+  const [user, setUser] = useState(Cookies.get("user"));
+  useEffect(
+    () => {
+      setUser(Cookies.get("user"));
+    },
+    [user]
+  );
   return (
-
-    <div>
-      <Navigation user={user} />
+    <SessionUser.Provider value={user}>
       <Router>
+        <Navigation />
         <Switch>
-          <Route exact path="/" handleLogin={handleLogin}>
-            <Home user={user} handleLogin={handleLogin} />
+          <Route exact path="/">
+            <Home />
           </Route>
-
           <Route path="/members">
-            <Members user={user} />
+            <Members />
           </Route>
           <Route path="/register">
-            <Register user={user} />
+            <Register />
           </Route>
-          <Route path="/login" component={Login} />
+          <Route path="/login">
+            <Login />
+          </Route>
           <ProtectedRoute
             exact
             path="/my-space"
-            user={user}
-            handleLogout={handleLogout}
             component={MySpace}
-          />
+          >
+            <MySpace />
+          </ProtectedRoute>
           <Route path="/logout">
-            <Home user={user} />
-          </Route>
-          <Route exact path="/unauthorized">
-            <Unauthorized />
+            <Logout />
           </Route>
         </Switch>
       </Router>
-    </div>
-
+    </SessionUser.Provider>
   );
-
 }

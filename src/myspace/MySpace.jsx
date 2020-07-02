@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function MySpace({user}) {
+export default function MySpace() {
     return (
         <div className="container-fluid" id="myspace">
-          <p>Logged in status: {user.toString()}</p>
+          {/* <p>Logged in status: {user.toString()}</p> */}
           <div className="top">
             <h1>
               This will be Private page for the Member's Portfolio
@@ -20,5 +20,3 @@ export default function MySpace({user}) {
         </div>
     )
 }
-
-

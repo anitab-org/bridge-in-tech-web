@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import "./Login.css";
-import { Route, Redirect, Link } from "react-router-dom";
-import Home from "../Home";
+import { Redirect } from "react-router-dom";
+import Cookies from "js-cookie";
 
 
-
-export default function Login({props}) {
+export default function Login() {
     const [errorMessage, setErrorMessage] = useState(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-
+    const [user, setUser] = useState(null);
+    
     const handleSubmit = async e => {
         e.preventDefault();
 
@@ -26,11 +25,17 @@ export default function Login({props}) {
             },
             body: JSON.stringify(payload)
         };
-
         fetch("http://127.0.0.1:5000/login", requestLogin)
             .then(async response => {
                 let data = await response.json();
                 if (response.status === 200) {
+                    if (data !== {}) {
+                        let access_token = data["access_token"];
+                        let access_expiry = data["access_expiry"];
+                        Cookies.set("user", user);
+                        Cookies.set("access_token", access_token);
+                        Cookies.set("access_expiry", access_expiry);
+                    }
                     setIsAuthenticated(true);
                     return;
                 }
@@ -38,16 +43,8 @@ export default function Login({props}) {
             })
             .catch(() => setErrorMessage("The server is currently unavailable. Try again later"));
     }
-
     if (isAuthenticated) {
-        return (
-            <Route
-              render={props => {
-                return (<Home to="/" user={isAuthenticated} component={Home} />);
-              }}
-            />
-            
-          );
+        return <Redirect to="/"/>
     }
 
     return (
@@ -67,6 +64,7 @@ export default function Login({props}) {
                                     type="text"
                                     name="username"
                                     placeholder="Username or Email"
+                                    onChange={e => setUser(e.target.value)}
                                     required
                                 />
                             </p>
