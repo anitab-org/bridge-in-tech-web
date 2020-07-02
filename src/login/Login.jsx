@@ -2,12 +2,16 @@ import React, { useState } from "react";
 import "./Login.css";
 import { Redirect } from "react-router-dom";
 import Cookies from "js-cookie";
+import _ from "underscore";
+import { BASE_API_URL } from "../Routes";
 
 
 export default function Login() {
     const [errorMessage, setErrorMessage] = useState(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [user, setUser] = useState(null);
+    
+    const request_url = BASE_API_URL + "/login";
     
     const handleSubmit = async e => {
         e.preventDefault();
@@ -25,11 +29,11 @@ export default function Login() {
             },
             body: JSON.stringify(payload)
         };
-        fetch("http://127.0.0.1:5000/login", requestLogin)
+        fetch(request_url, requestLogin)
             .then(async response => {
                 let data = await response.json();
                 if (response.status === 200) {
-                    if (data !== {}) {
+                    if (!_.isEmpty(data)) {
                         let access_token = data["access_token"];
                         let access_expiry = data["access_expiry"];
                         Cookies.set("user", user);
