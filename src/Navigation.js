@@ -1,25 +1,12 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { Link, withRouter } from "react-router-dom"
-import { SessionUser } from "./Routes";
 import Cookies from "js-cookie";
 import _ from "underscore";
 
-const authenticationChecker = ({ user }) => {
-    return _.isEmpty(user) ?
-        <Nav>
-            <Nav.Link tag={Link} href="/register">Register</Nav.Link>
-            <Nav.Link tag={Link} href="/login">Login</Nav.Link>
-        </Nav>
-        :
-        <Nav>
-            <Nav.Link tag={Link} href="/logout">Logout</Nav.Link>
-        </Nav>
-}
 
-export default function Navigation({ user }) {
-    // const user = useContext(SessionUser);
-    // const user = Cookies.get("user");
+function Navigation() {
+    const user = Cookies.get("user");
     console.log(user);
     return (
         <div>
@@ -37,10 +24,20 @@ export default function Navigation({ user }) {
                         <Nav.Link tag={Link} href="/">Home</Nav.Link>
                         <Nav.Link tag={Link} href="/members">Members</Nav.Link>
                         <Nav.Link tag={Link} href="/my-space">My Space</Nav.Link>
-                        {authenticationChecker({ user })}
+                        {_.isEmpty(user) &&
+                            <Nav>
+                                <Nav.Link tag={Link} href="/register">Register</Nav.Link>
+                                <Nav.Link tag={Link} href="/login">Login</Nav.Link>
+                            </Nav>}
+                        {!_.isEmpty(user) &&
+                            <Nav>
+                                <Nav.Link tag={Link} href="/logout">Logout</Nav.Link>
+                            </Nav>}
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
         </div>
     );
 }
+
+export default withRouter(Navigation);

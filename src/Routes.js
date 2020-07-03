@@ -10,12 +10,11 @@ import ProtectedRoute from "./ProtectedRoute";
 import Navigation from "./Navigation";
 import Cookies from "js-cookie";
 
+
 export const SessionUser = createContext(Cookies.get("user"));
 export const BASE_API_URL = "http://127.0.0.1:5000";
 
 export default function Routes() {
-  
-
   const [user, setUser] = useState(Cookies.get("user"));
   useEffect(
     () => {
@@ -23,12 +22,13 @@ export default function Routes() {
     },
     [user]
   );
+
   return (
     <SessionUser.Provider value={user}>
       <Router>
-        <Navigation user={user}/>
+        <Navigation />
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/" >
             <Home />
           </Route>
           <Route path="/members">
@@ -54,3 +54,4 @@ export default function Routes() {
     </SessionUser.Provider>
   );
 }
+
