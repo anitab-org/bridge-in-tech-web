@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, createContext } from "react";
 import "./Login.css";
-import { Redirect } from "react-router-dom";
+import { Route, Redirect, Switch, withRouter } from "react-router-dom";
 import Cookies from "js-cookie";
 import _ from "underscore";
 import { BASE_API_URL } from "../Routes";
+import Home from "../Home";
+// import Navigation from "../Navigation";
+// import SessionUser from "../Routes";
+
+
 
 
 export default function Login() {
@@ -48,7 +53,15 @@ export default function Login() {
             .catch(() => setErrorMessage("The server is currently unavailable. Try again later"));
     }
     if (isAuthenticated) {
-        return <Redirect to="/"/>
+        // return <Redirect to="/"/>
+        return (
+            <Switch>
+                <Redirect from="/login" to="/" />
+                <Route exact path="/">
+                    <Home/>
+                </Route> 
+            </Switch>
+        );
     }
 
     return (

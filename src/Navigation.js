@@ -1,28 +1,26 @@
 import React, { useContext } from "react";
 import { Navbar, Nav } from "react-bootstrap";
-import { Link } from "react-router-dom"
+import { Link, withRouter } from "react-router-dom"
 import { SessionUser } from "./Routes";
+import Cookies from "js-cookie";
+import _ from "underscore";
 
 const authenticationChecker = ({ user }) => {
-    return user ?
-        <Nav className="mr-auto">
-            <Nav.Link tag={Link} href="/">Home</Nav.Link>
-            <Nav.Link tag={Link} href="/members">Members</Nav.Link>
-            <Nav.Link tag={Link} href="/my-space">My Space</Nav.Link>
-            <Nav.Link tag={Link} href="/logout">Logout</Nav.Link>
-        </Nav>
-        :
-        <Nav>
-            <Nav.Link tag={Link} href="/">Home</Nav.Link>
-            <Nav.Link tag={Link} href="/members">Members</Nav.Link>
-            <Nav.Link tag={Link} href="/my-space">My Space</Nav.Link>
+    return _.isEmpty(user) ?
+        <div>
             <Nav.Link tag={Link} href="/register">Register</Nav.Link>
             <Nav.Link tag={Link} href="/login">Login</Nav.Link>
-        </Nav>
+        </div>
+        :
+        <div>
+            <Nav.Link tag={Link} href="/logout">Logout</Nav.Link>
+        </div>
 }
 
-export default function Navigation() {
-    const user = useContext(SessionUser);
+export default function Navigation({ user }) {
+    // const user = useContext(SessionUser);
+    // const user = Cookies.get("user");
+    console.log(user);
     return (
         <div>
             <Navbar bg="light" expand="lg">
@@ -35,7 +33,12 @@ export default function Navigation() {
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    {authenticationChecker({user})}
+                    <Nav className="mr-auto">
+                        <Nav.Link tag={Link} href="/">Home</Nav.Link>
+                        <Nav.Link tag={Link} href="/members">Members</Nav.Link>
+                        <Nav.Link tag={Link} href="/my-space">My Space</Nav.Link>
+                        {authenticationChecker({ user })}
+                    </Nav>
                 </Navbar.Collapse>
             </Navbar>
         </div>

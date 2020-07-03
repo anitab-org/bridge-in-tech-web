@@ -10,7 +10,6 @@ import ProtectedRoute from "./ProtectedRoute";
 import Navigation from "./Navigation";
 import Cookies from "js-cookie";
 
-
 export const SessionUser = createContext(Cookies.get("user"));
 export const BASE_API_URL = "http://127.0.0.1:5000";
 
@@ -27,7 +26,7 @@ export default function Routes() {
   return (
     <SessionUser.Provider value={user}>
       <Router>
-        <Navigation />
+        <Navigation user={user}/>
         <Switch>
           <Route exact path="/">
             <Home />
