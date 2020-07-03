@@ -7,14 +7,14 @@ import _ from "underscore";
 
 const authenticationChecker = ({ user }) => {
     return _.isEmpty(user) ?
-        <div>
+        <Nav>
             <Nav.Link tag={Link} href="/register">Register</Nav.Link>
             <Nav.Link tag={Link} href="/login">Login</Nav.Link>
-        </div>
+        </Nav>
         :
-        <div>
+        <Nav>
             <Nav.Link tag={Link} href="/logout">Logout</Nav.Link>
-        </div>
+        </Nav>
 }
 
 export default function Navigation({ user }) {

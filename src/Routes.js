@@ -43,7 +43,6 @@ export default function Routes() {
           <ProtectedRoute
             exact
             path="/my-space"
-            component={MySpace}
           >
             <MySpace />
           </ProtectedRoute>
