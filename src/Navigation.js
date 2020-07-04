@@ -1,24 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { Link, withRouter } from "react-router-dom"
-import Cookies from "js-cookie";
-import _ from "underscore";
+import AuthContext  from "./AuthContext";
 
-
-const authenticationChecker = ({ user }) => {
-    return (_.isEmpty(user)) ?
-        <Nav>
-            <Nav.Link tag={Link} href="/register">Register</Nav.Link>
-            <Nav.Link tag={Link} href="/login">Login</Nav.Link>
-        </Nav>
-        :
-        <Nav>
-            <Nav.Link tag={Link} href="/logout">Logout</Nav.Link>
-        </Nav>
-}
 
 function Navigation() {
-    const user = Cookies.get("user");
+    const { isAuth, logout } = useContext(AuthContext);
+    // const history = useHistory();
+
     return (
         <div>
             <Navbar bg="light" expand="lg">
@@ -35,7 +24,20 @@ function Navigation() {
                         <Nav.Link tag={Link} href="/">Home</Nav.Link>
                         <Nav.Link tag={Link} href="/members">Members</Nav.Link>
                         <Nav.Link tag={Link} href="/my-space">My Space</Nav.Link>
-                        {authenticationChecker({user})}
+                        {isAuth ?
+                            <>
+                                <Nav.Link tag={Link} href="/register">
+                                    Register
+                                </Nav.Link>
+                                <Nav.Link tag={Link} href="/login">
+                                    Login
+                                </Nav.Link>
+                            </>
+                            :
+                                <Nav.Link tag={Link} href="/" onClick={() => {
+                                    logout()}} >
+                                    Logout
+                                </Nav.Link>}
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./Login.css";
 import { Redirect } from "react-router-dom";
-import Cookies from "js-cookie";
 import _ from "underscore";
+import AuthContext from "../AuthContext";
 import BASE_API from "../config";
 
 export default function Login() {
     const [errorMessage, setErrorMessage] = useState(null);
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const {isAuth,login} = useContext(AuthContext);
     const [user, setUser] = useState(null);
     
     const request_url = JSON.parse(JSON.stringify({BASE_API}))["BASE_API"]["BASE_API"] + "/login";
@@ -33,24 +33,24 @@ export default function Login() {
                 let data = await response.json();
                 if (response.status === 200) {
                     if (!_.isEmpty(data)) {
-                        let access_token = data["access_token"];
-                        let access_expiry = data["access_expiry"];
-                        Cookies.set("user", user);
-                        Cookies.set("access_token", access_token);
-                        Cookies.set("access_expiry", access_expiry);
+                        login(data, user);
+                        // let access_token = data["access_token"];
+                        // let access_expiry = data["access_expiry"];
+                        // Cookies.set("user", user);
+                        // Cookies.set("access_token", access_token);
+                        // Cookies.set("access_expiry", access_expiry);
                     }
-                    setIsAuthenticated(true);
                     return;
                 }
                 setErrorMessage(data["message"]);
             })
             .catch(() => setErrorMessage("The server is currently unavailable. Try again later"));
     }
-    if (isAuthenticated) {
-        return <Redirect to="/"/>
-    }
+    
 
-    return (
+    return isAuth ? 
+    <Redirect to="/" />
+    : (
         <div className="container">
             <div className="row mb-5">
                 <div className="col-lg-12 text-center">

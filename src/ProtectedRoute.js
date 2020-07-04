@@ -1,18 +1,19 @@
 import React, { useContext } from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { SessionUser } from "./Routes";
-import _ from "underscore";
+import AuthContext from "./AuthContext";
 
 export default function ProtectedRoute({ children, ...rest }) {
-    const user = useContext(SessionUser);
+    const {isAuth} = useContext(AuthContext);
+    
     return (
         <Route {...rest} render={({ location }) => {
-            return !_.isEmpty(user)
-                ? children
+            return isAuth ? 
+                 children
                 : <Redirect to={{
                     pathname: "/login",
                     state: { from: location }
                 }} />
+                
         }} />
-    )
+    );
 }

@@ -1,29 +1,19 @@
-import React, { useState, useEffect, createContext } from "react";
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./Home";
 import Members from "./members/Members";
 import Register from "./register/Register";
 import Login from "./login/Login";
-import Logout from "./Logout";
 import MySpace from "./myspace/MySpace";
 import ProtectedRoute from "./ProtectedRoute";
 import Navigation from "./Navigation";
-import Cookies from "js-cookie";
+import AuthProvider from "./AuthContext";
 
-
-export const SessionUser = createContext(Cookies.get("user"));
 
 export default function Routes() {
-  const [user, setUser] = useState(Cookies.get("user"));
-  useEffect(
-    () => {
-      setUser(Cookies.get("user"));
-    },
-    [user]
-  );
 
   return (
-    <SessionUser.Provider value={user}>
+    <AuthProvider.Provider>
       <Router>
         <Navigation />
         <Switch>
@@ -45,12 +35,9 @@ export default function Routes() {
           >
             <MySpace />
           </ProtectedRoute>
-          <Route path="/logout">
-            <Logout />
-          </Route>
         </Switch>
       </Router>
-    </SessionUser.Provider>
+    </AuthProvider.Provider>
   );
 }
 
