@@ -48,11 +48,7 @@ export default function Login() {
             .catch(() => setErrorMessage("The server is currently unavailable. Try again later"));
     }
     if (isAuthenticated) {
-        return (
-            <SessionUser.Provider value={user}>
-                <Redirect to="/"/>
-            </SessionUser.Provider>
-        )
+        return <Redirect to="/"/>
     }
 
     return (
