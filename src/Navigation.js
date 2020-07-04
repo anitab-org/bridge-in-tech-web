@@ -19,7 +19,6 @@ const authenticationChecker = ({ user }) => {
 
 function Navigation() {
     const user = Cookies.get("user");
-    console.log(user);
     return (
         <div>
             <Navbar bg="light" expand="lg">
