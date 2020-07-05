@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Route, Redirect, withRouter } from 'react-router-dom';
-import { AuthConsumer } from "./AuthContext";
+import { AuthContext } from "./AuthContext";
 
-const ProtectedRoute = ({ children, ...rest }) => (
+const ProtectedRoute = ({ children, ...rest }) => {
+    const {isAuth} = useContext(AuthContext);
+    console.log(isAuth);
     
-    <AuthConsumer>
-             {({ isAuth }) => (
-                <Route {...rest}
+    return <Route {...rest}
                     render={({ location }) => {
                         return isAuth ?
                             children 
@@ -16,8 +16,8 @@ const ProtectedRoute = ({ children, ...rest }) => (
                                 state: { from: location }
                             }} />
                     }} />
-            )}
-        </AuthConsumer>
-    )
+        
+    }
+    
     
     export default withRouter(ProtectedRoute);

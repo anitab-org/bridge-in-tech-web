@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { Link, withRouter } from "react-router-dom"
-import { AuthConsumer } from "./AuthContext";
+import { AuthContext } from "./AuthContext";
 
 
 function Navigation() {
+    const {user, isAuth, login, logout } = useContext(AuthContext);
+
     return (
-        <AuthConsumer>
-            {({ user, isAuth, login, logout }) => (
                 <Navbar bg="light" expand="lg">
                     <Navbar.Brand href="/">
                         <img
@@ -40,8 +40,8 @@ function Navigation() {
                         {isAuth && <Nav>Welcome back, {user}!</Nav>}
                     </Navbar.Collapse>
                 </Navbar>
-            )}
-        </AuthConsumer>
+            
+        
     );
 }
 

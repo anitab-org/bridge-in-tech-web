@@ -7,13 +7,13 @@ function AuthProvider({ children }) {
   const [isAuth, setIsAuth] = useState(false);
   const [user, setUser] = useState(null);
 
-  useEffect(
-    () => {
-      setUser(Cookies.get("user"));
-      user ? setIsAuth(true) : setIsAuth(false);
-    },
-    [user, isAuth]
-  )
+  // useEffect(
+  //   () => {
+  //     setUser(Cookies.get("user"));
+  //     user ? setIsAuth(true) : setIsAuth(false);
+  //   },
+  //   [user, isAuth]
+  // )
 
   const login = (token, user) => {
     let access_token = token["access_token"];
@@ -24,6 +24,7 @@ function AuthProvider({ children }) {
     
     setUser(user);
     setIsAuth(true);
+    console.log(isAuth);
   };
 
   const logout = () => {
@@ -46,7 +47,5 @@ function AuthProvider({ children }) {
     </AuthContext.Provider>
   );
 }
-
-export const AuthConsumer = AuthContext.Consumer
 
 export default AuthProvider;
