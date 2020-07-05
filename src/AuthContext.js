@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useEffect } from "react";
 import Cookies from "js-cookie";
 
 export const AuthContext = createContext(Cookies.get("user"));
@@ -7,12 +7,21 @@ function AuthProvider({ children }) {
   const [isAuth, setIsAuth] = useState(false);
   const [user, setUser] = useState(null);
 
+  useEffect(
+    () => {
+      setUser(Cookies.get("user"));
+      user ? setIsAuth(true) : setIsAuth(false);
+    },
+    [user, isAuth]
+  )
+
   const login = (token, user) => {
     let access_token = token["access_token"];
     let access_expiry = token["access_expiry"];
     Cookies.set("user", user);
     Cookies.set("access_token", access_token);
     Cookies.set("access_expiry", access_expiry);
+    
     setUser(user);
     setIsAuth(true);
   };
