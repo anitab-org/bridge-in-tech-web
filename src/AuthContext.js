@@ -3,8 +3,8 @@ import Cookies from "js-cookie";
 
 export const AuthContext = createContext(Cookies.get("user"));
 
-export default function AuthProvider({ children }) {
-  const [isAuth, setIsAuth] = useState(false);
+function AuthProvider({ children }) {
+  const [isAuth, setIsAuth] = useState(Cookies.get("user"));
 
   const login = (token, user) => {
     let access_token = token["access_token"];
@@ -34,3 +34,7 @@ export default function AuthProvider({ children }) {
     </AuthContext.Provider>
   );
 }
+
+export const AuthConsumer = AuthContext.Consumer
+
+export default AuthProvider;

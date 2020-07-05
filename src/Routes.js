@@ -13,8 +13,9 @@ import AuthProvider from "./AuthContext";
 export default function Routes() {
 
   return (
-    <AuthProvider.Provider>
+    
       <Router>
+      <AuthProvider>
         <Navigation />
         <Switch>
           <Route exact path="/" >
@@ -36,8 +37,9 @@ export default function Routes() {
             <MySpace />
           </ProtectedRoute>
         </Switch>
+        </AuthProvider>
       </Router>
-    </AuthProvider.Provider>
+    
   );
 }
 

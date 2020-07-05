@@ -1,15 +1,14 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { Link, withRouter } from "react-router-dom"
-import AuthContext  from "./AuthContext";
+import { AuthConsumer }  from "./AuthContext";
 
 
 function Navigation() {
-    const { isAuth, logout } = useContext(AuthContext);
-    // const history = useHistory();
-
+    
     return (
-        <div>
+        <AuthConsumer>
+        {({ isAuth, login, logout }) => (
             <Navbar bg="light" expand="lg">
                 <Navbar.Brand href="/">
                     <img
@@ -24,24 +23,24 @@ function Navigation() {
                         <Nav.Link tag={Link} href="/">Home</Nav.Link>
                         <Nav.Link tag={Link} href="/members">Members</Nav.Link>
                         <Nav.Link tag={Link} href="/my-space">My Space</Nav.Link>
-                        {isAuth ?
+                        {!isAuth ?
                             <>
                                 <Nav.Link tag={Link} href="/register">
                                     Register
                                 </Nav.Link>
-                                <Nav.Link tag={Link} href="/login">
+                                <Nav.Link tag={Link} href="/login" onClick={login}>
                                     Login
                                 </Nav.Link>
                             </>
                             :
-                                <Nav.Link tag={Link} href="/" onClick={() => {
-                                    logout()}} >
+                                <Nav.Link tag={Link} href="/" onClick={logout} >
                                     Logout
                                 </Nav.Link>}
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
-        </div>
+        )}
+        </AuthConsumer>
     );
 }
 

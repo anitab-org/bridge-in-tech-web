@@ -2,12 +2,12 @@ import React, { useState, useContext } from "react";
 import "./Login.css";
 import { Redirect } from "react-router-dom";
 import _ from "underscore";
-import AuthContext from "../AuthContext";
+import { AuthConsumer, AuthContext } from "../AuthContext";
 import BASE_API from "../config";
 
 export default function Login() {
     const [errorMessage, setErrorMessage] = useState(null);
-    const {isAuth,login} = useContext(AuthContext);
+    const {isAuth,login} = useContext(AuthConsumer);
     const [user, setUser] = useState(null);
     
     const request_url = JSON.parse(JSON.stringify({BASE_API}))["BASE_API"]["BASE_API"] + "/login";
@@ -40,7 +40,7 @@ export default function Login() {
                         // Cookies.set("access_token", access_token);
                         // Cookies.set("access_expiry", access_expiry);
                     }
-                    return;
+                    
                 }
                 setErrorMessage(data["message"]);
             })
