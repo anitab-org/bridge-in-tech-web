@@ -4,7 +4,8 @@ import Cookies from "js-cookie";
 export const AuthContext = createContext(Cookies.get("user"));
 
 function AuthProvider({ children }) {
-  const [isAuth, setIsAuth] = useState(Cookies.get("user"));
+  const [isAuth, setIsAuth] = useState(false);
+  const [user, setUser] = useState(null);
 
   const login = (token, user) => {
     let access_token = token["access_token"];
@@ -12,6 +13,7 @@ function AuthProvider({ children }) {
     Cookies.set("user", user);
     Cookies.set("access_token", access_token);
     Cookies.set("access_expiry", access_expiry);
+    setUser(user);
     setIsAuth(true);
   };
 
@@ -25,6 +27,7 @@ function AuthProvider({ children }) {
   return (
     <AuthContext.Provider
       value={{
+        user: user,
         isAuth: isAuth,
         login: login,
         logout: logout

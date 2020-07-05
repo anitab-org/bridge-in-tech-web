@@ -13,7 +13,6 @@ import AuthProvider from "./AuthContext";
 export default function Routes() {
 
   return (
-    
       <Router>
       <AuthProvider>
         <Navigation />
@@ -39,7 +38,6 @@ export default function Routes() {
         </Switch>
         </AuthProvider>
       </Router>
-    
   );
 }
 
