@@ -3,14 +3,12 @@ import "./Login.css";
 import { Redirect } from "react-router-dom";
 import Cookies from "js-cookie";
 import _ from "underscore";
-import BASE_API from "../config";
+import { BASE_API } from "../config";
 
 export default function Login() {
     const [errorMessage, setErrorMessage] = useState(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [user, setUser] = useState(null);
-    
-    const request_url = JSON.parse(JSON.stringify({BASE_API}))["BASE_API"]["BASE_API"] + "/login";
     
     const handleSubmit = async e => {
         e.preventDefault();
@@ -28,7 +26,7 @@ export default function Login() {
             },
             body: JSON.stringify(payload)
         };
-        fetch(request_url, requestLogin)
+        fetch(`${BASE_API}/login`, requestLogin)
             .then(async response => {
                 let data = await response.json();
                 if (response.status === 200) {
