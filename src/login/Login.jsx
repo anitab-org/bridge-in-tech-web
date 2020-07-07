@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
 import "./Login.css";
 import { Redirect } from "react-router-dom";
-import _ from "underscore";
 import { AuthContext } from "../AuthContext";
 import {BASE_API} from "../config";
 
@@ -9,7 +8,7 @@ export default function Login() {
     const [errorMessage, setErrorMessage] = useState(null);
     const {isAuth,login} = useContext(AuthContext);
     const [user, setUser] = useState(null);
-  
+
     const handleSubmit = async e => {
         e.preventDefault();
 
@@ -36,9 +35,9 @@ export default function Login() {
             })
             .catch(() => setErrorMessage("The server is currently unavailable. Try again later"));
     }
-    
 
-    return isAuth ? 
+
+    return isAuth ?
         <Redirect to="/" />
         : (
         <div className="container">
@@ -76,7 +75,7 @@ export default function Login() {
                         </form-group>
                         <div><br></br></div>
                         <div>
-                            {!_.isEmpty(errorMessage) && <span className="error" name="errorMessage" aria-label="errorMessage" role="alert">{errorMessage}</span>}
+                            {errorMessage && <span className="error" name="errorMessage" aria-label="errorMessage" role="alert">{errorMessage}</span>}
                         </div>
                         <div className="row">
                             <label>Not yet register? Sign Up here.</label>
