@@ -1,7 +1,11 @@
 import React, {createContext, useEffect, useState} from "react";
 import Cookies from "js-cookie";
 
-export const AuthContext = createContext();
+export const AuthContext = createContext({
+  user: null, isAuth: false, login: () => {
+  }, logout: () => {
+  }
+});
 
 function AuthProvider({ children }) {
   const [isAuth, setIsAuth] = useState(false);
