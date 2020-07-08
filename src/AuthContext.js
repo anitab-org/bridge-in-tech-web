@@ -1,43 +1,48 @@
-import React, { useState, createContext, useEffect } from "react";
+import React, {createContext, useEffect, useState} from "react";
 import Cookies from "js-cookie";
 
-export const AuthContext = createContext(Cookies.get("user"));
+export const AuthContext = createContext({
+  user: null, isAuth: false, login: () => {
+  }, logout: () => {
+  }
+});
 
 function AuthProvider({ children }) {
   const [isAuth, setIsAuth] = useState(false);
   const [user, setUser] = useState(null);
 
-  // useEffect(
-  //   () => {
-  //     setUser(Cookies.get("user"));
-  //     user ? setIsAuth(true) : setIsAuth(false);
-  //   },
-  //   [user, isAuth]
-  // )
+  useEffect(
+    () => {
+      const userCookie = Cookies.get('user');
+      if(userCookie){
+        setIsAuth(true);
+        return;
+      }
+      setIsAuth(false);
+    },
+    [user]
+  );
 
   const login = (token, user) => {
-    let access_token = token["access_token"];
-    let access_expiry = token["access_expiry"];
-    Cookies.set("user", user);
-    Cookies.set("access_token", access_token);
-    Cookies.set("access_expiry", access_expiry);
-    
-    setUser(user);
-    setIsAuth(true);
-    console.log(isAuth);
+    if(user) {
+      Cookies.set("user", user);
+      Cookies.set("access_token", token["access_token"]);
+      Cookies.set("access_expiry", token["access_expiry"]);
+      setUser(user);
+    }
   };
 
   const logout = () => {
     Cookies.remove("user");
     Cookies.remove("access_token");
     Cookies.remove("access_expiry");
-    setIsAuth(false);
+    setUser(null);
   };
 
   return (
     <AuthContext.Provider
       value={{
-        user: user,
+        user: Cookies.get("user"),
         isAuth: isAuth,
         login: login,
         logout: logout
