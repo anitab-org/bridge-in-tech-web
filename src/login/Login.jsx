@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./Login.css";
 import { Redirect } from "react-router-dom";
-import "../myspace/MySpace";
-
+import { AuthContext } from "../AuthContext";
+import {BASE_API} from "../config";
 
 export default function Login() {
     const [errorMessage, setErrorMessage] = useState(null);
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
-
+    const {isAuth,login} = useContext(AuthContext);
+    const [user, setUser] = useState(null);
     
     const handleSubmit = async e => {
         e.preventDefault();
-        
+
         let payload = {}
         new FormData(e.target).forEach((value, key) => {
             payload[key] = value;
@@ -25,24 +25,21 @@ export default function Login() {
             },
             body: JSON.stringify(payload)
         };
-
-        fetch("http://127.0.0.1:5000/login", requestLogin)
+        fetch(`${BASE_API}/login`, requestLogin)
             .then(async response => {
                 let data = await response.json();
                 if (response.status === 200) {
-                    setIsAuthenticated(true);
-                    return;
+                    login(data, user);
                 }
                 setErrorMessage(data["message"]);
             })
             .catch(() => setErrorMessage("The server is currently unavailable. Try again later"));
     }
 
-    if (isAuthenticated === true) {
-        return <Redirect to="/my-space" />
-    }
 
-    return (
+    return isAuth ?
+        <Redirect to="/" />
+        : (
         <div className="container">
             <div className="row mb-5">
                 <div className="col-lg-12 text-center">
@@ -59,6 +56,7 @@ export default function Login() {
                                     type="text"
                                     name="username"
                                     placeholder="Username or Email"
+                                    onChange={e => setUser(e.target.value)}
                                     required
                                 />
                             </p>
@@ -77,7 +75,7 @@ export default function Login() {
                         </form-group>
                         <div><br></br></div>
                         <div>
-                            {errorMessage !== null && <span className="error" name="errorMessage" aria-label="errorMessage" role="alert">{errorMessage}</span>}
+                            {errorMessage && <span className="error" name="errorMessage" aria-label="errorMessage" role="alert">{errorMessage}</span>}
                         </div>
                         <div className="row">
                             <label>Not yet register? Sign Up here.</label>

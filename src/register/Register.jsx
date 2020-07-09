@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./Register.css";
 
-
 export default function Register() {
     const [validName, setValidName] = useState(true);
     const [validUsername, setValidUsername] = useState(true);
@@ -21,7 +20,7 @@ export default function Register() {
             else
                 payload[key] = value;
             });
-            
+
         const requestRegister = {
             method: "POST",
             headers: {
@@ -55,7 +54,7 @@ export default function Register() {
     const validatePassword = e => {
         setValidPassword(e.target.checkValidity());
     };
-    
+
     return (
         <div className="container">
             <div className="row mb-5">
@@ -197,7 +196,7 @@ export default function Register() {
                             </div>
                         </form-group>
                         <div>
-                            {responseMessage !== null && <span className="error" name="response" aria-label="response" role="alert">{responseMessage}</span>}
+                            {responseMessage && <span className="error" name="response" aria-label="response" role="alert">{responseMessage}</span>}
                         </div>
                         <div className="row">
                             <label>Already register? Login here.</label>

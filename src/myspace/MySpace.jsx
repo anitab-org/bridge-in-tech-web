@@ -5,7 +5,7 @@ export default function MySpace() {
         <div className="container-fluid" id="myspace">
           <div className="top">
             <h1>
-              This will be the Member Portfolio page
+              This will be Private page for the Member's Portfolio
             </h1>
           </div>
           <div className="middle">
@@ -19,5 +19,3 @@ export default function MySpace() {
         </div>
     )
 }
-
-
