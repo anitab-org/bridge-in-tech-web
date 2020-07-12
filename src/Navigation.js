@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
-import { Navbar, Nav, Card, Accordion } from "react-bootstrap";
+import { Navbar, Nav, Card, Accordion, Dropdown } from "react-bootstrap";
 import { Link } from "react-router-dom"
 import { AuthContext } from "./AuthContext";
+import DropdownMenu from "react-bootstrap/DropdownMenu";
 
 
 export default function Navigation() {
     const { user, isAuth, login, logout } = useContext(AuthContext);
-
+    
     return (
         <Navbar bg="light" expand="lg">
             <Navbar.Brand href="/">
@@ -48,12 +49,19 @@ export default function Navigation() {
                         <Accordion>
                             <Card>
                                 <Card.Header>
-                                    <Accordion.Toggle as={Link} to="/portfolio" eventKey="0">My Space</Accordion.Toggle>
+                                    <Accordion.Toggle as={Link} eventKey="0">My Space</Accordion.Toggle>
                                 </Card.Header>
                                 <Accordion.Collapse eventKey="0">
                                     <Nav>
                                         <Nav.Link as={Link} to="/portfolio">Portfolio</Nav.Link>
-                                        <Nav.Link as={Link} to="/profile">Profile</Nav.Link>
+                                        <Dropdown>
+                                            <Dropdown.Toggle variant="light" eventKey="0">Profile</Dropdown.Toggle>
+                                            <DropdownMenu>
+                                                <Nav.Link as={Link} to="/personal-details" eventKey="0">Personal Details</Nav.Link>
+                                                <Nav.Link as={Link} to="/additional-info" eventKey="0">Additional Info</Nav.Link>
+                                                <Nav.Link as={Link} to="/personal-background" eventKey="0">Personal Background</Nav.Link>
+                                            </DropdownMenu>
+                                        </Dropdown>
                                         <Nav.Link as={Link} to="/request-history">Request History</Nav.Link>
                                     </Nav>
                                 </Accordion.Collapse>
@@ -83,7 +91,7 @@ export default function Navigation() {
                         <Nav.Item>
                             <Card>
                                 <Card.Header>
-                                    <Accordion.Toggle as={Link} to="/" onClick={logout}>Logout</Accordion.Toggle>
+                                    <Accordion.Toggle as={Link} to="/" eventKey="0" onClick={logout}>Logout</Accordion.Toggle>
                                 </Card.Header>
                             </Card>
                         </Nav.Item>

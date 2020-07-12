@@ -10,7 +10,7 @@ export const AuthContext = createContext({
 function AuthProvider({ children }) {
   const [isAuth, setIsAuth] = useState(false);
   const [user, setUser] = useState(null);
-
+  
   useEffect(
     () => {
       const userCookie = Cookies.get('user');
@@ -44,6 +44,8 @@ function AuthProvider({ children }) {
       value={{
         user: Cookies.get("user"),
         isAuth: isAuth,
+        access_token: Cookies.get("access_token"),
+        access_expiry: Cookies.get("access_expiry"),
         login: login,
         logout: logout
       }}
