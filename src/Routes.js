@@ -4,7 +4,8 @@ import Home from "./Home";
 import Members from "./members/Members";
 import Register from "./register/Register";
 import Login from "./login/Login";
-import MySpace from "./myspace/MySpace";
+import MyPortfolio from "./myspace/MyPortfolio";
+import MyProfile from "./myspace/MyProfile"
 import ProtectedRoute from "./ProtectedRoute";
 import Navigation from "./Navigation";
 import AuthProvider from "./AuthContext";
@@ -13,7 +14,7 @@ import AuthProvider from "./AuthContext";
 export default function Routes() {
 
   return (
-      <Router>
+    <Router>
       <AuthProvider>
         <Navigation />
         <Switch>
@@ -30,14 +31,19 @@ export default function Routes() {
             <Login />
           </Route>
           <ProtectedRoute
-            exact
-            path="/my-space"
-          >
-            <MySpace />
+            exact path="/my-portfolio">
+            <MyPortfolio />
+          </ProtectedRoute>
+          <ProtectedRoute
+            exact path="/my-profile">
+            <MyProfile />
+          </ProtectedRoute>
+          <ProtectedRoute
+            exact path="/request-history">
           </ProtectedRoute>
         </Switch>
-        </AuthProvider>
-      </Router>
+      </AuthProvider>
+    </Router>
   );
 }
 

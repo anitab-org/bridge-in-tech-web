@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./Register.css";
+import {BASE_API} from "../config";
+
 
 export default function Register() {
     const [validName, setValidName] = useState(true);
@@ -31,7 +33,7 @@ export default function Register() {
         };
 
         let data = "";
-        fetch("http://127.0.0.1:5000/register", requestRegister)
+        fetch(`${BASE_API}/register`, requestRegister)
             .then(async response => {
 
                 data = await response.json();

@@ -1,11 +1,11 @@
 import React from "react";
 
-export default function MySpace() {
+export default function MyProfile() {
     return (
-        <div className="container-fluid" id="myspace">
+        <div className="container-fluid" id="myprofile">
           <div className="top">
             <h1>
-              This will be Private page for the Member's Portfolio
+              This will be Private page for the Member's Profile page
             </h1>
           </div>
           <div className="middle">

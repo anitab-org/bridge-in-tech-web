@@ -4,10 +4,11 @@ import { setupServer } from 'msw/node';
 import { render, fireEvent, screen, waitForElement } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Register from "../register/Register";
+import { BASE_API } from "../config";
 
 
 const server = setupServer(
-    rest.post('http://127.0.0.1:5000/register', (req, res, ctx) => {
+    rest.post(`${BASE_API}/register`, (req, res, ctx) => {
         const payload = {
             name: "My Name",
             username: "MyUsername",

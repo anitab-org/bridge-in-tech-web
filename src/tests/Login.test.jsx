@@ -6,10 +6,10 @@ import '@testing-library/jest-dom';
 import Login from "../login/Login";
 import { AuthConsumer, AuthContext } from "../AuthContext";
 import { act } from 'react-dom/test-utils';
-
+import { BASE_API } from "../config";
 
 const server = setupServer(
-    rest.post('http://127.0.0.1:5000/login', (req, res, ctx) => {
+    rest.post(`${BASE_API}/login`, (req, res, ctx) => {
         const payload = {
             username: "MyUsername",
             password: "12345678",
@@ -49,7 +49,7 @@ it('allows the user to login successfully', async () => {
 
 it('handles wrong credentials', async () => {
     server.use(
-      rest.post('http://127.0.0.1:5000/login', (req, res, ctx) => {
+      rest.post(`${BASE_API}/login`, (req, res, ctx) => {
         const wrongPayload = {
             username: "MyUsername",
             password: "87654321",
@@ -80,7 +80,7 @@ it('handles wrong credentials', async () => {
 
   it('handles server down', async () => {
     server.use(
-      rest.post('http://127.0.0.1:5000/login', (req, res, ctx) => {
+      rest.post(`${BASE_API}/login`, (req, res, ctx) => {
         const wrongPayload = {
             username: "MyUsername",
             password: "87654321",
