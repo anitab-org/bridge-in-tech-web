@@ -56,8 +56,8 @@ export default function Navigation() {
                                         </Card.Header>
                                         <Accordion.Collapse eventKey="0">
                                             <Nav>
-                                                <Nav.Link as={Link} to="/my-portfolio">My Portfolio</Nav.Link>
-                                                <Nav.Link as={Link} to="/my-profile">My Profile</Nav.Link>
+                                                <Nav.Link as={Link} to="/portfolio">Portfolio</Nav.Link>
+                                                <Nav.Link as={Link} to="/profile">Profile</Nav.Link>
                                                 <Nav.Link as={Link} to="/request-history">Request History</Nav.Link>
                                             </Nav>
 

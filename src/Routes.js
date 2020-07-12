@@ -4,8 +4,8 @@ import Home from "./Home";
 import Members from "./members/Members";
 import Register from "./register/Register";
 import Login from "./login/Login";
-import MyPortfolio from "./myspace/MyPortfolio";
-import MyProfile from "./myspace/MyProfile"
+import MyPortfolio from "./myspace/Portfolio";
+import MyProfile from "./myspace/Profile"
 import ProtectedRoute from "./ProtectedRoute";
 import Navigation from "./Navigation";
 import AuthProvider from "./AuthContext";
@@ -31,11 +31,11 @@ export default function Routes() {
             <Login />
           </Route>
           <ProtectedRoute
-            exact path="/my-portfolio">
+            exact path="/portfolio">
             <MyPortfolio />
           </ProtectedRoute>
           <ProtectedRoute
-            exact path="/my-profile">
+            exact path="/profile">
             <MyProfile />
           </ProtectedRoute>
           <ProtectedRoute

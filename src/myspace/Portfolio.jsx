@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function MyPortfolio() {
+export default function Portfolio() {
   return (
-    <div className="container-fluid" id="MyPortfolio">
+    <div className="container-fluid" id="Portfolio">
       <div className="top">
         <h1>
           This will be Private page for the Member's Portfolio

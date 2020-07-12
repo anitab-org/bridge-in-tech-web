@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function MyProfile() {
+export default function Profile() {
     return (
-        <div className="container-fluid" id="myprofile">
+        <div className="container-fluid" id="profile">
           <div className="top">
             <h1>
               This will be Private page for the Member's Profile page
