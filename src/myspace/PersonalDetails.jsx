@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
-import { AuthContext } from "../AuthContext";
 import { BASE_API } from "../config";
 import "./MySpace.css";
+import { AuthContext } from "../AuthContext";
 
 
 export default function PersonalDetails() {
