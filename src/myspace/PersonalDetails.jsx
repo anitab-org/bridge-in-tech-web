@@ -8,7 +8,7 @@ export default function PersonalDetails() {
   const [errorMessage, setErrorMessage] = useState(null);
   const [personalDetails, setPersonalDetails] = useState({});
   const { access_token } = useContext(AuthContext);
-  
+
   const requestPersonalDetails = {
     method: "GET",
     headers: {
@@ -21,24 +21,31 @@ export default function PersonalDetails() {
   let data = "";
   useEffect(() => {
     fetch(`${BASE_API}/user/personal_details`, requestPersonalDetails)
-    .then(async response => {
-
-      data = await response.json();
-      setPersonalDetails(data);
-    })
-    .catch(error => {
-      setErrorMessage(data["message"]);
-    });
+      .then(async response => {
+        data = await response.json();
+        if (response.ok) {
+          return setPersonalDetails(data);
+        } else {
+          throw new Error(data.message);
+        }
+      })
+      .catch(error => {
+        setErrorMessage(data.message);
+      });
 
   });
-  
+
   return errorMessage ?
-    <div>
-      <p>{errorMessage}</p>
+    <div className="container-fluid" id="personalDetails">
+      <div className="top">
+        <h1>
+          {errorMessage}
+        </h1>
+      </div>
     </div>
     :
     <>
-      <div className="container" id="personal_details">
+      <div className="container" id="personalDetails">
         <div className="row mb-5">
           <div className="col-lg-12 text-center">
             <h1 className="mt-5">Personal Details</h1>
@@ -105,7 +112,7 @@ export default function PersonalDetails() {
                           <div className="row">
                             <div className="col-sm">
                               <input
-                                name="available_to_mentor"
+                                name="mentor"
                                 aria-label="mentor"
                                 type={type}
                                 defaultChecked={personalDetails.available_to_mentor}
@@ -116,7 +123,7 @@ export default function PersonalDetails() {
                             </div>
                             <div className="col-sm">
                               <input
-                                name="need_mentoring"
+                                name="mentee"
                                 aria-label="mentee"
                                 type={type}
                                 defaultChecked={personalDetails.need_mentoring}
@@ -185,7 +192,7 @@ export default function PersonalDetails() {
                   <label htmlFor="currentOrganization">Current Organization :</label>
                   <input className="field"
                     type="text"
-                    name="current_organization"
+                    name="currentOrganization"
                     placeholder={personalDetails.current_organization}
                     disabled
                   />
