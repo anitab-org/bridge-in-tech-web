@@ -3,12 +3,10 @@ import { BASE_API } from "../config";
 import { AuthContext } from "../AuthContext";
 import "./MySpace.css";
 
-
 export default function AdditionalInfo() {
   const [errorMessage, setErrorMessage] = useState(null);
   const [additionalInfo, setAdditionalInfo] = useState({});
   const { access_token, user } = useContext(AuthContext);
-
   const requestAdditionalInfo = {
     method: "GET",
     headers: {
