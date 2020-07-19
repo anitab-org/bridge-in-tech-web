@@ -1,11 +1,11 @@
 import React from "react";
 
-export default function Profile() {
+export default function AdditionalInfo() {
     return (
         <div className="container-fluid" id="profile">
           <div className="top">
             <h1>
-              This will be Private page for the Member's Profile page
+              This is the Private page for Member's Additional Info page
             </h1>
           </div>
           <div className="middle">

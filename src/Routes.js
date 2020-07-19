@@ -4,8 +4,10 @@ import Home from "./Home";
 import Members from "./members/Members";
 import Register from "./register/Register";
 import Login from "./login/Login";
-import MyPortfolio from "./myspace/Portfolio";
-import MyProfile from "./myspace/Profile"
+import Portfolio from "./myspace/Portfolio";
+import PersonalDetails from "./myspace/PersonalDetails";
+import AdditionalInfo from "./myspace/AdditionalInfo";
+import PersonalBackground from "./myspace/PersonalBackground";
 import ProtectedRoute from "./ProtectedRoute";
 import Navigation from "./Navigation";
 import AuthProvider from "./AuthContext";
@@ -32,11 +34,19 @@ export default function Routes() {
           </Route>
           <ProtectedRoute
             exact path="/portfolio">
-            <MyPortfolio />
+            <Portfolio />
           </ProtectedRoute>
           <ProtectedRoute
-            exact path="/profile">
-            <MyProfile />
+            exact path="/personal-details">
+            <PersonalDetails />
+          </ProtectedRoute>
+          <ProtectedRoute
+            exact path="/additional-info">
+            <AdditionalInfo />
+          </ProtectedRoute>
+          <ProtectedRoute
+            exact path="/personal-background">
+            <PersonalBackground />
           </ProtectedRoute>
           <ProtectedRoute
             exact path="/request-history">
@@ -46,4 +56,3 @@ export default function Routes() {
     </Router>
   );
 }
-

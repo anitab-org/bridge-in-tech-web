@@ -1,11 +1,11 @@
 import React from "react";
 
-export default function Members() {
+export default function PersonalBackground() {
     return (
-        <div className="container-fluid" id="members">
+        <div className="container-fluid" id="personalBackground">
           <div className="top">
             <h1>
-              This is the Public page for Members list
+              This will be Bridge In Tech User's Personal Background page
             </h1>
           </div>
           <div className="middle">
