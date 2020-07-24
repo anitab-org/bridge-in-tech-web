@@ -19,21 +19,18 @@ export default function AdditionalInfo() {
   };
 
 
-  let data = "";
   useEffect(() => {
     fetch(`${BASE_API}/user/additional_info`, requestAdditionalInfo)
       .then(async response => {
-        data = await response.json();
+        const data = await response.json();
         if (response.ok) {
-          setAdditionalInfo(data);
-        } else {
-          throw new Error(data);
+          return setAdditionalInfo(data);
         }
-      })
-      .catch(error => {
         setErrorMessage(data.message);
-      });
-
+      })
+      .catch(error => 
+        setErrorMessage("The service is temporarily unavailable, please try again later.")
+      )
   });
 
   return errorMessage ?
