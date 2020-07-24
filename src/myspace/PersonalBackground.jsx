@@ -17,20 +17,18 @@ export default function PersonalBackground() {
     },
   };
 
-  let data = "";
   useEffect(() => {
     fetch(`${BASE_API}/user/personal_background`, requestPersonalBackground)
-      .then(async response => {
-        data = await response.json();
-        if (response.ok) {
-          setPersonalBackground(data);
-        } else {
-          throw new Error(data);
-        }
-      })
-      .catch(error => {
-        setErrorMessage(data.message);
-      });
+    .then(async response => {
+      const data = await response.json();
+      if (response.ok) {
+        return setPersonalBackground(data);
+      }
+      setErrorMessage(data.message);
+    })
+    .catch(error => 
+      setErrorMessage("The service is temporarily unavailable, please try again later.")
+    )
 
   });
 
