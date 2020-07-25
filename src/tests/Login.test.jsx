@@ -4,6 +4,7 @@ import { setupServer } from 'msw/node';
 import { render, fireEvent, screen, waitForElement } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Login from "../login/Login";
+import { AuthConsumer, AuthContext } from "../AuthContext";
 import { act } from 'react-dom/test-utils';
 import { BASE_API } from "../config";
 
