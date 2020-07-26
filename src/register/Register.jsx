@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Register.css";
 import {BASE_API} from "../config";
+import {SERVICE_ERROR} from "../Messages";
 
 
 export default function Register() {
@@ -9,7 +10,7 @@ export default function Register() {
     const [validEmail, setValidEmail] = useState(true);
     const [validPassword, setValidPassword] = useState(true);
     const [responseMessage, setResponseMessage] = useState(null);
-
+    
     const handleSubmit = async e => {
         e.preventDefault();
         let payload = {}
@@ -32,15 +33,15 @@ export default function Register() {
             body: JSON.stringify(payload)
         };
 
-        let data = "";
         fetch(`${BASE_API}/register`, requestRegister)
             .then(async response => {
-
-                data = await response.json();
-                setResponseMessage(data["message"]);
+                let data = await response.json();
+                if (response.status_code === 201)
+                    return setResponseMessage(data.message);
+                setResponseMessage(data.message);
             })
-            .catch(error => {
-                setResponseMessage(data["message"]);
+            .catch(() => {
+                setResponseMessage(SERVICE_ERROR);
             });
     }
 

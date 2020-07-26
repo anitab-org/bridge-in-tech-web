@@ -3,6 +3,7 @@ import "./Login.css";
 import { Redirect } from "react-router-dom";
 import { AuthContext } from "../AuthContext";
 import {BASE_API} from "../config";
+import { SERVICE_ERROR } from "../Messages";
 
 export default function Login() {
     const [errorMessage, setErrorMessage] = useState(null);
@@ -28,12 +29,11 @@ export default function Login() {
         fetch(`${BASE_API}/login`, requestLogin)
             .then(async response => {
                 let data = await response.json();
-                if (response.status === 200) {
-                    login(data, user);
-                }
-                setErrorMessage(data["message"]);
+                if (response.ok) 
+                    return login(data, user);
+                setErrorMessage(data.message);
             })
-            .catch(() => setErrorMessage("The server is currently unavailable. Try again later"));
+            .catch(() => setErrorMessage(SERVICE_ERROR));
     }
 
 
