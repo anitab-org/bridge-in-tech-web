@@ -7,7 +7,7 @@ import { SERVICE_UNAVAILABLE_ERROR } from "../messages";
 
 export default function PersonalDetails() {
   const [errorMessage, setErrorMessage] = useState(null);
-  const [responseMessage, setResponseMessage] = useState(null);
+  const [successMessage, setSuccessMessage] = useState(null);
   const [personalDetails, setPersonalDetails] = useState({});
   const { access_token } = useContext(AuthContext);
   const [isValidName, setIsValidName] = useState(true);
@@ -63,7 +63,7 @@ export default function PersonalDetails() {
       .then(async response => {
         let data = await response.json();
         if (response.ok) {
-          return setResponseMessage(data.message)
+          return setSuccessMessage(data.message)
         }
         setErrorMessage(data.message);
       })
@@ -290,7 +290,7 @@ export default function PersonalDetails() {
               </form-group>
               <div><br></br></div>
               <div>
-                  {responseMessage && <span className="error" name="response" aria-label="response" role="alert">{responseMessage}</span>}
+                  {successMessage && <span className="error" name="response" aria-label="response" role="alert">{successMessage}</span>}
               </div>
               <div className="row">
                 <div className="col-sm-6 offset-sm-9">
