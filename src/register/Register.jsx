@@ -1,34 +1,27 @@
 import React, { useState } from "react";
 import "./Register.css";
 import {BASE_API} from "../config";
-import {SERVICE_ERROR} from "../Messages";
+import {SERVICE_UNAVAILABLE_ERROR} from "../messages";
 
 
 export default function Register() {
-    const [validName, setValidName] = useState(true);
-    const [validUsername, setValidUsername] = useState(true);
-    const [validEmail, setValidEmail] = useState(true);
-    const [validPassword, setValidPassword] = useState(true);
+    const [isValidName, setIsValidName] = useState(true);
+    const [isValidUsername, setIsValidUsername] = useState(true);
+    const [isValidEmail, setIsValidEmail] = useState(true);
+    const [isValidPassword, setIsValidPassword] = useState(true);
     const [responseMessage, setResponseMessage] = useState(null);
     
     const handleSubmit = async e => {
         e.preventDefault();
-        let payload = {}
-        new FormData(e.target).forEach((value, key) => {
+        let payload = {
+            need_mentoring: false,
+            available_to_mentor: false
+          }
+          new FormData(e.target).forEach((value, key) => {
             if (key === "terms_and_conditions_checked" || key === "need_mentoring" || key === "available_to_mentor")
-                if (value === "true")
-                    payload[key] = true;
-                else
-                    payload[key] = false;
-            else
-                payload[key] = value;
-        });
-
-        if (!("available_to_mentor" in payload))
-            payload["available_to_mentor"] = false;
-        if (!("need_mentoring" in payload)) 
-            payload["need_mentoring"] = false;
-            
+              value = (value === "true") ? true : false   
+            payload[key] = value;
+          });
         const requestRegister = {
             method: "POST",
             headers: {
@@ -46,21 +39,21 @@ export default function Register() {
                 setResponseMessage(data.message);
             })
             .catch(() => {
-                setResponseMessage(SERVICE_ERROR);
+                setResponseMessage(SERVICE_UNAVAILABLE_ERROR);
             });
     }
 
     const validateName = e => {
-        setValidName(e.target.checkValidity());
+        setIsValidName(e.target.checkValidity());
     };
     const validateUsername = e => {
-        setValidUsername(e.target.checkValidity());
+        setIsValidUsername(e.target.checkValidity());
     };
     const validateEmail = e => {
-        setValidEmail(e.target.checkValidity());
+        setIsValidEmail(e.target.checkValidity());
     };
     const validatePassword = e => {
-        setValidPassword(e.target.checkValidity());
+        setIsValidPassword(e.target.checkValidity());
     };
 
     return (
@@ -87,7 +80,7 @@ export default function Register() {
                                     required
                                 />
                             </p>
-                            {!validName && (
+                            {!isValidName && (
                                 <span className="error">Must be between 2-30 characters long. Can only contain alphabets, whitespace and dash '-'</span>
                             )}
                         </form-group>
@@ -106,7 +99,7 @@ export default function Register() {
                                     required
                                 />
                             </p>
-                            {!validUsername && (
+                            {!isValidUsername && (
                                 <span className="error">Must be between 5-25 characters long. Can only contain alphabets, numbers and underscore '_'</span>
                             )}
                         </form-group>
@@ -123,7 +116,7 @@ export default function Register() {
                                     required
                                 />
                             </p>
-                            {!validEmail && (
+                            {!isValidEmail && (
                                 <span className="error">Must match standard email format xxx@xxx.xxx</span>
                             )}
                         </form-group>
@@ -141,7 +134,7 @@ export default function Register() {
                                     required
                                 />
                             </p>
-                            {!validPassword && (
+                            {!isValidPassword && (
                                 <span className="error">Must be between 8-64 characters</span>
                             )}
                         </form-group>
@@ -152,30 +145,28 @@ export default function Register() {
                                 <div className="col-sm text-center">
                                     <label htmlFor="availability">Available to be a :</label>
                                     <form-group>
-                                        {['checkbox'].map((type) => (
-                                            <div key={`inline-${type}`} className="mb-3">
+                                            <div className="mb-3">
                                                 <div className="row">
                                                     <div className="col-sm">
                                                         <input
                                                             name="available_to_mentor"
                                                             aria-label="mentor"
-                                                            type={type}
+                                                            type="checkbox"
                                                             value={"on" ? true : false}
-                                                            id={`inline-${type}-1`} />
+                                                        />
                                                         <label htmlFor="mentor">Mentor</label>
                                                     </div>
                                                     <div className="col-sm">
                                                         <input
                                                             name="need_mentoring"
                                                             aria-label="mentee"
-                                                            type={type}
+                                                            type="checkbox"
                                                             value={"on" ? true : false}
-                                                            id={`inline-${type}-2`} />
+                                                        />
                                                         <label htmlFor="mentee">Mentee</label>
                                                     </div>
                                                 </div>
                                             </div>
-                                        ))}
                                     </form-group>
                                 </div>
                             </div>

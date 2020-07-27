@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { BASE_API } from "../config";
 import { AuthContext } from "../AuthContext";
 import "./MySpace.css";
-import { SERVICE_ERROR } from "../Messages";
+import { SERVICE_UNAVAILABLE_ERROR } from "../messages";
 
 export default function PersonalBackground() {
   const [errorMessage, setErrorMessage] = useState(null);
@@ -27,10 +27,10 @@ export default function PersonalBackground() {
       setErrorMessage(data.message);
     })
     .catch(() => 
-      setErrorMessage(SERVICE_ERROR)
+      setErrorMessage(SERVICE_UNAVAILABLE_ERROR)
     )
 
-  });
+  }, [] );
 
   return errorMessage ?
     <div className="container-fluid" id="personalBackground">
