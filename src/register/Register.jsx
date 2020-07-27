@@ -22,8 +22,13 @@ export default function Register() {
                     payload[key] = false;
             else
                 payload[key] = value;
-            });
+        });
 
+        if (!("available_to_mentor" in payload))
+            payload["available_to_mentor"] = false;
+        if (!("need_mentoring" in payload)) 
+            payload["need_mentoring"] = false;
+            
         const requestRegister = {
             method: "POST",
             headers: {
