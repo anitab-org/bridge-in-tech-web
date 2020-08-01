@@ -1,0 +1,1 @@
+export const SERVICE_ERROR = "The server is currently unavailable. Try again later"; 

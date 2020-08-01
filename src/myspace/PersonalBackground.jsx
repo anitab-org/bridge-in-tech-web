@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { BASE_API } from "../config";
 import { AuthContext } from "../AuthContext";
 import "./MySpace.css";
+import { SERVICE_ERROR } from "../Messages";
 
 export default function PersonalBackground() {
   const [errorMessage, setErrorMessage] = useState(null);
@@ -21,13 +22,12 @@ export default function PersonalBackground() {
     fetch(`${BASE_API}/user/personal_background`, requestPersonalBackground)
     .then(async response => {
       const data = await response.json();
-      if (response.ok) {
+      if (response.ok) 
         return setPersonalBackground(data);
-      }
       setErrorMessage(data.message);
     })
-    .catch(error => 
-      setErrorMessage("The service is temporarily unavailable, please try again later.")
+    .catch(() => 
+      setErrorMessage(SERVICE_ERROR)
     )
 
   });
