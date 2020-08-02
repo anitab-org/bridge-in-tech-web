@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../AuthContext";
 import { BASE_API } from "../config";
 import "./MySpace.css";
-import { SERVICE_ERROR } from "../Messages";
+import { SERVICE_UNAVAILABLE_ERROR } from "../messages";
 
 
 export default function PersonalDetails() {
@@ -32,32 +32,24 @@ export default function PersonalDetails() {
         setErrorMessage(data.message);
       })
       .catch(() =>
-        setErrorMessage(SERVICE_ERROR)
+        setErrorMessage(SERVICE_UNAVAILABLE_ERROR)
       )
-
-  });
+  }, []);
 
   const handleSubmit = async e => {
     e.preventDefault();
 
-    let payload = {}
+    let payload = {
+      need_mentoring: false,
+      available_to_mentor: false
+    }
     new FormData(e.target).forEach((value, key) => {
+      if (key === "email")
+        return;
       if (key === "need_mentoring" || key === "available_to_mentor")
-          if (value === "true")
-              payload[key] = true;
-          else
-              payload[key] = false;
-      else if (key === "email")
-          {}
-      else
-          payload[key] = value;
+        value = (value === "true") ? true : false   
+      payload[key] = value;
     });
-    if (!("available_to_mentor" in payload)) {
-      payload["available_to_mentor"] = false;
-    }
-    if (!("need_mentoring" in payload)) {
-      payload["need_mentoring"] = false;
-    }
     const requestUpdateDetails = {
       method: "PUT",
       headers: {
@@ -75,7 +67,7 @@ export default function PersonalDetails() {
         }
         setErrorMessage(data.message);
       })
-      .catch(() => setErrorMessage("The service is temporarily unavailable, please try again later."));
+      .catch(() => setErrorMessage(SERVICE_UNAVAILABLE_ERROR));
   }
 
   const validateName = e => {
@@ -127,7 +119,7 @@ export default function PersonalDetails() {
                 <p className="input-control">
                   <label htmlFor="email">Email :</label>
                   <input className="field"
-                    type="text"
+                    type="email"
                     name="email"
                     defaultValue={personalDetails.email}
                     disabled

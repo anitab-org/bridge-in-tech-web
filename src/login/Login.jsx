@@ -3,7 +3,7 @@ import "./Login.css";
 import { Redirect } from "react-router-dom";
 import { AuthContext } from "../AuthContext";
 import {BASE_API} from "../config";
-import { SERVICE_ERROR } from "../Messages";
+import { SERVICE_UNAVAILABLE_ERROR } from "../messages";
 
 export default function Login() {
     const [errorMessage, setErrorMessage] = useState(null);
@@ -33,7 +33,7 @@ export default function Login() {
                     return login(data, user);
                 setErrorMessage(data.message);
             })
-            .catch(() => setErrorMessage(SERVICE_ERROR));
+            .catch(() => setErrorMessage(SERVICE_UNAVAILABLE_ERROR));
     }
 
 
