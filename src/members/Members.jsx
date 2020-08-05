@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthContext";
 import { BASE_API } from "../config";
 import { SERVICE_UNAVAILABLE_ERROR } from "../messages";
@@ -31,7 +32,7 @@ export default function Members() {
         setErrorMessage(SERVICE_UNAVAILABLE_ERROR)
       )
 
-  });
+  }, []);
 
   return errorMessage ?
     <div className="container-fluid" id="memberList">
@@ -64,10 +65,13 @@ export default function Members() {
           <tbody>
             {members.map((member) => (
               <tr key={member.id}>
-                <td>{member.name}</td>
+                <td><Link to={{
+                  pathname: `/member/${member.username}`,
+                  state: { member }
+                }}>{member.name}</Link></td>
                 <td>{member.skills}</td>
                 <td>{member.need_mentoring ? "True" : "False"}</td>
-                <td>{member.available_to_mentor? "True" : "False"}</td>
+                <td>{member.available_to_mentor ? "True" : "False"}</td>
                 <td>tba</td>
                 <td>tba</td>
                 <td>{member.location}</td>

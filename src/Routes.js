@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./Home";
 import Members from "./members/Members";
+import MemberProfile from "./members/MemberProfile";
 import Register from "./register/Register";
 import Login from "./login/Login";
 import Portfolio from "./myspace/Portfolio";
@@ -25,6 +26,9 @@ export default function Routes() {
           </Route>
           <ProtectedRoute exact path="/members">
             <Members />
+          </ProtectedRoute>
+          <ProtectedRoute path="/member">
+            <MemberProfile />
           </ProtectedRoute>
           <Route path="/register">
             <Register />
