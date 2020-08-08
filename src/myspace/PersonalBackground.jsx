@@ -34,11 +34,11 @@ export default function PersonalBackground() {
     fetch(`${BASE_API}/user/personal_background`, requestPersonalBackground)
     .then(async response => {
       const data = await response.json();
-      if (response.ok) 
+      if (response.ok)
         return setPersonalBackground(data);
       setResponseMessage(data.message);
     })
-    .catch(() => 
+    .catch(() =>
       setResponseMessage(SERVICE_UNAVAILABLE_ERROR)
     )
 
@@ -54,18 +54,8 @@ export default function PersonalBackground() {
       if (key === "username")
         return;
       if (key === "is_public")
-        value = (value === "true") ? true : false;
-      if (key === "gender" ||
-          key === "age" ||
-          key === "ethnicity" ||
-          key === "sexual_orientation" ||
-          key === "religion" ||
-          key === "physical_ability" ||
-          key === "mental_ability" ||
-          key === "socio_economic" ||
-          key === "highest_education" ||
-          key === "years_of_experience")
-        value = value ? value : "Prefer not to say"; 
+        value = (value === "true");
+
       payload[key] = value;
     });
     const requestUpdateBackground = {
@@ -87,6 +77,13 @@ export default function PersonalBackground() {
       })
       .catch(() => setResponseMessage(SERVICE_UNAVAILABLE_ERROR));
   }
+
+  const optionsWithDefaultSelection = (value, receivedValue) => {
+    if (value === "Prefer not to say" && !receivedValue){
+      return <option key={value} value={value} selected>{value}</option>
+    }
+    return <option key={value} value={value}>{value}</option>
+  };
 
   return (
       <div className="container" id="personalBckground">
@@ -114,10 +111,9 @@ export default function PersonalBackground() {
                 <p className="input-control">
                   <label htmlFor="gender">Gender</label>
                   <select className="custom-select" name="gender" id="gender">
-                    <option 
-                      defaultValue="Prefer not to say">{personalBackground.gender}
+                    <option>{personalBackground.gender}
                     </option>
-                      {GENDER.map((gender) => <option key={gender} value={gender}>{gender}</option>)}
+                      {GENDER.map((gender) => optionsWithDefaultSelection(gender, personalBackground.gender))}
                   </select>
                 </p>
               </div>
@@ -137,10 +133,9 @@ export default function PersonalBackground() {
                 <p className="input-control">
                   <label htmlFor="age">Age</label>
                   <select className="custom-select" name="age" id="age">
-                    <option 
-                      defaultValue="Prefer not to say">{personalBackground.age}
+                    <option>{personalBackground.age}
                     </option>
-                      {AGE.map((age) => <option key={age} value={age}>{age}</option>)}
+                      {AGE.map((age) => optionsWithDefaultSelection(age, personalBackground.age))}
                   </select>
                 </p>
               </div>
@@ -149,10 +144,9 @@ export default function PersonalBackground() {
                 <p className="input-control">
                   <label htmlFor="ethnicity">Ethnicity</label>
                   <select className="custom-select" name="ethnicity" id="ethnicity">
-                    <option 
-                      defaultValue="Prefer not to say">{personalBackground.ethnicity}
+                    <option>{personalBackground.ethnicity}
                     </option>
-                      {ETHNICITY.map((ethnicity) => <option key={ethnicity} value={ethnicity}>{ethnicity}</option>)}
+                      {ETHNICITY.map((ethnicity) => optionsWithDefaultSelection(ethnicity, personalBackground.ethnicity))};
                   </select>
                 </p>
               </div>
@@ -172,10 +166,9 @@ export default function PersonalBackground() {
                 <p className="input-control">
                   <label htmlFor="sexualOrientation">Sexual_orientation</label>
                   <select className="custom-select" name="sexual_orientation" id="sexualOrientation">
-                    <option 
-                      defaultValue="Prefer not to say">{personalBackground.sexual_orientation}
+                    <option>{personalBackground.sexual_orientation}
                     </option>
-                      {SEXUAL_ORIENTATION.map((sexualOrientation) => <option key={sexualOrientation} value={sexualOrientation}>{sexualOrientation}</option>)}
+                      {SEXUAL_ORIENTATION.map((sexualOrientation) => optionsWithDefaultSelection(sexualOrientation, personalBackground.sexual_orientation))}
                   </select>
                 </p>
               </div>
@@ -195,10 +188,9 @@ export default function PersonalBackground() {
                 <p className="input-control">
                   <label htmlFor="religion">Religion</label>
                   <select className="custom-select" name="religion" id="religion">
-                    <option 
-                      defaultValue="Prefer not to say">{personalBackground.religion}
+                    <option>{personalBackground.religion}
                     </option>
-                      {RELIGION.map((religion) => <option key={religion} value={religion}>{religion}</option>)}
+                      {RELIGION.map((religion) => optionsWithDefaultSelection(religion, personalBackground.religion))}
                   </select>
                 </p>
               </div>
@@ -218,10 +210,9 @@ export default function PersonalBackground() {
                 <p className="input-control">
                   <label htmlFor="physicalAbility">Physical Ability</label>
                   <select className="custom-select" name="physical_ability" id="physicalAbility">
-                    <option 
-                      defaultValue="Prefer not to say">{personalBackground.physical_ability}
+                    <option>{personalBackground.physical_ability}
                     </option>
-                      {PHYSICAL_ABILITY.map((physicalAbility) => <option key={physicalAbility} value={physicalAbility}>{physicalAbility}</option>)}
+                      {PHYSICAL_ABILITY.map((physicalAbility) => optionsWithDefaultSelection(physicalAbility, personalBackground.physical_ability))}
                   </select>
                 </p>
               </div>
@@ -241,10 +232,9 @@ export default function PersonalBackground() {
                 <p className="input-control">
                   <label htmlFor="mentalAbility">Mental Ability</label>
                   <select className="custom-select" name="mental_ability" id="mentalAbility">
-                    <option 
-                      defaultValue="Prefer not to say">{personalBackground.mental_ability}
+                    <option>{personalBackground.mental_ability}
                     </option>
-                      {MENTAL_ABILITY.map((mentalAbility) => <option key={mentalAbility} value={mentalAbility}>{mentalAbility}</option>)}
+                      {MENTAL_ABILITY.map((mentalAbility) => optionsWithDefaultSelection(mentalAbility, personalBackground.mental_ability))}
                   </select>
                 </p>
               </div>
@@ -264,10 +254,9 @@ export default function PersonalBackground() {
                 <p className="input-control">
                   <label htmlFor="socioEconomic">Socio Economic</label>
                   <select className="custom-select" name="socio_economic" id="socioEconomic">
-                    <option 
-                      defaultValue="Prefer not to say">{personalBackground.socio_economic}
+                    <option>{personalBackground.socio_economic}
                     </option>
-                      {SOCIO_ECONOMIC.map((socioEconomic) => <option key={socioEconomic} value={socioEconomic}>{socioEconomic}</option>)}
+                      {SOCIO_ECONOMIC.map((socioEconomic) => optionsWithDefaultSelection(socioEconomic, personalBackground.socio_economic))}
                   </select>
                 </p>
               </div>
@@ -287,10 +276,9 @@ export default function PersonalBackground() {
                 <p className="input-control">
                   <label htmlFor="highestEducation">Highest Education</label>
                   <select className="custom-select" name="highest_education" id="highestEducation">
-                    <option 
-                      defaultValue="Prefer not to say">{personalBackground.highest_education}
+                    <option>{personalBackground.highest_education}
                     </option>
-                      {HIGHEST_EDUCATION.map((highestEducation) => <option key={highestEducation} value={highestEducation}>{highestEducation}</option>)}
+                      {HIGHEST_EDUCATION.map((highestEducation) => optionsWithDefaultSelection(highestEducation, personalBackground.highest_education))}
                   </select>
                 </p>
               </div>
@@ -310,10 +298,9 @@ export default function PersonalBackground() {
                 <p className="input-control">
                   <label htmlFor="yearsOfExperience">Years of Experience</label>
                   <select className="custom-select" name="years_of_experience" id="yearsOfExperience">
-                    <option 
-                      defaultValue="Prefer not to say">{personalBackground.years_of_experience}
+                    <option>{personalBackground.years_of_experience}
                     </option>
-                      {YEARS_OF_EXPERIENCE.map((yearsOfExperience) => <option key={yearsOfExperience} value={yearsOfExperience}>{yearsOfExperience}</option>)}
+                      {YEARS_OF_EXPERIENCE.map((yearsOfExperience) => optionsWithDefaultSelection(yearsOfExperience, personalBackground.years_of_experience))}
                   </select>
                 </p>
               </div>
@@ -337,7 +324,7 @@ export default function PersonalBackground() {
                   </div>
                   <div className="col-sm-10">
                     <label>
-                      I allow other members of BridgeInTech to view my personal background information.  
+                      I allow other members of BridgeInTech to view my personal background information.
                     </label>
                   </div>
                 </div>
