@@ -3,16 +3,15 @@ import { BASE_API } from "../config";
 import { AuthContext } from "../AuthContext";
 import "./MySpace.css";
 import { SERVICE_UNAVAILABLE_ERROR } from "../messages";
+import { TIMEZONES } from "../timezones";
 
 
 export default function AdditionalInfo() {
-  const [errorMessage, setErrorMessage] = useState(null);
   const [responseMessage, setResponseMessage] = useState(null);
   const [additionalInfo, setAdditionalInfo] = useState({});
   const { access_token, user } = useContext(AuthContext);
-  const [isExist, setIsExist] = useState(false);
-  const [validPhone, setValidPhone] = useState(true);
-  const [validMobile, setValidMobile] = useState(true);
+  const [isValidPhone, setIsValidPhone] = useState(true);
+  const [isValidMobile, setIsValidMobile] = useState(true);
 
   const requestAdditionalInfo = {
     method: "GET",
@@ -23,17 +22,16 @@ export default function AdditionalInfo() {
     },
   };
 
-
   useEffect(() => {
     fetch(`${BASE_API}/user/additional_info`, requestAdditionalInfo)
       .then(async response => {
         const data = await response.json();
         if (response.ok)
           return setAdditionalInfo(data);
-        setErrorMessage(data.message);
+        return setResponseMessage(data.message);
       })
       .catch(() =>
-        setErrorMessage(SERVICE_UNAVAILABLE_ERROR)
+        setResponseMessage(SERVICE_UNAVAILABLE_ERROR)
       )
   }, []);
 
@@ -41,17 +39,20 @@ export default function AdditionalInfo() {
     e.preventDefault();
 
     let payload = {
-      is_organization_rep: false
+      is_organization_rep: false,
+      timezone: "UTC+00:00/Greenwich Mean Time and Western European Time"
     }
     new FormData(e.target).forEach((value, key) => {
       if (key === "username")
         return;
       if (key === "is_organization_rep")
         value = (value === "true") ? true : false;
+      if (key === "timezone")
+        value = value ? value : "UTC+00:00/Greenwich Mean Time and Western European Time";
       payload[key] = value;
     });
-    const requestCreateDetails = {
-      method: "POST",
+    const requestUpdateAdditionalInfo = {
+      method: "PUT",
       headers: {
         "Authorization": `Bearer ${access_token}`,
         "Accept": "application/json",
@@ -59,59 +60,24 @@ export default function AdditionalInfo() {
       },
       body: JSON.stringify(payload)
     };
-
-    fetch(`${BASE_API}/user/additional_info`, requestCreateDetails)
+    fetch(`${BASE_API}/user/additional_info`, requestUpdateAdditionalInfo)
       .then(async response => {
         let data = await response.json();
         if (response.ok)
           return setResponseMessage(data.message)
-        if (response.status === 409)
-          return setIsExist(true);
-        setErrorMessage(data.message);
+        setResponseMessage(data.message)
       })
-      .catch(() => setErrorMessage(SERVICE_UNAVAILABLE_ERROR));
-
-    if (isExist) {
-      const requestUpdateDetails = {
-        method: "PUT",
-        headers: {
-          "Authorization": `Bearer ${access_token}`,
-          "Accept": "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload)
-      };
-
-      fetch(`${BASE_API}/user/additional_info`, requestUpdateDetails)
-        .then(async response => {
-          let data = await response.json();
-          if (response.ok)
-            return setResponseMessage(data.message)
-          if (response.status === 409)
-            return setIsExist(true);
-          setErrorMessage(data.message);
-        })
-        .catch(() => setErrorMessage("The service is temporarily unavailable, please try again later."));
-    }
+      .catch(() => setResponseMessage(SERVICE_UNAVAILABLE_ERROR));
   }
 
   const validatePhone = e => {
-    setValidPhone(e.target.checkValidity());
+    setIsValidPhone(e.target.checkValidity());
   };
   const validateMobile = e => {
-    setValidMobile(e.target.checkValidity());
+    setIsValidMobile(e.target.checkValidity());
   };
 
-  return errorMessage ?
-    <div className="container-fluid" id="additionalInfo">
-      <div className="top">
-        <h1>
-          {errorMessage}
-        </h1>
-      </div>
-    </div>
-    :
-    <>
+  return (
       <div className="container" id="additionalInfo">
         <div className="row mb-5">
           <div className="col-lg-12 text-center">
@@ -139,12 +105,12 @@ export default function AdditionalInfo() {
                   <input className="field"
                     type="text"
                     name="phone"
-                    placeholder={additionalInfo.phone}
+                    defaultValue={additionalInfo.phone}
                     pattern="^[0-9\s\-\+]+$"
                     onChange={validatePhone}
                   />
                 </p>
-                {!validPhone && (
+                {!isValidPhone && (
                   <span className="error">
                     Must only contain numbers between 0-9, may start with plus "+" before country code, and may have dash "-"
                   </span>
@@ -157,12 +123,12 @@ export default function AdditionalInfo() {
                   <input className="field"
                     type="text"
                     name="mobile"
-                    placeholder={additionalInfo.mobile}
+                    defaultValue={additionalInfo.mobile}
                     pattern="^[0-9\s\-\+]+$"
                     onChange={validateMobile}
                   />
                 </p>
-                {!validMobile && (
+                {!isValidMobile && (
                   <span className="error">
                     Must only contain numbers between 0-9, may start with plus "+" before country code, and may have dash "-"
                   </span>
@@ -175,71 +141,46 @@ export default function AdditionalInfo() {
                   <input className="field"
                     type="url"
                     name="personal_website"
-                    placeholder={additionalInfo.personal_website}
+                    defaultValue={additionalInfo.personal_website}
                   />
                 </p>
               </form-group>
               <div><br></br></div>
               <div className="input-group mb-3">
                 <p className="input-control">
-                  <label htmlFor="timezone" for="inputGroupSelect01">Timezone</label>
-                  <select className="custom-select" id="inputGroupSelect01">
-                    <option
-                      selected
-                      defaultValue="UTC+00:00/Greenwich Mean Time and Western European Time">{additionalInfo.timezone}</option>
-                    <option value="UTC-01:00/Cape Verde Time">UTC-01:00/Cape Verde Time</option>
-                    <option value="UTC-03:30/NewFoundland_Standard_Time">UTC-03:30/NewFoundland_Standard_Time</option>
-                    <option value="UTC-04:00/Atlantic Standard Time">UTC-04:00/Atlantic Standard Time</option>
-                    <option value="UTC-05:00/Eastern Standard Time">UTC-05:00/Eastern Standard Time</option>
-                    <option value="UTC-06:00/Central Standard Time">UTC-06:00/Central Standard Time</option>
-                    <option value="UTC-07:00/Mountain Standard Time">UTC-07:00/Mountain Standard Time</option>
-                    <option value="UTC-08:00/Pacific Standard Time">UTC-08:00/Pacific Standard Time</option>
-                    <option value="UTC-09:00/Alaska Standard Time">UTC-09:00/Alaska Standard Time</option>
-                    <option value="UTC-10:00/Hawaii-Aleutian Standard Time">UTC-10:00/Hawaii-Aleutian Standard Time</option>
-                    <option value="UTC-11:00/Samoa Standard Time">UTC-11:00/Samoa Standard Time</option>
-                    <option value="UTC+00:00/Greenwich Mean Time and Western European Time">UTC+00:00/Greenwich Mean Time and Western European Time</option>
-                    <option value="UTC+01:00/Central European Time">UTC+01:00/Central European Time</option>
-                    <option value="UTC+01:00/West Africa Time">UTC+01:00/West Africa Time</option>
-                    <option value="UTC+02:00/Eastern European Time">UTC+02:00/Eastern European Time</option>
-                    <option value="UTC+02:00/Central and South Africa Standard Time">UTC+02:00/Central and South Africa Standard Timee</option>
-                    <option value="UTC+03:00/East Africa Time">UTC+03:00/East Africa Time</option>
-                    <option value="UTC+03:00/Moskow Time">UTC+03:00/Moskow Time</option>
-                    <option value="UTC+03:00/Charlie Time - Middle East Time">UTC+03:00/Charlie Time - Middle East Time</option>
-                    <option value="UTC+04:00/Delta Time - Middle East Time">UTC+04:00/Delta Time - Middle East Time</option>
-                    <option value="UTC+03:00/Charlie Time - Middle East Time">UTC+03:00/Charlie Time - Middle East Time</option>
-                    <option value="UTC+05:30/India Standard Time">UTC+05:30/India Standard Time</option>
-                    <option value="UTC+08:00/China Standard TIme">UTC+08:00/China Standard TIme</option>
-                    <option value="UTC+08:00/Australian Western Standard Time">UTC+08:00/Australian Western Standard Time</option>
-                    <option value="UTC+09:30/Australian Central and South Standard Time">UTC+09:30/Australian Central and South Standard Time</option>
-                    <option value="UTC+10:00/Australian Eastern Standard Time">UTC+10:00/Australian Eastern Standard Time</option>
-                    <option value="UTC+12:00/New Zealand Standard Time">UTC+12:00/New Zealand Standard Time</option>
+                  <label htmlFor="timezone">Timezone</label>
+                  <select className="custom-select" name="timezone" id="timezone">
+                    <option 
+                      defaultValue="UTC+00:00/Greenwich Mean Time and Western European Time">{additionalInfo.timezone}
+                    </option>
+                      {TIMEZONES.map((timezone) => <option key={timezone} value={timezone}>{timezone}</option>)}
                   </select>
                 </p>
               </div>
               <div><br></br></div>
               <form-group controlId="formIsOrganizationRep">
-                <div className="row">
-                  <div className="col-sm">
-                    <p className="input-control">
-                      <input
-                        type="checkbox"
-                        name="is_organization_rep"
-                        aria-label="isOrganizationRep"
-                        value={"on" ? true : false}
-                        defaultChecked={additionalInfo.is_organization_rep ? "on" : "off"}
-                      />
-                    </p>
-                  </div>
-                  <div className="col-sm-10">
-                    <label>
-                      I am a representative of an organization
+                            <div className="row">
+                                <div className="col-sm">
+                                    <p className="input-control">
+                                        <input
+                                            type="checkbox"
+                                            name="is_organization_rep"
+                                            aria-label="isOrganizationRep"
+                                            value={"on" ? true : false}
+                                            defaultChecked={additionalInfo.is_organization_rep}
+                                        />
+                                    </p>
+                                </div>
+                                <div className="col-sm-10">
+                                    <label>
+                                        I am a representative of an organization
                                     </label>
-                  </div>
-                </div>
-              </form-group>
+                                </div>
+                            </div>
+                        </form-group>
               <div><br></br></div>
               <div>
-                {responseMessage && <span className="error" name="response" aria-label="response" role="alert">{responseMessage}</span>}
+                  {responseMessage && <span className="error" name="response" aria-label="response" role="alert">{responseMessage}</span>}
               </div>
               <div className="row">
                 <div className="col-sm-6 offset-sm-9">
@@ -256,5 +197,5 @@ export default function AdditionalInfo() {
           </div>
         </div>
       </div>
-    </>
+  )
 }
