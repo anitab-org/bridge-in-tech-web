@@ -23,9 +23,9 @@ export default function Routes() {
           <Route exact path="/" >
             <Home />
           </Route>
-          <Route path="/members">
+          <ProtectedRoute exact path="/members">
             <Members />
-          </Route>
+          </ProtectedRoute>
           <Route path="/register">
             <Register />
           </Route>
