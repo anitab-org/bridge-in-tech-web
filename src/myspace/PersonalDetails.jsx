@@ -12,7 +12,7 @@ export default function PersonalDetails() {
   const { access_token } = useContext(AuthContext);
   const [isValidName, setIsValidName] = useState(true);
   const [isValidUsername, setIsValidUsername] = useState(true);
-    
+
 
   const requestPersonalDetails = {
     method: "GET",
@@ -27,7 +27,7 @@ export default function PersonalDetails() {
     fetch(`${BASE_API}/user/personal_details`, requestPersonalDetails)
       .then(async response => {
         const data = await response.json();
-        if (response.ok) 
+        if (response.ok)
           return setPersonalDetails(data);
         setErrorMessage(data.message);
       })
@@ -47,7 +47,7 @@ export default function PersonalDetails() {
       if (key === "email")
         return;
       if (key === "need_mentoring" || key === "available_to_mentor")
-        value = (value === "true") ? true : false   
+        value = (value === "true");
       payload[key] = value;
     });
     const requestUpdateDetails = {
@@ -98,9 +98,10 @@ export default function PersonalDetails() {
             <form className="myspace-form mx-auto" onSubmit={handleSubmit}>
               <form-group controlId="formUserame">
                 <p className="input-control">
-                  <label htmlFor="username">Username :</label>
+                  <label id="username">Username :</label>
                   <input className="field"
                     type="text"
+                    aria-labelledby="username"
                     name="username"
                     defaultValue={personalDetails.username}
                     minLength={5}
@@ -117,9 +118,10 @@ export default function PersonalDetails() {
               <div><br></br></div>
               <form-group controlId="formEmail">
                 <p className="input-control">
-                  <label htmlFor="email">Email :</label>
+                  <label id="email">Email :</label>
                   <input className="field"
                     type="email"
+                    aria-labelledby="email"
                     name="email"
                     defaultValue={personalDetails.email}
                     disabled
@@ -129,9 +131,10 @@ export default function PersonalDetails() {
               <div><br></br></div>
               <form-group controlId="formName">
                 <p className="input-control">
-                  <label htmlFor="name">Name :</label>
+                  <label id="name">Name :</label>
                   <input className="field"
                     type="text"
+                    aria-labelledby="name"
                     name="name"
                     defaultValue={personalDetails.name}
                     minLength={2}
@@ -148,9 +151,10 @@ export default function PersonalDetails() {
               <div><br></br></div>
               <form-group controlId="formIrcId">
                 <p className="input-control">
-                  <label htmlFor="ircId">IRC ID :</label>
+                  <label id="ircId">IRC ID :</label>
                   <input className="field"
                     type="text"
+                    aria-labelledby="ircId"
                     name="slack_username"
                     defaultValue={personalDetails.slack_username}
                   />
@@ -159,9 +163,10 @@ export default function PersonalDetails() {
               <div><br></br></div>
               <form-group controlId="formIrcId">
                 <p className="input-control">
-                  <label htmlFor="socialMediaLink">Social Media Links :</label>
+                  <label id="socialMediaLink">Social Media Links :</label>
                   <input className="field"
                     type="text"
+                    aria-labelledby="socialMediaLink"
                     name="social_media_links"
                     defaultValue={personalDetails.social_media_links}
                   />
@@ -203,9 +208,10 @@ export default function PersonalDetails() {
               </form-group>
               <form-group controlId="formInterests">
                 <p className="input-control">
-                  <label htmlFor="interests">Interests :</label>
+                  <label id="interests">Interests :</label>
                   <input className="field"
                     type="text"
+                    aria-labelledby="interests"
                     name="interests"
                     defaultValue={personalDetails.interests}
                   />
@@ -214,9 +220,10 @@ export default function PersonalDetails() {
               <div><br></br></div>
               <form-group controlId="formBio">
                 <p className="input-control">
-                  <label htmlFor="bio">Bio :</label>
+                  <label id="bio">Bio :</label>
                   <input className="field"
                     type="text"
+                    aria-labelledby="bio"
                     name="bio"
                     defaultValue={personalDetails.bio}
                   />
@@ -225,9 +232,10 @@ export default function PersonalDetails() {
               <div><br></br></div>
               <form-group controlId="formLocation">
                 <p className="input-control">
-                  <label htmlFor="location">Location :</label>
+                  <label id="location">Location :</label>
                   <input className="field"
                     type="text"
+                    aria-labelledby="location"
                     name="location"
                     defaultValue={personalDetails.location}
                   />
@@ -236,9 +244,10 @@ export default function PersonalDetails() {
               <div><br></br></div>
               <form-group controlId="formOccupation">
                 <p className="input-control">
-                  <label htmlFor="occupation">Occupation :</label>
+                  <label id="occupation">Occupation :</label>
                   <input className="field"
                     type="text"
+                         aria-labelledby="occupation"
                     name="occupation"
                     defaultValue={personalDetails.occupation}
                   />
@@ -247,9 +256,10 @@ export default function PersonalDetails() {
               <div><br></br></div>
               <form-group controlId="formCurrentOrganization">
                 <p className="input-control">
-                  <label htmlFor="currentOrganization">Current Organization :</label>
+                  <label id="currentOrganization">Current Organization :</label>
                   <input className="field"
                     type="text"
+                    aria-labelledby="currentOrganization"
                     name="current_organization"
                     defaultValue={personalDetails.current_organization}
                   />
@@ -258,9 +268,10 @@ export default function PersonalDetails() {
               <div><br></br></div>
               <form-group controlId="formSkills">
                 <p className="input-control">
-                  <label htmlFor="skills">Skills :</label>
+                  <label id="skills">Skills :</label>
                   <input className="field"
                     type="text"
+                    aria-labelledby="skills"
                     name="skills"
                     defaultValue={personalDetails.skills}
                   />
@@ -269,9 +280,10 @@ export default function PersonalDetails() {
               <div><br></br></div>
               <form-group controlId="formResumeUrl">
                 <p className="input-control">
-                  <label htmlFor="resumeUrl">Resume Url :</label>
+                  <label id="resumeUrl">Resume Url :</label>
                   <input className="field"
                     type="text"
+                    aria-labelledby="resumeUrl"
                     name="resume_url"
                     defaultValue={personalDetails.resume_url}
                   />
@@ -280,9 +292,10 @@ export default function PersonalDetails() {
               <div><br></br></div>
               <form-group controlId="formPhotoUrl">
                 <p className="input-control">
-                  <label htmlFor="photoUrl">Photo Url :</label>
+                  <label id="photoUrl">Photo Url :</label>
                   <input className="field"
                     type="text"
+                    aria-labelledby="photoUrl"
                     name="photo_url"
                     defaultValue={personalDetails.photo_url}
                   />
