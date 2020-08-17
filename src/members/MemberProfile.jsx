@@ -16,7 +16,7 @@ export default function MemberProfile() {
         <div className="row">
           <div className="col-lg-12">
             <form className="myspace-form mx-auto">
-              <form-group controlId="formUserame">
+              <form-group controlId="formUsername">
                 <p className="input-control">
                   <label htmlFor="username">Username : </label>
                   {member.username}
