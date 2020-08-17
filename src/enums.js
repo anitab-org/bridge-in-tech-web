@@ -25,3 +25,9 @@ export const TIMEZONES = [
     "UTC+10:00/Australian Eastern Standard Time",
     "UTC+12:00/New Zealand Standard Time"
 ]
+
+export const STATUS = [
+    "Draft",
+    "Publish",
+    "Archived"
+]
