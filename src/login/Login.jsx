@@ -78,7 +78,7 @@ export default function Login() {
                             {errorMessage && <span className="error" name="errorMessage" aria-label="errorMessage" role="alert">{errorMessage}</span>}
                         </div>
                         <div className="row">
-                            <label>Not yet register? Sign Up here.</label>
+                            <label>Not yet registered? Click on Sign Up.</label>
                         </div>
                         <div className="row button-group">
                             <div className="col-sm">
