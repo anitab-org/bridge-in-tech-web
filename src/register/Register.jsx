@@ -60,7 +60,7 @@ export default function Register() {
         <div className="container">
             <div className="row mb-5">
                 <div className="col-lg-12 text-center">
-                    <h1 className="mt-5">Register Form</h1>
+                    <h1 className="mt-5">Register</h1>
                 </div>
             </div>
             <div className="row">
@@ -198,7 +198,7 @@ export default function Register() {
                             {responseMessage && <span className="error" name="response" aria-label="response" role="alert">{responseMessage}</span>}
                         </div>
                         <div className="row">
-                            <label>Already register? Login here.</label>
+                            <label>Already registered? Click on Login.</label>
                         </div>
                         <div className="row button-group">
                             <div className="col-sm">
