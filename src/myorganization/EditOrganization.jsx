@@ -1,16 +1,19 @@
 import React, {useState, useEffect, useContext} from "react";
+import { Link } from "react-router-dom";
 import {AuthContext} from "../AuthContext";
 import {BASE_API} from "../config";
 import "./EditOrganization.css";
 import {SERVICE_UNAVAILABLE_ERROR} from "../messages";
-import {TIMEZONES, STATUS} from "../enums";
+import { ORGANIZATION_STATUS} from "../enums";
+import { TIMEZONES } from "../timezones";
+
 
 export default function EditOrganization() {
   const [responseMessage, setResponseMessage] = useState(null);
   const [organization, setOrganization] = useState({});
   const {access_token} = useContext(AuthContext);
   const [isValidPhone, setIsValidPhone] = useState(true);
-
+  
 
   const requestOrganization = {
     method: "GET",
@@ -70,7 +73,7 @@ export default function EditOrganization() {
   };
 
   const optionsWithDefaultSelection = (value, receivedValue) => {
-    if (value === "UTC+00:00/Greenwich Mean Time and Western European Time" && !receivedValue) {
+    if (value === "GMT0" && !receivedValue){
       return <option key={value} value={value} selected>{value}</option>
     }
     if (value === "Draft" && !receivedValue) {
@@ -83,7 +86,7 @@ export default function EditOrganization() {
       <div className="container" id="organizationProfile">
         <div className="row mb-5">
           <div className="col-lg-12 text-center">
-            <h1 className="mt-5">Organization Profile</h1>
+            <h1 className="mt-5">{organization.organization_name} Profile</h1>
           </div>
         </div>
         <div className="row">
@@ -183,8 +186,8 @@ export default function EditOrganization() {
                 <p className="input-control">
                   <label htmlFor="timezone">Timezone</label>
                   <select className="custom-select" name="timezone" id="timezone">
-                    <option
-                      defaultValue="UTC+00:00/Greenwich Mean Time and Western European Time">{organization.timezone}
+                    <option 
+                    defaultValue="GMT0">{organization.timezone}
                     </option>
                     {TIMEZONES.map((timezone) => optionsWithDefaultSelection(timezone, organization.timezone))}
                   </select>
@@ -215,18 +218,44 @@ export default function EditOrganization() {
                     <option
                       defaultValue="Draft">{organization.status}
                     </option>
-                    {STATUS.map((status) => optionsWithDefaultSelection(status, organization.status))}
+                      {ORGANIZATION_STATUS.map((status) => optionsWithDefaultSelection(status, organization.status))}
                   </select>
                 </p>
               </div>
-
               <div><br></br></div>
-              <div>
+              <form-group controlId="formJoinDate">
+                <p className="input-control">
+                  <label id="joinDate">Join date :</label>
+                  <input className="field"
+                    type="url"
+                    aria-labelledby="joinDate"
+                    name="joinDate"
+                    defaultValue={organization.join_date}
+                    disabled
+                  />
+                </p>
+              </form-group>
+              <div><br></br></div>
+              <div><br></br></div>
+              <div className="row justify-content-between">
+                <div className="col-sm-6">
+                  <Link to={{
+                      pathname: `/organization-portfolio`,
+                      state: { organization }
+                      }}
+                    className="btn btn-primary"
+                    variant="primary"
+                    name="toPrograms"
+                    organization={organization}
+                  >Go to Programs
+                  </Link>
+                </div>
+                <div>
                 {responseMessage &&
                 <span className="error" name="response" aria-label="response" role="alert">{responseMessage}</span>}
               </div>
               <div className="row">
-                <div className="col-sm-6 offset-sm-9">
+                <div className="col-sm-6">
                   <button className="btn btn-success"
                           variant="success"
                           type="submit"
@@ -236,6 +265,8 @@ export default function EditOrganization() {
                   </button>
                 </div>
               </div>
+              </div>
+              <div><br></br></div>
             </form>
           </div>
         </div>

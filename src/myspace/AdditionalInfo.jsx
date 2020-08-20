@@ -3,7 +3,7 @@ import { BASE_API } from "../config";
 import { AuthContext } from "../AuthContext";
 import "./MySpace.css";
 import { SERVICE_UNAVAILABLE_ERROR } from "../messages";
-import { TIMEZONES } from "../enums";
+import { TIMEZONES } from "../timezones";
 
 
 export default function AdditionalInfo() {
@@ -41,7 +41,7 @@ export default function AdditionalInfo() {
 
     let payload = {
       is_organization_rep: false,
-      timezone: "UTC+00:00/Greenwich Mean Time and Western European Time"
+      timezone: "GMT0"
     }
     new FormData(e.target).forEach((value, key) => {
       if (key === "username")
@@ -49,7 +49,7 @@ export default function AdditionalInfo() {
       if (key === "is_organization_rep")
         value = (value === "true") ? true : false;
       if (key === "timezone")
-        value = value ? value : "UTC+00:00/Greenwich Mean Time and Western European Time";
+        value = value ? value : "GMT0";
       payload[key] = value;
     });
     const requestUpdateAdditionalInfo = {
@@ -152,7 +152,7 @@ export default function AdditionalInfo() {
                   <label htmlFor="timezone">Timezone</label>
                   <select className="custom-select" name="timezone" id="timezone">
                     <option 
-                      defaultValue="UTC+00:00/Greenwich Mean Time and Western European Time">{additionalInfo.timezone}
+                      defaultValue="GMT0">{additionalInfo.timezone}
                     </option>
                       {TIMEZONES.map((timezone) => <option key={timezone} value={timezone}>{timezone}</option>)}
                   </select>

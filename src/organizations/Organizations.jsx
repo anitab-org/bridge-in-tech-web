@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthContext";
 import { BASE_API } from "../config";
 import { SERVICE_UNAVAILABLE_ERROR } from "../messages";
+import "./Organization.css";
 
 export default function Organizations() {
   const [errorMessage, setErrorMessage] = useState(null);
@@ -35,7 +36,7 @@ export default function Organizations() {
   }, []);
 
   return errorMessage ?
-    <div className="container-fluid" id="organizationsList">
+    <div className="container-fluid">
       <div className="top">
         <h1>
           {errorMessage}
@@ -44,13 +45,13 @@ export default function Organizations() {
     </div>
     :
     <>
-      <div className="container" id="organizationsList">
+      <div className="container-organizations">
         <div className="row mb-5">
           <div className="col-lg-12 text-center">
             <h1 className="mt-5">Organizations List</h1>
           </div>
         </div>
-        <Table striped bordered hover>
+        <Table striped bordered hover className="organizationsList">
           <thead>
             <tr>
               <th>Representative Name</th>
@@ -63,14 +64,15 @@ export default function Organizations() {
               <th>Available</th>
               <th>In Progress</th>
               <th>Completed</th>
+              <th>Programs</th>
             </tr>
           </thead>
           <tbody>
             {organizations.map((organization) => (
               <tr key={organization.id}>
-              <td>{organization.representative_name}</td>
+                <td>{organization.representative_name}</td>
                 <td><Link to={{
-                  pathname: `/organizations/${encodeURI(organization.organization_name)}`,
+                  pathname: `/organizations/profile/${encodeURI(organization.organization_name)}`,
                   state: { organization }
                 }}>{organization.organization_name}</Link></td>
                 <td>{organization.email}</td>
@@ -81,6 +83,10 @@ export default function Organizations() {
                 <td>tba</td>
                 <td>tba</td>
                 <td>tba</td>
+                <td><Link to={{
+                  pathname: `/organizations/portfolio/${encodeURI(organization.organization_name)}`,
+                  state: { organization }
+                }}>View</Link></td>
               </tr>
             ))}
           </tbody>

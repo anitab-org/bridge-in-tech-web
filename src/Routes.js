@@ -2,20 +2,24 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./Home";
 import Members from "./members/Members";
-import MemberProfile from "./members/MemberProfile";
+import MemberPortfolio from "./members/MemberPortfolio";
+import Member from "./members/Member";
 import Portfolio from "./myspace/Portfolio";
 import PersonalDetails from "./myspace/PersonalDetails";
 import AdditionalInfo from "./myspace/AdditionalInfo";
 import PersonalBackground from "./myspace/PersonalBackground";
 import Organizations from "./organizations/Organizations";
 import Organization from "./organizations/Organization";
-import OrganizationPortfolio from "./myorganization/OrganizationPortfolio";
+import EditPrograms from "./myorganization/EditPrograms";
 import EditOrganization from "./myorganization/EditOrganization";
+import EditProgram from "./myorganization/EditProgram";
+import Program from "./organizations/Program";
 import Register from "./register/Register";
 import Login from "./login/Login";
 import ProtectedRoute from "./ProtectedRoute";
 import Navigation from "./Navigation";
 import AuthProvider from "./AuthContext";
+import Programs from "./organizations/Programs";
 
 
 export default function Routes() {
@@ -31,14 +35,23 @@ export default function Routes() {
           <ProtectedRoute exact path="/members">
             <Members />
           </ProtectedRoute>
-          <ProtectedRoute path="/members/">
-            <MemberProfile />
+          <ProtectedRoute path="/members/portfolio/">
+            <MemberPortfolio />
+          </ProtectedRoute>
+          <ProtectedRoute path="/members/profile/">
+            <Member />
           </ProtectedRoute>
           <ProtectedRoute exact path="/organizations">
             <Organizations />
           </ProtectedRoute>
-          <ProtectedRoute path="/organizations/">
+          <ProtectedRoute path="/organizations/portfolio/">
+            <Programs />
+          </ProtectedRoute>
+          <ProtectedRoute path="/organizations/profile/">
             <Organization />
+          </ProtectedRoute>
+          <ProtectedRoute path="/organizations/programs/">
+            <Program />
           </ProtectedRoute>
           <ProtectedRoute
             exact path="/portfolio">
@@ -61,11 +74,15 @@ export default function Routes() {
           </ProtectedRoute>
           <ProtectedRoute
             exact path="/organization-portfolio">
-            <OrganizationPortfolio />
+            <EditPrograms />
           </ProtectedRoute>
           <ProtectedRoute
             exact path="/organization-profile">
             <EditOrganization />
+          </ProtectedRoute>
+          <ProtectedRoute
+            path="/organization-programs/">
+            <EditProgram />
           </ProtectedRoute>
           <Route path="/register">
             <Register />
