@@ -14,7 +14,6 @@ export default function EditOrganization() {
   const {access_token} = useContext(AuthContext);
   const [isValidPhone, setIsValidPhone] = useState(true);
   
-
   const requestOrganization = {
     method: "GET",
     headers: {
@@ -112,6 +111,7 @@ export default function EditOrganization() {
                          type="text"
                          aria-labelledby="representativeDepartment"
                          name="representative_department"
+                         maxLength="150"
                          defaultValue={organization.representative_department}
                          required
                   />
@@ -125,6 +125,7 @@ export default function EditOrganization() {
                          type="text"
                          aria-labelledby="name"
                          name="name"
+                         maxLength="150"
                          defaultValue={organization.organization_name}
                          required
                   />
@@ -138,6 +139,7 @@ export default function EditOrganization() {
                          type="email"
                          aria-labelledby="email"
                          name="email"
+                         maxLength="254"
                          defaultValue={organization.email}
                          required
                   />
@@ -147,10 +149,11 @@ export default function EditOrganization() {
               <form-group controlId="formAbout">
                 <p className="input-control">
                   <label id="about">About the organization :</label>
-                  <input className="field"
+                  <textarea className="field"
                          type="text"
                          aria-labelledby="about"
                          name="about"
+                         maxLength="500"
                          defaultValue={organization.about}
                   />
                 </p>
@@ -159,11 +162,12 @@ export default function EditOrganization() {
               <form-group controlId="formAddress">
                 <p className="input-control">
                   <label id="address">Organization Address :</label>
-                  <input className="field"
+                  <textarea className="field"
                          type="text"
                          aria-labelledby="address"
                          name="address"
                          defaultValue={organization.address}
+                         maxLength="254"
                          required
                   />
                 </p>
@@ -176,6 +180,7 @@ export default function EditOrganization() {
                          type="url"
                          aria-labelledby="website"
                          name="website"
+                         maxLength="150"
                          defaultValue={organization.website}
                          required
                   />
@@ -200,6 +205,7 @@ export default function EditOrganization() {
                          type="text"
                          name="phone"
                          defaultValue={organization.phone}
+                         maxLength="20"
                          pattern="^[0-9\s\-\+]+$"
                          onChange={validatePhone}
                   />
