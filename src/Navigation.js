@@ -7,7 +7,7 @@ import DropdownMenu from "react-bootstrap/DropdownMenu";
 
 export default function Navigation() {
     const { user, isAuth, login, logout } = useContext(AuthContext);
-    
+
     return (
         <Navbar bg="light" expand="lg">
             <Navbar.Brand href="/">
@@ -49,6 +49,15 @@ export default function Navigation() {
                         <Accordion>
                             <Card>
                                 <Card.Header>
+                                    <Accordion.Toggle as={Link} to="/organizations" eventKey="0">Organizations</Accordion.Toggle>
+                                </Card.Header>
+                            </Card>
+                        </Accordion>
+                    </Nav.Item>
+                    <Nav.Item>
+                        <Accordion>
+                            <Card>
+                                <Card.Header>
                                     <Accordion.Toggle as={Link} eventKey="0">My Space</Accordion.Toggle>
                                 </Card.Header>
                                 <Accordion.Collapse eventKey="0">
@@ -63,6 +72,13 @@ export default function Navigation() {
                                             </DropdownMenu>
                                         </Dropdown>
                                         <Nav.Link as={Link} to="/request-history">Request History</Nav.Link>
+                                        <Dropdown>
+                                            <Dropdown.Toggle variant="light" eventKey="0">My Organization</Dropdown.Toggle>
+                                            <DropdownMenu>
+                                                <Nav.Link as={Link} to="/organization-portfolio">Portfolio</Nav.Link>
+                                                <Nav.Link as={Link} to="/organization-profile">Profile</Nav.Link>
+                                            </DropdownMenu>
+                                        </Dropdown>
                                     </Nav>
                                 </Accordion.Collapse>
                             </Card>
