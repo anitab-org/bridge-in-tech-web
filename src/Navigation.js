@@ -13,7 +13,9 @@ export default function Navigation() {
             <Navbar.Brand href="/">
                 <img
                     className="d-inline-block align-top"
-                    src="public/assets/images/AnitaBLogo.png"
+                    src="assets/images/AnitaBLogo.png"
+                    width="69"
+                    height="30"
                     alt="Logo"
                 />
             </Navbar.Brand>
