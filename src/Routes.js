@@ -8,7 +8,7 @@ import PersonalDetails from "./myspace/PersonalDetails";
 import AdditionalInfo from "./myspace/AdditionalInfo";
 import PersonalBackground from "./myspace/PersonalBackground";
 import Organizations from "./organizations/Organizations";
-import OtherOrganizationProfile from "./organizations/OtherOrganizationProfile";
+import Organization from "./organizations/Organization";
 import OrganizationPortfolio from "./myorganization/OrganizationPortfolio";
 import EditOrganization from "./myorganization/EditOrganization";
 import Register from "./register/Register";
@@ -31,14 +31,14 @@ export default function Routes() {
           <ProtectedRoute exact path="/members">
             <Members />
           </ProtectedRoute>
-          <ProtectedRoute path="/member">
+          <ProtectedRoute path="/members/">
             <MemberProfile />
           </ProtectedRoute>
           <ProtectedRoute exact path="/organizations">
             <Organizations />
           </ProtectedRoute>
-          <ProtectedRoute path="/organization">
-            <OtherOrganizationProfile />
+          <ProtectedRoute path="/organizations/">
+            <Organization />
           </ProtectedRoute>
           <ProtectedRoute
             exact path="/portfolio">

@@ -28,7 +28,7 @@ export default function Members() {
         }
         setErrorMessage(data.message);
       })
-      .catch(error =>
+      .catch(() =>
         setErrorMessage(SERVICE_UNAVAILABLE_ERROR)
       )
 
@@ -66,7 +66,7 @@ export default function Members() {
             {members.map((member) => (
               <tr key={member.id}>
                 <td><Link to={{
-                  pathname: `/member/${member.username}`,
+                  pathname: `/members/${member.username}`,
                   state: { member }
                 }}>{member.name}</Link></td>
                 <td>{member.skills}</td>
