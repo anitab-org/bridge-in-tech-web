@@ -1,15 +1,17 @@
 import React from "react";
 
-export default function Portfolio() {
+export default function MemberPortfolio() {
+
+    
   return (
-    <div className="container-fluid" id="Portfolio">
+    <div className="container-fluid" id="memberPortfolio">
       <div className="top">
         <h1>
-          This will be Private page for the Member's Portfolio
+          This will be Public page for the Member's Portfolio
             </h1>
       </div>
       <div className="middle">
-        <h2>This is to showcase list of Programs where the selected Member ever been/will be involved in.</h2>
+        <h2>This is to showcase the list of programs where the selected Member had/is curreently/will be participating on.</h2>
       </div>
       <div className="middle">
         <h3>The site is currently under construction...</h3>

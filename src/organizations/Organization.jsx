@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 export default function Organization() {
   const { state } = useLocation();
   const organization = state.organization;
-  console.log(organization.name)
+  
   return (
       <div className="container">
         <div className="row mb-5">
@@ -83,6 +83,13 @@ export default function Organization() {
                 <p className="input-control">
                   <label htmlFor="status">Status : </label>
                   {organization.status}
+                </p>
+              </form-group>
+              <div><br></br></div>
+              <form-group controlId="formJoinDate">
+                <p className="input-control">
+                  <label htmlFor="joinDate">Join Date : </label>
+                  {organization.join_date}
                 </p>
               </form-group>
             </form>

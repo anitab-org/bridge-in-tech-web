@@ -1,4 +1,4 @@
-.container-organizations {
+.container-members {
     background: #f7f9fa;
     height: auto;
     width: 90vw;
@@ -40,7 +40,7 @@ label {
     width: 100%;
   }
   
-  .organizationsList {
+  .membersList {
     width: 85vw;
     text-align: center;
     padding: 2em;

@@ -74,13 +74,7 @@ export default function Navigation() {
                                             </DropdownMenu>
                                         </Dropdown>
                                         <Nav.Link as={Link} to="/request-history">Request History</Nav.Link>
-                                        <Dropdown>
-                                            <Dropdown.Toggle variant="light" eventKey="0">My Organization</Dropdown.Toggle>
-                                            <DropdownMenu>
-                                                <Nav.Link as={Link} to="/organization-portfolio">Portfolio</Nav.Link>
-                                                <Nav.Link as={Link} to="/organization-profile">Profile</Nav.Link>
-                                            </DropdownMenu>
-                                        </Dropdown>
+                                        <Nav.Link as={Link} to="/organization-profile" eventKey="0">My Organization</Nav.Link>
                                     </Nav>
                                 </Accordion.Collapse>
                             </Card>
