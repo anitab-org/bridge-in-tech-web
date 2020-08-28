@@ -354,7 +354,7 @@ export default function EditProgram() {
                                     className="input-control" 
                                     aria-labelledby="paymentAmount"
                                     name="payment_amount" 
-                                    min="1"
+                                    min="0"
                                     step="1"
                                     defaultValue={program ? program.payment_amount : "0"}
                                 />
