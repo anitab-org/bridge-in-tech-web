@@ -107,3 +107,23 @@ it('handles wrong credentials', async () => {
     
     expect(screen.getByLabelText('errorMessage')).toHaveTextContent("The server is currently unavailable. Try again later")
   })
+
+it('input field', async () => {
+    render(<Login />)
+
+    fireEvent.change(screen.getByPlaceholderText('Username or Email'), {
+        target: { value: 'MyUsername' },
+    })
+    fireEvent.change(screen.getByPlaceholderText('Password'), {
+        target: { value: '12345678' },
+    })
+    expect(screen.queryByLabelText("errorMessage")).toBeNull();
+
+    act(() => {
+        fireEvent.click(screen.getByRole('button', { name: "Login" }), {
+            target: { value: 'true' },
+        })
+    });
+    expect(screen.queryByLabelText("errorMessage")).toBeNull();
+
+})
