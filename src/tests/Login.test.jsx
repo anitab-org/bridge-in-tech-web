@@ -109,23 +109,26 @@ it('handles wrong credentials', async () => {
   })
 
 it('Checking if the fields are empty', async () => {
-    render(<Login />)
+    const{getByTestId} = render(<Login />)
 
-    fireEvent.change(screen.getByPlaceholderText('Username or Email'), {
+    fireEvent.change(screen.getByTestId("usernameid"), {
         target: { value: "" },
     })
-    expect(screen.queryByLabelText("errorMessage")).toBeRequired("");
-    fireEvent.change(screen.getByPlaceholderText('Password'), {
+    
+    fireEvent.change(screen.getByTestId("passwordid"), {
         target: { value: "" },
     })
-    expect(screen.queryByLabelText("errorMessage")).toBeRequired("");
 
+    expect(getByTestId("usernameid")).toBeRequired("");
+    expect(getByTestId("passwordid")).toBeRequired("");
+    
     act(() => {
         fireEvent.click(screen.getByRole('button', { name: "Login" }), {
             target: { value: 'true' },
         })
     });
-    expect(screen.queryByLabelText("errorMessage")).toHaveTextContent("Please fill in the field");
+    
+    expect(screen.queryByLabelText('errorMessage')).toHaveTextContent("Please fill in the field");
 
     screen.debug();
 
