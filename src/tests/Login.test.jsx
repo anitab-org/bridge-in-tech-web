@@ -108,22 +108,25 @@ it('handles wrong credentials', async () => {
     expect(screen.getByLabelText('errorMessage')).toHaveTextContent("The server is currently unavailable. Try again later")
   })
 
-it('input field', async () => {
+it('Checking if the fields are empty', async () => {
     render(<Login />)
 
     fireEvent.change(screen.getByPlaceholderText('Username or Email'), {
-        target: { value: 'MyUsername' },
+        target: { value: "" },
     })
+    expect(screen.queryByLabelText("errorMessage")).toBeRequired("");
     fireEvent.change(screen.getByPlaceholderText('Password'), {
-        target: { value: '12345678' },
+        target: { value: "" },
     })
-    expect(screen.queryByLabelText("errorMessage")).toBeNull();
+    expect(screen.queryByLabelText("errorMessage")).toBeRequired("");
 
     act(() => {
         fireEvent.click(screen.getByRole('button', { name: "Login" }), {
             target: { value: 'true' },
         })
     });
-    expect(screen.queryByLabelText("errorMessage")).toBeNull();
+    expect(screen.queryByLabelText("errorMessage")).toHaveTextContent("Please fill in the field");
+
+    screen.debug();
 
 })
