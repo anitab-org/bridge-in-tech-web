@@ -118,8 +118,8 @@ it('Checking if the fields are empty', async () => {
     
     act(() => {
 
-        expect(getByLabelText("Username or Email:", {selector: "input"})).toHaveValue("");
-        expect(getByLabelText("Password :", {selector: "input"})).toHaveValue("");
+        expect(getByLabelText("Username or Email:", {selector: "input"})).toBeRequired();
+        expect(getByLabelText("Password :", {selector: "input"})).toBeRequired();
     });
     
     act(() => {
