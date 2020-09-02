@@ -65,3 +65,35 @@ it('allows the user to register successfully', async () => {
     expect(screen.getByLabelText('response')).toHaveTextContent("User was created successfully. A confirmation email has been sent via email. After confirming your email you can login.")
     
 })
+it('Check empty field warning', async () => {
+        
+        render(<Register />)
+   
+    
+     fireEvent.change(screen.getByPlaceholderText('Full Name',{selector :'input'} ), {
+            target: { value: '' },
+        })
+    
+
+     fireEvent.change(screen.getByPlaceholderText('Username',{selector :'input'} ), {
+            target: { value: '' },
+        })
+ 
+     fireEvent.change(screen.getByPlaceholderText('Email',{selector :'input'} ), {
+           target: { value: '' },
+         })
+     
+     fireEvent.change(screen.getByPlaceholderText('Password',{selector: 'input'}), {
+          target: { value: '' },
+         }) 
+    await wait(() => {
+        expect(getByTestId('required-input')).toBeRequired()
+         });
+
+        act(() => {
+            fireEvent.click(screen.getByRole('button', { name: "Sign Up" }), {
+                target: { value: 'true' },
+            })
+        });
+        
+    })    
