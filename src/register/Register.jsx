@@ -69,7 +69,8 @@ export default function Register() {
                         <form-group controlId="formName">
                             <p className="input-control">
                                 <label htmlFor="name">Name :</label>
-                                <input className="field"
+                                <input data-testid="required-input"
+                                    className="field"
                                     type="text"
                                     name="name"
                                     placeholder="Full Name"
@@ -88,7 +89,8 @@ export default function Register() {
                         <form-group controlId="formUserame">
                             <p className="input-control">
                                 <label htmlFor="username">Username :</label>
-                                <input className="field"
+                                <input data-testid="required-input"
+                                    className="field"
                                     type="text"
                                     name="username"
                                     placeholder="Username"
@@ -107,7 +109,8 @@ export default function Register() {
                         <form-group controlId="formEmail">
                             <p className="input-control">
                                 <label htmlFor="email">Email :</label>
-                                <input className="field"
+                                <input data-testid="required-input"
+                                    className="field"
                                     type="email"
                                     name="email"
                                     placeholder="Email"
@@ -124,7 +127,8 @@ export default function Register() {
                         <form-group controlId="formPassword">
                             <p className="input-control">
                                 <label htmlFor="password">Password :</label>
-                                <input className="field"
+                                <input data-testid="required-input"
+                                    className="field"
                                     type="password"
                                     name="password"
                                     placeholder="Password"
