@@ -65,7 +65,7 @@ export default function Login() {
                         <div><br></br></div>
                         <form-group controlId="formPassword">
                             <p className="input-control">
-                                <label id="password">Password :</label>
+                                <label id="Password">Password :</label>
                                 <input className="field"
                                     type="Password"
                                     aria-labelledby="Password"
