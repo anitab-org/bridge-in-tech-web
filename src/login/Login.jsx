@@ -52,7 +52,7 @@ export default function Login() {
                         <form-group controlId="formUserame">
                             <p className="input-control">
                                 <label id="Username">Username or Email:</label>
-                                <input className="field" data-testid="usernameid"
+                                <input className="field"
                                     type="text"
                                     aria-labelledby="Username"
                                     name="username"
@@ -66,7 +66,7 @@ export default function Login() {
                         <form-group controlId="formPassword">
                             <p className="input-control">
                                 <label id="password">Password :</label>
-                                <input className="field" data-testid="passwordid"
+                                <input className="field"
                                     type="password"
                                     aria-labelledby="Password"
                                     name="password"
