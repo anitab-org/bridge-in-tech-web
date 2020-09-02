@@ -115,17 +115,15 @@ it('Checking if the fields are empty', async () => {
     fireEvent.change(screen.getByLabelText("Username or Email:", {selector: "input"}), {target: { value: "" }})
     
     fireEvent.change(screen.getByLabelText("Password :", {selector: "input"}), {target: { value: "" }})
-    
-    act(() => {
 
-        expect(getByLabelText("Username or Email:", {selector: "input"})).toBeRequired();
-        expect(getByLabelText("Password :", {selector: "input"})).toBeRequired();
-    });
-    
     act(() => {
         fireEvent.click(screen.getByRole('button', { name: "Login" }), {
             target: { value: 'true' },
         })
     });
+    
+    expect(getByLabelText("Username or Email:", {selector: "input"})).toBeRequired();
+    
+    expect(getByLabelText("Password :", {selector: "input"})).toBeRequired();
 
 })
