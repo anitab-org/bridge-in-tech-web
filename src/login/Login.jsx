@@ -67,7 +67,7 @@ export default function Login() {
                             <p className="input-control">
                                 <label id="Password">Password :</label>
                                 <input className="field"
-                                    type="Password"
+                                    type="password"
                                     aria-labelledby="Password"
                                     name="password"
                                     placeholder="Password"
