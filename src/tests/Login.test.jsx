@@ -107,7 +107,7 @@ it('handles wrong credentials', async () => {
     expect(screen.getByLabelText('errorMessage')).toHaveTextContent("The server is currently unavailable. Try again later")
   })
 
-it('Checks if the fields are empty', async () => {
+it('checks if the fields are empty', async () => {
 
     const{getByLabelText} = render(<Login />)
 
