@@ -69,7 +69,7 @@ export default function Register() {
                         <form-group controlId="formName">
                             <p className="input-control">
                                 <label id="Name">Name :</label>
-                                <input 
+                                <input aria-labelledby="Name"
                                     className="field"
                                     type="text"
                                     name="name"
@@ -89,7 +89,7 @@ export default function Register() {
                         <form-group controlId="formUserame">
                             <p className="input-control">
                                 <label Id="Username">Username :</label>
-                                <input 
+                                <input aria-labelledby="Username"
                                     className="field"
                                     type="text"
                                     name="username"
@@ -109,7 +109,7 @@ export default function Register() {
                         <form-group controlId="formEmail">
                             <p className="input-control">
                                 <label id="Email">Email :</label>
-                                <input 
+                                <input aria-labelledby="Email"
                                     className="field"
                                     type="email"
                                     name="email"
@@ -127,7 +127,7 @@ export default function Register() {
                         <form-group controlId="formPassword">
                             <p className="input-control">
                                 <label Id="Password">Password :</label>
-                                <input 
+                                <input aria-labelledby="Password" 
                                     className="field"
                                     type="password"
                                     name="password"
