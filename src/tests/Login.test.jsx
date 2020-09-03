@@ -9,11 +9,12 @@ import { BASE_API } from "../config";
 
 const server = setupServer(
     rest.post(`${BASE_API}/login`, (req, res, ctx) => {
-        const payload = {
+//         const payload = {
+        req.body = {
             username: "MyUsername",
             password: "12345678",
         };
-        expect(req.body).toEqual(payload)
+//         expect(req.body).toEqual(payload)
         return res(ctx.json({ 
             access_token: "fake_access_token",
             access_expiry: 1594771200
