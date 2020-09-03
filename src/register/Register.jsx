@@ -9,7 +9,9 @@ export default function Register() {
     const [isValidUsername, setIsValidUsername] = useState(true);
     const [isValidEmail, setIsValidEmail] = useState(true);
     const [isValidPassword, setIsValidPassword] = useState(true);
+    const [isValidConfirmPassword, setIsValidConfirmPassword] = useState(true);
     const [responseMessage, setResponseMessage] = useState(null);
+    const [password, setPassword] = useState("")
     
     const handleSubmit = async e => {
         e.preventDefault();
@@ -54,6 +56,10 @@ export default function Register() {
     };
     const validatePassword = e => {
         setIsValidPassword(e.target.checkValidity());
+        setPassword(e.target.value)
+    };
+    const validateConfirmPassword = e => {
+        setIsValidConfirmPassword(e.target.checkValidity() && e.target.value === password);
     };
 
     return (
@@ -136,6 +142,24 @@ export default function Register() {
                             </p>
                             {!isValidPassword && (
                                 <span className="error">Must be between 8-64 characters</span>
+                            )}
+                        </form-group>
+                        <div><br></br></div>
+                        <form-group controlId="formPassword">
+                            <p className="input-control">
+                                <label htmlFor="password">Confirm Password :</label>
+                                <input className="field"
+                                    type="password"
+                                    name="confirmPassword"
+                                    placeholder="Confirm Password"
+                                    minLength={8}
+                                    maxLength={64}
+                                    onChange={validateConfirmPassword}
+                                    required
+                                />
+                            </p>
+                            {!isValidConfirmPassword && (
+                                <span className="error">Must be same as password</span>
                             )}
                         </form-group>
                         <div><br></br></div>
