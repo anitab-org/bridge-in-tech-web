@@ -19,7 +19,7 @@ const server = setupServer(
             need_mentoring: true,
             available_to_mentor: true
         };
-//         expect(req.body).toEqual(payload)
+
         return res(ctx.json({ message: "User was created successfully. A confirmation email has been sent via email. After confirming your email you can login." }))
     })
 )
@@ -66,6 +66,7 @@ it('allows the user to register successfully', async () => {
     expect(screen.getByLabelText('response')).toHaveTextContent("User was created successfully. A confirmation email has been sent via email. After confirming your email you can login.")
     
 })
+
 it('Check empty field warning', async () => {
         
     const { getByLabelText }= render(<Register />)
@@ -98,7 +99,8 @@ it('Check empty field warning', async () => {
         expect(getByLabelText("Email :",{selector : "input"})).toBeRequired();
         expect(getByLabelText("Password :",{selector : "input"})).toBeRequired();
     }) 
-    it('Validation message warning', async () => {
+
+it('Validation message warning', async () => {
         
         const { getByLabelText }= render(<Register />)
        
