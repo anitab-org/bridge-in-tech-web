@@ -42,6 +42,9 @@ it('allows the user to register successfully', async () => {
     fireEvent.change(screen.getByPlaceholderText('Password'), {
         target: { value: '12345678' },
     })
+    fireEvent.change(screen.getByPlaceholderText('Confirm Password'), {
+        target: { value: '12345678' },
+    })
     expect(screen.getByLabelText('mentor', { name: 'available_to_mentor'}).checked).toEqual(false)
     fireEvent.click(screen.getByLabelText('mentor', { name: "available_to_mentor" }), {
         target: { value: true },

@@ -12,37 +12,41 @@ export default function Register() {
     const [isValidConfirmPassword, setIsValidConfirmPassword] = useState(true);
     const [responseMessage, setResponseMessage] = useState(null);
     const [password, setPassword] = useState("")
+    const [confirmPassword, setConfirmPassword] = useState("")
     
     const handleSubmit = async e => {
         e.preventDefault();
-        let payload = {
-            need_mentoring: false,
-            available_to_mentor: false
-          }
-          new FormData(e.target).forEach((value, key) => {
-            if (key === "terms_and_conditions_checked" || key === "need_mentoring" || key === "available_to_mentor")
-              value = (value === "true") ? true : false   
-            payload[key] = value;
-          });
-        const requestRegister = {
-            method: "POST",
-            headers: {
-                "Accept": "application/json",
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(payload)
-        };
+        if (confirmPassword === password){
+            let payload = {
+                need_mentoring: false,
+                available_to_mentor: false
+              }
+              new FormData(e.target).forEach((value, key) => {
+                if (key === "terms_and_conditions_checked" || key === "need_mentoring" || key === "available_to_mentor")
+                  value = (value === "true") ? true : false   
+                payload[key] = value;
+              });
+            delete payload.confirmPassword
+            const requestRegister = {
+                method: "POST",
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(payload)
+            };
 
-        fetch(`${BASE_API}/register`, requestRegister)
-            .then(async response => {
-                let data = await response.json();
-                if (response.status_code === 201)
-                    return setResponseMessage(data.message);
-                setResponseMessage(data.message);
-            })
-            .catch(() => {
-                setResponseMessage(SERVICE_UNAVAILABLE_ERROR);
-            });
+            fetch(`${BASE_API}/register`, requestRegister)
+                .then(async response => {
+                    let data = await response.json();
+                    if (response.status_code === 201)
+                        return setResponseMessage(data.message);
+                    setResponseMessage(data.message);
+                })
+                .catch(() => {
+                    setResponseMessage(SERVICE_UNAVAILABLE_ERROR);
+                });
+        }
     }
 
     const validateName = e => {
@@ -55,10 +59,11 @@ export default function Register() {
         setIsValidEmail(e.target.checkValidity());
     };
     const validatePassword = e => {
-        setIsValidPassword(e.target.checkValidity());
         setPassword(e.target.value)
+        setIsValidPassword(e.target.checkValidity());
     };
     const validateConfirmPassword = e => {
+        setConfirmPassword(e.target.value)
         setIsValidConfirmPassword(e.target.checkValidity() && e.target.value === password);
     };
 
