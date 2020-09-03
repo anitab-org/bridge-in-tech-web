@@ -103,7 +103,7 @@ it('Check empty field warning', async () => {
 it('Validation message warning', async () => {
         
         const { getByLabelText }= render(<Register />)
-       
+        const { getByTitle } = render(<Register />)
         
          fireEvent.change(screen.getByLabelText("Name :",{selector :"input"} ), {
                 target: { value: 'M' },
@@ -127,8 +127,18 @@ it('Validation message warning', async () => {
                     target: { value: 'true' },
                 })
             });
-            expect(getByLabelText("Name :",{selector : "input"})).toBeInValid();
-            expect(getByLabelText("Username :",{selector : "input"})).toBeInValid();
-            expect(getByLabelText("Email :",{selector : "input"})).toBeInValid();
-            expect(getByLabelText("Password :",{selector : "input"})).toBeInValid();
-        })     
+         expect(screen.getByTitle('errorname')).toHaveTextContent("Must be between 2-30 characters long. Can only contain alphabets, whitespace and dash '-'")
+            
+         await waitForElement(() => screen.getByTitle('errorusername'))
+
+         expect(screen.getByTitle('errorusername')).toHaveTextContent("Must be between 5-25 characters long. Can only contain alphabets, numbers and underscore '_'")
+            
+         await waitForElement(() => screen.getByTitle('erroremail'))
+
+         expect(screen.getByTitle('erroremail')).toHaveTextContent("Must match standard email format xxx@xxx.xxx")
+            
+         await waitForElement(() => screen.getByTitle('errorpassword'))
+
+         expect(screen.getByTitle('errorpassword')).toHaveTextContent("Must be between 8-64 characters")
+        })         
+            
