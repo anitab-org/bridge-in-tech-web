@@ -9,12 +9,10 @@ import { BASE_API } from "../config";
 
 const server = setupServer(
     rest.post(`${BASE_API}/login`, (req, res, ctx) => {
-//         const payload = {
         req.body = {
             username: "MyUsername",
             password: "12345678",
         };
-//         expect(req.body).toEqual(payload)
         return res(ctx.json({ 
             access_token: "fake_access_token",
             access_expiry: 1594771200
@@ -109,7 +107,7 @@ it('handles wrong credentials', async () => {
     expect(screen.getByLabelText('errorMessage')).toHaveTextContent("The server is currently unavailable. Try again later")
   })
 
-it('Checking if the fields are empty', async () => {
+it('Checks if the fields are empty', async () => {
 
     const{getByLabelText} = render(<Login />)
 
