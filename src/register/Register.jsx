@@ -68,8 +68,8 @@ export default function Register() {
                     <form className="register-form mx-auto" onSubmit={handleSubmit}>
                         <form-group controlId="formName">
                             <p className="input-control">
-                                <label htmlFor="name">Name :</label>
-                                <input data-testid="required-input"
+                                <label id="Name">Name :</label>
+                                <input 
                                     className="field"
                                     type="text"
                                     name="name"
@@ -88,8 +88,8 @@ export default function Register() {
                         <div><br></br></div>
                         <form-group controlId="formUserame">
                             <p className="input-control">
-                                <label htmlFor="username">Username :</label>
-                                <input data-testid="required-input"
+                                <label Id="Username">Username :</label>
+                                <input 
                                     className="field"
                                     type="text"
                                     name="username"
@@ -108,8 +108,8 @@ export default function Register() {
                         <div><br></br></div>
                         <form-group controlId="formEmail">
                             <p className="input-control">
-                                <label htmlFor="email">Email :</label>
-                                <input data-testid="required-input"
+                                <label id="Email">Email :</label>
+                                <input 
                                     className="field"
                                     type="email"
                                     name="email"
@@ -126,8 +126,8 @@ export default function Register() {
                         <div><br></br></div>
                         <form-group controlId="formPassword">
                             <p className="input-control">
-                                <label htmlFor="password">Password :</label>
-                                <input data-testid="required-input"
+                                <label Id="Password">Password :</label>
+                                <input 
                                     className="field"
                                     type="password"
                                     name="password"
