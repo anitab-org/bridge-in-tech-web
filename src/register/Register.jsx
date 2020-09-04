@@ -68,8 +68,8 @@ export default function Register() {
                     <form className="register-form mx-auto" onSubmit={handleSubmit}>
                         <form-group controlId="formName">
                             <p className="input-control">
-                                <label id="Name">Name :</label>
-                                <input aria-labelledby="Name"
+                                <label id="name">Name :</label>
+                                <input aria-labelledby="name"
                                     className="field"
                                     type="text"
                                     name="name"
@@ -82,14 +82,14 @@ export default function Register() {
                                 />
                             </p>
                          <div>{!isValidName && (
-                                <span className="error" title="errorname" aria-label="errorname" role="alert">Must be between 2-30 characters long. Can only contain alphabets, whitespace and dash '-'</span>
+                                <span className="error" title="errorName" aria-labelledby="errorName" role="alert">Must be between 2-30 characters long. Can only contain alphabets, whitespace and dash '-'</span>
                              )}</div>
                         </form-group>
                         <div><br></br></div>
                         <form-group controlId="formUserame">
                             <p className="input-control">
-                                <label Id="Username">Username :</label>
-                                <input aria-labelledby="Username"
+                                <label id="username">Username :</label>
+                                <input aria-labelledby="username"
                                     className="field"
                                     type="text"
                                     name="username"
@@ -102,14 +102,14 @@ export default function Register() {
                                 />
                             </p>
                        <div>{!isValidUsername && (
-                                <span className="error" title="errorusername" aria-label="errorusername" role="alert">Must be between 5-25 characters long. Can only contain alphabets, numbers and underscore '_'</span>
+                                <span className="error" title="errorUsername" aria-labelledby="errorUsername" role="alert">Must be between 5-25 characters long. Can only contain alphabets, numbers and underscore '_'</span>
                            )}</div>
                         </form-group>
                         <div><br></br></div>
                         <form-group controlId="formEmail">
                             <p className="input-control">
-                                <label id="Email">Email :</label>
-                                <input aria-labelledby="Email"
+                                <label id="email">Email :</label>
+                                <input aria-labelledby="email"
                                     className="field"
                                     type="email"
                                     name="email"
@@ -120,14 +120,14 @@ export default function Register() {
                                 />
                             </p>
                            <div>{!isValidEmail && (
-                                <span className="error" title="erroremail" aria-label="erroremail" role="alert">Must match standard email format xxx@xxx.xxx</span>
+                                <span className="error" title="errorEmail" aria-labelledby="errorEmail" role="alert">Must match standard email format xxx@xxx.xxx</span>
                                )}</div>
                         </form-group>
                         <div><br></br></div>
                         <form-group controlId="formPassword">
                             <p className="input-control">
-                                <label Id="Password">Password :</label>
-                                <input aria-labelledby="Password" 
+                                <label id="password">Password :</label>
+                                <input aria-labelledby="password" 
                                     className="field"
                                     type="password"
                                     name="password"
@@ -139,7 +139,7 @@ export default function Register() {
                                 />
                             </p>
                          <div>{!isValidPassword && (
-                                <span className="error" title="errorpassword" aria-label="errorpassword" role="alert">Must be between 8-64 characters</span>
+                                <span className="error" title="errorPassword" aria-labelledby="errorPassword" role="alert">Must be between 8-64 characters</span>
                              )}</div>
                         </form-group>
                         <div><br></br></div>
