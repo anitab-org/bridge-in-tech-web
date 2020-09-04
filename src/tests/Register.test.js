@@ -67,78 +67,79 @@ it('allows the user to register successfully', async () => {
     
 })
 
-it('Check empty field warning', async () => {
-        
-    const { getByLabelText }= render(<Register />)
-   
-    
-     fireEvent.change(screen.getByLabelText("Name :",{selector :"input"} ), {
-            target: { value: '' },
+it('checks empty field warning', async () => {
+
+    render(<Register />)
+
+
+    fireEvent.change(screen.getByLabelText("Name :", { selector: "input" }), {
+        target: { value: '' },
+    })
+
+
+    fireEvent.change(screen.getByLabelText("Username :", { selector: "input" }), {
+        target: { value: '' },
+    })
+
+    fireEvent.change(screen.getByLabelText("Email :", { selector: "input" }), {
+        target: { value: '' },
+    })
+
+    fireEvent.change(screen.getByLabelText("Password :", { selector: "input" }), {
+        target: { value: '' },
+    })
+
+    act(() => {
+        fireEvent.click(screen.getByRole('button', { name: "Sign Up" }), {
+            target: { value: 'true' },
         })
-    
+    });
+    expect(screen.getByLabelText("Name :", { selector: "input" })).toBeRequired();
+    expect(screen.getByLabelText("Username :", { selector: "input" })).toBeRequired();
+    expect(screen.getByLabelText("Email :", { selector: "input" })).toBeRequired();
+    expect(screen.getByLabelText("Password :", { selector: "input" })).toBeRequired();
+})
 
-     fireEvent.change(screen.getByLabelText("Username :",{selector :"input"} ), {
-            target: { value: '' },
+it('checks validation message warning', async () => {
+
+    render(<Register />)
+
+
+    fireEvent.change(screen.getByLabelText("Name :", { selector: "input" }), {
+        target: { value: 'M' },
+    })
+
+
+    fireEvent.change(screen.getByLabelText("Username :", { selector: "input" }), {
+        target: { value: 'm' },
+    })
+
+    fireEvent.change(screen.getByLabelText("Email :", { selector: "input" }), {
+        target: { value: 'mmo' },
+    })
+
+    fireEvent.change(screen.getByLabelText("Password :", { selector: "input" }), {
+        target: { value: '1' },
+    })
+
+    act(() => {
+        fireEvent.click(screen.getByRole('button', { name: "Sign Up" }), {
+            target: { value: 'true' },
         })
- 
-     fireEvent.change(screen.getByLabelText("Email :",{selector :"input"} ), {
-           target: { value: '' },
-         })
-     
-     fireEvent.change(screen.getByLabelText("Password :",{selector: "input"}), {
-          target: { value: '' },
-         }) 
-    
-        act(() => {
-            fireEvent.click(screen.getByRole('button', { name: "Sign Up" }), {
-                target: { value: 'true' },
-            })
-        });
-        expect(getByLabelText("Name :",{selector : "input"})).toBeRequired();
-        expect(getByLabelText("Username :",{selector : "input"})).toBeRequired();
-        expect(getByLabelText("Email :",{selector : "input"})).toBeRequired();
-        expect(getByLabelText("Password :",{selector : "input"})).toBeRequired();
-    }) 
+    });
+    await waitForElement(() => screen.getByTitle('errorName'))
 
-it('Validation message warning', async () => {
-        
-        const { getByLabelText }= render(<Register />)
-        const { getByTitle } = render(<Register />)
-        
-         fireEvent.change(screen.getByLabelText("Name :",{selector :"input"} ), {
-                target: { value: 'M' },
-            })
-        
-    
-         fireEvent.change(screen.getByLabelText("Username :",{selector :"input"} ), {
-                target: { value: 'M' },
-            })
-     
-         fireEvent.change(screen.getByLabelText("Email :",{selector :"input"} ), {
-               target: { value: 'MMO' },
-             })
-         
-         fireEvent.change(screen.getByLabelText("Password :",{selector: "input"}), {
-              target: { value: '1' },
-             }) 
-        
-            act(() => {
-                fireEvent.click(screen.getByRole('button', { name: "Sign Up" }), {
-                    target: { value: 'true' },
-                })
-            });
-         expect(screen.getByTitle('errorname')).toHaveTextContent("Must be between 2-30 characters long. Can only contain alphabets, whitespace and dash '-'")
-            
-         await waitForElement(() => screen.getByTitle('errorusername'))
+    expect(screen.getByTestId('errorName')).toHaveTextContent("Must be between 2-30 characters long. Can only contain alphabets, whitespace and dash '-'")
 
-         expect(screen.getByTitle('errorusername')).toHaveTextContent("Must be between 5-25 characters long. Can only contain alphabets, numbers and underscore '_'")
-            
-         await waitForElement(() => screen.getByTitle('erroremail'))
+    await waitForElement(() => screen.getByTitle('errorUsername'))
 
-         expect(screen.getByTitle('erroremail')).toHaveTextContent("Must match standard email format xxx@xxx.xxx")
-            
-         await waitForElement(() => screen.getByTitle('errorpassword'))
+    expect(screen.getByTitle('errorUsername')).toHaveTextContent("Must be between 5-25 characters long. Can only contain alphabets, numbers and underscore '_'")
 
-         expect(screen.getByTitle('errorpassword')).toHaveTextContent("Must be between 8-64 characters")
-        })         
-            
+    await waitForElement(() => screen.getByTitle('errorEmail'))
+
+    expect(screen.getByTitle('errorEmail')).toHaveTextContent("Must match standard email format xxx@xxx.xxx")
+
+    await waitForElement(() => screen.getByTestId('errorPassword'))
+
+    expect(screen.getByTestId('errorPassword')).toHaveTextContent("Must be between 8-64 characters")
+})     
