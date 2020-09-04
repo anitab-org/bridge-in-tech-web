@@ -139,7 +139,7 @@ it('checks validation message warning', async () => {
 
     expect(screen.getByTitle('errorEmail')).toHaveTextContent("Must match standard email format xxx@xxx.xxx")
 
-    await waitForElement(() => screen.getByTestId('errorPassword'))
+    await waitForElement(() => screen.getByTitle('errorPassword'))
 
-    expect(screen.getByTestId('errorPassword')).toHaveTextContent("Must be between 8-64 characters")
+    expect(screen.getByTitle('errorPassword')).toHaveTextContent("Must be between 8-64 characters")
 })     
