@@ -109,7 +109,7 @@ it('handles wrong credentials', async () => {
 
 it('checks if the fields are empty', async () => {
 
-    const{getByLabelText} = render(<Login />)
+    render(<Login />)
 
     fireEvent.change(screen.getByLabelText("Username or Email:", {selector: "input"}), {target: { value: "" }})
     
