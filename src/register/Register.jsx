@@ -24,9 +24,8 @@ export default function Register() {
               new FormData(e.target).forEach((value, key) => {
                 if (key === "terms_and_conditions_checked" || key === "need_mentoring" || key === "available_to_mentor")
                   value = (value === "true") ? true : false   
-                payload[key] = value;
+                if (key !== "confirmPassword") payload[key] = value;
               });
-            delete payload.confirmPassword
             const requestRegister = {
                 method: "POST",
                 headers: {
