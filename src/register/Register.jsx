@@ -82,7 +82,7 @@ export default function Register() {
                                 />
                             </p>
                          <div>{!isValidName && (
-                                <span className="error" title="errorName" aria-labelledby="errorName" role="alert">Must be between 2-30 characters long. Can only contain alphabets, whitespace and dash '-'</span>
+                                <span className="error" aria-labelledby="name" role="alert">Must be between 2-30 characters long. Can only contain alphabets, whitespace and dash '-'</span>
                              )}</div>
                         </form-group>
                         <div><br></br></div>
@@ -102,7 +102,7 @@ export default function Register() {
                                 />
                             </p>
                        <div>{!isValidUsername && (
-                                <span className="error" title="errorUsername" aria-labelledby="errorUsername" role="alert">Must be between 5-25 characters long. Can only contain alphabets, numbers and underscore '_'</span>
+                                <span className="error" aria-labelledby="username" role="alert">Must be between 5-25 characters long. Can only contain alphabets, numbers and underscore '_'</span>
                            )}</div>
                         </form-group>
                         <div><br></br></div>
@@ -120,7 +120,7 @@ export default function Register() {
                                 />
                             </p>
                            <div>{!isValidEmail && (
-                                <span className="error" title="errorEmail" aria-labelledby="errorEmail" role="alert">Must match standard email format xxx@xxx.xxx</span>
+                                <span className="error" aria-labelledby="email" role="alert">Must match standard email format xxx@xxx.xxx</span>
                                )}</div>
                         </form-group>
                         <div><br></br></div>
@@ -139,7 +139,7 @@ export default function Register() {
                                 />
                             </p>
                          <div>{!isValidPassword && (
-                                <span className="error" title="errorPassword" aria-labelledby="errorPassword" role="alert">Must be between 8-64 characters</span>
+                                <span className="error" aria-labelledby="password" role="alert">Must be between 8-64 characters</span>
                              )}</div>
                         </form-group>
                         <div><br></br></div>
