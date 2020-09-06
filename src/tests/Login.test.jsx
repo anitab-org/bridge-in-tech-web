@@ -107,3 +107,15 @@ it('handles wrong credentials', async () => {
     
     expect(screen.getByLabelText('errorMessage')).toHaveTextContent("The server is currently unavailable. Try again later")
   })
+
+it('handles password toggle', () => {
+    render(<Login />)
+
+    expect(screen.getByPlaceholderText('Password').type).toEqual("password")
+
+    fireEvent.click(screen.getByLabelText('Show Password', { name: "show_password_checkbox" }), {
+        target: { value: true },
+    })
+    
+    expect(screen.getByPlaceholderText('Password').type).toEqual("text")
+})
