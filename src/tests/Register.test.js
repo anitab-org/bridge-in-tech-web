@@ -106,12 +106,12 @@ it('checks validation message warning', async () => {
 
 
     fireEvent.change(screen.getByLabelText("Name :", { selector: "input" }), {
-        target: { value: 'M' },
+        target: { value: '%' },
     })
 
 
     fireEvent.change(screen.getByLabelText("Username :", { selector: "input" }), {
-        target: { value: 'm' },
+        target: { value: '&' },
     })
 
     fireEvent.change(screen.getByLabelText("Email :", { selector: "input" }), {
@@ -127,19 +127,8 @@ it('checks validation message warning', async () => {
             target: { value: 'true' },
         })
     });
-    await waitForElement(() => screen.getByTitle('errorName'))
-
-    expect(screen.getByTestId('errorName')).toHaveTextContent("Must be between 2-30 characters long. Can only contain alphabets, whitespace and dash '-'")
-
-    await waitForElement(() => screen.getByTitle('errorUsername'))
-
-    expect(screen.getByTitle('errorUsername')).toHaveTextContent("Must be between 5-25 characters long. Can only contain alphabets, numbers and underscore '_'")
-
-    await waitForElement(() => screen.getByTitle('errorEmail'))
-
-    expect(screen.getByTitle('errorEmail')).toHaveTextContent("Must match standard email format xxx@xxx.xxx")
-
-    await waitForElement(() => screen.getByTitle('errorPassword'))
-
-    expect(screen.getByTitle('errorPassword')).toHaveTextContent("Must be between 8-64 characters")
+    expect(screen.getByLabelText("Name :", { selector: "span" })).toHaveTextContent("Must be between 2-30 characters long. Can only contain alphabets, whitespace and dash '-'");
+    expect(screen.getByLabelText("Username :", { selector: "span" })).toHaveTextContent("Must be between 5-25 characters long. Can only contain alphabets, numbers and underscore '_'");
+    expect(screen.getByLabelText("Email :", { selector: "span" })).toHaveTextContent("Must match standard email format xxx@xxx.xxx");
+    expect(screen.getByLabelText("Password :", { selector: "span" })).toHaveTextContent("Must be between 8-64 characters");
 })     
