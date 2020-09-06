@@ -55,9 +55,10 @@ export default function Login() {
                     <form className="login-form mx-auto" onSubmit={handleSubmit}>
                         <form-group controlId="formUserame">
                             <p className="input-control">
-                                <label htmlFor="username">Username or Email:</label>
+                                <label id="Username">Username or Email:</label>
                                 <input className="field"
                                     type="text"
+                                    aria-labelledby="Username"
                                     name="username"
                                     placeholder="Username or Email"
                                     onChange={e => setUser(e.target.value)}
@@ -68,9 +69,10 @@ export default function Login() {
                         <div><br></br></div>
                         <form-group controlId="formPassword">
                             <p className="input-control">
-                                <label htmlFor="password">Password :</label>
+                                <label id="Password">Password :</label>
                                 <input className="field"
                                     type={isPasswordShown? "text" : "password"}
+                                    aria-labelledby="Password"
                                     name="password"
                                     placeholder="Password"
                                     required
