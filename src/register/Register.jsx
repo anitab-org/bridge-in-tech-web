@@ -81,9 +81,9 @@ export default function Register() {
                                     required
                                 />
                             </p>
-                         <div>{!isValidName && (
+                            {!isValidName && (
                                 <span className="error" aria-labelledby="name" role="alert">Must be between 2-30 characters long. Can only contain alphabets, whitespace and dash '-'</span>
-                             )}</div>
+                             )}
                         </form-group>
                         <div><br></br></div>
                         <form-group controlId="formUserame">
@@ -101,9 +101,9 @@ export default function Register() {
                                     required
                                 />
                             </p>
-                       <div>{!isValidUsername && (
+                          {!isValidUsername && (
                                 <span className="error" aria-labelledby="username" role="alert">Must be between 5-25 characters long. Can only contain alphabets, numbers and underscore '_'</span>
-                           )}</div>
+                           )}
                         </form-group>
                         <div><br></br></div>
                         <form-group controlId="formEmail">
@@ -119,9 +119,9 @@ export default function Register() {
                                     required
                                 />
                             </p>
-                           <div>{!isValidEmail && (
+                             {!isValidEmail && (
                                 <span className="error" aria-labelledby="email" role="alert">Must match standard email format xxx@xxx.xxx</span>
-                               )}</div>
+                               )}
                         </form-group>
                         <div><br></br></div>
                         <form-group controlId="formPassword">
@@ -138,9 +138,9 @@ export default function Register() {
                                     required
                                 />
                             </p>
-                         <div>{!isValidPassword && (
+                           {!isValidPassword && (
                                 <span className="error" aria-labelledby="password" role="alert">Must be between 8-64 characters</span>
-                             )}</div>
+                             )}
                         </form-group>
                         <div><br></br></div>
                         <div><br></br></div>
