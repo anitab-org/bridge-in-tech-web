@@ -43,6 +43,9 @@ it('allows the user to register successfully', async () => {
     fireEvent.change(screen.getByPlaceholderText('Password'), {
         target: { value: '12345678' },
     })
+    fireEvent.change(screen.getByPlaceholderText('Confirm Password'), {
+        target: { value: '12345678' },
+    })
     expect(screen.getByLabelText('mentor', { name: 'available_to_mentor'}).checked).toEqual(false)
     fireEvent.click(screen.getByLabelText('mentor', { name: "available_to_mentor" }), {
         target: { value: true },
@@ -66,6 +69,7 @@ it('allows the user to register successfully', async () => {
     expect(screen.getByLabelText('response')).toHaveTextContent("User was created successfully. A confirmation email has been sent via email. After confirming your email you can login.")
     
 })
+
 
 it('checks empty field warning', async () => {
 

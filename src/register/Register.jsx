@@ -9,38 +9,43 @@ export default function Register() {
     const [isValidUsername, setIsValidUsername] = useState(true);
     const [isValidEmail, setIsValidEmail] = useState(true);
     const [isValidPassword, setIsValidPassword] = useState(true);
+    const [isValidConfirmPassword, setIsValidConfirmPassword] = useState(true);
     const [responseMessage, setResponseMessage] = useState(null);
+    const [password, setPassword] = useState("")
+    const [confirmPassword, setConfirmPassword] = useState("")
     
     const handleSubmit = async e => {
         e.preventDefault();
-        let payload = {
-            need_mentoring: false,
-            available_to_mentor: false
-          }
-          new FormData(e.target).forEach((value, key) => {
-            if (key === "terms_and_conditions_checked" || key === "need_mentoring" || key === "available_to_mentor")
-              value = (value === "true") ? true : false   
-            payload[key] = value;
-          });
-        const requestRegister = {
-            method: "POST",
-            headers: {
-                "Accept": "application/json",
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(payload)
-        };
+        if (confirmPassword === password){
+            let payload = {
+                need_mentoring: false,
+                available_to_mentor: false
+              }
+              new FormData(e.target).forEach((value, key) => {
+                if (key === "terms_and_conditions_checked" || key === "need_mentoring" || key === "available_to_mentor")
+                  value = (value === "true") ? true : false   
+                if (key !== "confirmPassword") payload[key] = value;
+              });
+            const requestRegister = {
+                method: "POST",
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(payload)
+            };
 
-        fetch(`${BASE_API}/register`, requestRegister)
-            .then(async response => {
-                let data = await response.json();
-                if (response.status_code === 201)
-                    return setResponseMessage(data.message);
-                setResponseMessage(data.message);
-            })
-            .catch(() => {
-                setResponseMessage(SERVICE_UNAVAILABLE_ERROR);
-            });
+            fetch(`${BASE_API}/register`, requestRegister)
+                .then(async response => {
+                    let data = await response.json();
+                    if (response.status_code === 201)
+                        return setResponseMessage(data.message);
+                    setResponseMessage(data.message);
+                })
+                .catch(() => {
+                    setResponseMessage(SERVICE_UNAVAILABLE_ERROR);
+                });
+        }
     }
 
     const validateName = e => {
@@ -53,7 +58,12 @@ export default function Register() {
         setIsValidEmail(e.target.checkValidity());
     };
     const validatePassword = e => {
+        setPassword(e.target.value)
         setIsValidPassword(e.target.checkValidity());
+    };
+    const validateConfirmPassword = e => {
+        setConfirmPassword(e.target.value)
+        setIsValidConfirmPassword(e.target.checkValidity() && e.target.value === password);
     };
 
     return (
@@ -141,6 +151,24 @@ export default function Register() {
                            {!isValidPassword && (
                                 <span className="error" aria-labelledby="password" role="alert">Must be between 8-64 characters</span>
                              )}
+                        </form-group>
+                        <div><br></br></div>
+                        <form-group controlId="formPassword">
+                            <p className="input-control">
+                                <label htmlFor="password">Confirm Password :</label>
+                                <input className="field"
+                                    type="password"
+                                    name="confirmPassword"
+                                    placeholder="Confirm Password"
+                                    minLength={8}
+                                    maxLength={64}
+                                    onChange={validateConfirmPassword}
+                                    required
+                                />
+                            </p>
+                            {!isValidConfirmPassword && (
+                                <span className="error">Must be same as password</span>
+                            )}
                         </form-group>
                         <div><br></br></div>
                         <div><br></br></div>
