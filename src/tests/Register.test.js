@@ -130,6 +130,10 @@ it('checks empty field warning', async () => {
     fireEvent.change(screen.getByLabelText("Password :", { selector: "input" }), {
         target: { value: '' },
     })
+    
+    fireEvent.change(screen.getByLabelText("Confirm Password :", { selector: "input" }), {
+        target: { value: '' },
+    })
 
     act(() => {
         fireEvent.click(screen.getByRole('button', { name: "Sign Up" }), {
@@ -140,6 +144,7 @@ it('checks empty field warning', async () => {
     expect(screen.getByLabelText("Username :", { selector: "input" })).toBeRequired();
     expect(screen.getByLabelText("Email :", { selector: "input" })).toBeRequired();
     expect(screen.getByLabelText("Password :", { selector: "input" })).toBeRequired();
+    expect(screen.getByLabelText("Confirm Password :", { selector: "input" })).toBeRequired();
 })
 
 it('checks validation message warning', async () => {
@@ -161,7 +166,11 @@ it('checks validation message warning', async () => {
     })
 
     fireEvent.change(screen.getByLabelText("Password :", { selector: "input" }), {
-        target: { value: '1' },
+        target: { value: '' },
+    })
+    
+     fireEvent.change(screen.getByLabelText("Confirm Password :", { selector: "input" }), {
+        target: { value: '' },
     })
 
     act(() => {
@@ -169,8 +178,9 @@ it('checks validation message warning', async () => {
             target: { value: 'true' },
         })
     });
-    expect(screen.getByLabelText("Name :", { selector: "span" })).toHaveTextContent("Must be between 2-30 characters long. Can only contain alphabets, whitespace and dash '-'");
-    expect(screen.getByLabelText("Username :", { selector: "span" })).toHaveTextContent("Must be between 5-25 characters long. Can only contain alphabets, numbers and underscore '_'");
-    expect(screen.getByLabelText("Email :", { selector: "span" })).toHaveTextContent("Must match standard email format xxx@xxx.xxx");
-    expect(screen.getByLabelText("Password :", { selector: "span" })).toHaveTextContent("Must be between 8-64 characters");
+    expect(screen.getByLabelText("Name :", { selector: "input" })).toBeInvalid();
+    expect(screen.getByLabelText("Username :", { selector: "input" })).toBeInvalid();
+    expect(screen.getByLabelText("Email :", { selector: "input" })).toBeInvalid();
+    expect(screen.getByLabelText("Password :", { selector: "input" })).toBeInvalid();
+    expect(screen.getByLabelText("Confirm Password :", { selector: "input" })).toBeInvalid();
 })     
