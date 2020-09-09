@@ -92,7 +92,7 @@ export default function Register() {
                                 />
                             </p>
                             {!isValidName && (
-                                <span className="error" aria-labelledby="name" role="alert">Must be between 2-30 characters long. Can only contain alphabets, whitespace and dash '-'</span>
+                                <span className="error">Must be between 2-30 characters long. Can only contain alphabets, whitespace and dash '-'</span>
                              )}
                         </form-group>
                         <div><br></br></div>
@@ -112,7 +112,7 @@ export default function Register() {
                                 />
                             </p>
                           {!isValidUsername && (
-                                <span className="error" aria-labelledby="username" role="alert">Must be between 5-25 characters long. Can only contain alphabets, numbers and underscore '_'</span>
+                                <span className="error">Must be between 5-25 characters long. Can only contain alphabets, numbers and underscore '_'</span>
                            )}
                         </form-group>
                         <div><br></br></div>
@@ -130,7 +130,7 @@ export default function Register() {
                                 />
                             </p>
                              {!isValidEmail && (
-                                <span className="error" aria-labelledby="email" role="alert">Must match standard email format xxx@xxx.xxx</span>
+                                <span className="error">Must match standard email format xxx@xxx.xxx</span>
                                )}
                         </form-group>
                         <div><br></br></div>
@@ -149,14 +149,15 @@ export default function Register() {
                                 />
                             </p>
                            {!isValidPassword && (
-                                <span className="error" aria-labelledby="password" role="alert">Must be between 8-64 characters</span>
+                                <span className="error">Must be between 8-64 characters</span>
                              )}
                         </form-group>
                         <div><br></br></div>
                         <form-group controlId="formPassword">
                             <p className="input-control">
-                                <label htmlFor="password">Confirm Password :</label>
-                                <input className="field"
+                                <label id="confirmpassword">Confirm Password :</label>
+                                <input aria-labelledby="confirmpassword"
+                                    className="field"
                                     type="password"
                                     name="confirmPassword"
                                     placeholder="Confirm Password"
