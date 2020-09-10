@@ -124,5 +124,17 @@ it('checks if the fields are empty', async () => {
     expect(screen.getByLabelText("Username or Email:", {selector: "input"})).toBeRequired();
     
     expect(screen.getByLabelText("Password :", {selector: "input"})).toBeRequired();
+})
 
+
+it('handles password toggle', () => {
+    render(<Login />)
+
+    expect(screen.getByPlaceholderText('Password').type).toEqual("password")
+
+    fireEvent.click(screen.getByLabelText('Show Password', { name: "show_password_checkbox" }), {
+        target: { value: true },
+    })
+    
+    expect(screen.getByPlaceholderText('Password').type).toEqual("text")
 })

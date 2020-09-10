@@ -9,6 +9,7 @@ export default function Login() {
     const [errorMessage, setErrorMessage] = useState(null);
     const {isAuth,login} = useContext(AuthContext);
     const [user, setUser] = useState(null);
+    const [isPasswordShown, setIsPasswordShown] = useState(false)
     
     const handleSubmit = async e => {
         e.preventDefault();
@@ -36,6 +37,9 @@ export default function Login() {
             .catch(() => setErrorMessage(SERVICE_UNAVAILABLE_ERROR));
     }
 
+    const handleTogglePasswordDisplay = e => {
+        setIsPasswordShown(e.target.checked)
+    }
 
     return isAuth ?
         <Redirect to="/" />
@@ -67,13 +71,17 @@ export default function Login() {
                             <p className="input-control">
                                 <label id="Password">Password :</label>
                                 <input className="field"
-                                    type="password"
+                                    type={isPasswordShown? "text" : "password"}
                                     aria-labelledby="Password"
                                     name="password"
                                     placeholder="Password"
                                     required
                                 />
                             </p>
+                        </form-group>
+                        <form-group>
+                            <input type="checkbox" className="my-2" name="show_password_checkbox" id="showPassword" onClick={handleTogglePasswordDisplay}/>
+                            <label className="ml-2 my-2" htmlFor="showPassword">Show Password</label>
                         </form-group>
                         <div><br></br></div>
                         <div>
