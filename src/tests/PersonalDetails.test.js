@@ -4,13 +4,13 @@ import {setupServer} from 'msw/node';
 import {render, screen, wait, fireEvent} from '@testing-library/react';
 import '@testing-library/jest-dom';
 import {BASE_API} from "../config";
+import { act } from 'react-dom/test-utils';
 import PersonalDetails from "../myspace/PersonalDetails";
 import {AuthContext} from "../AuthContext";
 
 
 const server = setupServer(
   rest.get(`${BASE_API}/user/personal_details`, (req, res, ctx) => {
-    expect(req.headers.get("Authorization")).toEqual("Bearer test_access_token");
     return res(ctx.json({
       "id": 1,
       "name": "XYZ",
@@ -65,6 +65,7 @@ it('should display personal details returned from get call', async () => {
     expect(screen.getByLabelText("Resume Url :", {selector: "input"})).toBeEmpty();
   });
 });
+
 it('should send modified fields in payload to update', async () => {
   server.use(
     rest.put(`${BASE_API}/user/personal_details`, (req, res, ctx) => {
@@ -95,3 +96,60 @@ it('should send modified fields in payload to update', async () => {
     fireEvent.click(screen.getByRole("button", {name: "Save"}), {target: {value: true}})
   });
 });
+
+it('checks empty field warning', async () => {
+
+  render(<PersonalDetails />)
+
+
+  fireEvent.change(screen.getByLabelText("Name :", { selector: "input" }), {
+    target: { value: '' },
+  })
+
+
+  fireEvent.change(screen.getByLabelText("Username :", { selector: "input" }), {
+    target: { value: '' },
+  })
+
+  
+  act(() => {
+    fireEvent.click(screen.getByRole('button', { name: "Save" }), {
+      target: { value: 'true' },
+    })
+  });
+  
+  await wait(() => {
+    expect(screen.getByLabelText("Name :", { selector: "input" })).toBeRequired();
+    expect(screen.getByLabelText("Username :", { selector: "input" })).toBeRequired();
+  });
+
+})
+
+it('checks validation message warning', async () => {
+
+  render(<PersonalDetails />)
+
+
+  fireEvent.change(screen.getByLabelText("Name :", { selector: "input" }), {
+    target: { value: '%' },
+  })
+
+
+  fireEvent.change(screen.getByLabelText("Username :", { selector: "input" }), {
+    target: { value: '&' },
+  })
+
+
+
+  act(() => {
+    fireEvent.click(screen.getByRole('button', { name: "Save" }), {
+      target: { value: 'true' },
+    })
+  });
+  
+  await wait(() => {
+    expect(screen.getByLabelText("Name :", { selector: "input" })).toBeInvalid();
+    expect(screen.getByLabelText("Username :", { selector: "input" })).toBeInvalid();
+  });
+
+})
