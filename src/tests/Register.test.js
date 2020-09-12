@@ -142,11 +142,11 @@ it('checks empty field warning', async () => {
     });
     
     await wait(() => {
-    expect(screen.getByLabelText("Name :", { selector: "input" })).toBeRequired();
-    expect(screen.getByLabelText("Username :", { selector: "input" })).toBeRequired();
-    expect(screen.getByLabelText("Email :", { selector: "input" })).toBeRequired();
-    expect(screen.getByLabelText("Password :", { selector: "input" })).toBeRequired();
-    expect(screen.getByLabelText("Confirm Password :", { selector: "input" })).toBeRequired();
+       expect(screen.getByLabelText("Name :", { selector: "input" })).toBeRequired();
+       expect(screen.getByLabelText("Username :", { selector: "input" })).toBeRequired();
+       expect(screen.getByLabelText("Email :", { selector: "input" })).toBeRequired();
+       expect(screen.getByLabelText("Password :", { selector: "input" })).toBeRequired();
+       expect(screen.getByLabelText("Confirm Password :", { selector: "input" })).toBeRequired();
     });    
 })
 
@@ -183,10 +183,10 @@ it('checks validation message warning', async () => {
     });
     
     await wait(() => {
-    expect(screen.getByLabelText("Name :", { selector: "input" })).toBeInvalid();
-    expect(screen.getByLabelText("Username :", { selector: "input" })).toBeInvalid();
-    expect(screen.getByLabelText("Email :", { selector: "input" })).toBeInvalid();
-    expect(screen.getByLabelText("Password :", { selector: "input" })).toBeInvalid();
-    expect(screen.getByLabelText("Confirm Password :", { selector: "input" })).toBeInvalid();
+       expect(screen.getByLabelText("Name :", { selector: "input" })).toBeInvalid();
+       expect(screen.getByLabelText("Username :", { selector: "input" })).toBeInvalid();
+       expect(screen.getByLabelText("Email :", { selector: "input" })).toBeInvalid();
+       expect(screen.getByLabelText("Password :", { selector: "input" })).toBeInvalid();
+       expect(screen.getByLabelText("Confirm Password :", { selector: "input" })).toBeInvalid();
     });    
 })     
