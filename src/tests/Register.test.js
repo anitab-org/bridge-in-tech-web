@@ -110,38 +110,35 @@ it('blocks the user to register without password confirmation', async () => {
 })
 
 it('checks empty field warning', async () => {
+   render(<Register />)
 
-    render(<Register />)
-
-
-    fireEvent.change(screen.getByLabelText("Name :", { selector: "input" }), {
+   fireEvent.change(screen.getByLabelText("Name :", { selector: "input" }), {
         target: { value: '' },
     })
 
-
-    fireEvent.change(screen.getByLabelText("Username :", { selector: "input" }), {
+   fireEvent.change(screen.getByLabelText("Username :", { selector: "input" }), {
         target: { value: '' },
     })
 
-    fireEvent.change(screen.getByLabelText("Email :", { selector: "input" }), {
+   fireEvent.change(screen.getByLabelText("Email :", { selector: "input" }), {
         target: { value: '' },
     })
 
-    fireEvent.change(screen.getByLabelText("Password :", { selector: "input" }), {
+   fireEvent.change(screen.getByLabelText("Password :", { selector: "input" }), {
         target: { value: '' },
     })
     
-    fireEvent.change(screen.getByLabelText("Confirm Password :", { selector: "input" }), {
+   fireEvent.change(screen.getByLabelText("Confirm Password :", { selector: "input" }), {
         target: { value: '' },
     })
 
-    act(() => {
+   act(() => {
         fireEvent.click(screen.getByRole('button', { name: "Sign Up" }), {
             target: { value: 'true' },
         })
     });
     
-    await wait(() => {
+   await wait(() => {
        expect(screen.getByLabelText("Name :", { selector: "input" })).toBeRequired();
        expect(screen.getByLabelText("Username :", { selector: "input" })).toBeRequired();
        expect(screen.getByLabelText("Email :", { selector: "input" })).toBeRequired();
@@ -151,38 +148,35 @@ it('checks empty field warning', async () => {
 })
 
 it('checks validation message warning', async () => {
+   render(<Register />)
 
-    render(<Register />)
-
-
-    fireEvent.change(screen.getByLabelText("Name :", { selector: "input" }), {
+   fireEvent.change(screen.getByLabelText("Name :", { selector: "input" }), {
         target: { value: '%' },
     })
 
-
-    fireEvent.change(screen.getByLabelText("Username :", { selector: "input" }), {
+   fireEvent.change(screen.getByLabelText("Username :", { selector: "input" }), {
         target: { value: '&' },
     })
 
-    fireEvent.change(screen.getByLabelText("Email :", { selector: "input" }), {
+   fireEvent.change(screen.getByLabelText("Email :", { selector: "input" }), {
         target: { value: 'mmo' },
     })
 
-    fireEvent.change(screen.getByLabelText("Password :", { selector: "input" }), {
+   fireEvent.change(screen.getByLabelText("Password :", { selector: "input" }), {
         target: { value: '' },
     })
     
-     fireEvent.change(screen.getByLabelText("Confirm Password :", { selector: "input" }), {
+   fireEvent.change(screen.getByLabelText("Confirm Password :", { selector: "input" }), {
         target: { value: '' },
     })
 
-    act(() => {
+   act(() => {
         fireEvent.click(screen.getByRole('button', { name: "Sign Up" }), {
             target: { value: 'true' },
         })
     });
     
-    await wait(() => {
+   await wait(() => {
        expect(screen.getByLabelText("Name :", { selector: "input" })).toBeInvalid();
        expect(screen.getByLabelText("Username :", { selector: "input" })).toBeInvalid();
        expect(screen.getByLabelText("Email :", { selector: "input" })).toBeInvalid();
