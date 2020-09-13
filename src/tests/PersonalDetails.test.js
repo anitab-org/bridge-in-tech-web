@@ -98,19 +98,15 @@ it('should send modified fields in payload to update', async () => {
 });
 
 it('checks empty field warning', async () => {
-
-  render(<PersonalDetails />)
-
+   render(<PersonalDetails />)
 
   fireEvent.change(screen.getByLabelText("Name :", { selector: "input" }), {
     target: { value: '' },
   })
 
-
   fireEvent.change(screen.getByLabelText("Username :", { selector: "input" }), {
     target: { value: '' },
   })
-
   
   act(() => {
     fireEvent.click(screen.getByRole('button', { name: "Save" }), {
@@ -122,24 +118,18 @@ it('checks empty field warning', async () => {
     expect(screen.getByLabelText("Name :", { selector: "input" })).toBeRequired();
     expect(screen.getByLabelText("Username :", { selector: "input" })).toBeRequired();
   });
-
 })
 
 it('checks validation message warning', async () => {
-
   render(<PersonalDetails />)
-
 
   fireEvent.change(screen.getByLabelText("Name :", { selector: "input" }), {
     target: { value: '%' },
   })
 
-
   fireEvent.change(screen.getByLabelText("Username :", { selector: "input" }), {
     target: { value: '&' },
   })
-
-
 
   act(() => {
     fireEvent.click(screen.getByRole('button', { name: "Save" }), {
@@ -151,5 +141,4 @@ it('checks validation message warning', async () => {
     expect(screen.getByLabelText("Name :", { selector: "input" })).toBeInvalid();
     expect(screen.getByLabelText("Username :", { selector: "input" })).toBeInvalid();
   });
-
 })
