@@ -162,8 +162,8 @@ export default function Register() {
                         <form-group controlId="formPassword">
                             <p className="input-control">
 
-                                <label id="confirmpassword">Confirm Password :</label>
-                                <input aria-labelledby="confirmpassword"
+                                <label id="confirmPassword">Confirm Password :</label>
+                                <input aria-labelledby="confirmPassword"
                                     className="field"
                                     type={isPasswordShown? "text" : "password"}
                                     name="confirmPassword"
