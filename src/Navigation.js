@@ -32,7 +32,7 @@ export default function Navigation() {
                                     <Nav>
                                         <Nav.Link as={Link} to="/about">About</Nav.Link>
                                         <Nav.Link as={Link} to="/benefit">Benefit</Nav.Link>
-                                        <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
+                                        <Nav.Link href="https://anitab.org/contact/">Contact</Nav.Link>
                                     </Nav>
                                 </Accordion.Collapse>
                             </Card>
