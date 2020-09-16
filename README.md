@@ -1,7 +1,7 @@
 # Bridge-In-Tech (frontend)
-Bridge-In-Tech (BIT) is an application that allows industries/companies, mentors and students to actively collaborate to one another. 
+Bridge-In-Tech (BIT) is an application that allows industries/companies, mentors, and students to actively collaborate with one another. 
 
-This is the frontend client of Bridge-In-Tech which is a Reactjs web application that consumes [BridgeInTech backend](https://github.com/anitab-org/bridge-in-tech-backend) REST API server. BIT backend server also consumes Mentorship System (MS) backend server for some of its functionalities. Both BIT and MS backend servers are connected to a single postgresql database.
+This is the frontend client of Bridge-In-Tech which is a Reactjs web application that consumes the [BridgeInTech backend](https://github.com/anitab-org/bridge-in-tech-backend) REST API server. BIT backend server also consumes the Mentorship System (MS) backend server for some of its functionalities. Both BIT and MS backend servers are connected to a single PostgreSQL database.
 
 ## Contributing
 
@@ -12,15 +12,15 @@ This is the frontend client of Bridge-In-Tech which is a Reactjs web application
 Please read our [Contributing Guidelines](.github/CONTRIBUTING.md), [Code of Conduct](.github/CODE_OF_CONDUCT.md) and [Reporting Guidelines](.github/REPORTING_GUIDELINES.md) thoroughly.
 
 ## Setup
-To start contributing to the project, setup the frontend environment on your local machine. As the BIT web application consumes BridgeInTech backend REST API which connects to Mentorship System (MS) backend REST API, the two backend servers (BIT and MS) need to be run for BIT web application to work properly. 
+To start contributing to the project, set up the frontend environment on your local machine. As the BIT web application consumes BridgeInTech backend REST API which connects to Mentorship System (MS) backend REST API, the two backend servers (BIT and MS) need to be run for the BIT web application to work properly. 
 
-Contributors have the option to run a local BIT frontend server that connects to BIT and MS backend servers that are also run locally. Another option is to connect to the remote BIT backend on Heroku server which already connects to the remote MS backend Heroku server that already modified to support BIT development (from this point onward will be called MS-for-BIT). Follow the instructions below to setup the development environment:
+Contributors have the option to run a local BIT frontend server that connects to BIT and MS backend servers that are also run locally. Another option is to connect to the remote BIT backend on the Heroku server which already connects to the remote MS backend Heroku server that already modified to support BIT development (from this point onward will be called MS-for-BIT). Follow the instructions below to set up the development environment:
 
 
 ### Option 1: with BIT and MS backend servers also run locally 
-1. **IMPORTANT!!! You must setup BIT backend server and postgresql database first before setting up the MS-for-BIT server on the next step**.
-To do this, follow the instruction [here](https://github.com/anitab-org/bridge-in-tech-backend/wiki/BIT-development-environment-setup). Once done, you can proceed to the step 2 below. 
-2. Setup MS-for-BIT server by following the setup instruction for Mentorship Backend [here](https://github.com/anitab-org/mentorship-backend) but using the code base from Maya Treacy's fork repository [ms-backend-server](https://github.com/mtreacy002/mentorship-backend/tree/ms-backend-server) branch. 
+1. **IMPORTANT!!! You must setup the BIT backend server and postgresql database first before setting up the MS-for-BIT server on the next step**.
+To do this, follow the instruction [here](https://github.com/anitab-org/bridge-in-tech-backend/wiki/BIT-development-environment-setup). Once done, you can proceed to step 2 below. 
+2. Setup MS-for-BIT server by following the setup instruction for Mentorship Backend [here](https://github.com/anitab-org/mentorship-backend) but using the codebase from Maya Treacy's fork repository [ms-backend-server](https://github.com/mtreacy002/mentorship-backend/tree/ms-backend-server) branch. 
 To do this, run the following codes on the terminal after you fork and clone the MS backend repository:
 
 ```

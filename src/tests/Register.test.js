@@ -109,6 +109,20 @@ it('blocks the user to register without password confirmation', async () => {
     
 })
 
+it('handles password toggle', () => {
+    render(<Register />)
+
+    expect(screen.getByPlaceholderText('Password').type).toEqual("password")
+    expect(screen.getByPlaceholderText('Confirm Password').type).toEqual("password")
+
+    fireEvent.click(screen.getByLabelText('Show Password', { name: "show_password_checkbox" }), {
+        target: { value: true },
+    })
+
+    expect(screen.getByPlaceholderText('Password').type).toEqual("text")
+    expect(screen.getByPlaceholderText('Confirm Password').type).toEqual("text")
+})
+
 it('checks empty field warning', async () => {
    render(<Register />)
 
@@ -184,3 +198,4 @@ it('checks validation message warning', async () => {
        expect(screen.getByLabelText("Confirm Password :", { selector: "input" })).toBeInvalid();
     });    
 })     
+

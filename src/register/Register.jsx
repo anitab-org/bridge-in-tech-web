@@ -13,6 +13,7 @@ export default function Register() {
     const [responseMessage, setResponseMessage] = useState(null);
     const [password, setPassword] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("")
+    const [isPasswordShown, setIsPasswordShown] = useState(false)
     
     const handleSubmit = async e => {
         e.preventDefault();
@@ -46,6 +47,10 @@ export default function Register() {
                     setResponseMessage(SERVICE_UNAVAILABLE_ERROR);
                 });
         }
+    }
+
+    const handleTogglePasswordDisplay = e => {
+        setIsPasswordShown(e.target.checked)
     }
 
     const validateName = e => {
@@ -136,10 +141,11 @@ export default function Register() {
                         <div><br></br></div>
                         <form-group controlId="formPassword">
                             <p className="input-control">
+
                                 <label id="password">Password :</label>
                                 <input aria-labelledby="password" 
                                     className="field"
-                                    type="password"
+                                    type={isPasswordShown? "text" : "password"}
                                     name="password"
                                     placeholder="Password"
                                     minLength={8}
@@ -155,10 +161,11 @@ export default function Register() {
                         <div><br></br></div>
                         <form-group controlId="formPassword">
                             <p className="input-control">
+
                                 <label id="confirmpassword">Confirm Password :</label>
                                 <input aria-labelledby="confirmpassword"
                                     className="field"
-                                    type="password"
+                                    type={isPasswordShown? "text" : "password"}
                                     name="confirmPassword"
                                     placeholder="Confirm Password"
                                     minLength={8}
@@ -172,6 +179,10 @@ export default function Register() {
                             )}
                         </form-group>
                         <div><br></br></div>
+                        <form-group>
+                            <input type="checkbox" className="my-2" name="show_password_checkbox" id="showPassword" onClick={handleTogglePasswordDisplay}/>
+                            <label className="ml-2 my-2" htmlFor="showPassword">Show Password</label>
+                        </form-group>
                         <div><br></br></div>
                         <form-group>
                             <div className="row">
