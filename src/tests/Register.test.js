@@ -107,3 +107,17 @@ it('blocks the user to register without password confirmation', async () => {
     expect(screen.queryByLabelText("response")).not.toBeInTheDocument();
     
 })
+
+it('handles password toggle', () => {
+    render(<Register />)
+
+    expect(screen.getByPlaceholderText('Password').type).toEqual("password")
+    expect(screen.getByPlaceholderText('Confirm Password').type).toEqual("password")
+
+    fireEvent.click(screen.getByLabelText('Show Password', { name: "show_password_checkbox" }), {
+        target: { value: true },
+    })
+
+    expect(screen.getByPlaceholderText('Password').type).toEqual("text")
+    expect(screen.getByPlaceholderText('Confirm Password').type).toEqual("text")
+})
