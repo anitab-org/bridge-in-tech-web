@@ -101,7 +101,7 @@ export default function Register() {
                              )}
                         </form-group>
                         <div><br></br></div>
-                        <form-group controlId="formUserame">
+                        <form-group controlId="formUserName">
                             <p className="input-control">
                                 <label id="username">Username :</label>
                                 <input aria-labelledby="username"
