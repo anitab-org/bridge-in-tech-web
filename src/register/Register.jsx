@@ -83,8 +83,9 @@ export default function Register() {
                     <form className="register-form mx-auto" onSubmit={handleSubmit}>
                         <form-group controlId="formName">
                             <p className="input-control">
-                                <label htmlFor="name">Name :</label>
-                                <input className="field"
+                                <label id="name">Name :</label>
+                                <input aria-labelledby="name"
+                                    className="field"
                                     type="text"
                                     name="name"
                                     placeholder="Full Name"
@@ -97,13 +98,14 @@ export default function Register() {
                             </p>
                             {!isValidName && (
                                 <span className="error">Must be between 2-30 characters long. Can only contain alphabets, whitespace and dash '-'</span>
-                            )}
+                             )}
                         </form-group>
                         <div><br></br></div>
-                        <form-group controlId="formUserame">
+                        <form-group controlId="formUserName">
                             <p className="input-control">
-                                <label htmlFor="username">Username :</label>
-                                <input className="field"
+                                <label id="username">Username :</label>
+                                <input aria-labelledby="username"
+                                    className="field"
                                     type="text"
                                     name="username"
                                     placeholder="Username"
@@ -114,15 +116,16 @@ export default function Register() {
                                     required
                                 />
                             </p>
-                            {!isValidUsername && (
+                          {!isValidUsername && (
                                 <span className="error">Must be between 5-25 characters long. Can only contain alphabets, numbers and underscore '_'</span>
-                            )}
+                           )}
                         </form-group>
                         <div><br></br></div>
                         <form-group controlId="formEmail">
                             <p className="input-control">
-                                <label htmlFor="email">Email :</label>
-                                <input className="field"
+                                <label id="email">Email :</label>
+                                <input aria-labelledby="email"
+                                    className="field"
                                     type="email"
                                     name="email"
                                     placeholder="Email"
@@ -131,15 +134,17 @@ export default function Register() {
                                     required
                                 />
                             </p>
-                            {!isValidEmail && (
+                             {!isValidEmail && (
                                 <span className="error">Must match standard email format xxx@xxx.xxx</span>
-                            )}
+                               )}
                         </form-group>
                         <div><br></br></div>
                         <form-group controlId="formPassword">
                             <p className="input-control">
-                                <label htmlFor="password">Password :</label>
-                                <input className="field"
+
+                                <label id="password">Password :</label>
+                                <input aria-labelledby="password" 
+                                    className="field"
                                     type={isPasswordShown? "text" : "password"}
                                     name="password"
                                     placeholder="Password"
@@ -149,15 +154,17 @@ export default function Register() {
                                     required
                                 />
                             </p>
-                            {!isValidPassword && (
+                           {!isValidPassword && (
                                 <span className="error">Must be between 8-64 characters</span>
-                            )}
+                             )}
                         </form-group>
                         <div><br></br></div>
                         <form-group controlId="formPassword">
                             <p className="input-control">
-                                <label htmlFor="password">Confirm Password :</label>
-                                <input className="field"
+
+                                <label id="confirmPassword">Confirm Password :</label>
+                                <input aria-labelledby="confirmPassword"
+                                    className="field"
                                     type={isPasswordShown? "text" : "password"}
                                     name="confirmPassword"
                                     placeholder="Confirm Password"

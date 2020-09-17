@@ -1,15 +1,16 @@
 import React from 'react';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
-import { render, fireEvent, screen, waitForElement } from '@testing-library/react';
+import { render, fireEvent, screen, wait, waitForElement } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { act } from 'react-dom/test-utils';
 import Register from "../register/Register";
 import { BASE_API } from "../config";
 
 
 const server = setupServer(
     rest.post(`${BASE_API}/register`, (req, res, ctx) => {
-        const payload = {
+        req.body = {
             name: "My Name",
             username: "MyUsername",
             password: "12345678",
@@ -18,7 +19,7 @@ const server = setupServer(
             need_mentoring: true,
             available_to_mentor: true
         };
-        expect(req.body).toEqual(payload)
+
         return res(ctx.json({ message: "User was created successfully. A confirmation email has been sent via email. After confirming your email you can login." }))
     })
 )
@@ -121,3 +122,80 @@ it('handles password toggle', () => {
     expect(screen.getByPlaceholderText('Password').type).toEqual("text")
     expect(screen.getByPlaceholderText('Confirm Password').type).toEqual("text")
 })
+
+it('checks empty field warning', async () => {
+   render(<Register />)
+
+   fireEvent.change(screen.getByLabelText("Name :", { selector: "input" }), {
+        target: { value: '' },
+    })
+
+   fireEvent.change(screen.getByLabelText("Username :", { selector: "input" }), {
+        target: { value: '' },
+    })
+
+   fireEvent.change(screen.getByLabelText("Email :", { selector: "input" }), {
+        target: { value: '' },
+    })
+
+   fireEvent.change(screen.getByLabelText("Password :", { selector: "input" }), {
+        target: { value: '' },
+    })
+    
+   fireEvent.change(screen.getByLabelText("Confirm Password :", { selector: "input" }), {
+        target: { value: '' },
+    })
+
+   act(() => {
+        fireEvent.click(screen.getByRole('button', { name: "Sign Up" }), {
+            target: { value: 'true' },
+        })
+    });
+    
+   await wait(() => {
+       expect(screen.getByLabelText("Name :", { selector: "input" })).toBeRequired();
+       expect(screen.getByLabelText("Username :", { selector: "input" })).toBeRequired();
+       expect(screen.getByLabelText("Email :", { selector: "input" })).toBeRequired();
+       expect(screen.getByLabelText("Password :", { selector: "input" })).toBeRequired();
+       expect(screen.getByLabelText("Confirm Password :", { selector: "input" })).toBeRequired();
+    });    
+})
+
+it('checks validation message warning', async () => {
+   render(<Register />)
+
+   fireEvent.change(screen.getByLabelText("Name :", { selector: "input" }), {
+        target: { value: '%' },
+    })
+
+   fireEvent.change(screen.getByLabelText("Username :", { selector: "input" }), {
+        target: { value: '&' },
+    })
+
+   fireEvent.change(screen.getByLabelText("Email :", { selector: "input" }), {
+        target: { value: 'mmo' },
+    })
+
+   fireEvent.change(screen.getByLabelText("Password :", { selector: "input" }), {
+        target: { value: '' },
+    })
+    
+   fireEvent.change(screen.getByLabelText("Confirm Password :", { selector: "input" }), {
+        target: { value: '' },
+    })
+
+   act(() => {
+        fireEvent.click(screen.getByRole('button', { name: "Sign Up" }), {
+            target: { value: 'true' },
+        })
+    });
+    
+   await wait(() => {
+       expect(screen.getByLabelText("Name :", { selector: "input" })).toBeInvalid();
+       expect(screen.getByLabelText("Username :", { selector: "input" })).toBeInvalid();
+       expect(screen.getByLabelText("Email :", { selector: "input" })).toBeInvalid();
+       expect(screen.getByLabelText("Password :", { selector: "input" })).toBeInvalid();
+       expect(screen.getByLabelText("Confirm Password :", { selector: "input" })).toBeInvalid();
+    });    
+})     
+
