@@ -20,6 +20,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import Navigation from "./Navigation";
 import AuthProvider from "./AuthContext";
 import Programs from "./organizations/Programs";
+import Benefit from "./benefit/Benefit";
 
 
 export default function Routes() {
@@ -31,6 +32,9 @@ export default function Routes() {
         <Switch>
           <Route exact path="/" >
             <Home />
+          </Route>
+          <Route exact path="/benefit" >
+            <Benefit/>
           </Route>
           <ProtectedRoute exact path="/members">
             <Members />
