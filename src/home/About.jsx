@@ -40,7 +40,7 @@ export default function About() {
           allies.
         </p>
         <a
-          href="https://github.com/anitab-org/bridge-in-tech-web/wiki"
+          href="https://medium.com/anitab-org-open-source/bridgeintech-by-anitab-org-85745853865d?source=friends_link&sk=fcb616ef0ac7e1e85ac6b58b513a56ee"
           target="_blank"
           rel="noopener noreferrer"
         >
