@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from "./Home";
+import Home from "./Home/Home";
 import Members from "./members/Members";
 import MemberPortfolio from "./members/MemberPortfolio";
 import Member from "./members/Member";
@@ -20,6 +20,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import Navigation from "./Navigation";
 import AuthProvider from "./AuthContext";
 import Programs from "./organizations/Programs";
+import Benefit from './Home/benefit/Benefit'
 
 
 export default function Routes() {
@@ -31,6 +32,9 @@ export default function Routes() {
         <Switch>
           <Route exact path="/" >
             <Home />
+          </Route>
+          <Route exact path="/benefit" >
+            <Benefit />
           </Route>
           <ProtectedRoute exact path="/members">
             <Members />
