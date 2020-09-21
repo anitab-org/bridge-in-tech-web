@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from "./Home";
+import Home from "./home/Home";
 import Members from "./members/Members";
 import MemberPortfolio from "./members/MemberPortfolio";
 import Member from "./members/Member";
@@ -20,17 +20,19 @@ import ProtectedRoute from "./ProtectedRoute";
 import Navigation from "./Navigation";
 import AuthProvider from "./AuthContext";
 import Programs from "./organizations/Programs";
-
+import About from "./home/About";
 
 export default function Routes() {
-
   return (
     <Router>
       <AuthProvider>
         <Navigation />
         <Switch>
-          <Route exact path="/" >
+          <Route exact path="/">
             <Home />
+          </Route>
+          <Route exact path="/about">
+            <About />
           </Route>
           <ProtectedRoute exact path="/members">
             <Members />
@@ -53,35 +55,26 @@ export default function Routes() {
           <ProtectedRoute path="/organizations/programs/">
             <Program />
           </ProtectedRoute>
-          <ProtectedRoute
-            exact path="/portfolio">
+          <ProtectedRoute exact path="/portfolio">
             <Portfolio />
           </ProtectedRoute>
-          <ProtectedRoute
-            exact path="/personal-details">
+          <ProtectedRoute exact path="/personal-details">
             <PersonalDetails />
           </ProtectedRoute>
-          <ProtectedRoute
-            exact path="/additional-info">
+          <ProtectedRoute exact path="/additional-info">
             <AdditionalInfo />
           </ProtectedRoute>
-          <ProtectedRoute
-            exact path="/personal-background">
+          <ProtectedRoute exact path="/personal-background">
             <PersonalBackground />
           </ProtectedRoute>
-          <ProtectedRoute
-            exact path="/request-history">
-          </ProtectedRoute>
-          <ProtectedRoute
-            exact path="/organization-portfolio">
+          <ProtectedRoute exact path="/request-history"></ProtectedRoute>
+          <ProtectedRoute exact path="/organization-portfolio">
             <EditPrograms />
           </ProtectedRoute>
-          <ProtectedRoute
-            exact path="/organization-profile">
+          <ProtectedRoute exact path="/organization-profile">
             <EditOrganization />
           </ProtectedRoute>
-          <ProtectedRoute
-            path="/organization-programs/">
+          <ProtectedRoute path="/organization-programs/">
             <EditProgram />
           </ProtectedRoute>
           <Route path="/register">
