@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/anitab-org/bridge-in-tech-web.svg?branch=develop)](https://travis-ci.org/anitab-org/bridge-in-tech-web)
 # Bridge-In-Tech (frontend)
 Bridge-In-Tech (BIT) is an application that allows industries/companies, mentors, and students to actively collaborate with one another. 
 
