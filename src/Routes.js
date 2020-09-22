@@ -20,7 +20,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import Navigation from "./Navigation";
 import AuthProvider from "./AuthContext";
 import Programs from "./organizations/Programs";
-import Benefit from './home/benefit/Benefit'
+import Benefit from './home/Benefit'
 
 import About from "./home/About";
 
