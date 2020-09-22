@@ -21,6 +21,7 @@ import Navigation from "./Navigation";
 import AuthProvider from "./AuthContext";
 import Programs from "./organizations/Programs";
 import About from "./home/About";
+import Benefit from "./home/Benefit"
 
 export default function Routes() {
   return (
@@ -33,6 +34,9 @@ export default function Routes() {
           </Route>
           <Route exact path="/about">
             <About />
+          </Route>
+          <Route exact path="/benefit">
+            <Benefit />
           </Route>
           <ProtectedRoute exact path="/members">
             <Members />
