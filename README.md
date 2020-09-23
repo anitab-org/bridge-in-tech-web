@@ -1,6 +1,6 @@
 # Bridge-In-Tech (frontend)
 
-[![project chat](https://img.shields.io/badge/zulip-join_chat-brightgreen.svg)](https://anitab-org.zulipchat.com/login/#narrow/stream/237630-bridge-in-tech)
+[![project chat](https://img.shields.io/badge/zulip-join_chat-brightgreen.svg?logo=zulip)](https://anitab-org.zulipchat.com/login/#narrow/stream/237630-bridge-in-tech)
 
 
 
