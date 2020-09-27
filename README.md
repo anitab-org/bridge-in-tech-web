@@ -1,4 +1,7 @@
+[![project chat](https://img.shields.io/badge/zulip-join_chat-brightgreen.svg?logo=zulip)](https://anitab-org.zulipchat.com/login/#narrow/stream/237630-bridge-in-tech)
+
 # Bridge-In-Tech (frontend)
+
 Bridge-In-Tech (BIT) is an application that allows industries/companies, mentors, and students to actively collaborate with one another. 
 
 This is the frontend client of Bridge-In-Tech which is a Reactjs web application that consumes the [BridgeInTech backend](https://github.com/anitab-org/bridge-in-tech-backend) REST API server. BIT backend server also consumes the Mentorship System (MS) backend server for some of its functionalities. Both BIT and MS backend servers are connected to a single PostgreSQL database.
