@@ -245,7 +245,18 @@ export default function EditOrganization() {
               <div><br></br></div>
               <div className="row justify-content-between">
                 <div className="col-sm-6">
-                  <Link to={{
+                {responseMessage 
+                  ?<Link to={{
+                      pathname: `/organization-portfolio`,
+                      state: { organization }
+                      }}
+                    className="btn btn-primary disabled-link"
+                    variant="primary"
+                    name="toPrograms"
+                    organization={organization}
+                  >Go to Programs
+                  </Link>
+                  : <Link to={{
                       pathname: `/organization-portfolio`,
                       state: { organization }
                       }}
@@ -255,6 +266,7 @@ export default function EditOrganization() {
                     organization={organization}
                   >Go to Programs
                   </Link>
+                }
                 </div>
                 <div>
                 {responseMessage &&
