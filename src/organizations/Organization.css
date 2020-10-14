@@ -1,7 +1,7 @@
 .container-organizations {
     background: #f7f9fa;
     height: auto;
-    width: 90vw;
+    width: inherit;
     margin: 5em auto;
     -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.4);
     -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.4);
