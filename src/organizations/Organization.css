@@ -1,7 +1,7 @@
 .container-organizations {
     background: #f7f9fa;
     height: auto;
-    width: auto;
+    width: 90%;
     margin: 5em auto;
     overflow: scroll;
     -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.4);
