@@ -1,8 +1,9 @@
 .container-organizations {
     background: #f7f9fa;
     height: auto;
-    width: 90vw;
+    width: 90%;
     margin: 5em auto;
+    overflow: scroll;
     -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.4);
     -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.4);
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.4);
@@ -41,10 +42,10 @@ label {
   }
   
   .organizationsList {
-    width: 85vw;
+    width: auto;
+    height: auto;
+    margin: 3em auto;
     text-align: center;
-    padding: 2em;
-    margin: 3em 3em;
     padding: 2em;
   }
   
