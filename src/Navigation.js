@@ -3,28 +3,33 @@ import { Navbar, Nav, Card, Accordion, Dropdown } from "react-bootstrap";
 import { Link } from "react-router-dom"
 import { AuthContext } from "./AuthContext";
 import DropdownMenu from "react-bootstrap/DropdownMenu";
+import './Nav.css'
 
 
 export default function Navigation() {
     const { user, isAuth, login, logout } = useContext(AuthContext);
 
     return (
-        <Navbar bg="light" expand="lg">
-            <Navbar.Brand href="/">
+        <div className="Nav_container">
+            <div>
                 <img
-                    className="d-inline-block align-top"
-                    src="assets/images/AnitaBLogo.png"
-                    width="69"
-                    height="30"
-                    alt="Logo"
-                />
-            </Navbar.Brand>
+                        style={{margin:'10px 40px'}}
+                        className="d-inline-block align-top"
+                        src="assets/images/AnitaBLogo.png"
+                        width="150"
+                        height="50"
+                        alt="Logo"
+                    />
+            </div>
+            <div className="Nav_box">
+            <h2 style={{color:'#F89728'}}>Bridge In Tech</h2>
+            <Navbar className="mr-auto" expand="lg" style={{borderTop:' 2px solid #54BCEB'}}>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto" id="mainNav">
                     <Nav.Item>
-                        <Accordion>
-                            <Card>
+                        <Accordion style={{backgroundColor:'white'}}>
+                            <Card style={{backgroundColor:'white'}}>
                                 <Card.Header>
                                     <Accordion.Toggle as={Link} to="/" eventKey="0">Home</Accordion.Toggle>
                                 </Card.Header>
@@ -117,6 +122,9 @@ export default function Navigation() {
                     </Nav.Item>}
                 </Nav>
             </Navbar.Collapse>
-        </Navbar>
+            </Navbar>
+            </div>
+        </div>
+        
     );
 }
