@@ -9,38 +9,48 @@ export default function Register() {
     const [isValidUsername, setIsValidUsername] = useState(true);
     const [isValidEmail, setIsValidEmail] = useState(true);
     const [isValidPassword, setIsValidPassword] = useState(true);
+    const [isValidConfirmPassword, setIsValidConfirmPassword] = useState(true);
     const [responseMessage, setResponseMessage] = useState(null);
+    const [password, setPassword] = useState("")
+    const [confirmPassword, setConfirmPassword] = useState("")
+    const [isPasswordShown, setIsPasswordShown] = useState(false)
     
     const handleSubmit = async e => {
         e.preventDefault();
-        let payload = {
-            need_mentoring: false,
-            available_to_mentor: false
-          }
-          new FormData(e.target).forEach((value, key) => {
-            if (key === "terms_and_conditions_checked" || key === "need_mentoring" || key === "available_to_mentor")
-              value = (value === "true") ? true : false   
-            payload[key] = value;
-          });
-        const requestRegister = {
-            method: "POST",
-            headers: {
-                "Accept": "application/json",
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(payload)
-        };
+        if (confirmPassword === password){
+            let payload = {
+                need_mentoring: false,
+                available_to_mentor: false
+              }
+              new FormData(e.target).forEach((value, key) => {
+                if (key === "terms_and_conditions_checked" || key === "need_mentoring" || key === "available_to_mentor")
+                  value = (value === "true") ? true : false   
+                if (key !== "confirmPassword") payload[key] = value;
+              });
+            const requestRegister = {
+                method: "POST",
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(payload)
+            };
 
-        fetch(`${BASE_API}/register`, requestRegister)
-            .then(async response => {
-                let data = await response.json();
-                if (response.status_code === 201)
-                    return setResponseMessage(data.message);
-                setResponseMessage(data.message);
-            })
-            .catch(() => {
-                setResponseMessage(SERVICE_UNAVAILABLE_ERROR);
-            });
+            fetch(`${BASE_API}/register`, requestRegister)
+                .then(async response => {
+                    let data = await response.json();
+                    if (response.status_code === 201)
+                        return setResponseMessage(data.message);
+                    setResponseMessage(data.message);
+                })
+                .catch(() => {
+                    setResponseMessage(SERVICE_UNAVAILABLE_ERROR);
+                });
+        }
+    }
+
+    const handleTogglePasswordDisplay = e => {
+        setIsPasswordShown(e.target.checked)
     }
 
     const validateName = e => {
@@ -53,7 +63,12 @@ export default function Register() {
         setIsValidEmail(e.target.checkValidity());
     };
     const validatePassword = e => {
+        setPassword(e.target.value)
         setIsValidPassword(e.target.checkValidity());
+    };
+    const validateConfirmPassword = e => {
+        setConfirmPassword(e.target.value)
+        setIsValidConfirmPassword(e.target.checkValidity() && e.target.value === password);
     };
 
     return (
@@ -68,8 +83,9 @@ export default function Register() {
                     <form className="register-form mx-auto" onSubmit={handleSubmit}>
                         <form-group controlId="formName">
                             <p className="input-control">
-                                <label htmlFor="name">Name :</label>
-                                <input className="field"
+                                <label id="name">Name :</label>
+                                <input aria-labelledby="name"
+                                    className="field"
                                     type="text"
                                     name="name"
                                     placeholder="Full Name"
@@ -82,13 +98,14 @@ export default function Register() {
                             </p>
                             {!isValidName && (
                                 <span className="error">Must be between 2-30 characters long. Can only contain alphabets, whitespace and dash '-'</span>
-                            )}
+                             )}
                         </form-group>
                         <div><br></br></div>
-                        <form-group controlId="formUserame">
+                        <form-group controlId="formUserName">
                             <p className="input-control">
-                                <label htmlFor="username">Username :</label>
-                                <input className="field"
+                                <label id="username">Username :</label>
+                                <input aria-labelledby="username"
+                                    className="field"
                                     type="text"
                                     name="username"
                                     placeholder="Username"
@@ -99,15 +116,16 @@ export default function Register() {
                                     required
                                 />
                             </p>
-                            {!isValidUsername && (
+                          {!isValidUsername && (
                                 <span className="error">Must be between 5-25 characters long. Can only contain alphabets, numbers and underscore '_'</span>
-                            )}
+                           )}
                         </form-group>
                         <div><br></br></div>
                         <form-group controlId="formEmail">
                             <p className="input-control">
-                                <label htmlFor="email">Email :</label>
-                                <input className="field"
+                                <label id="email">Email :</label>
+                                <input aria-labelledby="email"
+                                    className="field"
                                     type="email"
                                     name="email"
                                     placeholder="Email"
@@ -116,16 +134,18 @@ export default function Register() {
                                     required
                                 />
                             </p>
-                            {!isValidEmail && (
+                             {!isValidEmail && (
                                 <span className="error">Must match standard email format xxx@xxx.xxx</span>
-                            )}
+                               )}
                         </form-group>
                         <div><br></br></div>
                         <form-group controlId="formPassword">
                             <p className="input-control">
-                                <label htmlFor="password">Password :</label>
-                                <input className="field"
-                                    type="password"
+
+                                <label id="password">Password :</label>
+                                <input aria-labelledby="password" 
+                                    className="field"
+                                    type={isPasswordShown? "text" : "password"}
                                     name="password"
                                     placeholder="Password"
                                     minLength={8}
@@ -134,11 +154,35 @@ export default function Register() {
                                     required
                                 />
                             </p>
-                            {!isValidPassword && (
+                           {!isValidPassword && (
                                 <span className="error">Must be between 8-64 characters</span>
+                             )}
+                        </form-group>
+                        <div><br></br></div>
+                        <form-group controlId="formPassword">
+                            <p className="input-control">
+
+                                <label id="confirmPassword">Confirm Password :</label>
+                                <input aria-labelledby="confirmPassword"
+                                    className="field"
+                                    type={isPasswordShown? "text" : "password"}
+                                    name="confirmPassword"
+                                    placeholder="Confirm Password"
+                                    minLength={8}
+                                    maxLength={64}
+                                    onChange={validateConfirmPassword}
+                                    required
+                                />
+                            </p>
+                            {!isValidConfirmPassword && (
+                                <span className="error">Must be same as password</span>
                             )}
                         </form-group>
                         <div><br></br></div>
+                        <form-group>
+                            <input type="checkbox" className="my-2" name="show_password_checkbox" id="showPassword" onClick={handleTogglePasswordDisplay}/>
+                            <label className="ml-2 my-2" htmlFor="showPassword">Show Password</label>
+                        </form-group>
                         <div><br></br></div>
                         <form-group>
                             <div className="row">

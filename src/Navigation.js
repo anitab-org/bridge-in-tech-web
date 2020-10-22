@@ -13,7 +13,9 @@ export default function Navigation() {
             <Navbar.Brand href="/">
                 <img
                     className="d-inline-block align-top"
-                    src="public/assets/images/AnitaBLogo.png"
+                    src="assets/images/AnitaBLogo.png"
+                    width="69"
+                    height="30"
                     alt="Logo"
                 />
             </Navbar.Brand>
@@ -30,7 +32,7 @@ export default function Navigation() {
                                     <Nav>
                                         <Nav.Link as={Link} to="/about">About</Nav.Link>
                                         <Nav.Link as={Link} to="/benefit">Benefit</Nav.Link>
-                                        <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
+                                        <Nav.Link href="https://anitab.org/contact/" target = "_blank" rel = "noopener noreferrer">Contact</Nav.Link>
                                     </Nav>
                                 </Accordion.Collapse>
                             </Card>
@@ -58,7 +60,7 @@ export default function Navigation() {
                         <Accordion>
                             <Card>
                                 <Card.Header>
-                                    <Accordion.Toggle as={Link} eventKey="0">My Space</Accordion.Toggle>
+                                    <Accordion.Toggle as={Link} to="/portfolio" eventKey="0">My Space</Accordion.Toggle>
                                 </Card.Header>
                                 <Accordion.Collapse eventKey="0">
                                     <Nav>
@@ -72,13 +74,7 @@ export default function Navigation() {
                                             </DropdownMenu>
                                         </Dropdown>
                                         <Nav.Link as={Link} to="/request-history">Request History</Nav.Link>
-                                        <Dropdown>
-                                            <Dropdown.Toggle variant="light" eventKey="0">My Organization</Dropdown.Toggle>
-                                            <DropdownMenu>
-                                                <Nav.Link as={Link} to="/organization-portfolio">Portfolio</Nav.Link>
-                                                <Nav.Link as={Link} to="/organization-profile">Profile</Nav.Link>
-                                            </DropdownMenu>
-                                        </Dropdown>
+                                        <Nav.Link as={Link} to="/organization-profile" eventKey="0">My Organization</Nav.Link>
                                     </Nav>
                                 </Accordion.Collapse>
                             </Card>

@@ -1,7 +1,11 @@
-# Bridge-In-Tech (frontend)
-Bridge-In-Tech (BIT) is an application that allows industries/companies, mentors and students to actively collaborate to one another. 
 
-This is the frontend client of Bridge-In-Tech which is a Reactjs web application that consumes [BridgeInTech backend](https://github.com/anitab-org/bridge-in-tech-backend) REST API server. BIT backend server also consumes Mentorship System (MS) backend server for some of its functionalities. Both BIT and MS backend servers are connected to a single postgresql database.
+[![project chat](https://img.shields.io/badge/zulip-join_chat-brightgreen.svg?logo=zulip)](https://anitab-org.zulipchat.com/login/#narrow/stream/237630-bridge-in-tech)
+[![Build Status](https://travis-ci.org/anitab-org/bridge-in-tech-web.svg?branch=develop)](https://travis-ci.org/anitab-org/bridge-in-tech-web)
+# Bridge-In-Tech (frontend)
+
+Bridge-In-Tech (BIT) is an application that allows industries/companies, mentors, and students to actively collaborate with one another. 
+
+This is the frontend client of Bridge-In-Tech which is a Reactjs web application that consumes the [BridgeInTech backend](https://github.com/anitab-org/bridge-in-tech-backend) REST API server. BIT backend server also consumes the Mentorship System (MS) backend server for some of its functionalities. Both BIT and MS backend servers are connected to a single PostgreSQL database.
 
 ## Contributing
 
@@ -12,15 +16,15 @@ This is the frontend client of Bridge-In-Tech which is a Reactjs web application
 Please read our [Contributing Guidelines](.github/CONTRIBUTING.md), [Code of Conduct](.github/CODE_OF_CONDUCT.md) and [Reporting Guidelines](.github/REPORTING_GUIDELINES.md) thoroughly.
 
 ## Setup
-To start contributing to the project, setup the frontend environment on your local machine. As the BIT web application consumes BridgeInTech backend REST API which connects to Mentorship System (MS) backend REST API, the two backend servers (BIT and MS) need to be run for BIT web application to work properly. 
+To start contributing to the project, set up the frontend environment on your local machine. As the BIT web application consumes BridgeInTech backend REST API which connects to Mentorship System (MS) backend REST API, the two backend servers (BIT and MS) need to be run for the BIT web application to work properly. 
 
-Contributors have the option to run a local BIT frontend server that connects to BIT and MS backend servers that are also run locally. Another option is to connect to the remote BIT backend on Heroku server which already connects to the remote MS backend Heroku server that already modified to support BIT development (from this point onward will be called MS-for-BIT). Follow the instructions below to setup the development environment:
+Contributors have the option to run a local BIT frontend server that connects to BIT and MS backend servers that are also run locally. Another option is to connect to the remote BIT backend on the Heroku server which already connects to the remote MS backend Heroku server that already modified to support BIT development (from this point onward will be called MS-for-BIT). Follow the instructions below to set up the development environment:
 
 
 ### Option 1: with BIT and MS backend servers also run locally 
-1. **IMPORTANT!!! You must setup BIT backend server and postgresql database first before setting up the MS-for-BIT server on the next step**.
-To do this, follow the instruction [here](https://github.com/anitab-org/bridge-in-tech-backend/wiki/BIT-development-environment-setup). Once done, you can proceed to the step 2 below. 
-2. Setup MS-for-BIT server by following the setup instruction for Mentorship Backend [here](https://github.com/anitab-org/mentorship-backend) but using the code base from Maya Treacy's fork repository [ms-backend-server](https://github.com/mtreacy002/mentorship-backend/tree/ms-backend-server) branch. 
+1. **IMPORTANT!!! You must setup the BIT backend server and postgresql database first before setting up the MS-for-BIT server on the next step**.
+To do this, follow the instruction [here](https://github.com/anitab-org/bridge-in-tech-backend/wiki/BIT-development-environment-setup). Once done, you can proceed to step 2 below. 
+2. Setup MS-for-BIT server by following the setup instruction for Mentorship Backend [here](https://github.com/anitab-org/mentorship-backend) but using the codebase from Maya Treacy's fork repository [ms-backend-server](https://github.com/mtreacy002/mentorship-backend/tree/ms-backend-server) branch. 
 To do this, run the following codes on the terminal after you fork and clone the MS backend repository:
 
 ```
@@ -30,7 +34,7 @@ $ git pull https://github.com/mtreacy002/mentorship-backend.git ms-backend-serve
 
 Follow the rest of the setup instructions (providing the environment credentials) mentioned on the [MS README `Run app` section](https://github.com/anitab-org/mentorship-backend). **Note** Notice that since **BIT** already occupies **port 5000** of your localhost, the **MS** server is set to run on **port 4000** for this BridgeInTech project.
 
-### Option 2: with BIT and MS backend servers run remotely on Heroku
+### Option 2: with BIT and MS backend servers run remotely on Heroku (NOTE: CURRENTLY UNAVAILABLE)
 
 1. Go to `src/config.js` file 
 2. Comment out line 1 that sets `localhost` as the base REST API url for MS server
@@ -39,9 +43,11 @@ Follow the rest of the setup instructions (providing the environment credentials
 <img width="1348" alt="Screen Shot 2020-07-19 at 12 05 25 pm" src="https://user-images.githubusercontent.com/29667122/87865402-3e9f1580-c9b8-11ea-97e1-6dc24fdc970f.png">
 
 **Important**
-Please be aware that there are **drawbacks** if you chose to run the BIT and MS backend servers remotely (**option 2**):
+1. Heroku servers are currently unavailable because the free services we are using are not able to cope with BridgeInTech architecture. Detailed explanation about this can be found [here](https://medium.com/anitab-org-open-source/why-you-cant-use-heroku-free-dynos-in-multiple-servers-dependent-application-fa1cdd9e9e07?source=friends_link&sk=281bb76050f052c03c6772e9be275f67)
+
+2. Even if we found the way to make Heroku servers work, please be aware that there are **drawbacks** if you chose to run the BIT and MS backend servers remotely (**option 2**):
 * There will be a **significant delay** from the time when the request is made on the BIT web GUI to the time the response is received. This is because BIT Heroku makes calls to MS-for-BIT Heroku backend server for MS related functionalities. Both of these Heroku servers are running on [free `dynos`](https://www.heroku.com/dynos) that have limited capacity. When you run both BIT and MS-for-BIT servers locally, you will not have this time lag issue.
-* The BIT Heroku baackend server will only carries the latest code that have been approved and merged to the develop branch. This means, if you are working on a PR or testing an open PR, this **Option 2** (running remote BIT Heroku server) **MUST NOT BE USED**.     
+* The BIT Heroku backend server will only carry the latest code that have been approved and merged to the develop branch. This means, if you are working on a PR or testing an open PR, this **Option 2** (running remote BIT Heroku server) **MUST NOT BE USED**.     
 
 ## Run the app
 

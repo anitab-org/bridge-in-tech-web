@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthContext";
 import { BASE_API } from "../config";
 import { SERVICE_UNAVAILABLE_ERROR } from "../messages";
+import "./Member.css";
 
 export default function Members() {
   const [errorMessage, setErrorMessage] = useState(null);
@@ -28,14 +29,14 @@ export default function Members() {
         }
         setErrorMessage(data.message);
       })
-      .catch(error =>
+      .catch(() =>
         setErrorMessage(SERVICE_UNAVAILABLE_ERROR)
       )
 
   }, []);
 
   return errorMessage ?
-    <div className="container-fluid" id="memberList">
+    <div className="container-fluid">
       <div className="top">
         <h1>
           {errorMessage}
@@ -44,13 +45,13 @@ export default function Members() {
     </div>
     :
     <>
-      <div className="container" id="membersList">
+      <div className="container-members">
         <div className="row mb-5">
           <div className="col-lg-12 text-center">
             <h1 className="mt-5">Members List</h1>
           </div>
         </div>
-        <Table striped bordered hover>
+        <Table striped bordered hover className="membersList">
           <thead>
             <tr>
               <th>Name</th>
@@ -66,7 +67,7 @@ export default function Members() {
             {members.map((member) => (
               <tr key={member.id}>
                 <td><Link to={{
-                  pathname: `/member/${member.username}`,
+                  pathname: `/members/profile/${member.username}`,
                   state: { member }
                 }}>{member.name}</Link></td>
                 <td>{member.skills}</td>

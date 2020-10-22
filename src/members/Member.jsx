@@ -2,10 +2,11 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 
 
-export default function MemberProfile() {
+export default function Member() {
   const { state } = useLocation();
   const member = state.member;
-  
+  const memberPortfolioUrl = `"/members/portfolio/${member.username}"`;
+
   return (
       <div className="container">
         <div className="row mb-5">
@@ -16,7 +17,7 @@ export default function MemberProfile() {
         <div className="row">
           <div className="col-lg-12">
             <form className="myspace-form mx-auto">
-              <form-group controlId="formUserame">
+              <form-group controlId="formUsername">
                 <p className="input-control">
                   <label htmlFor="username">Username : </label>
                   {member.username}
@@ -127,6 +128,16 @@ export default function MemberProfile() {
                   {member.photo_url}
                 </p>
               </form-group>
+              <div className="row">
+                <div className="col-sm-6 offset-sm-9">
+                  <a href={memberPortfolioUrl} className="btn btn-success"
+                    variant="success"
+                    name="toPortfolio"
+                    member={member}
+                  >Go to Portfolio
+                  </a>
+                </div>
+              </div>
             </form>
           </div>
         </div>

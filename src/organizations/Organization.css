@@ -1,14 +1,15 @@
-.container {
+.container-organizations {
     background: #f7f9fa;
     height: auto;
-    width: 70%;
+    width: 90%;
     margin: 5em auto;
+    overflow: scroll;
     -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.4);
     -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.4);
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.4);
   }
   
-  label {
+label {
     color: #24b9b6;
     font-size: 1.2em;
     font-weight: 400;
@@ -40,14 +41,11 @@
     width: 100%;
   }
   
-  .organization-form {
-    width: 80%;
-    text-align: left;
-    padding-top: 2em;
-    padding-bottom: 2em;
+  .organizationsList {
+    width: auto;
+    height: auto;
+    margin: 3em auto;
+    text-align: center;
+    padding: 2em;
   }
-
-  .disabled-link {
-  pointer-events: none;
-  opacity: 0.6
-}
+  
