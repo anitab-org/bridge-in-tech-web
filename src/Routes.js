@@ -5,6 +5,7 @@ import Members from "./members/Members";
 import MemberPortfolio from "./members/MemberPortfolio";
 import Member from "./members/Member";
 import Portfolio from "./myspace/Portfolio";
+import ErrorPage from "./errorPage/ErrorPage"
 import PersonalDetails from "./myspace/PersonalDetails";
 import AdditionalInfo from "./myspace/AdditionalInfo";
 import PersonalBackground from "./myspace/PersonalBackground";
@@ -38,6 +39,9 @@ export default function Routes() {
           <Route exact path="/benefit">
             <Benefit />
           </Route>
+          <Route path = "">
+            <ErrorPage />
+            </Route>
           <ProtectedRoute exact path="/members">
             <Members />
           </ProtectedRoute>

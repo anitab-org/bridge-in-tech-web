@@ -1,0 +1,49 @@
+ * {
+    margin: 0;
+    padding: 0;
+ }
+ 
+ .errorPage {
+     position: absolute;
+     top: 15%;
+     left: 17%;
+     right: 17%;
+     color: whitesmoke;
+     bottom: 20%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+ 
+ .errorPage_content {
+     max-width: 600px;
+     text-align: center;
+ }
+ 
+ .errorPage_content h1 {
+     color: #57d5ff;
+     font-size: 10vw;
+     font-weight: bolder;
+     line-height: 1em;
+ }
+ 
+ .errorPage_content h4 {
+     font-size: 2em;
+     margin-bottom: 20px;
+     text-transform: uppercase;
+     max-width: 600px;
+     color: #0d0d0d;
+ }
+ 
+ .errorPage_content p {
+    font-size: 1.4em;
+    color: grey;
+ }
+ 
+ .button {
+     margin-top: auto;
+     padding: 0.4rem;
+     border-radius: .25rem;
+     border-color: #57d5ff;
+ }
+ 
