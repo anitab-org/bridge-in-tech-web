@@ -85,8 +85,6 @@ export default function Navigation() {
                             </Card>
                         </Accordion>
                     </Nav.Item>
-                </Nav>
-                <Nav className="mr-sm-2">
                     {!isAuth ?
                         <>
                             <Nav.Item>
