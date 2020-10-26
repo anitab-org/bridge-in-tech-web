@@ -46,4 +46,8 @@
     padding-top: 2em;
     padding-bottom: 2em;
   }
-  
+
+  .disabled-link {
+  pointer-events: none;
+  opacity: 0.6
+}
