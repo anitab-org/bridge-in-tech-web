@@ -1,0 +1,17 @@
+.Nav_container{
+    display: flex;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    justify-content: space-around;
+    box-sizing: border-box;
+    padding: 10px;
+    border-bottom: 2px solid #54BCEB;
+}
+
+.Nav_box{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
