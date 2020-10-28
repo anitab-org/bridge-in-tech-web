@@ -39,9 +39,6 @@ export default function Routes() {
           <Route exact path="/benefit">
             <Benefit />
           </Route>
-          <Route path = "">
-            <ErrorPage />
-            </Route>
           <ProtectedRoute exact path="/members">
             <Members />
           </ProtectedRoute>
@@ -90,6 +87,9 @@ export default function Routes() {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route>
+            <ErrorPage />
           </Route>
         </Switch>
       </AuthProvider>
