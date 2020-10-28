@@ -5,6 +5,7 @@ import Members from "./members/Members";
 import MemberPortfolio from "./members/MemberPortfolio";
 import Member from "./members/Member";
 import Portfolio from "./myspace/Portfolio";
+import ErrorPage from "./errorPage/ErrorPage"
 import PersonalDetails from "./myspace/PersonalDetails";
 import AdditionalInfo from "./myspace/AdditionalInfo";
 import PersonalBackground from "./myspace/PersonalBackground";
@@ -86,6 +87,9 @@ export default function Routes() {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route>
+            <ErrorPage />
           </Route>
         </Switch>
       </AuthProvider>
