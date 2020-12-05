@@ -18,7 +18,6 @@ import Program from "./organizations/Program";
 import Register from "./register/Register";
 import Login from "./login/Login";
 import ProtectedRoute from "./ProtectedRoute";
-import Navigation from "./Navigation";
 import AuthProvider from "./AuthContext";
 import Programs from "./organizations/Programs";
 import About from "./home/About";
@@ -28,7 +27,6 @@ export default function Routes() {
   return (
     <Router>
       <AuthProvider>
-        <Navigation />
         <Switch>
           <Route exact path="/">
             <Home />
