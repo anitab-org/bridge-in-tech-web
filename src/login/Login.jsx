@@ -91,13 +91,11 @@ export default function Login() {
                             <label>Not yet registered? Click on sign up.</label>
                         </div>
                         <div className="row button-group">
-                            <div className="col-sm">
-                                <div className="row">
+                            <div className="col">
                                     <a className="btn btn-primary" id="registerbtn" href="/register" role="button">Sign Up</a>
-                                </div>
                             </div>
-                            <div className="col-sm"></div>
-                            <div className="col-sm">
+                            <div className="space-btw"></div>
+                            <div className="col">
                                 <button className="btn btn-success"
                                     variant="success"
                                     type="submit"
