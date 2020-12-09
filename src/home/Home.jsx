@@ -1,10 +1,9 @@
 import React from "react";
 import './Home.css';
-import Nav from '../Navigation';
 export default function Home() {
+  
     return (
-        <section id="home">
-        <Nav/>
+        <section id="home"  >
         <div class="header-text">
         <h1>Welcome to<br/> Bridge-in-Tech</h1>
         <p>Bridge-In-Tech is an application inspired by the existing 
