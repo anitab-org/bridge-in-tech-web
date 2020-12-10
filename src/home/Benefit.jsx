@@ -5,7 +5,7 @@ import  Benefit2 from "../assets/images/benefit2.png"
 
 const Benefit = () => {
     return (
-        <div className="aboutContainer">
+        <div className="container">
             <div className="box">
                 <img className="img" src={Benefit1} alt="img1"/>
                 <div className="listBox">
