@@ -45,69 +45,70 @@ export default function Login() {
         <Redirect to="/" />
         : (
         <div className="container">
-            <div className="row mb-5">
+            <div className="container boundryLogin">
                 <div className="col-lg-12 text-center">
-                    <h1 className="mt-5">Login</h1>
+                        <h1 className="mt-2">LOGIN</h1>
+                </div> 
+                <div className="row">
+                    <div className="col-lg-12">
+                        <form className="login-form mx-auto" onSubmit={handleSubmit}>
+                            <form-group controlId="formUserame">
+                                <p className="input-control">
+                                    <label id="Username">Username or Email:</label>
+                                    <input className="field rounded pl-2"
+                                        type="text"
+                                        aria-labelledby="Username"
+                                        name="username"
+                                        placeholder="Username or Email"
+                                        onChange={e => setUser(e.target.value)}
+                                        required
+                                    />
+                                </p>
+                            </form-group>
+                            <div><br></br></div>
+                            <form-group controlId="formPassword">
+                                <p className="input-control">
+                                    <label id="Password">Password :</label>
+                                    <input className="field rounded pl-2"
+                                        type={isPasswordShown? "text" : "password"}
+                                        aria-labelledby="Password"
+                                        name="password"
+                                        placeholder="Password"
+                                        required
+                                    />
+                                </p>
+                            </form-group>
+                            <form-group>
+                                <input type="checkbox" className="my-2" name="show_password_checkbox" id="showPassword" onClick={handleTogglePasswordDisplay}/>
+                                <label className="ml-2 my-2" htmlFor="showPassword">Show Password</label>
+                            </form-group>
+                            <div><br></br></div>
+                            <div>
+                                {errorMessage && <span className="error" name="errorMessage" aria-label="errorMessage" role="alert">{errorMessage}</span>}
+                            </div>
+                            <div className="row pb-2 pl-3">
+                                <label>Not yet registered? Click on sign up.</label>
+                            </div>
+                            <div className="row">
+                                <div className="col-6">
+                                        <a className="btn btn-primary" id="registerbtn" href="/register" role="button">Sign Up</a>
+                                </div>
+                                
+                                <div className="col-6 float-right">
+                                    <button className="btn btn-success float-right"
+                                        variant="success"
+                                        type="submit"
+                                        name="submit"
+                                        value="Login"
+                                    >Login
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-            <div className="row">
-                <div className="col-lg-12">
-                    <form className="login-form mx-auto" onSubmit={handleSubmit}>
-                        <form-group controlId="formUserame">
-                            <p className="input-control">
-                                <label id="Username">Username or Email:</label>
-                                <input className="field"
-                                    type="text"
-                                    aria-labelledby="Username"
-                                    name="username"
-                                    placeholder="Username or Email"
-                                    onChange={e => setUser(e.target.value)}
-                                    required
-                                />
-                            </p>
-                        </form-group>
-                        <div><br></br></div>
-                        <form-group controlId="formPassword">
-                            <p className="input-control">
-                                <label id="Password">Password :</label>
-                                <input className="field"
-                                    type={isPasswordShown? "text" : "password"}
-                                    aria-labelledby="Password"
-                                    name="password"
-                                    placeholder="Password"
-                                    required
-                                />
-                            </p>
-                        </form-group>
-                        <form-group>
-                            <input type="checkbox" className="my-2" name="show_password_checkbox" id="showPassword" onClick={handleTogglePasswordDisplay}/>
-                            <label className="ml-2 my-2" htmlFor="showPassword">Show Password</label>
-                        </form-group>
-                        <div><br></br></div>
-                        <div>
-                            {errorMessage && <span className="error" name="errorMessage" aria-label="errorMessage" role="alert">{errorMessage}</span>}
-                        </div>
-                        <div className="row">
-                            <label>Not yet registered? Click on sign up.</label>
-                        </div>
-                        <div className="row button-group">
-                            <div className="col">
-                                    <a className="btn btn-primary" id="registerbtn" href="/register" role="button">Sign Up</a>
-                            </div>
-                            <div className="space-btw"></div>
-                            <div className="col">
-                                <button className="btn btn-success"
-                                    variant="success"
-                                    type="submit"
-                                    name="submit"
-                                    value="Login"
-                                >Login
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+            
         </div>
     );
 }
