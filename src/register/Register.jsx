@@ -1,32 +1,46 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import "./Register.css";
-import {BASE_API} from "../config";
-import {SERVICE_UNAVAILABLE_ERROR} from "../messages";
+import { BASE_API } from "../config";
+import { SERVICE_UNAVAILABLE_ERROR } from "../messages";
 
+const defaultState = {
+    isValidName: true,
+    isValidUsername: true,
+    isValidEmail: true,
+    isValidPassword: true,
+    isValidConfirmPassword: true,
+    isPasswordShown: false,
+    password: "",
+    confirmPassword: ""
+}
+
+const reducer = (state, action) => {
+    if (action.type === "VALIDATION") {
+        const { field, val } = action.payload;
+        return {
+            ...state,
+            [field]: val
+        }
+    }
+}
 
 export default function Register() {
-    const [isValidName, setIsValidName] = useState(true);
-    const [isValidUsername, setIsValidUsername] = useState(true);
-    const [isValidEmail, setIsValidEmail] = useState(true);
-    const [isValidPassword, setIsValidPassword] = useState(true);
-    const [isValidConfirmPassword, setIsValidConfirmPassword] = useState(true);
+    const [state, dispatch] = useReducer(reducer, defaultState);
     const [responseMessage, setResponseMessage] = useState(null);
-    const [password, setPassword] = useState("")
-    const [confirmPassword, setConfirmPassword] = useState("")
-    const [isPasswordShown, setIsPasswordShown] = useState(false)
-    
+
     const handleSubmit = async e => {
         e.preventDefault();
-        if (confirmPassword === password){
+        const { confirmPassword, password } = state;
+        if (confirmPassword === password) {
             let payload = {
                 need_mentoring: false,
                 available_to_mentor: false
-              }
-              new FormData(e.target).forEach((value, key) => {
+            }
+            new FormData(e.target).forEach((value, key) => {
                 if (key === "terms_and_conditions_checked" || key === "need_mentoring" || key === "available_to_mentor")
-                  value = (value === "true") ? true : false   
+                    value = value === "true" || false
                 if (key !== "confirmPassword") payload[key] = value;
-              });
+            });
             const requestRegister = {
                 method: "POST",
                 headers: {
@@ -49,28 +63,27 @@ export default function Register() {
         }
     }
 
-    const handleTogglePasswordDisplay = e => {
-        setIsPasswordShown(e.target.checked)
-    }
-
-    const validateName = e => {
-        setIsValidName(e.target.checkValidity());
-    };
-    const validateUsername = e => {
-        setIsValidUsername(e.target.checkValidity());
-    };
-    const validateEmail = e => {
-        setIsValidEmail(e.target.checkValidity());
+    const handleValidation = (inputField, value) => {
+        dispatch({ type: "VALIDATION", payload: { field: inputField, val: value } });
     };
     const validatePassword = e => {
-        setPassword(e.target.value)
-        setIsValidPassword(e.target.checkValidity());
+        dispatch({ type: "VALIDATION", payload: { field: "password", val: e.target.value } });
+        dispatch({ type: "VALIDATION", payload: { field: "isValidPassword", val: e.target.checkValidity() } });
     };
     const validateConfirmPassword = e => {
-        setConfirmPassword(e.target.value)
-        setIsValidConfirmPassword(e.target.checkValidity() && e.target.value === password);
+        dispatch({ type: "VALIDATION", payload: { field: "confirmPassword", val: e.target.value } });
+        dispatch({
+            type: "VALIDATION",
+            payload: {
+                field: "isValidConfirmPassword",
+                val: e.target.checkValidity() && e.target.value === state.password
+            }
+        });
     };
 
+    const { isValidName, isValidEmail,
+        isValidUsername, isValidPassword,
+        isValidConfirmPassword, isPasswordShown } = state;
     return (
         <div className="container">
             <div className="row mb-5">
@@ -92,13 +105,14 @@ export default function Register() {
                                     minLength={2}
                                     maxLength={30}
                                     pattern="^[a-zA-Z\s\-]+$"
-                                    onChange={validateName}
+                                    onChange={(e) =>
+                                        handleValidation("isValidName", e.target.checkValidity())}
                                     required
                                 />
                             </p>
                             {!isValidName && (
                                 <span className="error">Must be between 2-30 characters long. Can only contain alphabets, whitespace and dash '-'</span>
-                             )}
+                            )}
                         </form-group>
                         <div><br></br></div>
                         <form-group controlId="formUserName">
@@ -112,13 +126,14 @@ export default function Register() {
                                     minLength={5}
                                     maxLength={25}
                                     pattern="^[a-zA-Z0-9/_]+$"
-                                    onChange={validateUsername}
+                                    onChange={(e) =>
+                                        handleValidation("isValidUsername", e.target.checkValidity())}
                                     required
                                 />
                             </p>
-                          {!isValidUsername && (
+                            {!isValidUsername && (
                                 <span className="error">Must be between 5-25 characters long. Can only contain alphabets, numbers and underscore '_'</span>
-                           )}
+                            )}
                         </form-group>
                         <div><br></br></div>
                         <form-group controlId="formEmail">
@@ -130,22 +145,23 @@ export default function Register() {
                                     name="email"
                                     placeholder="Email"
                                     pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
-                                    onChange={validateEmail}
+                                    onChange={(e) =>
+                                        handleValidation("isValidEmail", e.target.checkValidity())}
                                     required
                                 />
                             </p>
-                             {!isValidEmail && (
+                            {!isValidEmail && (
                                 <span className="error">Must match standard email format xxx@xxx.xxx</span>
-                               )}
+                            )}
                         </form-group>
                         <div><br></br></div>
                         <form-group controlId="formPassword">
                             <p className="input-control">
 
                                 <label id="password">Password :</label>
-                                <input aria-labelledby="password" 
+                                <input aria-labelledby="password"
                                     className="field"
-                                    type={isPasswordShown? "text" : "password"}
+                                    type={isPasswordShown ? "text" : "password"}
                                     name="password"
                                     placeholder="Password"
                                     minLength={8}
@@ -154,9 +170,9 @@ export default function Register() {
                                     required
                                 />
                             </p>
-                           {!isValidPassword && (
+                            {!isValidPassword && (
                                 <span className="error">Must be between 8-64 characters</span>
-                             )}
+                            )}
                         </form-group>
                         <div><br></br></div>
                         <form-group controlId="formPassword">
@@ -165,7 +181,7 @@ export default function Register() {
                                 <label id="confirmPassword">Confirm Password :</label>
                                 <input aria-labelledby="confirmPassword"
                                     className="field"
-                                    type={isPasswordShown? "text" : "password"}
+                                    type={isPasswordShown ? "text" : "password"}
                                     name="confirmPassword"
                                     placeholder="Confirm Password"
                                     minLength={8}
@@ -180,8 +196,9 @@ export default function Register() {
                         </form-group>
                         <div><br></br></div>
                         <form-group>
-                            <input type="checkbox" className="my-2" name="show_password_checkbox" id="showPassword" onClick={handleTogglePasswordDisplay}/>
-                            <label className="ml-2 my-2" htmlFor="showPassword">Show Password</label>
+                            <input type="checkbox" className="my-2" name="show_password_checkbox" id="showPassword"
+                                onClick={(e) => handleValidation("isPasswordShown", e.target.checked)} />
+                            <label className="ml-1 my-2" htmlFor="showPassword">Show Password</label>
                         </form-group>
                         <div><br></br></div>
                         <form-group>
@@ -189,38 +206,39 @@ export default function Register() {
                                 <div className="col-sm text-center">
                                     <label htmlFor="availability">Available to be a :</label>
                                     <form-group>
-                                            <div className="mb-3">
-                                                <div className="row">
-                                                    <div className="col-sm">
-                                                        <input
-                                                            name="available_to_mentor"
-                                                            aria-label="mentor"
-                                                            type="checkbox"
-                                                            value={"on" ? true : false}
-                                                        />
-                                                        <label htmlFor="mentor">Mentor</label>
-                                                    </div>
-                                                    <div className="col-sm">
-                                                        <input
-                                                            name="need_mentoring"
-                                                            aria-label="mentee"
-                                                            type="checkbox"
-                                                            value={"on" ? true : false}
-                                                        />
-                                                        <label htmlFor="mentee">Mentee</label>
-                                                    </div>
-                                                </div>
+                                        <div className="row mb-3">
+                                            <div className="col-sm">
+                                                <input
+                                                    name="available_to_mentor"
+                                                    id="mentor"
+                                                    aria-label="mentor"
+                                                    type="checkbox"
+                                                    value={"on" ? true : false}
+                                                />
+                                                <label htmlFor="mentor" className="ml-1">Mentor</label>
                                             </div>
+                                            <div className="col-sm">
+                                                <input
+                                                    name="need_mentoring"
+                                                    id="mentee"
+                                                    aria-label="mentee"
+                                                    type="checkbox"
+                                                    value={"on" ? true : false}
+                                                />
+                                                <label htmlFor="mentee" className="ml-1">Mentee</label>
+                                            </div>
+                                        </div>
                                     </form-group>
                                 </div>
                             </div>
                         </form-group>
                         <form-group controlId="formTermsCheck">
-                            <div className="row">
-                                <div className="col-sm">
+                            <div className="row mb-3">
+                                <div className="col-sm-">
                                     <p className="input-control">
                                         <input
                                             type="checkbox"
+                                            id="terms_and_conditions"
                                             name="terms_and_conditions_checked"
                                             aria-label="termsCheck"
                                             value={"on" ? true : false}
@@ -228,8 +246,8 @@ export default function Register() {
                                         />
                                     </p>
                                 </div>
-                                <div className="col-sm-10">
-                                    <label>
+                                <div className="col-sm-11">
+                                    <label htmlFor="terms_and_conditions">
                                         By checking this box, I affirm that I have read and accept
                                         to be bound by the AnitaB.org Code of Conduct, Terms, and
                                         Privacy Policy. Further I consent to the use of my
@@ -241,23 +259,19 @@ export default function Register() {
                         <div>
                             {responseMessage && <span className="error" name="response" aria-label="response" role="alert">{responseMessage}</span>}
                         </div>
-                        <div className="row">
+                        <div className="row mb-3">
                             <label>Already registered? Click on Login.</label>
                         </div>
-                        <div className="row button-group">
-                            <div className="col">
-                                    <a className="btn btn-primary" id="loginbtn" href="/login" role="button">Login</a>
-                            </div>
-                            <div className="space-btw"></div>
-                            <div className="col">
-                                <button className="btn btn-success"
-                                    variant="success"
-                                    type="submit"
-                                    name="submit"
-                                    value="Signup"
-                                >Sign Up
-                                </button>
-                            </div>
+                        <div className="button-group row">
+                            <a className="btn btn-primary col-3" id="loginbtn" href="/login" role="button">Login</a>
+                            <div className="col-6"></div>
+                            <button className="btn btn-success col-3"
+                                variant="success"
+                                type="submit"
+                                name="submit"
+                                value="Signup"
+                            >Sign Up
+                            </button>
                         </div>
                     </form>
                 </div>

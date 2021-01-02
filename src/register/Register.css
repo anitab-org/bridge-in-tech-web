@@ -8,8 +8,12 @@
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.4);
 }
 
-
-
+input{
+    padding: 3px;
+}
+.row{
+    margin-left: 0;
+}
 label {
     color: #24B9B6;
     font-size: 1.2em;
@@ -51,9 +55,6 @@ padding-top: 2em;
 padding-bottom: 2em;
 }
 
-.space-btw{
-    width: 40%;
-}
 
 @media only screen and (max-width: 600px) {
     .space-btw{
