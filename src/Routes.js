@@ -18,17 +18,17 @@ import Program from "./organizations/Program";
 import Register from "./register/Register";
 import Login from "./login/Login";
 import ProtectedRoute from "./ProtectedRoute";
-import Navigation from "./Navigation";
 import AuthProvider from "./AuthContext";
 import Programs from "./organizations/Programs";
 import About from "./home/About";
 import Benefit from "./home/Benefit"
+import Nav from "./Navigation"
 
 export default function Routes() {
   return (
     <Router>
+    <Nav/>
       <AuthProvider>
-        <Navigation />
         <Switch>
           <Route exact path="/">
             <Home />

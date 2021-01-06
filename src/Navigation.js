@@ -3,6 +3,7 @@ import { Navbar, Nav, Card, Accordion, Dropdown } from "react-bootstrap";
 import { Link } from "react-router-dom"
 import { AuthContext } from "./AuthContext";
 import DropdownMenu from "react-bootstrap/DropdownMenu";
+import Logo from "./assets/images/AnitaBLogo.png"
 import './Nav.css'
 
 
@@ -15,7 +16,7 @@ export default function Navigation() {
                 <img
                         style={{margin:'10px 40px'}}
                         className="d-inline-block align-top"
-                        src="assets/images/AnitaBLogo.png"
+                        src={Logo}
                         width="150"
                         height="50"
                         alt="Logo"

@@ -3,7 +3,7 @@ import "./About.css";
 
 export default function About() {
   return (
-    <div className="container" id="home">
+    <div className="container">
       <div className="top">
         <img
           width="100%"
