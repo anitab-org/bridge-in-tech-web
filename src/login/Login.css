@@ -48,11 +48,11 @@ h1 {
 }
 
 .space-btw{
-  width: 40%;
+  width: 20%;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 576px) {
   .space-btw{
-      width: 20%;
+      width: 15%;
   }
 }
