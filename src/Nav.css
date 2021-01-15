@@ -15,3 +15,6 @@
     justify-content: center;
     align-items: center;
 }
+.navbar-expand-lg .navbar-nav .dropdown-menu {
+    position: static;
+}
