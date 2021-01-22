@@ -72,7 +72,7 @@ export default function Navigation() {
                                     <Nav>
                                         <Nav.Link as={Link} to="/portfolio">Portfolio</Nav.Link>
                                         <Dropdown>
-                                            <Dropdown.Toggle variant="light" eventKey="0">Profile</Dropdown.Toggle>
+                                            <Dropdown.Toggle variant="light">Profile</Dropdown.Toggle>
                                             <DropdownMenu>
                                                 <Nav.Link as={Link} to="/personal-details" eventKey="0">Personal Details</Nav.Link>
                                                 <Nav.Link as={Link} to="/additional-info" eventKey="0">Additional Info</Nav.Link>
@@ -124,6 +124,6 @@ export default function Navigation() {
             </Navbar>
             </div>
         </div>
-        
+
     );
 }

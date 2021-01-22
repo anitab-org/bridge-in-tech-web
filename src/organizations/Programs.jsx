@@ -33,7 +33,7 @@ export default function Programs() {
             .catch(() =>
               setResponseMessage(SERVICE_UNAVAILABLE_ERROR)
             )
-          }, []);
+          }, [requestOrganization, organization.id]);
 
           return programs ?
           <div className="container-fluid">
@@ -88,7 +88,7 @@ export default function Programs() {
               </div>
             </div>
           </div>
-        : 
+        :
         <div>
         <span className="error" name="response" aria-label="response" role="alert">{responseMessage}</span>
         </div>

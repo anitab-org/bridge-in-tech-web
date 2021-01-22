@@ -34,7 +34,7 @@ export default function AdditionalInfo() {
       .catch(() =>
         setResponseMessage(SERVICE_UNAVAILABLE_ERROR)
       )
-  }, []);
+  }, [requestAdditionalInfo]);
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -151,7 +151,7 @@ export default function AdditionalInfo() {
                 <p className="input-control">
                   <label htmlFor="timezone">Timezone</label>
                   <select className="custom-select" name="timezone" id="timezone">
-                    <option 
+                    <option
                       defaultValue="GMT0">{additionalInfo.timezone}
                     </option>
                       {TIMEZONES.map((timezone) => <option key={timezone} value={timezone}>{timezone}</option>)}
