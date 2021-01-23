@@ -23,7 +23,7 @@ Contributors have the option to run a local BIT frontend server that connects to
 
 ### Option 1: with BIT and MS backend servers also run locally 
 1. **IMPORTANT!!! You must setup the BIT backend server and postgresql database first before setting up the MS-for-BIT server on the next step**.
-To do this, follow the instruction [here](https://github.com/anitab-org/bridge-in-tech-backend/wiki/BIT-development-environment-setup). Once done, you can proceed to step 2 below. 
+To do this, follow the instruction [here](https://github.com/anitab-org/bridge-in-tech-backend/blob/develop/.github/ENV_SETUP_INSTRUCTION.md). Once done, you can proceed to step 2 below. 
 2. Setup MS-for-BIT server by following the setup instruction for Mentorship Backend [here](https://github.com/anitab-org/mentorship-backend) but using the codebase from Maya Treacy's fork repository [ms-backend-server](https://github.com/mtreacy002/mentorship-backend/tree/ms-backend-server) branch. 
 To do this, run the following codes on the terminal after you fork and clone the MS backend repository:
 
