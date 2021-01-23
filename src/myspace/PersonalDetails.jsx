@@ -34,7 +34,7 @@ export default function PersonalDetails() {
       .catch(() =>
         setErrorMessage(SERVICE_UNAVAILABLE_ERROR)
       )
-  }, []);
+  }, [requestPersonalDetails]);
 
   const handleSubmit = async e => {
     e.preventDefault();

@@ -42,7 +42,7 @@ export default function PersonalBackground() {
       setResponseMessage(SERVICE_UNAVAILABLE_ERROR)
     )
 
-  }, [] );
+  }, [requestPersonalBackground]);
 
   const handleSubmit = async e => {
     e.preventDefault();
