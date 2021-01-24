@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { useLocation } from "react-router-dom";
 import {
     GENDER,
@@ -57,7 +57,7 @@ export default function EditProgram() {
                 value = value.split("T").join(" ")
             console.log(payload)
             payload[key] = value;
-            
+
         });
 
         const requestCreateProgram = {
@@ -107,7 +107,7 @@ export default function EditProgram() {
     const startDateArray = program ? program.start_date.split(" ").map(item => item.trim()) : [];
     const endDateArray = program ? program.end_date.split(" ").map(item => item.trim()) : [];
     const creationDateArray = program ? program.creation_date.split(" ").map(item => item.trim()) : [];
-    
+
     return (
         <div className="container">
             <div className="row mb-5">
@@ -348,17 +348,17 @@ export default function EditProgram() {
                                 />
                                 </div>
                                 <label id="paymentAmount" className="input-group-text">Amount :</label>
-                                
-                                <input 
-                                    type="number" 
-                                    className="input-control" 
+
+                                <input
+                                    type="number"
+                                    className="input-control"
                                     aria-labelledby="paymentAmount"
-                                    name="payment_amount" 
+                                    name="payment_amount"
                                     min="0"
                                     step="1"
                                     defaultValue={program ? program.payment_amount : "0"}
                                 />
-                                
+
                             </div>
                             </p>
                         </form-group>

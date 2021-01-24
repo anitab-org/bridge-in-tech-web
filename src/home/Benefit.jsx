@@ -1,12 +1,13 @@
 import React from 'react'
 import './Benefit.css'
-
+import  Benefit1 from "../assets/images/benefit1.png"
+import  Benefit2 from "../assets/images/benefit2.png"
 
 const Benefit = () => {
     return (
-        <div className="aboutContainer">
+        <div className="container">
             <div className="box">
-                <img className="img" src="assets/images/benefit1.png" alt="img1"/>
+                <img className="img" src={Benefit1} alt="img1"/>
                 <div className="listBox">
                     <h1 className="head">Benefit to members</h1>
                     <ul className="list">
@@ -26,7 +27,7 @@ const Benefit = () => {
                         }} href=" https://www.techrepublic.com/article/how-to-close-the-tech-skills-gap/" target="_blank">tech skills gap</a>{" "}closer by providing a space that allows collaboration between organizations, mentors and mentees through the mentoring programs.</li>
                     </ul>
                 </div>
-                <img className="img" src="assets/images/benefit2.png" alt="img1"/>
+                <img className="img" src={Benefit2} alt="img1"/>
             </div>
         </div>
     )

@@ -13,7 +13,7 @@ export default function EditOrganization() {
   const [organization, setOrganization] = useState({});
   const {access_token} = useContext(AuthContext);
   const [isValidPhone, setIsValidPhone] = useState(true);
-  
+
   const requestOrganization = {
     method: "GET",
     headers: {
@@ -35,7 +35,7 @@ export default function EditOrganization() {
       .catch(() =>
         setResponseMessage(SERVICE_UNAVAILABLE_ERROR)
       )
-  }, []);
+  }, [requestOrganization]);
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -191,7 +191,7 @@ export default function EditOrganization() {
                 <p className="input-control">
                   <label htmlFor="timezone">Timezone</label>
                   <select className="custom-select" name="timezone" id="timezone">
-                    <option 
+                    <option
                     defaultValue="GMT0">{organization.timezone}
                     </option>
                     {TIMEZONES.map((timezone) => optionsWithDefaultSelection(timezone, organization.timezone))}
@@ -245,7 +245,7 @@ export default function EditOrganization() {
               <div><br></br></div>
               <div className="row justify-content-between">
                 <div className="col-sm-6">
-                {responseMessage 
+                {responseMessage
                   ?<Link to={{
                       pathname: `/organization-portfolio`,
                       state: { organization }
