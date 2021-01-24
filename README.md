@@ -72,20 +72,22 @@ $ npm start
 
 <img width="1354" alt="Screen Shot 2020-07-22 at 11 03 19 pm" src="https://user-images.githubusercontent.com/29667122/88179650-931fea80-cc6f-11ea-818c-8e412432c926.png">
 
-**UI Screenshots**
+## UI Screenshots
 
-<div style="flex-direction: row; padding-bottom: 30;">
-   <img width="400" src="https://github.com/amlannandy/bridge-in-tech-web/blob/develop/screenshots/about.png" style="margin-right: 30;">
-   <img width="400px" src="https://github.com/amlannandy/bridge-in-tech-web/blob/develop/screenshots/benefit.png" style="margin-right: 30;">
-</div>
-<div style="flex-direction: row; padding-bottom: 30;">
-   <img width="400" src="https://github.com/amlannandy/bridge-in-tech-web/blob/develop/screenshots/login.png" style="margin-right: 30;">
-   <img width="400" src="https://github.com/amlannandy/bridge-in-tech-web/blob/develop/screenshots/register.png" style="margin-right: 30;">
-</div>
-<div style="flex-direction: row; padding-bottom: 30;">
-   <img width="400" src="https://github.com/amlannandy/bridge-in-tech-web/blob/develop/screenshots/profile.png" style="margin-right: 30;">
-   <img width="400" src="https://github.com/amlannandy/bridge-in-tech-web/blob/develop/screenshots/members.png" style="margin-right: 30;">
-</div>
+**Home Section (About and Benefit)**
+
+<img width="400" src="screenshots/about.png">
+<img width="400p" src="screenshots/benefit.png">
+
+**Account Section (Login and Register)**
+
+<img width="400" src="screenshots/login.png">
+<img width="400" src="screenshots/register.png">
+
+**My Space Section (Profile and Account)**
+
+<img width="400" src="screenshots/profile.png">
+<img width="400" src="screenshots/members.png">
 
 ## Branches
 
