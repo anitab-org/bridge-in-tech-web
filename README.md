@@ -18,7 +18,7 @@ Please read our [Contributing Guidelines](.github/CONTRIBUTING.md), [Code of Con
 ## Setup
 To start contributing to the project, set up the frontend environment on your local machine. As the BIT web application consumes BridgeInTech backend REST API which connects to Mentorship System (MS) backend REST API, the two backend servers (BIT and MS) need to be run for the BIT web application to work properly. 
 
-Contributors have the option to run a local BIT frontend server that connects to BIT and MS backend servers that are also run locally. Another option is to connect to the remote BIT backend on the Heroku server which already connects to the remote MS backend Heroku server that already been modified to support BIT development (from this point onward will be called MS-for-BIT). Follow the instructions below to set up the development environment:
+Contributors have the option to run a local BIT frontend server that connects to BIT and MS backend servers that are also run locally. Another option is to connect to the remote BIT backend on the Heroku server which already connects to the remote MS backend Heroku server that has already been modified to support BIT development (from this point onward will be called MS-for-BIT). Follow the instructions below to set up the development environment:
 
 
 ### Option 1: with BIT and MS backend servers also run locally 
