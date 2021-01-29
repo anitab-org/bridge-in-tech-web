@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./Register.css";
+import { Redirect } from "react-router-dom";
+import { AuthContext } from "../AuthContext";
 import {BASE_API} from "../config";
 import {SERVICE_UNAVAILABLE_ERROR} from "../messages";
 
-
 export default function Register() {
+    const {isAuth} = useContext(AuthContext);
     const [isValidName, setIsValidName] = useState(true);
     const [isValidUsername, setIsValidUsername] = useState(true);
     const [isValidEmail, setIsValidEmail] = useState(true);
@@ -71,7 +73,9 @@ export default function Register() {
         setIsValidConfirmPassword(e.target.checkValidity() && e.target.value === password);
     };
 
-    return (
+    return isAuth ?
+        <Redirect to="/" />
+        : (
         <div className="container">
             <div className="row mb-5">
                 <div className="col-lg-12 text-center">
