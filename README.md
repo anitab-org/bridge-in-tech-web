@@ -76,18 +76,18 @@ $ npm start
 
 **Home Section (About and Benefit)**
 
-<img width="400" src="screenshots/about.png">
-<img width="400p" src="screenshots/benefit.png">
+<img width="400" src="https://user-images.githubusercontent.com/45410599/107178599-7cb66200-69fa-11eb-86c0-366d69d7a133.png">
+<img width="400p" src="https://user-images.githubusercontent.com/45410599/107178609-8213ac80-69fa-11eb-93b0-48fe51c4a666.png">
 
 **Account Section (Login and Register)**
 
-<img width="400" src="screenshots/login.png">
-<img width="400" src="screenshots/register.png">
+<img width="400" src="https://user-images.githubusercontent.com/45410599/107178624-8b9d1480-69fa-11eb-9779-b7d98335279d.png">
+<img width="400" src="https://user-images.githubusercontent.com/45410599/107178627-8dff6e80-69fa-11eb-91dc-8f32ec16f590.png">
 
 **My Space Section (Profile and Account)**
 
-<img width="400" src="screenshots/profile.png">
-<img width="400" src="screenshots/members.png">
+<img width="400" src="https://user-images.githubusercontent.com/45410599/107178635-95267c80-69fa-11eb-8469-78fe99187c95.png">
+<img width="400" src="https://user-images.githubusercontent.com/45410599/107178639-96f04000-69fa-11eb-9817-7d5ecebe75fe.png">
 
 ## Branches
 
