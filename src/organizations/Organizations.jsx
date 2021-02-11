@@ -33,7 +33,7 @@ export default function Organizations() {
         setErrorMessage(SERVICE_UNAVAILABLE_ERROR)
       )
 
-  }, []);
+  }, [requestOrganizationsList]);
 
   return errorMessage ?
     <div className="container-fluid">

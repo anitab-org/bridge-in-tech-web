@@ -22,9 +22,9 @@ Contributors have the option to run a local BIT frontend server that connects to
 ### Option 1: with BIT and MS backend servers also run locally
 
 1. **IMPORTANT!!! You must setup the BIT backend server and postgresql database first before setting up the MS-for-BIT server on the next step**.
-   To do this, follow the instruction [here](https://github.com/anitab-org/bridge-in-tech-backend/wiki/BIT-development-environment-setup). Once done, you can proceed to step 2 below.
-2. Setup MS-for-BIT server by following the setup instruction for Mentorship Backend [here](https://github.com/anitab-org/mentorship-backend) but using the codebase from Maya Treacy's fork repository [ms-backend-server](https://github.com/mtreacy002/mentorship-backend/tree/ms-backend-server) branch.
-   To do this, run the following codes on the terminal after you fork and clone the MS backend repository:
+To do this, follow the instruction [here](https://github.com/anitab-org/bridge-in-tech-backend/blob/develop/.github/ENV_SETUP_INSTRUCTION.md). Once done, you can proceed to step 2 below. 
+2. Setup MS-for-BIT server by following the setup instruction for Mentorship Backend [here](https://github.com/anitab-org/mentorship-backend) but using the codebase from Maya Treacy's fork repository [ms-backend-server](https://github.com/mtreacy002/mentorship-backend/tree/ms-backend-server) branch. 
+To do this, run the following codes on the terminal after you fork and clone the MS backend repository:
 
 ```
 $ git checkout -b bit-ms-backend-server develop
@@ -76,18 +76,18 @@ $ npm start
 
 **Home Section (About and Benefit)**
 
-<img width="400" src="screenshots/about.png">
-<img width="400p" src="screenshots/benefit.png">
+<img width="400" src="https://user-images.githubusercontent.com/45410599/107178599-7cb66200-69fa-11eb-86c0-366d69d7a133.png">
+<img width="400p" src="https://user-images.githubusercontent.com/45410599/107178609-8213ac80-69fa-11eb-93b0-48fe51c4a666.png">
 
 **Account Section (Login and Register)**
 
-<img width="400" src="screenshots/login.png">
-<img width="400" src="screenshots/register.png">
+<img width="400" src="https://user-images.githubusercontent.com/45410599/107178624-8b9d1480-69fa-11eb-9779-b7d98335279d.png">
+<img width="400" src="https://user-images.githubusercontent.com/45410599/107178627-8dff6e80-69fa-11eb-91dc-8f32ec16f590.png">
 
 **My Space Section (Profile and Account)**
 
-<img width="400" src="screenshots/profile.png">
-<img width="400" src="screenshots/members.png">
+<img width="400" src="https://user-images.githubusercontent.com/45410599/107178635-95267c80-69fa-11eb-8469-78fe99187c95.png">
+<img width="400" src="https://user-images.githubusercontent.com/45410599/107178639-96f04000-69fa-11eb-9817-7d5ecebe75fe.png">
 
 ## Branches
 

@@ -33,7 +33,7 @@ export default function Members() {
         setErrorMessage(SERVICE_UNAVAILABLE_ERROR)
       )
 
-  }, []);
+  }, [requestMembersList]);
 
   return errorMessage ?
     <div className="container-fluid">

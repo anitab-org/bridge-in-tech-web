@@ -35,7 +35,7 @@ export default function EditPrograms() {
       .catch(() =>
         setResponseMessage(SERVICE_UNAVAILABLE_ERROR)
       )
-  }, []);
+  }, [requestOrganization, organization.id]);
 
   return (
     <div className="container-fluid">

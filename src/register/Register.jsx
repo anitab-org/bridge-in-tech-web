@@ -245,13 +245,11 @@ export default function Register() {
                             <label>Already registered? Click on Login.</label>
                         </div>
                         <div className="row button-group">
-                            <div className="col-sm">
-                                <div className="row">
+                            <div className="col">
                                     <a className="btn btn-primary" id="loginbtn" href="/login" role="button">Login</a>
-                                </div>
                             </div>
-                            <div className="col-sm"></div>
-                            <div className="col-sm">
+                            <div className="space-btw"></div>
+                            <div className="col">
                                 <button className="btn btn-success"
                                     variant="success"
                                     type="submit"
