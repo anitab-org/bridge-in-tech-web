@@ -38,6 +38,7 @@ function AuthProvider({ children }) {
     Cookies.remove("access_token");
     Cookies.remove("access_expiry");
     setUser(null);
+    setIsAuth(false);
   };
 
   return (
