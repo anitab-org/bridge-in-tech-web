@@ -13,16 +13,17 @@ export default function Programs() {
     const [programs, setPrograms] = useState(null);
     const { access_token } = useContext(AuthContext);
 
-    const requestOrganization = {
-        method: "GET",
-        headers: {
-          "Authorization": `Bearer ${access_token}`,
-          "Accept": "application/json",
-          "Content-Type": "application/json",
-        },
-      };
 
-      useEffect(() => {
+    useEffect(() => {
+        const requestOrganization = {
+            method: "GET",
+            headers: {
+              "Authorization": `Bearer ${access_token}`,
+              "Accept": "application/json",
+              "Content-Type": "application/json",
+            },
+        };
+
           fetch(`${BASE_API}/organizations/${organization.id}/programs`, requestOrganization)
             .then(async response => {
               const data = await response.json();
@@ -33,7 +34,7 @@ export default function Programs() {
             .catch(() =>
               setResponseMessage(SERVICE_UNAVAILABLE_ERROR)
             )
-          }, [requestOrganization, organization.id]);
+          }, [access_token, organization.id]);
 
           return programs ?
           <div className="container-fluid">

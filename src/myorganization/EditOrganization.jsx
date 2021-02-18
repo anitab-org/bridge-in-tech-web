@@ -14,16 +14,17 @@ export default function EditOrganization() {
   const {access_token} = useContext(AuthContext);
   const [isValidPhone, setIsValidPhone] = useState(true);
 
-  const requestOrganization = {
-    method: "GET",
-    headers: {
-      "Authorization": `Bearer ${access_token}`,
-      "Accept": "application/json",
-      "Content-Type": "application/json",
-    },
-  };
 
   useEffect(() => {
+    const requestOrganization = {
+      method: "GET",
+      headers: {
+        "Authorization": `Bearer ${access_token}`,
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+      },
+    };
+
     fetch(`${BASE_API}/organization`, requestOrganization)
       .then(async response => {
         const data = await response.json();
@@ -35,7 +36,7 @@ export default function EditOrganization() {
       .catch(() =>
         setResponseMessage(SERVICE_UNAVAILABLE_ERROR)
       )
-  }, [requestOrganization]);
+  }, [access_token]);
 
   const handleSubmit = async e => {
     e.preventDefault();

@@ -11,16 +11,17 @@ export default function Members() {
   const [members, setMembers] = useState([]);
   const { access_token } = useContext(AuthContext);
 
-  const requestMembersList = {
-    method: "GET",
-    headers: {
-      "Authorization": `Bearer ${access_token}`,
-      "Accept": "application/json",
-      "Content-Type": "application/json",
-    },
-  };
 
   useEffect(() => {
+    const requestMembersList = {
+      method: "GET",
+      headers: {
+        "Authorization": `Bearer ${access_token}`,
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+      },
+    };
+
     fetch(`${BASE_API}/users`, requestMembersList)
       .then(async response => {
         const data = await response.json();
@@ -33,7 +34,7 @@ export default function Members() {
         setErrorMessage(SERVICE_UNAVAILABLE_ERROR)
       )
 
-  }, [requestMembersList]);
+  }, [access_token]);
 
   return errorMessage ?
     <div className="container-fluid">

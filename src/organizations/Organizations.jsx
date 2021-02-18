@@ -11,16 +11,17 @@ export default function Organizations() {
   const [organizations, setOrganizations] = useState([]);
   const { access_token } = useContext(AuthContext);
 
-  const requestOrganizationsList = {
-    method: "GET",
-    headers: {
-      "Authorization": `Bearer ${access_token}`,
-      "Accept": "application/json",
-      "Content-Type": "application/json",
-    },
-  };
 
   useEffect(() => {
+    const requestOrganizationsList = {
+      method: "GET",
+      headers: {
+        "Authorization": `Bearer ${access_token}`,
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+      },
+    };
+
     fetch(`${BASE_API}/organizations`, requestOrganizationsList)
       .then(async response => {
         const data = await response.json();
@@ -33,7 +34,7 @@ export default function Organizations() {
         setErrorMessage(SERVICE_UNAVAILABLE_ERROR)
       )
 
-  }, [requestOrganizationsList]);
+  }, [access_token]);
 
   return errorMessage ?
     <div className="container-fluid">

@@ -21,16 +21,16 @@ export default function PersonalBackground() {
   const [personalBackground, setPersonalBackground] = useState({});
   const { access_token, user } = useContext(AuthContext);
 
-  const requestPersonalBackground = {
-    method: "GET",
-    headers: {
-      "Authorization": `Bearer ${access_token}`,
-      "Accept": "application/json",
-      "Content-Type": "application/json",
-    },
-  };
-
   useEffect(() => {
+    const requestPersonalBackground = {
+      method: "GET",
+      headers: {
+        "Authorization": `Bearer ${access_token}`,
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+      },
+    };
+
     fetch(`${BASE_API}/user/personal_background`, requestPersonalBackground)
     .then(async response => {
       const data = await response.json();
@@ -42,7 +42,7 @@ export default function PersonalBackground() {
       setResponseMessage(SERVICE_UNAVAILABLE_ERROR)
     )
 
-  }, [requestPersonalBackground]);
+  }, [access_token]);
 
   const handleSubmit = async e => {
     e.preventDefault();

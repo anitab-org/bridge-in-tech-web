@@ -13,16 +13,17 @@ export default function AdditionalInfo() {
   const [isValidPhone, setIsValidPhone] = useState(true);
   const [isValidMobile, setIsValidMobile] = useState(true);
 
-  const requestAdditionalInfo = {
-    method: "GET",
-    headers: {
-      "Authorization": `Bearer ${access_token}`,
-      "Accept": "application/json",
-      "Content-Type": "application/json",
-    },
-  };
 
   useEffect(() => {
+    const requestAdditionalInfo = {
+      method: "GET",
+      headers: {
+        "Authorization": `Bearer ${access_token}`,
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+      },
+    };
+
     fetch(`${BASE_API}/user/additional_info`, requestAdditionalInfo)
       .then(async response => {
         const data = await response.json();
@@ -34,7 +35,7 @@ export default function AdditionalInfo() {
       .catch(() =>
         setResponseMessage(SERVICE_UNAVAILABLE_ERROR)
       )
-  }, [requestAdditionalInfo]);
+  }, [access_token]);
 
   const handleSubmit = async e => {
     e.preventDefault();
