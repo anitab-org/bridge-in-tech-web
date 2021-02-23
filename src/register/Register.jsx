@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import { AuthContext } from "../AuthContext";
 import {BASE_API} from "../config";
 import {SERVICE_UNAVAILABLE_ERROR} from "../messages";
+import TermsAndPrivacyPolicyModal from "./TermsAndPrivacyPolicyModal";
 
 export default function Register() {
     const {isAuth} = useContext(AuthContext);
@@ -13,9 +14,10 @@ export default function Register() {
     const [isValidPassword, setIsValidPassword] = useState(true);
     const [isValidConfirmPassword, setIsValidConfirmPassword] = useState(true);
     const [responseMessage, setResponseMessage] = useState(null);
-    const [password, setPassword] = useState("")
-    const [confirmPassword, setConfirmPassword] = useState("")
-    const [isPasswordShown, setIsPasswordShown] = useState(false)
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+    const [isPasswordShown, setIsPasswordShown] = useState(false);
+    const [showTermsModal,setShowTermsModal] = useState(false);
     
     const handleSubmit = async e => {
         e.preventDefault();
@@ -235,12 +237,14 @@ export default function Register() {
                                 <div className="col-sm-10">
                                     <label>
                                         By checking this box, I affirm that I have read and accept
-                                        to be bound by the AnitaB.org Code of Conduct, Terms, and
-                                        Privacy Policy. Further I consent to the use of my
+                                        to be bound by the AnitaB.org <a href="#" onClick={()=>{setShowTermsModal(true)}}>Code of Conduct, Terms, and
+                                        Privacy Policy</a>. Further I consent to the use of my
                                         information for the stated purpose.
                                     </label>
                                 </div>
                             </div>
+                            {/* Modal popup for displaying code of conduct, terms and privacy policy */}
+                            <TermsAndPrivacyPolicyModal show={showTermsModal} handleClose={()=>{setShowTermsModal(false)}}/>
                         </form-group>
                         <div>
                             {responseMessage && <span className="error" name="response" aria-label="response" role="alert">{responseMessage}</span>}

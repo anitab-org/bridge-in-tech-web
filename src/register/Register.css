@@ -8,8 +8,6 @@
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.4);
 }
 
-
-
 label {
     color: #24B9B6;
     font-size: 1.2em;
@@ -21,10 +19,10 @@ h1 {
     padding-top: .5em;
 }
 
-
 .error {
     color: red;
 }
+
 .error-message {
     color: #FF6565;
     padding: .5em .2em;
@@ -43,10 +41,18 @@ h1 {
     width: 100%;
 }
 
-
 .register-form {
 width: 80%;
 text-align: left;
 padding-top: 2em;
 padding-bottom: 2em;
+}
+
+/* Terms & Privacy Policy Modal styles */
+.terms-and-privacy-modal a{
+    text-decoration: none;
+}
+
+.terms-and-privacy-modal ul{
+    padding-left: 20px;
 }
