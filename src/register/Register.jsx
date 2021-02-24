@@ -252,7 +252,7 @@ export default function Register() {
                             <div className="col">
                                     <a className="btn btn-primary" id="loginbtn" href="/login" role="button">Login</a>
                             </div>
-                            <div className="space-btw"></div>
+                            <div className="col-0.5"></div>
                             <div className="col">
                                 <button className="btn btn-success"
                                     variant="success"
