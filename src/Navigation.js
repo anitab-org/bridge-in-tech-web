@@ -13,6 +13,7 @@ export default function Navigation() {
     return (
         <div className="Nav_container">
             <div>
+                <Nav.Link as={Link} to='/'>
                 <img
                         style={{margin:'10px 40px'}}
                         className="d-inline-block align-top"
@@ -21,6 +22,7 @@ export default function Navigation() {
                         height="50"
                         alt="Logo"
                     />
+                </Nav.Link>
             </div>
             <div className="Nav_box">
             <h2 style={{color:'#F89728'}}>Bridge In Tech</h2>

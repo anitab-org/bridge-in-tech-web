@@ -47,12 +47,3 @@ h1 {
   padding-bottom: 2em;
 }
 
-.space-btw{
-  width: 40%;
-}
-
-@media only screen and (max-width: 600px) {
-  .space-btw{
-      width: 20%;
-  }
-}

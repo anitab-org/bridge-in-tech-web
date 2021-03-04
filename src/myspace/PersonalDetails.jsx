@@ -14,16 +14,17 @@ export default function PersonalDetails() {
   const [isValidUsername, setIsValidUsername] = useState(true);
 
 
-  const requestPersonalDetails = {
-    method: "GET",
-    headers: {
-      "Authorization": `Bearer ${access_token}`,
-      "Accept": "application/json",
-      "Content-Type": "application/json",
-    },
-  };
 
   useEffect(() => {
+    const requestPersonalDetails = {
+      method: "GET",
+      headers: {
+        "Authorization": `Bearer ${access_token}`,
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+      },
+    };
+
     fetch(`${BASE_API}/user/personal_details`, requestPersonalDetails)
       .then(async response => {
         const data = await response.json();
@@ -34,7 +35,7 @@ export default function PersonalDetails() {
       .catch(() =>
         setErrorMessage(SERVICE_UNAVAILABLE_ERROR)
       )
-  }, [requestPersonalDetails]);
+  }, [access_token]);
 
   const handleSubmit = async e => {
     e.preventDefault();

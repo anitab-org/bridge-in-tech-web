@@ -27,8 +27,8 @@ import Nav from "./Navigation"
 export default function Routes() {
   return (
     <Router>
-    <Nav/>
-      <AuthProvider>
+        <AuthProvider>
+          <Nav/>
         <Switch>
           <Route exact path="/">
             <Home />

@@ -94,7 +94,7 @@ export default function Login() {
                             <div className="col">
                                     <a className="btn btn-primary" id="registerbtn" href="/register" role="button">Sign Up</a>
                             </div>
-                            <div className="space-btw"></div>
+                            <div className="col-0.5"></div>
                             <div className="col">
                                 <button className="btn btn-success"
                                     variant="success"
