@@ -4,12 +4,8 @@
  }
  
  .errorPage {
-     position: absolute;
-     top: 15%;
-     left: 17%;
-     right: 17%;
+     padding: 1rem;
      color: whitesmoke;
-     bottom: 20%;
      display: flex;
      align-items: center;
      justify-content: center;
