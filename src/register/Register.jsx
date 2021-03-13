@@ -237,7 +237,7 @@ export default function Register() {
                                 <div className="col-sm-10">
                                     <label>
                                         By checking this box, I affirm that I have read and accept
-                                        to be bound by the AnitaB.org <a href="#" onClick={()=>{setShowTermsModal(true)}}>Code of Conduct, Terms, and
+                                        to be bound by the AnitaB.org <a href="#modal" onClick={()=>{setShowTermsModal(true)}}>Code of Conduct, Terms, and
                                         Privacy Policy</a>. Further I consent to the use of my
                                         information for the stated purpose.
                                     </label>
