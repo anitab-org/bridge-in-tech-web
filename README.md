@@ -94,6 +94,17 @@ Please read our [Contributing Guidelines](.github/CONTRIBUTING.md), [Code of Con
 Thanks goes to these people ([emoji key](https://github.com/all-contributors/all-contributors#emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/mtreacy002"><img src="https://avatars.githubusercontent.com/u/29667122?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Maya Treacy</b></sub></a><br /><a href="#maintenance-mtreacy002" title="Maintenance">🚧</a> <a href="https://github.com/anitab-org/bridge-in-tech-web/commits?author=mtreacy002" title="Code">💻</a> <a href="https://github.com/anitab-org/bridge-in-tech-web/commits?author=mtreacy002" title="Documentation">📖</a> <a href="#userTesting-mtreacy002" title="User Testing">📓</a> <a href="https://github.com/anitab-org/bridge-in-tech-web/commits?author=mtreacy002" title="Tests">⚠️</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification.
