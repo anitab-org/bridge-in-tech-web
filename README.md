@@ -99,6 +99,7 @@ Thanks goes to these people ([emoji key](https://github.com/all-contributors/all
 <table>
   <tr>
     <td align="center"><a href="https://github.com/mtreacy002"><img src="https://avatars.githubusercontent.com/u/29667122?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Maya Treacy</b></sub></a><br /><a href="#maintenance-mtreacy002" title="Maintenance">🚧</a> <a href="https://github.com/anitab-org/bridge-in-tech-web/commits?author=mtreacy002" title="Code">💻</a> <a href="https://github.com/anitab-org/bridge-in-tech-web/commits?author=mtreacy002" title="Documentation">📖</a> <a href="#userTesting-mtreacy002" title="User Testing">📓</a> <a href="https://github.com/anitab-org/bridge-in-tech-web/commits?author=mtreacy002" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://github.com/Vuyanzi"><img src="https://avatars.githubusercontent.com/u/42730256?v=4?s=100" width="100px;" alt=""/><br /><sub><b>vuyanzi</b></sub></a><br /><a href="#design-Vuyanzi" title="Design">🎨</a></td>
   </tr>
 </table>
 

@@ -20,6 +20,15 @@
         "userTesting",
         "test"
       ]
+    },
+    {
+      "login": "Vuyanzi",
+      "name": "vuyanzi",
+      "avatar_url": "https://avatars.githubusercontent.com/u/42730256?v=4",
+      "profile": "https://github.com/Vuyanzi",
+      "contributions": [
+        "design"
+      ]
     }
   ],
   "projectName": "bridge-in-tech-web",
