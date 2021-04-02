@@ -9,6 +9,19 @@
   "skipCi": true,
   "contributors": [
     {
+      "login": "mtreacy002",
+      "name": "Maya Treacy",
+      "avatar_url": "https://avatars.githubusercontent.com/u/29667122?v=4",
+      "profile": "https://github.com/mtreacy002",
+      "contributions": [
+        "maintenance",
+        "code",
+        "doc",
+        "userTesting",
+        "test"
+      ]
+    },
+    {
       "login": "Vuyanzi",
       "name": "vuyanzi",
       "avatar_url": "https://avatars.githubusercontent.com/u/42730256?v=4",
