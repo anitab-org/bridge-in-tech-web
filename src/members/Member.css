@@ -50,7 +50,7 @@ h1 {
 
 @media only screen and (max-width: 644px) {
   .container-members {
-    overflow: hidden;
+    overflow: auto;
     overflow-x: scroll;
   }
 }
