@@ -107,11 +107,31 @@ input{
 .container{
     flex-direction: column;
 }
+
 .textContainer{
     width:100%;
+    margin-bottom: 3rem;
 }
+
 .formContainer{
     width:100%;
+    padding: 2rem 3rem;
+}
+
+input{
+    width:100%;
+}
+
+.heading{
+    align-items: center;
+    width: 80%;
+  
+}
+
+.subheading{
+    text-align: center;
+    line-height: 1.8rem; 
+    width:90%;
 }
 
 }
