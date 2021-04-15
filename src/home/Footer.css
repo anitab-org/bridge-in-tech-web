@@ -15,6 +15,10 @@
 #footer p {
   margin-top: 0px;
 }
+.footer-container {
+  width: 80%;
+  display: inline-block;
+}
 .main-flexbox {
   width: 100%;
   display: flex;
@@ -37,7 +41,7 @@
   font-style: normal;
   font-weight: 200;
   font-size: 15px;
-  line-height: 30px;
+  line-height: 20px;
   letter-spacing: 0.05em;
   color: #ffffff;
 }
@@ -157,4 +161,8 @@
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
   }
+  .footer-container {
+  width: 90%;
+  display: inline-block;
+}
 }

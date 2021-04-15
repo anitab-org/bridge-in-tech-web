@@ -8,7 +8,7 @@ import facebook from "./../assets/images/facebook.svg";
 export default function Footer() {
   return (
     <section id="footer">
-      <div style={{ width: "80%", display: "inline-block" }}>
+      <div className="footer-container">
         <div className="main-flexbox">
           <div className="flexbox-item">
             <img className="logo" src="#" alt="Logo"></img>
@@ -42,19 +42,19 @@ export default function Footer() {
             <ul className="list">
               <li className="li">3 Birrel Avenue</li>
               <li className="li">Ashish</li>
-              <li className="li">Bangladesh,India</li>
+              <li className="li">Bangladesh, India</li>
             </ul>
           </div>
           <div className="flexbox-item">
             <h3 className="heading">Legal</h3>
             <ul className="list">
               <li className="li">
-                <a href="/" className="Links" target="_blank">
+                <a href="https://anitab.org/terms-of-use/" className="Links" target="_blank">
                   Terms
                 </a>
               </li>
               <li className="li">
-                <a href="/" className="Links" target="_blank">
+                <a href="https://anitab.org/privacy-policy/" className="Links" target="_blank">
                   Privacy
                 </a>
               </li>
@@ -81,28 +81,28 @@ export default function Footer() {
               </h5>
             </div>
             <div className="bottom-flexboxitem">
-              <a href="/" target="_blank">
+              <a href="https://github.com/anitab-org" target="_blank">
                 <img
                   src={github}
                   className="social-logos"
                   alt="gihub_logo"
                 ></img>
               </a>
-              <a href="/" target="_blank">
+              <a href="https://www.linkedin.com/company/anitaborg-india/" target="_blank">
                 <img
                   src={linkdin}
                   className="social-logos"
                   alt="linkdin_logo"
                 ></img>
               </a>
-              <a href="/" target="_blank">
+              <a href="https://twitter.com/anitab_org?lang=en" target="_blank">
                 <img
                   src={twitter}
                   className="social-logos"
                   alt="twitter_logo"
                 ></img>
               </a>
-              <a href="/" target="_blank">
+              <a href="https://www.facebook.com/AnitaBorgIndia/" target="_blank">
                 <img
                   src={facebook}
                   className="social-logos"
