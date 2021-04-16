@@ -1,8 +1,10 @@
 import React from "react";
 import './Home.css';
+import GetInTouch from '../Getintouch/getintouch'
 export default function Home() {
 
     return (
+        <React.Fragment>
         <section id="home">
         <div className="header-text">
         <h1>Welcome to<br/> Bridge-in-Tech</h1>
@@ -15,5 +17,7 @@ export default function Home() {
         </p>
         </div>
         </section>
+        <GetInTouch />
+        </React.Fragment>
     )
 }

@@ -23,7 +23,7 @@ import Programs from "./organizations/Programs";
 import About from "./home/About";
 import Benefit from "./home/Benefit"
 import Nav from "./Navigation"
-import GetInTouch from "./Getintouch/getintouch"
+
 
 export default function Routes() {
   return (
@@ -93,7 +93,6 @@ export default function Routes() {
             <ErrorPage />
           </Route>
         </Switch>
-        <GetInTouch />
       </AuthProvider>
     </Router>
   );
