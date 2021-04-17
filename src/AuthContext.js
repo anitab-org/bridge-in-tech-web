@@ -9,7 +9,7 @@ export const AuthContext = createContext({
 });
 
 function AuthProvider({ children }) {
-  const [isAuth, setIsAuth] = useState(false);
+  const [isAuth, setIsAuth] = useState(Cookies.get('user')!=null);
   const [user, setUser] = useState(null);
 
   useEffect(
