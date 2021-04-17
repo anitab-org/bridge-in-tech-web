@@ -48,6 +48,9 @@ padding-top: 2em;
 padding-bottom: 2em;
 }
 
+#loginBtn{
+    text-decoration: none;
+}
 /* Terms & Privacy Policy Modal styles */
 .terms-and-privacy-modal a{
     text-decoration: none;

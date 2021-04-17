@@ -47,3 +47,6 @@ h1 {
   padding-bottom: 2em;
 }
 
+#registerBtn{
+  text-decoration: none;
+}
