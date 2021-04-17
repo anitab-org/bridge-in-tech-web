@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import "./Register.css";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { AuthContext } from "../AuthContext";
 import {BASE_API} from "../config";
 import {SERVICE_UNAVAILABLE_ERROR} from "../messages";
@@ -254,7 +254,13 @@ export default function Register() {
                         </div>
                         <div className="row button-group">
                             <div className="col">
-                                    <a className="btn btn-primary" id="loginbtn" href="/login" role="button">Login</a>
+                                    <Link   
+                                        className="btn btn-primary" 
+                                        id="loginBtn" 
+                                        to="/login" 
+                                        role="button">
+                                    Login
+                                    </Link>
                             </div>
                             <div className="col-0.5"></div>
                             <div className="col">

@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import "./Login.css";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { AuthContext } from "../AuthContext";
 import {BASE_API} from "../config";
 import { SERVICE_UNAVAILABLE_ERROR } from "../messages";
@@ -92,7 +92,12 @@ export default function Login() {
                         </div>
                         <div className="row button-group">
                             <div className="col">
-                                    <a className="btn btn-primary" id="registerbtn" href="/register" role="button">Sign Up</a>
+                                    <Link 
+                                        className="btn btn-primary" 
+                                        id="registerBtn" 
+                                        to="/register" 
+                                        role="button">Sign Up
+                                    </Link>
                             </div>
                             <div className="col-0.5"></div>
                             <div className="col">
