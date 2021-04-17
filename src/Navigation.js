@@ -22,10 +22,13 @@ export default function Navigation() {
                           <li >Membership</li>
                       </Link>
                       <Link to="\" style={{textDecoration:"none"}}>
-                          <li>FaQs</li>
+                          <li>FAQs</li>
                       </Link>
                       <Link to="\" style={{textDecoration:"none"}}>
-                          <li>Contact</li>
+                          <li>Blogs</li>
+                      </Link>
+                      <Link to="\" style={{textDecoration:"none"}}>
+                          <li>Contact Us</li>
                       </Link>
                       <Link to="\" style={{textDecorationColor: "blue",textDecoration:"none"}}>
                           <li >Sign In</li>
