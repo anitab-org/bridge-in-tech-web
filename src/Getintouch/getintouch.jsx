@@ -15,9 +15,9 @@ export default function GetInTouch() {
         <div className={styles.formContainer}>
           <form>
             <label>Name</label><br></br>
-            <input type="text" name="fname" placeholder="Vuyanzi Glorious"></input><br></br>
+            <input type="text" name="fname" placeholder="John Doe"></input><br></br>
             <label>Email Address</label><br></br>
-            <input type="email" name="email" placeholder="vuyanziglorious@gmail.com"></input><br></br>
+            <input type="email" name="email" placeholder="johndoe@gmail.com"></input><br></br>
             <label>Message</label><br></br>
             <input className={styles.message} type="text" name="message" placeholder="Your message"></input><br></br>
             <input className={styles.button} type="submit" value="Send Message"></input>
