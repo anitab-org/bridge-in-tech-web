@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "./Footer";
 import './Home.css';
 export default function Home() {
 
@@ -14,6 +15,7 @@ export default function Home() {
         environment for these mentor/mentee to work in.
         </p>
         </div>
+        <Footer/>
         </section>
     )
 }

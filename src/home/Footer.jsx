@@ -49,12 +49,12 @@ export default function Footer() {
             <h3 className="heading">Legal</h3>
             <ul className="list">
               <li className="li">
-                <a href="https://anitab.org/terms-of-use/" className="Links" target="_blank">
+                <a href="https://anitab.org/terms-of-use/" className="Links" target="_blank" rel="noopener noreferrer"  >
                   Terms
                 </a>
               </li>
               <li className="li">
-                <a href="https://anitab.org/privacy-policy/" className="Links" target="_blank">
+                <a href="https://anitab.org/privacy-policy/" className="Links" target="_blank" rel="noopener noreferrer">
                   Privacy
                 </a>
               </li>
@@ -81,28 +81,28 @@ export default function Footer() {
               </h5>
             </div>
             <div className="bottom-flexboxitem">
-              <a href="https://github.com/anitab-org" target="_blank">
+              <a href="https://github.com/anitab-org" target="_blank" rel="noopener noreferrer">
                 <img
                   src={github}
                   className="social-logos"
                   alt="gihub_logo"
                 ></img>
               </a>
-              <a href="https://www.linkedin.com/company/anitaborg-india/" target="_blank">
+              <a href="https://www.linkedin.com/company/anitaborg-india/" target="_blank" rel="noopener noreferrer">
                 <img
                   src={linkdin}
                   className="social-logos"
                   alt="linkdin_logo"
                 ></img>
               </a>
-              <a href="https://twitter.com/anitab_org?lang=en" target="_blank">
+              <a href="https://twitter.com/anitab_org?lang=en" target="_blank" rel="noopener noreferrer">
                 <img
                   src={twitter}
                   className="social-logos"
                   alt="twitter_logo"
                 ></img>
               </a>
-              <a href="https://www.facebook.com/AnitaBorgIndia/" target="_blank">
+              <a href="https://www.facebook.com/AnitaBorgIndia/" target="_blank" rel="noopener noreferrer">
                 <img
                   src={facebook}
                   className="social-logos"
