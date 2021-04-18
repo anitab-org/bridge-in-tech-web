@@ -102,7 +102,7 @@ export default function Footer() {
                   alt="twitter_logo"
                 ></img>
               </a>
-              <a href="https://www.facebook.com/AnitaBorgIndia/" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.facebook.com/AnitaB.0rg/" target="_blank" rel="noopener noreferrer">
                 <img
                   src={facebook}
                   className="social-logos"

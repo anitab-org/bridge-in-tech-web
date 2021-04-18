@@ -4,6 +4,7 @@ import './Home.css';
 export default function Home() {
 
     return (
+        <div>
         <section id="home">
         <div className="header-text">
         <h1>Welcome to<br/> Bridge-in-Tech</h1>
@@ -15,7 +16,8 @@ export default function Home() {
         environment for these mentor/mentee to work in.
         </p>
         </div>
-        <Footer/>
         </section>
+        <Footer/>
+        </div>
     )
 }
