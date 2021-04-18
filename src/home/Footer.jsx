@@ -11,9 +11,9 @@ export default function Footer() {
       <div className="footer-container">
         <div className="main-flexbox">
           <div className="flexbox-item">
-            <img className="logo" src="#" alt="Logo"></img>
+            <img className="logo" src="#" alt="Logo" />
             <h4 className="text">
-              We are known for connecting top talents with top comapnies. We
+              We are known for connecting top talents with top companies. We
               make great possibilities happen.
             </h4>
           </div>
@@ -86,28 +86,28 @@ export default function Footer() {
                   src={github}
                   className="social-logos"
                   alt="gihub_logo"
-                ></img>
+                />
               </a>
-              <a href="https://www.linkedin.com/company/anitaborg-india/" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/company/anitab-org/" target="_blank" rel="noopener noreferrer">
                 <img
                   src={linkdin}
                   className="social-logos"
                   alt="linkdin_logo"
-                ></img>
+                />
               </a>
               <a href="https://twitter.com/anitab_org?lang=en" target="_blank" rel="noopener noreferrer">
                 <img
                   src={twitter}
                   className="social-logos"
                   alt="twitter_logo"
-                ></img>
+                />
               </a>
               <a href="https://www.facebook.com/AnitaB.0rg/" target="_blank" rel="noopener noreferrer">
                 <img
                   src={facebook}
                   className="social-logos"
                   alt="facebook_logo"
-                ></img>
+                />
               </a>
             </div>
           </div>
