@@ -97,7 +97,7 @@ export default function Register() {
                                     placeholder="Full Name"
                                     minLength={2}
                                     maxLength={30}
-                                    pattern="^[a-zA-Z\s\-]+$"
+                                    pattern="^[^\s].[a-zA-Z\s\-]+$"
                                     onChange={validateName}
                                     required
                                 />
@@ -156,6 +156,7 @@ export default function Register() {
                                     placeholder="Password"
                                     minLength={8}
                                     maxLength={64}
+                                    pattern="^[^\s].[a-zA-Z0-9/_]+$"
                                     onChange={validatePassword}
                                     required
                                 />
@@ -176,6 +177,7 @@ export default function Register() {
                                     placeholder="Confirm Password"
                                     minLength={8}
                                     maxLength={64}
+                                    pattern="^[^\s].[a-zA-Z0-9/_]+$"
                                     onChange={validateConfirmPassword}
                                     required
                                 />
