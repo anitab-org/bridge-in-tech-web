@@ -20,19 +20,19 @@ export default function Footer() {
           <div className="flexbox-item">
             <h3 className="heading">Explore</h3>
             <ul className="list">
-              <Link to="/" style={{ textDecoration: "none" }}>
+              <Link to="/" className="Link_Li" >
                 <li className="li">Home</li>
               </Link>
-              <Link style={{ textDecoration: "none" }}>
+              <Link className="Link_Li" >
                 <li className="li">About Us</li>
               </Link>
-              <Link style={{ textDecoration: "none" }}>
+              <Link className="Link_Li">
                 <li className="li">Blogs</li>
               </Link>
-              <Link style={{ textDecoration: "none" }}>
+              <Link className="Link_Li" >
                 <li className="li">FAQ</li>
               </Link>
-              <Link style={{ textDecoration: "none" }}>
+              <Link className="Link_Li">
                 <li className="li">Contact Us</li>
               </Link>
             </ul>
@@ -50,12 +50,12 @@ export default function Footer() {
             <ul className="list">
               <li className="li">
                 <a href="https://anitab.org/terms-of-use/" className="Links" target="_blank" rel="noopener noreferrer"  >
-                  Terms
+                  Terms Of Use
                 </a>
               </li>
               <li className="li">
                 <a href="https://anitab.org/privacy-policy/" className="Links" target="_blank" rel="noopener noreferrer">
-                  Privacy
+                  Privacy Policy
                 </a>
               </li>
             </ul>

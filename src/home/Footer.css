@@ -81,6 +81,9 @@
 .Links:hover {
   color: #ffffffb6;
 }
+.Link_Li{
+  text-decoration: none;
+}
 .bootomDiv {
   text-align: center;
 }
