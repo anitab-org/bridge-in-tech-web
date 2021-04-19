@@ -4,3 +4,4 @@ import Routes from "./Routes";
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(<Routes />, rootElement);
+//  COMPULSORY TASK : SETUP ENV
