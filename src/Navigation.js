@@ -12,28 +12,28 @@ export default function Navigation() {
                <Navbar.Collapse id="responsive-navbar-nav">
                <Nav classname="mr-auto">
                  <div className="nav-items">
-                      <Link to="\" style={{textDecoration:"none"}}>
+                      <Link to="/" className="li">
                          <li >About Us</li>
                       </Link>
-                      <Link to="\" style={{textDecoration:"none"}}>
+                      <Link to="/" className="li">
                           <li >Services</li>
                       </Link>
-                      <Link to="\" style={{textDecoration:"none"}}>
+                      <Link to="/" className="li">
                           <li >Membership</li>
                       </Link>
-                      <Link to="\" style={{textDecoration:"none"}}>
+                      <Link to="/" className="li">
                           <li>FAQs</li>
                       </Link>
-                      <Link to="\" style={{textDecoration:"none"}}>
+                      <Link to="/" className="li">
                           <li>Blogs</li>
                       </Link>
-                      <Link to="\" style={{textDecoration:"none"}}>
+                      <Link to="/" className="li">
                           <li>Contact Us</li>
                       </Link>
-                      <Link to="\" style={{textDecorationColor: "blue",textDecoration:"none"}}>
-                          <li >Sign In</li>
+                      <Link to="/" className="li">
+                          <li className="li_signIn">Sign In</li>
                       </Link>
-                      <Link to="\" style={{textDecoration:"none"}}>
+                      <Link to="/" className="li">
                           <li className="active" >Sign Up</li>
                       </Link>
                  
