@@ -1,6 +1,6 @@
 import React from "react";
 import './Home.css';
-import GetInTouch from '../Getintouch/getintouch'
+import GetInTouch from '../getInTouch/GetInTouch'
 export default function Home() {
 
     return (
