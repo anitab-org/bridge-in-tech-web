@@ -10,7 +10,7 @@ export default function Navigation() {
                <Navbar className="ml-auto" expand="lg" style={{borderTop:' 2px solid #54BCEB'}}>
                <Navbar.Toggle aria-controls='responsive-navbar-nav' />
                <Navbar.Collapse id="responsive-navbar-nav">
-               <Nav classname="mr-auto">
+               <Nav className="mr-auto">
                  <div className="nav-items">
                       <Link to="/" className="li">
                          <li >About Us</li>
