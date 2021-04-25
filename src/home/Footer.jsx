@@ -18,7 +18,7 @@ export default function Footer() {
             </h4>
           </div>
           <div className="flexbox-item">
-            <h3 className="heading">Explore</h3>
+            <h3 className="heading-footer">Explore</h3>
             <ul className="list">
               <Link to="/" className="Link_Li" >
                 <li className="li">Home</li>
@@ -38,15 +38,7 @@ export default function Footer() {
             </ul>
           </div>
           <div className="flexbox-item">
-            <h3 className="heading">Visit</h3>
-            <ul className="list">
-              <li className="li">3 Birrel Avenue</li>
-              <li className="li">Ashish</li>
-              <li className="li">Bangladesh, India</li>
-            </ul>
-          </div>
-          <div className="flexbox-item">
-            <h3 className="heading">Legal</h3>
+            <h3 className="heading-footer">Legal</h3>
             <ul className="list">
               <li className="li">
                 <a href="https://anitab.org/terms-of-use/" className="Links" target="_blank" rel="noopener noreferrer"  >
@@ -61,7 +53,7 @@ export default function Footer() {
             </ul>
           </div>
           <div className="flexbox-item">
-            <h3 className="heading">Get In Touch</h3>
+            <h3 className="heading-footer">Get In Touch</h3>
             <ul className="list">
               <li className="li">
                 <a href="hello@bridgeintech.com" className="Links">

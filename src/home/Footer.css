@@ -27,7 +27,7 @@
 }
 .flexbox-item {
   text-align: left;
-  width: 15%;
+  width: 20%;
   margin-top: 3rem;
   height: 300px;
 }
@@ -45,7 +45,7 @@
   letter-spacing: 0.05em;
   color: #ffffff;
 }
-.heading {
+.heading-footer {
   font-family: MetaPro;
   font-size: 20px;
   font-style: normal;
