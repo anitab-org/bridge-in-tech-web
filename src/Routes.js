@@ -27,7 +27,7 @@ import Nav from "./Navigation"
 
 export default function Routes() {
   return (
-    <Router>
+    <Router basename="/bridge-in-tech-web">
         <AuthProvider>
           <Nav/>
         <Switch>
