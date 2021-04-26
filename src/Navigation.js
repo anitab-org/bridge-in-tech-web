@@ -7,7 +7,7 @@ import './Nav.css'
 export default function Navigation() {
     return (
       <div className="topnav">
-               <Navbar className="ml-auto" expand="lg" style={{borderTop:' 2px solid #54BCEB'}}>
+               <Navbar className="ml-auto" expand="lg">
                <Navbar.Toggle aria-controls='responsive-navbar-nav' />
                <Navbar.Collapse id="responsive-navbar-nav">
                <Nav className="mr-auto">
