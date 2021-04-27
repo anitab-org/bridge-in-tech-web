@@ -7,11 +7,11 @@ import './Nav.css'
 export default function Navigation() {
     return (
       <div className="topnav">
-               <Navbar className="ml-auto" expand="lg">
+               <Navbar collapseOnSelect className="ml-auto" expand="lg">
                <Navbar.Toggle aria-controls='responsive-navbar-nav' />
                <Navbar.Collapse id="responsive-navbar-nav">
                <Nav className="mr-auto">
-                 <div className="nav-items">
+                
                       <Link to="/" className="li">
                          <li >About Us</li>
                       </Link>
@@ -37,7 +37,7 @@ export default function Navigation() {
                           <li className="active" >Sign Up</li>
                       </Link>
                  
-                  </div>
+                  
                 </Nav>
                 </Navbar.Collapse>
                 </Navbar>
