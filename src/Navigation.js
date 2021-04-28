@@ -8,9 +8,10 @@ export default function Navigation() {
     return (
       <div className="topnav">
                <Navbar collapseOnSelect className="ml-auto" expand="lg">
-               <Navbar.Toggle aria-controls='responsive-navbar-nav' />
+                <div className="button-right">
+               <Navbar.Toggle  aria-controls='responsive-navbar-nav' />
                <Navbar.Collapse id="responsive-navbar-nav">
-               <Nav className="mr-auto">
+               <Nav className="ml-auto">
                 
                       <Link to="/" className="li">
                          <li >About Us</li>
@@ -40,7 +41,9 @@ export default function Navigation() {
                   
                 </Nav>
                 </Navbar.Collapse>
+                </div>
                 </Navbar>
+
              </div>
          
 
