@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "./Footer";
 import './Home.css';
 import GetInTouch from '../getInTouch/GetInTouch'
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
                 </div>
             </section>
             <GetInTouch />
+            <Footer/>
         </React.Fragment>
     )
 }
