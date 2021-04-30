@@ -83,6 +83,10 @@ $ npm start
 <img width="400" src="https://user-images.githubusercontent.com/45410599/107178635-95267c80-69fa-11eb-8469-78fe99187c95.png">
 <img width="400" src="https://user-images.githubusercontent.com/45410599/107178639-96f04000-69fa-11eb-9817-7d5ecebe75fe.png">
 
+## Documentation
+
+Documentation for this project is hosted [here](https://bridge-in-tech-web.surge.sh/). We use **Docusaurus** for maintaining the documentation of the project.
+
 ## Contributing
 
 **This project is under active development**
