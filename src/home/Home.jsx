@@ -19,8 +19,8 @@ export default function Home() {
                     </p>
                 </div>
             </section>
-            <GetInTouch />
             <ReadAboutUs />
+            <GetInTouch />
             <Footer/>
         </React.Fragment>
     )
