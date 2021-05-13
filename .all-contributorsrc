@@ -29,6 +29,19 @@
       "contributions": [
         "design"
       ]
+    },
+    {
+      "login": "Rahulm2310",
+      "name": "Rahul Mohata",
+      "avatar_url": "https://avatars.githubusercontent.com/u/54268438?v=4",
+      "profile": "http://rahulm2310.github.io/Portfolio",
+      "contributions": [
+        "code",
+        "design",
+        "bug",
+        "mentoring",
+        "review"
+      ]
     }
   ],
   "projectName": "bridge-in-tech-web",
