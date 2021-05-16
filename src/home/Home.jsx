@@ -3,6 +3,8 @@ import Footer from "./Footer";
 import './Home.css';
 import ReadAboutUs from './ReadAboutUs'
 import GetInTouch from '../getInTouch/GetInTouch'
+import Benefits from './Benefits'
+
 export default function Home() {
 
     return (
@@ -19,7 +21,11 @@ export default function Home() {
                     </p>
                 </div>
             </section>
+<<<<<<< HEAD
             <ReadAboutUs />
+=======
+            <Benefits/>
+>>>>>>> UI:Added Benefit section to home page
             <GetInTouch />
             <Footer/>
         </React.Fragment>

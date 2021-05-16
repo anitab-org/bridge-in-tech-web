@@ -1,0 +1,107 @@
+@font-face {
+    font-family: MetaProRegular;
+    src: url("./../assets/fonts/MetaPro-Font/MetaPro-Normal.otf") format("opentype");
+  }
+
+.mission{
+    font-family: MetaProRegular;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 52px;    
+    align-items: center;
+    text-align: center;
+    padding: 3rem;
+}
+
+.img{
+    border-radius: 5px;  
+    max-width:100%;
+    min-width: 50%;
+}
+
+.benefitTextContainer{    
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    box-sizing: border-box;
+    width:50%;
+    margin: 2rem; 
+}
+
+.benefitHeading{
+    font-family: MetaProRegular;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 42px;     
+    color: black; 
+    padding: 1rem 5rem 1rem 5rem;
+}
+
+.content{
+    font-family: MetaProRegular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 31px;    
+    color: black;
+    padding: 1rem 5rem 1rem 5rem;
+}
+
+.benefitContainer{
+    width:100%;
+    padding: 2rem 2rem 2rem 2rem;   
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.benefitContainerReverse{
+    width:100%;
+    padding: 2rem 2rem 2rem 2rem;   
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonBenefit{
+    border:1px solid #4892C7;
+    margin: 0rem 5rem 0rem 5rem;
+    padding:1rem 5rem 1rem 5rem;
+    color: #4892C7;
+    background-color: transparent;
+    font-size: 1.5rem;
+    align-self: flex-start;
+}
+
+@media screen and (max-width: 1033px) {
+
+    .benefitContainer{
+        width:100%;
+        padding: 1rem 1rem 1rem 1rem;   
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .benefitContainerReverse{
+        width:100%;
+        padding: 1rem 1rem 1rem 1rem;   
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .benefitTextContainer{
+        width:100%;
+        padding: 1rem; 
+    }
+    .buttonBenefit{
+        margin: 0rem 2rem 0rem 2rem;
+        align-self: center;
+    }    
+}
