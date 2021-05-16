@@ -1,7 +1,7 @@
 import React from "react";
 import './ReadAboutUsCard.css';
 import arrow from './.././../assets/images/long left.svg';
-export default function Home(props) {
+export default function ReadAboutUsCard(props) {
 
     return (
         <div className="card_body">
