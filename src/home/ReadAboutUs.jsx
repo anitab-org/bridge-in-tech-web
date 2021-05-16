@@ -4,7 +4,7 @@ import card_wallpaper_1 from './../assets/images/card_wallaper_1.svg'
 import card_wallpaper_2 from './../assets/images/card_wallaper_2.svg'
 import card_wallpaper_3 from './../assets/images/card_wallaper_3.svg'
 import ReadAboutUsCard from './ReadAboutUsCard/ReadAboutUsCard';
-export default function Home() {
+export default function ReadAboutUs() {
 
     return (
         <section id="read-about-us">
