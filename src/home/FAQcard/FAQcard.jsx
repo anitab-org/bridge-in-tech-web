@@ -6,7 +6,7 @@ export default function FAQcard(props) {
     return (
         <section className="faq_card">
           <h2 className="card_text">{props.text}</h2>
-          <img className="card_sidelogo" src={logo_left_arrow}  />
+          <img className="card_sidelogo" src={logo_left_arrow} alt="FAQ_side_arrow"  />
         </section>
     )
 }
