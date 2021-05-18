@@ -10,6 +10,15 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.faq_card:hover {
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+    rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+    rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+  border-radius: 12px;
 }
 .card_text {
   margin: 0;
@@ -22,4 +31,35 @@
 .card_sidelogo {
   width: 15px;
   height: 15px;
+}
+.card_sidelogo:hover {
+  cursor: pointer;
+  width: 17px;
+  height: 17px;
+}
+/* Media Queries */
+@media screen and (max-width: 1230px) {
+  .card_text {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 950px) {
+  .card_text {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 776px) {
+  .card_text {
+    text-align: left;
+  }
+  .faq_card{
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .card_sidelogo{
+    margin-left: 1rem;
+  }
+  .faq_card{
+    height: 60px;
+  }
 }

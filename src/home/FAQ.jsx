@@ -6,7 +6,7 @@ export default function FAQ() {
     return (
         <section className="faq_section">
           <div className="heading_container">
-            <h1 className="heading_faq">FAQs</h1>
+            <h1 className="heading_faq">FAQs</h1> 
           </div>
           <div className="faq_content_conatiner">
             <div className="main_content_faq">

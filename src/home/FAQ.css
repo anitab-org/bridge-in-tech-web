@@ -34,3 +34,14 @@
   width: 75%;
   height: 40px;
 }
+/* Media Queries */
+@media screen and (max-width: 1078px) {
+  .main_content_faq {
+    width: 85%;
+  }
+}
+@media screen and (max-width: 862px) {
+  .main_content_faq {
+    width: 95%;
+  }
+}
