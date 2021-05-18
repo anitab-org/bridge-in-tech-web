@@ -2,6 +2,7 @@ import React from "react";
 import Footer from "./Footer";
 import './Home.css';
 import GetInTouch from '../getInTouch/GetInTouch'
+import FAQ from "./FAQ";
 export default function Home() {
 
     return (
@@ -19,6 +20,7 @@ export default function Home() {
                 </div>
             </section>
             <GetInTouch />
+            <FAQ />
             <Footer/>
         </React.Fragment>
     )
