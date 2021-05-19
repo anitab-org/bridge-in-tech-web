@@ -1,0 +1,64 @@
+.YBITHead{
+    font-family: MetaProRegular;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 52px;    
+    align-items: center;
+    text-align: center;
+    padding-bottom: 3rem;
+    padding-top: 3rem;
+}
+
+.WhyBITflex{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding:2rem;
+    align-items: center;    
+}
+
+.WhyBITNumber{
+    font-family: Meta Pro;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 64px;
+    line-height: 97.8%;
+    color: #255DAD;
+}
+
+.WhyBITHeading{
+    font-family: Meta Pro;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 42px;
+}
+
+.WhyBITContent{
+    font-family: Meta Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 31px;
+}
+
+.YBITitem{
+    padding: 3rem;
+}
+
+.YBITitem:not(:last-child){    
+    border-right:0.25px solid #1F2430;
+}
+
+@media screen and (max-width: 1033px) {
+    .WhyBITflex{
+        display:flex;
+        flex-direction: column;  
+    }
+    .YBITitem:not(:last-child){
+        border-right:0px solid #1F2430;
+        border-bottom:0.25px solid #1F2430;
+    }
+}
+

@@ -5,6 +5,8 @@ import ReadAboutUs from './ReadAboutUs'
 import GetInTouch from './GetInTouch'
 import FAQ from "./FAQ";
 import VideoSection from "./VideoSection";
+import WhyBIT from "./WhyBIT";
+
 export default function Home() {
 
     return (
@@ -20,8 +22,10 @@ export default function Home() {
                     environment for these mentor/mentee to work in.
                     </p>
                 </div>
-            </section>
+            </section>          
+            <WhyBIT/>
             <VideoSection />
+
             <ReadAboutUs />
             <FAQ />
             <GetInTouch />
