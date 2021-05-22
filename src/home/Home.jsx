@@ -21,8 +21,8 @@ export default function Home() {
                 </div>
             </section>
             <ReadAboutUs />
-            <GetInTouch />
             <FAQ />
+            <GetInTouch />
             <Footer/>
         </React.Fragment>
     )
