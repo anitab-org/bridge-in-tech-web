@@ -20,12 +20,10 @@ export default function Home() {
                     environment for these mentor/mentee to work in.
                     </p>
                 </div>
-            </section>
-<<<<<<< HEAD
-            <ReadAboutUs />
-=======
+            </section>            
+
             <Benefits/>
->>>>>>> UI:Added Benefit section to home page
+            <ReadAboutUs />
             <GetInTouch />
             <Footer/>
         </React.Fragment>
