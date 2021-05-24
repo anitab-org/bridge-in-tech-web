@@ -77,6 +77,10 @@
     font-size: 1.5rem;
     align-self: flex-start;
 }
+.buttonBenefit:hover{
+    color: #FFFFFF;
+    background-color: #4892C7;
+}
 
 @media screen and (max-width: 1033px) {
 
