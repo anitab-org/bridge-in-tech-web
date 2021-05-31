@@ -6,6 +6,7 @@ import '@testing-library/jest-dom';
 import Login from "../login/Login";
 import { act } from 'react-dom/test-utils';
 import { BASE_API } from "../config";
+import { BrowserRouter as Router } from "react-router-dom"
 
 const server = setupServer(
     rest.post(`${BASE_API}/login`, (req, res, ctx) => {
@@ -19,7 +20,6 @@ const server = setupServer(
         }))
     })
 )
-
 beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
@@ -27,7 +27,7 @@ afterAll(() => server.close())
 
 
 it('allows the user to login successfully', async () => {
-    render(<Login />)
+    render(<Router><Login /></Router>)
 
     fireEvent.change(screen.getByPlaceholderText('Username or Email'), {
         target: { value: 'MyUsername' },
@@ -57,7 +57,7 @@ it('handles wrong credentials', async () => {
       }),
     )
    
-    render(<Login />)
+    render(<Router><Login /></Router>)
    
     fireEvent.change(screen.getByPlaceholderText('Username or Email'), {
         target: { value: 'MyUsername' },
@@ -88,7 +88,7 @@ it('handles wrong credentials', async () => {
       }),
     )
    
-    render(<Login />)
+    render(<Router><Login /></Router>)
    
     fireEvent.change(screen.getByPlaceholderText('Username or Email'), {
         target: { value: 'MyUsername' },
@@ -109,7 +109,7 @@ it('handles wrong credentials', async () => {
 
 it('checks if the fields are empty', async () => {
 
-    render(<Login />)
+    render(<Router><Login /></Router>)
 
     fireEvent.change(screen.getByLabelText("Username or Email:", {selector: "input"}), {target: { value: "" }})
     
@@ -128,7 +128,7 @@ it('checks if the fields are empty', async () => {
 
 
 it('handles password toggle', () => {
-    render(<Login />)
+    render(<Router><Login /></Router>)
 
     expect(screen.getByPlaceholderText('Password').type).toEqual("password")
 
