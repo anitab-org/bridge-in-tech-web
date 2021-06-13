@@ -8,9 +8,8 @@ import { SERVICE_UNAVAILABLE_ERROR } from "../messages";
 export default function Login() {
     const [errorMessage, setErrorMessage] = useState(null);
     const {isAuth,login} = useContext(AuthContext);
-    const [user, setUser] = useState(null);
     const [isPasswordShown, setIsPasswordShown] = useState(false)
-    
+
     const handleSubmit = async e => {
         e.preventDefault();
 
@@ -42,10 +41,10 @@ export default function Login() {
                     }).then(async response => {
                         let userData = await response.json();
                         if (response.ok)
-                            return login(data, userData['username']); 
+                            return login(data, userData['username']);
                         setErrorMessage(data.message);
                     }).catch(() => setErrorMessage(SERVICE_UNAVAILABLE_ERROR));
-                }    
+                }
                 setErrorMessage(data.message);
             })
             .catch(() => setErrorMessage(SERVICE_UNAVAILABLE_ERROR));
@@ -75,7 +74,6 @@ export default function Login() {
                                     aria-labelledby="Username"
                                     name="username"
                                     placeholder="Username or Email"
-                                    onChange={e => setUser(e.target.value)}
                                     required
                                 />
                             </p>
@@ -106,10 +104,10 @@ export default function Login() {
                         </div>
                         <div className="row button-group">
                             <div className="col">
-                                    <Link 
-                                        className="btn btn-primary" 
-                                        id="registerBtn" 
-                                        to="/register" 
+                                    <Link
+                                        className="btn btn-primary"
+                                        id="registerBtn"
+                                        to="/register"
                                         role="button">Sign Up
                                     </Link>
                             </div>
