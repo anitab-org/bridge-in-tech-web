@@ -2,7 +2,7 @@ import React from "react";
 import Footer from "./Footer";
 import './Home.css';
 import ReadAboutUs from './ReadAboutUs'
-import GetInTouch from '../getInTouch/GetInTouch'
+import GetInTouch from './GetInTouch'
 import FAQ from "./FAQ";
 export default function Home() {
 

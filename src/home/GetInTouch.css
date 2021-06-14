@@ -16,7 +16,7 @@
     box-sizing: border-box;
     width: 100%;
     background-color: #ffffff;
-    
+
 }
 
 .formContainer{
@@ -40,7 +40,7 @@ label{
     font-family: MetaProBold;
     font-size: 1.2rem;
     line-height: 1.6rem;
-    color: #1F2430 !important; 
+    color: #1F2430 !important;
 }
 
 .button{
@@ -87,7 +87,7 @@ input{
     line-height: 97.8%;
     color: #1F2430;
     width: 60%;
-  
+
 }
 
 .subheading{
@@ -98,7 +98,7 @@ input{
     box-sizing: border-box;
     font-family: MetaProRegular;
     font-size: 1.5rem;
-    line-height: 2rem; 
+    line-height: 2rem;
     width:60%;
 }
 
@@ -125,12 +125,12 @@ input{
 .heading{
     align-items: center;
     width: 80%;
-  
+
 }
 
 .subheading{
     text-align: center;
-    line-height: 1.8rem; 
+    line-height: 1.8rem;
     width:90%;
 }
 
