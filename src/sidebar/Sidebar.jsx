@@ -24,6 +24,7 @@ const Sidebar = (props) => {
           </button>
           <div className="sidebar-header">
             <img
+              alt="user-image"
               src={image}
               className="rounded-circle usr-image"
               height={isNotActive ? "20" : "70"}
