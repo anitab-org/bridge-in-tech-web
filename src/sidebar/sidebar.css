@@ -5,6 +5,7 @@
     height: 100vh;
     background-color: #215cad;
     border-radius: 5px;
+    z-index: 999;
 }
 #sidebarCollapse{
     position: absolute;
@@ -68,6 +69,9 @@
   -webkit-transform: translateX(50%);
   -ms-transform: translateX(50%);
   transform: translateX(50%);
+}
+.hidden{
+  display: none;
 }
 
 @media (max-width: 768px) {

@@ -5,29 +5,29 @@ import "./sidebar.css";
 import image from "../assets/images/AnitaBLogo.png";
 
 const Sidebar = (props) => {
-  const [isActive, setActive] = useState("true");
+  const [isNotActive, setNotActive] = useState("true");
   const [isDropdownActive, setDropdownActive] = useState("false");
-  const handleToggle = () => {
-    setActive(!isActive);
-  };
+  var barsIcon =  <i className="fas fa-bars"></i>
+  var crossIcon =  <i className="fas fa-times-circle"></i>
   return (
     <div>
       <div className="wrapper">
-        <nav id="sidebar" className={isActive ? "active" : ""}>
+        <nav id="sidebar" className={isNotActive ? "active" : ""}>
           <button
             type="button"
             id="sidebarCollapse"
-            onClick={handleToggle}
+            onClick={() => setNotActive(!isNotActive)}
             className="btn btn-custom"
           >
-            <i className={isActive ? "fas fa-bars" : "fas fa-times-circle"}></i>
+            <span className={ isNotActive ? '' : 'hidden' }>{ barsIcon }</span>
+            <span className={ isNotActive ? 'hidden' : '' }>{ crossIcon }</span>
           </button>
           <div className="sidebar-header">
             <img
               src={image}
               className="rounded-circle usr-image"
-              height={isActive ? "20" : "70"}
-              width={isActive ? "20" : "70"}
+              height={isNotActive ? "20" : "70"}
+              width={isNotActive ? "20" : "70"}
             ></img>
             <h3>User Name</h3>
           </div>
