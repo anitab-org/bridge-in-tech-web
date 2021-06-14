@@ -24,7 +24,7 @@ const Sidebar = (props) => {
           </button>
           <div className="sidebar-header">
             <img
-              alt="user-image"
+              alt="user_logo"
               src={image}
               className="rounded-circle usr-image"
               height={isNotActive ? "20" : "70"}
@@ -80,7 +80,7 @@ const Sidebar = (props) => {
             </li>
             <li className="list-item">
               <i className="fas fa-sitemap icon-color"></i>
-              <Link to="/organization-profile">Organization</Link>
+              <Link to="/organization-profile">My Organization</Link>
             </li>
           </ul>
         </nav>
