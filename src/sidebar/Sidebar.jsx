@@ -62,7 +62,6 @@ const Sidebar = (props) => {
               >
                 <li className="dropdown-item">
                   <Link to="/portfolio">Portfolio</Link>
-                  <a href="#">Portfolio</a>
                 </li>
                 <li className="dropdown-item">
                   <Link to="/personal-details">Personal Details</Link>
