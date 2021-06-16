@@ -1,7 +1,7 @@
 [![project chat](https://img.shields.io/badge/zulip-join_chat-brightgreen.svg?logo=zulip)](https://anitab-org.zulipchat.com/login/#narrow/stream/237630-bridge-in-tech)
 [![Build Status](https://travis-ci.org/anitab-org/bridge-in-tech-web.svg?branch=develop)](https://travis-ci.org/anitab-org/bridge-in-tech-web)
 
-# Bridge-In-Tech (frontend)
+# Bridge In Tech (frontend)
 
 Bridge-In-Tech (BIT) is an application that allows industries/companies, mentors, and students to actively collaborate with one another.
 
