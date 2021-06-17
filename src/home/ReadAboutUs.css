@@ -1,0 +1,47 @@
+@font-face {
+  font-family: MetaPro;
+  src: url("./../assets/fonts/MetaPro-Normal.otf") format("opentype");
+}
+#read-about-us {
+  width: 100%;
+  height: 650px;
+  text-align: center;
+  margin-top: 4rem;
+}
+#read-about-us .heading {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  font-family: MetaPro;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 52px;
+}
+.container-aboutus {
+  width: 65%;
+  display: inline-block;
+  margin-top: 4rem;
+}
+.content_aboutus {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+/* Media Queries */
+@media screen and (max-width: 760px) {
+  .container-aboutus {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 538px) {
+  .content_aboutus {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  #read-about-us {
+    height: 100%;
+    margin-bottom: 1rem;
+  }
+}

@@ -6,6 +6,7 @@ import '@testing-library/jest-dom';
 import { act } from 'react-dom/test-utils';
 import Register from "../register/Register";
 import { BASE_API } from "../config";
+import { BrowserRouter as Router } from "react-router-dom";
 
 
 const server = setupServer(
@@ -29,7 +30,7 @@ afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 
 it('allows the user to register successfully', async () => {
-    render(<Register />)
+    render(<Router><Register /></Router>)
 
     fireEvent.change(screen.getByPlaceholderText('Full Name'), {
         target: { value: 'My Name' },
@@ -71,7 +72,7 @@ it('allows the user to register successfully', async () => {
 })
 
 it('blocks the user to register without password confirmation', async () => {
-    render(<Register />)
+    render(<Router><Register /></Router>)
 
     fireEvent.change(screen.getByPlaceholderText('Full Name'), {
         target: { value: 'My Name' },
@@ -110,7 +111,7 @@ it('blocks the user to register without password confirmation', async () => {
 })
 
 it('handles password toggle', () => {
-    render(<Register />)
+    render(<Router><Register /></Router>)
 
     expect(screen.getByPlaceholderText('Password').type).toEqual("password")
     expect(screen.getByPlaceholderText('Confirm Password').type).toEqual("password")
@@ -124,7 +125,7 @@ it('handles password toggle', () => {
 })
 
 it('checks empty field warning', async () => {
-   render(<Register />)
+   render(<Router><Register /></Router>)
 
    fireEvent.change(screen.getByLabelText("Name :", { selector: "input" }), {
         target: { value: '' },
@@ -162,7 +163,7 @@ it('checks empty field warning', async () => {
 })
 
 it('checks validation message warning', async () => {
-   render(<Register />)
+   render(<Router><Register /></Router>)
 
    fireEvent.change(screen.getByLabelText("Name :", { selector: "input" }), {
         target: { value: '%' },

@@ -1,0 +1,51 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "contributorsPerLine": 7,
+  "contributorsSortAlphabetically": false,
+  "badgeTemplate": "[![All Contributors](https://img.shields.io/badge/all_contributors-<%= contributors.length %>-orange.svg?style=flat-square)](#contributors)",
+  "skipCi": true,
+  "contributors": [
+    {
+      "login": "mtreacy002",
+      "name": "Maya Treacy",
+      "avatar_url": "https://avatars.githubusercontent.com/u/29667122?v=4",
+      "profile": "https://github.com/mtreacy002",
+      "contributions": [
+        "maintenance",
+        "code",
+        "doc",
+        "userTesting",
+        "test"
+      ]
+    },
+    {
+      "login": "Vuyanzi",
+      "name": "vuyanzi",
+      "avatar_url": "https://avatars.githubusercontent.com/u/42730256?v=4",
+      "profile": "https://github.com/Vuyanzi",
+      "contributions": [
+        "design"
+      ]
+    },
+    {
+      "login": "Rahulm2310",
+      "name": "Rahul Mohata",
+      "avatar_url": "https://avatars.githubusercontent.com/u/54268438?v=4",
+      "profile": "http://rahulm2310.github.io/Portfolio",
+      "contributions": [
+        "code",
+        "design",
+        "bug",
+        "mentoring",
+        "review"
+      ]
+    }
+  ],
+  "projectName": "bridge-in-tech-web",
+  "projectOwner": "anitab-org",
+  "repoType": "github",
+  "repoHost": "https://github.com"
+}

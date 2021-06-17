@@ -7,12 +7,6 @@ Bridge-In-Tech (BIT) is an application that allows industries/companies, mentors
 
 This is the frontend client of Bridge-In-Tech which is a Reactjs web application that consumes the [BridgeInTech backend](https://github.com/anitab-org/bridge-in-tech-backend) REST API server. BIT backend server also consumes the Mentorship System (MS) backend server for some of its functionalities. Both BIT and MS backend servers are connected to a single PostgreSQL database.
 
-## Contributing
-
-**This project is under active development**
-
-Please read our [Contributing Guidelines](.github/CONTRIBUTING.md), [Code of Conduct](.github/CODE_OF_CONDUCT.md) and [Reporting Guidelines](.github/REPORTING_GUIDELINES.md) thoroughly.
-
 ## Setup
 
 To start contributing to the project, set up the frontend environment on your local machine. As the BIT web application consumes BridgeInTech backend REST API which connects to Mentorship System (MS) backend REST API, the two backend servers (BIT and MS) need to be run for the BIT web application to work properly.
@@ -88,6 +82,39 @@ $ npm start
 
 <img width="400" src="https://user-images.githubusercontent.com/45410599/107178635-95267c80-69fa-11eb-8469-78fe99187c95.png">
 <img width="400" src="https://user-images.githubusercontent.com/45410599/107178639-96f04000-69fa-11eb-9817-7d5ecebe75fe.png">
+
+## Documentation
+
+Documentation for this project is hosted [here](https://bridge-in-tech-web.surge.sh/). We use **Docusaurus** for maintaining the documentation of the project.
+
+## Contributing
+
+**This project is under active development**
+
+Please read our [Contributing Guidelines](.github/CONTRIBUTING.md), [Code of Conduct](.github/CODE_OF_CONDUCT.md) and [Reporting Guidelines](.github/REPORTING_GUIDELINES.md) thoroughly.
+
+## Contributors
+
+Thanks goes to these people ([emoji key](https://github.com/all-contributors/all-contributors#emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/mtreacy002"><img src="https://avatars.githubusercontent.com/u/29667122?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Maya Treacy</b></sub></a><br /><a href="#maintenance-mtreacy002" title="Maintenance">🚧</a> <a href="https://github.com/anitab-org/bridge-in-tech-web/commits?author=mtreacy002" title="Code">💻</a> <a href="https://github.com/anitab-org/bridge-in-tech-web/commits?author=mtreacy002" title="Documentation">📖</a> <a href="#userTesting-mtreacy002" title="User Testing">📓</a> <a href="https://github.com/anitab-org/bridge-in-tech-web/commits?author=mtreacy002" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://github.com/Vuyanzi"><img src="https://avatars.githubusercontent.com/u/42730256?v=4?s=100" width="100px;" alt=""/><br /><sub><b>vuyanzi</b></sub></a><br /><a href="#design-Vuyanzi" title="Design">🎨</a></td>
+    <td align="center"><a href="http://rahulm2310.github.io/Portfolio"><img src="https://avatars.githubusercontent.com/u/54268438?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Rahul Mohata</b></sub></a><br /><a href="https://github.com/anitab-org/bridge-in-tech-web/commits?author=Rahulm2310" title="Code">💻</a> <a href="#design-Rahulm2310" title="Design">🎨</a> <a href="https://github.com/anitab-org/bridge-in-tech-web/issues?q=author%3ARahulm2310" title="Bug reports">🐛</a> <a href="#mentoring-Rahulm2310" title="Mentoring">🧑‍🏫</a> <a href="https://github.com/anitab-org/bridge-in-tech-web/pulls?q=is%3Apr+reviewed-by%3ARahulm2310" title="Reviewed Pull Requests">👀</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification.
+Contributions of any kind welcome!
 
 ## Branches
 
