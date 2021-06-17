@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Tooltip, OverlayTrigger, Button } from "react-bootstrap";
 import "./sidebar.css";
 
 import image from "../assets/images/AnitaBLogo.png";
@@ -7,8 +8,8 @@ import image from "../assets/images/AnitaBLogo.png";
 const Sidebar = (props) => {
   const [isNotActive, setNotActive] = useState("true");
   const [isDropdownActive, setDropdownActive] = useState("false");
-  var barsIcon =  <i className="fas fa-bars"></i>
-  var crossIcon =  <i className="fas fa-times-circle"></i>
+  var barsIcon = <i className="fas fa-bars"></i>;
+  var crossIcon = <i className="fas fa-times-circle"></i>;
   return (
     <div>
       <div className="wrapper">
@@ -19,8 +20,8 @@ const Sidebar = (props) => {
             onClick={() => setNotActive(!isNotActive)}
             className="btn btn-custom"
           >
-            <span className={ isNotActive ? '' : 'hidden' }>{ barsIcon }</span>
-            <span className={ isNotActive ? 'hidden' : '' }>{ crossIcon }</span>
+            <span className={isNotActive ? "" : "hidden"}>{barsIcon}</span>
+            <span className={isNotActive ? "hidden" : ""}>{crossIcon}</span>
           </button>
           <div className="sidebar-header">
             <img
@@ -44,16 +45,24 @@ const Sidebar = (props) => {
             </li>
             <li className="list-item">
               <i className="fas fa-user-alt icon-color"></i>
-              <Link
-                to="/portfolio"
-                href="#homeSubmenu"
-                data-toggle="collapse"
-                aria-expanded="false"
-                className="dropdown-toggle"
-                onClick={() => setDropdownActive(!isDropdownActive)}
+              <OverlayTrigger
+                key="bottom"
+                placement="bottom"
+                overlay={
+                  <Tooltip id={`tooltip-$'bottom'`}>Open My Space</Tooltip>
+                }
               >
-                My Space
-              </Link>
+                <Link
+                  to="/portfolio"
+                  href="#homeSubmenu"
+                  data-toggle="collapse"
+                  aria-expanded="false"
+                  className="dropdown-toggle"
+                  onClick={() => setDropdownActive(!isDropdownActive)}
+                >
+                  My Space
+                </Link>
+              </OverlayTrigger>
               <ul
                 className={
                   isDropdownActive ? "list-unstyled  collapse" : "list-unstyled"

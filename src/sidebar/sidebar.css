@@ -14,7 +14,7 @@
 }
 #sidebar{
     height: inherit;
-    margin: 2rem;
+    margin: 1rem;
     text-align: left;
 }
 #sidebar ul li a{
@@ -22,9 +22,15 @@
     color: #e9e9ea;
 }
 #sidebar .list-item{
-    margin: 2rem 0;
+    margin: 1rem 0;
     font-size: 15px;
     font-weight: 600;
+    padding: 10px;
+}
+#sidebar .list-item:hover{
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #362F78;
 }
 #sidebar li a{
     text-decoration: none;
@@ -43,6 +49,9 @@
     margin-top: 4rem;
     text-align: center;
     color: #e9e9ea;
+}
+#sidebar .dropdown-item:hover{
+  background-color: #215cad;
 }
 .usr-image{
   border: 2px solid white;

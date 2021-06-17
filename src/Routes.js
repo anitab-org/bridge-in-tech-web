@@ -1,5 +1,6 @@
-import React from "react";
+import React,{ useContext } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { AuthContext } from "./AuthContext";
 import Home from "./home/Home";
 import Members from "./members/Members";
 import MemberPortfolio from "./members/MemberPortfolio";
@@ -23,14 +24,20 @@ import Programs from "./organizations/Programs";
 import About from "./home/About";
 import Benefit from "./home/Benefit"
 import Nav from "./Navigation"
-import Sidebar from "./sidebar/Sidebar"
+import Sidebar from "./sidebar/Sidebar";
 
 
 export default function Routes() {
+  const { user } = useContext(AuthContext);
+  if(user){
+    var sidebar  = <Sidebar/>
+  }else{
+    var sidebar = <></>
+  }
   return (
     <Router basename="/bridge-in-tech-web">
         <AuthProvider>
-          <Sidebar/>
+          { sidebar }
           <Nav/>
         <Switch>
           <Route exact path="/">
