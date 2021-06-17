@@ -24,7 +24,7 @@ import Programs from "./organizations/Programs";
 import About from "./home/About";
 import Benefit from "./home/Benefit"
 import Nav from "./Navigation"
-import Sidebar from "./sidebar/Sidebar";
+import Sidebar from "./sidebar/Sidebar"
 
 
 export default function Routes() {

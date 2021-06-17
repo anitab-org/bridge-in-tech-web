@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Tooltip, OverlayTrigger, Button } from "react-bootstrap";
+import { Tooltip, OverlayTrigger } from "react-bootstrap";
 import "./sidebar.css";
 
 import image from "../assets/images/AnitaBLogo.png";
