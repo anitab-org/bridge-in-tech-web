@@ -31,10 +31,10 @@ export default function Navigation() {
                       <Link to="/getInTouch" className="li">
                           <li>Contact Us</li>
                       </Link>
-                      <Link to="/" className="li">
+                      <Link to="/login" className="li">
                           <li className="li_signIn">Sign In</li>
                       </Link>
-                      <Link to="/" className="li">
+                      <Link to="/register" className="li">
                           <li className="active" >Sign Up</li>
                       </Link>
                  
