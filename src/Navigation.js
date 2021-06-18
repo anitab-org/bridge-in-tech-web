@@ -13,7 +13,7 @@ export default function Navigation() {
                <Navbar.Collapse id="responsive-navbar-nav">
                <Nav className="ml-auto">
                 
-                      <Link to="/" className="li">
+                      <Link to="/about" className="li">
                          <li >About Us</li>
                       </Link>
                       <Link to="/" className="li">
@@ -22,13 +22,13 @@ export default function Navigation() {
                       <Link to="/" className="li">
                           <li >Membership</li>
                       </Link>
-                      <Link to="/" className="li">
+                      <Link to="/faq" className="li">
                           <li>FAQs</li>
                       </Link>
-                      <Link to="/" className="li">
+                      <Link to="/aboutUs" className="li">
                           <li>Blogs</li>
                       </Link>
-                      <Link to="/" className="li">
+                      <Link to="/getInTouch" className="li">
                           <li>Contact Us</li>
                       </Link>
                       <Link to="/" className="li">
