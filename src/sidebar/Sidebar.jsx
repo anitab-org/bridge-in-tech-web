@@ -4,17 +4,16 @@ import { Tooltip, OverlayTrigger } from "react-bootstrap";
 
 import { AuthContext } from "../AuthContext";
 import "./sidebar.css";
-
 import image from "../assets/images/AnitaBLogo.png";
 
-const Sidebar = (props) => {
-  const { user, isAuth, login, logout } = useContext(AuthContext);
+export default function Sidebar(){
+  const { user, isAuth } = useContext(AuthContext);
   const [isNotActive, setNotActive] = useState("true");
   const [isDropdownActive, setDropdownActive] = useState("false");
   var barsIcon = <i className="fas fa-bars"></i>;
   var crossIcon = <i className="fas fa-times-circle"></i>;
   return (
-    <div>
+    <div className={!isAuth ? "hidden" : ""}>
       <div className="wrapper">
         <nav id="sidebar" className={isNotActive ? "active" : ""}>
           <button
@@ -26,7 +25,6 @@ const Sidebar = (props) => {
             <span className={isNotActive ? "" : "hidden"}>{barsIcon}</span>
             <span className={isNotActive ? "hidden" : ""}>{crossIcon}</span>
           </button>
-          {isAuth && (
             <div className="sidebar-header">
               <img
                 alt="user_logo"
@@ -37,9 +35,8 @@ const Sidebar = (props) => {
               ></img>
               <h3>{user}</h3>
             </div>
-          )}
 
-          <ul className = {isAuth ? "list-unstyled components" : "list-unstyled components margin-list"}>
+          <ul className ="list-unstyled components">
             <li className="list-item">
               <i className="fas fa-briefcase icon-color"></i>
               <Link to="/members">Members</Link>
@@ -54,7 +51,7 @@ const Sidebar = (props) => {
                 key="bottom"
                 placement="bottom"
                 overlay={
-                  <Tooltip id={`tooltip-$'bottom'`}>{!isAuth ? `Login to Open` : ""}</Tooltip>
+                  <Tooltip id={`tooltip-$'bottom'`}>{!isDropdownActive ? "Close My Space" : "Open My Space"}</Tooltip>
                 }
               >
                 <Link
@@ -70,8 +67,7 @@ const Sidebar = (props) => {
               </OverlayTrigger>
               <ul
                 className={
-                  isDropdownActive ? "list-unstyled  collapse" : "list-unstyled" +
-                  !isAuth ? "collapse" : ""
+                  isDropdownActive ? "list-unstyled  collapse" : "list-unstyled"
                 }
                 id="homeSubmenu"
               >
@@ -97,31 +93,9 @@ const Sidebar = (props) => {
               <i className="fas fa-sitemap icon-color"></i>
               <Link to="/organization-profile">My Organization</Link>
             </li>
-            {!isAuth ? (
-              <>
-                <li className="list-item">
-                  <i className="fas fa-edit icon-color"></i>
-                  <Link to="/register">Register</Link>
-                </li>
-                <li className="list-item">
-                <i class="fas fa-sign-in-alt icon-color"></i>
-                  <Link to="/login" onClick={login}>
-                    Login
-                  </Link>
-                </li>
-              </>
-            ) : (
-              <li className="list-item">
-                <i className="fas fa-building icon-color"></i>
-                <Link to="/" onClick={logout}>
-                  Logout
-                </Link>
-              </li>
-            )}
           </ul>
         </nav>
       </div>
     </div>
   );
 };
-export default Sidebar;
