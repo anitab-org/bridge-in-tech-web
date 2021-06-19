@@ -1,10 +1,12 @@
-import React  from "react";
-import { Navbar, Nav } from "react-bootstrap";
+import React, {useContext}  from "react";
+import { Navbar, Nav, Accordion } from "react-bootstrap";
 import { Link } from "react-router-dom"
 import './Nav.css'
+import { AuthContext } from "./AuthContext";
 
 
 export default function Navigation() {
+    const { user, isAuth, login, logout } = useContext(AuthContext)
     return (
       <div className="topnav">
                <Navbar collapseOnSelect className="ml-auto" expand="lg">
@@ -31,12 +33,19 @@ export default function Navigation() {
                       <Link to="/getInTouch" className="li">
                           <li>Contact Us</li>
                       </Link>
-                      <Link to="/login" className="li">
+                      {!isAuth ?
+                      <>
+                      <Accordion.Toggle as={Link} to="/login" eventKey="0" className="li" onClick={login}>
                           <li className="li_signIn">Sign In</li>
-                      </Link>
-                      <Link to="/register" className="li">
-                          <li className="active" >Sign Up</li>
-                      </Link>
+                      </Accordion.Toggle>
+                      <Accordion.Toggle as={Link} to="/register" eventKey="0" className="li">
+                          <li className="active">Sign Up</li>
+                      </Accordion.Toggle>
+                      </>
+                      :
+                      <Accordion.Toggle as={Link} to="/" eventKey="0" className="li"onClick={logout}>
+                      <li className="li_signIn">Sign Out</li>
+                    </Accordion.Toggle>}
                  
                   
                 </Nav>
