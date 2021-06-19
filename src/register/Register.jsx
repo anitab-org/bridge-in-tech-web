@@ -18,7 +18,7 @@ export default function Register() {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [isPasswordShown, setIsPasswordShown] = useState(false);
     const [showTermsModal,setShowTermsModal] = useState(false);
-    
+
     const handleSubmit = async e => {
         e.preventDefault();
         if (confirmPassword === password){
@@ -28,7 +28,7 @@ export default function Register() {
               }
               new FormData(e.target).forEach((value, key) => {
                 if (key === "terms_and_conditions_checked" || key === "need_mentoring" || key === "available_to_mentor")
-                  value = (value === "true") ? true : false   
+                  value = (value === "true") ? true : false
                 if (key !== "confirmPassword") payload[key] = value;
               });
             const requestRegister = {
@@ -58,7 +58,12 @@ export default function Register() {
     }
 
     const validateName = e => {
-        setIsValidName(e.target.checkValidity());
+        if(e.target.value.trim()===''){
+          setIsValidName(false);
+        }
+        else{
+          setIsValidName(e.target.checkValidity());
+        }
     };
     const validateUsername = e => {
         setIsValidUsername(e.target.checkValidity());
@@ -67,8 +72,13 @@ export default function Register() {
         setIsValidEmail(e.target.checkValidity());
     };
     const validatePassword = e => {
-        setPassword(e.target.value)
-        setIsValidPassword(e.target.checkValidity());
+        if(e.target.value.trim()===''){
+          setIsValidPassword(false);
+        }
+        else{
+          setPassword(e.target.value)
+          setIsValidPassword(e.target.checkValidity());
+        }
     };
     const validateConfirmPassword = e => {
         setConfirmPassword(e.target.value)
@@ -149,7 +159,7 @@ export default function Register() {
                             <p className="input-control">
 
                                 <label id="password">Password :</label>
-                                <input aria-labelledby="password" 
+                                <input aria-labelledby="password"
                                     className="field"
                                     type={isPasswordShown? "text" : "password"}
                                     name="password"
@@ -254,10 +264,10 @@ export default function Register() {
                         </div>
                         <div className="row button-group">
                             <div className="col">
-                                    <Link   
-                                        className="btn btn-primary" 
-                                        id="loginBtn" 
-                                        to="/login" 
+                                    <Link
+                                        className="btn btn-primary"
+                                        id="loginBtn"
+                                        to="/login"
                                         role="button">
                                     Login
                                     </Link>
