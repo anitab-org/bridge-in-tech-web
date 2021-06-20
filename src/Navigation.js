@@ -1,5 +1,5 @@
 import React, {useContext}  from "react";
-import { Navbar, Nav, Accordion } from "react-bootstrap";
+import { Navbar, Nav} from "react-bootstrap";
 import { Link } from "react-router-dom"
 import './Nav.css'
 import { AuthContext } from "./AuthContext";
@@ -35,17 +35,17 @@ export default function Navigation() {
                       </Link>
                       {!isAuth ?
                       <>
-                      <Accordion.Toggle as={Link} to="/login" eventKey="0" className="li" onClick={login}>
+                      <Link to="/login"  className="li" onClick={login}>
                           <li className="li_signIn">Sign In</li>
-                      </Accordion.Toggle>
-                      <Accordion.Toggle as={Link} to="/register" eventKey="0" className="li">
+                      </Link>
+                      <Link as={Link} to="/register" className="li">
                           <li className="active">Sign Up</li>
-                      </Accordion.Toggle>
+                      </Link>
                       </>
                       :
-                      <Accordion.Toggle as={Link} to="/" eventKey="0" className="li"onClick={logout}>
+                      <Link to="/"  className="li" onClick={logout}>
                       <li className="li_signIn">Sign Out</li>
-                    </Accordion.Toggle>}
+                    </Link>}
                  
                   
                 </Nav>
