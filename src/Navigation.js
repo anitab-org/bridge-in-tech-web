@@ -6,7 +6,7 @@ import { AuthContext } from "./AuthContext";
 
 
 export default function Navigation() {
-    const { user, isAuth, login, logout } = useContext(AuthContext)
+    const {isAuth, login, logout } = useContext(AuthContext)
     return (
       <div className="topnav">
                <Navbar collapseOnSelect className="ml-auto" expand="lg">
