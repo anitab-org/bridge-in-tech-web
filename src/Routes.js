@@ -21,7 +21,10 @@ import ProtectedRoute from "./ProtectedRoute";
 import AuthProvider from "./AuthContext";
 import Programs from "./organizations/Programs";
 import About from "./home/About";
+import ReadAboutUs from "./home/ReadAboutUs"
+import GetInTouch from "./home/GetInTouch"
 import Benefit from "./home/Benefit"
+import FAQ from "./home/FAQ"
 import Nav from "./Navigation"
 
 
@@ -34,8 +37,17 @@ export default function Routes() {
           <Route exact path="/">
             <Home />
           </Route>
+          <Route exact path="/faq">
+            <FAQ />
+          </Route>
+          <Route exact path="/getInTouch">
+            <GetInTouch />
+          </Route>
           <Route exact path="/about">
             <About />
+          </Route>
+          <Route exact path="/aboutUs">
+            <ReadAboutUs />
           </Route>
           <Route exact path="/benefit">
             <Benefit />
