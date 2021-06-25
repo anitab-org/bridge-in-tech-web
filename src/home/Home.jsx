@@ -2,10 +2,11 @@ import React from "react";
 import Footer from "./Footer";
 import './Home.css';
 import ReadAboutUs from './ReadAboutUs'
+import Benefits from './Benefits'
 import GetInTouch from './GetInTouch'
 import FAQ from "./FAQ";
-export default function Home() {
 
+export default function Home() {
     return (
         <React.Fragment>
             <section id="home">
@@ -19,7 +20,9 @@ export default function Home() {
                     environment for these mentor/mentee to work in.
                     </p>
                 </div>
-            </section>
+            </section>            
+
+            <Benefits/>
             <ReadAboutUs />
             <FAQ />
             <GetInTouch />
