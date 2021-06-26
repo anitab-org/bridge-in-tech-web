@@ -5,14 +5,11 @@
 .video-section {
   width: 100%;
   text-align: center;
-  margin-top: 4rem;
   background-color: #f2f6fc;
   margin-bottom: 1.5rem;
   padding-bottom: 2rem;
 }
 .video-section .heading {
-  margin: 0;
-  padding: 0;
   display: inline-block;
   font-family: MetaPro;
   font-style: normal;
