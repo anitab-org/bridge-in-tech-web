@@ -1,7 +1,7 @@
 # Basic workflow for Actions
 
 name: Build and Deploy to GitHub static pages
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the develop branch
   push:
@@ -30,7 +30,7 @@ jobs:
         run: |
           npm install
           npm run build
-          
+
       - name: Deploy to Github Pages
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:

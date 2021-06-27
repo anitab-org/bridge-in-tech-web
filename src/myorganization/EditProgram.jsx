@@ -12,7 +12,7 @@ import {
     HIGHEST_EDUCATION,
     YEARS_OF_EXPERIENCE
 } from "../backgrounds";
-import { BASE_API } from "../config";
+import { BASE_API, CORS_ORIGIN } from "../config";
 import { SERVICE_UNAVAILABLE_ERROR } from "../messages";
 import { PROGRAM_STATUS, CONTACT_TYPE, ZONE } from "../enums";
 import { AuthContext } from "../AuthContext";
@@ -66,6 +66,7 @@ export default function EditProgram() {
                 "Authorization": `Bearer ${access_token}`,
                 "Accept": "application/json",
                 "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": {CORS_ORIGIN}
             },
             body: JSON.stringify(payload)
         };

@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext} from "react";
 import { Table } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "../AuthContext";
-import { BASE_API } from "../config";
+import { BASE_API, CORS_ORIGIN } from "../config";
 import { SERVICE_UNAVAILABLE_ERROR } from "../messages";
 
 
@@ -21,6 +21,7 @@ export default function Programs() {
               "Authorization": `Bearer ${access_token}`,
               "Accept": "application/json",
               "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": {CORS_ORIGIN}
             },
         };
 
