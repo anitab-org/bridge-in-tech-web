@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import "./Register.css";
+import Footer from "../home/Footer";
 import { Redirect, Link } from "react-router-dom";
 import { AuthContext } from "../AuthContext";
 import { BASE_API } from "../config";
@@ -92,223 +93,191 @@ export default function Register() {
   return isAuth ? (
     <Redirect to="/" />
   ) : (
-    <div className="container">
-      <div class="row align-items-start">
-        <div class="col">
-          <img src="src/assets/images/side_image.jpg" alt="background" />
-        </div>
-        <div class="col">
-          <div className="row">
-            <div className="col-lg-12">
-              <form className="register-form" onSubmit={handleSubmit} id="form">
-                <h1>Welcome To Bridge In Tech</h1>
-                <h4>
-                  Lets start your account setup so you can have access to a
-                  great pool of talent.
-                </h4>
-                <form-group controlId="formEmail">
-                  <p className="input-control">
-                    <label id="email">Email :</label>
-                    <input
-                      aria-labelledby="email"
-                      className="feilds"
-                      type="email"
-                      name="email"
-                      placeholder="Email"
-                      pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
-                      onChange={validateEmail}
-                      required
-                    />
-                  </p>
-                  {!isValidEmail && (
-                    <span className="error">
-                      Must match standard email format xxx@xxx.xxx
-                    </span>
-                  )}
-                </form-group>
+    <React.Fragment>
+    <section class="split-screen">
+      <div class="left"></div>
+      <div class="right">
+        <form id="form" onSubmit={handleSubmit}>
+          <section class="register">
+            <h1>Welcome To Bridge In Tech</h1>
+            <h4>
+              Lets start your account setup so you can have access to a great
+              pool of talent.
+            </h4>
+            <form-group controlId="formEmail">
+            <div class="fields email">
+              <label for="email">Email :</label>
+              <input
+                aria-labelledby="email"
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Email"
+                pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+                onChange={validateEmail}
+                required
+              />
+              </div>
+              {!isValidEmail && (
+                <span className="error">
+                  Must match standard email format xxx@xxx.xxx
+                </span>
+              )}
+            </form-group>
+            <form-group controlId="formName">
+            <div class="fields name">
+              <label for="fname">FullName :</label>
+              <input
+                aria-labelledby="name"
+                id="fname"
+                name="fname"
+                type="text"
+                placeholder="Full Name"
+                minLength={2}
+                maxLength={30}
+                pattern="^[a-zA-Z\s\-]+$"
+                onChange={validateName}
+                required
+              />
+              </div>
+              {!isValidName && (
+                <span className="error">
+                  Must be between 2-30 characters long. Can only contain
+                  alphabets, whitespace and dash '-'
+                </span>
+              )}
+            </form-group>
+            <form-group controlId="formPassword">
+            <div class="fields password">
+              <label for="password">Password :</label>
+              <input
+                aria-labelledby="password"
+                id="password"
+                name="password"
+                placeholder="at least 8 characters"
+                type={isPasswordShown ? "text" : "password"}
+                placeholder="atleast 8 characters"
+                minLength={8}
+                maxLength={64}
+                onChange={validatePassword}
+                required
+              />
+              <i class="far fa-eye-slash"></i>
+              </div>
+              {!isValidPassword && (
+                <span className="error">Must be between 8-64 characters</span>
+              )}
+            </form-group>
+            <form-group controlId="formPassword">
+            <div class="fields password">
+              <label for="confirm_password">Confirm Password :</label>
+              <input
+                aria-labelledby="confirmPassword"
+                id="confirm_password"
+                placeholder="re-type password"
+                type={isPasswordShown ? "text" : "password"}
+                name="confirmPassword"
+                placeholder="re-type password"
+                minLength={8}
+                maxLength={64}
+                onChange={validateConfirmPassword}
+                required
+              />
+              <img class="icons"/>
+              </div>
+              {!isValidConfirmPassword && (
+                <span className="error">Must be same as password</span>
+              )}
+            </form-group>
+            <form-group controlId="formTermsCheck">
+            <div class="insert_checkbox">
+              <input
+                type="checkbox"
+                aria-label="termsCheck"
+                name="terms_and_conditions_checked"
+                value={"on" ? true : false}
+                required
+              />
+              <label id="terms">
+                I agree to the{" "}
+                <a
+                  href="#modal"
+                  onClick={() => {
+                    setShowTermsModal(true);
+                  }}
+                >
+                  <strong>Terms and Conditions.</strong>
+                </a>
+              </label>
 
-                <form-group controlId="formName">
-                  <p className="input-control">
-                    <label id="name">Full Name :</label>
-                    <input
-                      aria-labelledby="name"
-                      className="feilds"
-                      type="text"
-                      name="name"
-                      placeholder="Full Name"
-                      minLength={2}
-                      maxLength={30}
-                      pattern="^[a-zA-Z\s\-]+$"
-                      onChange={validateName}
-                      required
-                    />
-                  </p>
-                  {!isValidName && (
-                    <span className="error">
-                      Must be between 2-30 characters long. Can only contain
-                      alphabets, whitespace and dash '-'
-                    </span>
-                  )}
-                </form-group>
-
-                {/*
-                        <form-group controlId="formUserName">
-                            <p className="input-control">
-                                <label id="username">Username :</label>
-                                <input aria-labelledby="username"
-                                    className="feilds"
-                                    type="text"
-                                    name="username"
-                                    placeholder="Username"
-                                    minLength={5}
-                                    maxLength={25}
-                                    pattern="^[a-zA-Z0-9/_]+$"
-                                    onChange={validateUsername}
-                                    required
-                                />
-                            </p>
-                          {!isValidUsername && (
-                                <span className="error">Must be between 5-25 characters long. Can only contain alphabets, numbers and underscore '_'</span>
-                           )}
-                        </form-group>
-                          */}
-
-                <form-group controlId="formPassword">
-                  <p className="input-control">
-                    <label id="password">Password :</label>
-                    <input
-                      aria-labelledby="password"
-                      className="feilds"
-                      type={isPasswordShown ? "text" : "password"}
-                      name="password"
-                      placeholder="atleast 8 characters"
-                      minLength={8}
-                      maxLength={64}
-                      onChange={validatePassword}
-                      required
-                    />
-                  </p>
-                  {!isValidPassword && (
-                    <span className="error">
-                      Must be between 8-64 characters
-                    </span>
-                  )}
-                </form-group>
-
-                <form-group controlId="formPassword">
-                  <p className="input-control">
-                    <label id="confirmPassword">Confirm Password :</label>
-                    <input
-                      aria-labelledby="confirmPassword"
-                      className="feilds"
-                      type={isPasswordShown ? "text" : "password"}
-                      name="confirmPassword"
-                      placeholder="atleast 8 characters"
-                      minLength={8}
-                      maxLength={64}
-                      onChange={validateConfirmPassword}
-                      required
-                    />
-                  </p>
-                  {!isValidConfirmPassword && (
-                    <span className="error">Must be same as password</span>
-                  )}
-                </form-group>
-                {/*
-                        <div><br></br></div>
-                        <form-group>
-                            <input type="checkbox" className="my-2" name="show_password_checkbox" id="showPassword" onClick={handleTogglePasswordDisplay}/>
-                            <label className="ml-2 my-2" htmlFor="showPassword">Show Password</label>
-                        </form-group>*/}
-                <form-group controlId="formTermsCheck">
-                  <div className="row">
-                    <p className="input-control" id="terms">
-                      <input
-                        type="checkbox"
-                        name="terms_and_conditions_checked"
-                        aria-label="termsCheck"
-                        value={"on" ? true : false}
-                        required
-                      />
-                    </p>
-
-                    <label>
-                      I agree to the{" "}
-                      <a
-                        href="#modal"
-                        onClick={() => {
-                          setShowTermsModal(true);
-                        }}
-                      >
-                        Terms and Conditions.
-                      </a>
-                      
-                    </label>
-                  </div>
-                  {/* Modal popup for displaying code of conduct, terms and privacy policy */}
-                  <TermsAndPrivacyPolicyModal
-                    show={showTermsModal}
-                    handleClose={() => {
-                      setShowTermsModal(false);
-                    }}
+              {/* Modal popup for displaying code of conduct, terms and privacy policy */}
+              <TermsAndPrivacyPolicyModal
+                show={showTermsModal}
+                handleClose={() => {
+                  setShowTermsModal(false);
+                }}
+              />
+</div>
+              {responseMessage && (
+                <span className="error" name="response" role="alert">
+                  {responseMessage}
+                </span>
+              )}
+            </form-group>
+<form-group>
+            <label>Available as a :</label>
+            <div class="choice">
+              <div class="choice_mentor">
+                <div class="insert_checkbox">
+                  <input
+                    type="checkbox"
+                    aria-label="mentor"
+                    name="available_to_mentor"
+                    value={"on" ? true : false}
                   />
-                </form-group>
-                        <div>
-                            {responseMessage && <span className="error" name="response" aria-label="response" role="alert">{responseMessage}</span>}
-                        </div>
-                <form-group>
-                            <div className="row">
-                                <div className="col-sm text-center">
-                                    <label htmlFor="availability">Available to be a :</label>
-                                    <form-group>
-                                            <div className="mb-3">
-                                                <div className="row">
-                                                    <div className="col-sm">
-                                                        <input
-                                                            name="available_to_mentor"
-                                                            aria-label="mentor"
-                                                            type="checkbox"
-                                                            value={"on" ? true : false}
-                                                        />
-                                                        <label htmlFor="mentor">Mentor</label>
-                                                    </div>
-                                                    <div className="col-sm">
-                                                        <input
-                                                            name="need_mentoring"
-                                                            aria-label="mentee"
-                                                            type="checkbox"
-                                                            value={"on" ? true : false}
-                                                        />
-                                                        <label htmlFor="mentee">Mentee</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                    </form-group>
-                                    </div>
-                                    </div>
-                                    </form-group>
-                <div className="signup">
-                  <button
-                    className="btn btn-success"
-                    id="signup"
-                    variant="success"
-                    type="submit"
-                    name="submit"
-                    value="Signup"
-                  >
-                    Sign Up
-                  </button>
+                  <label class="checkbox_class" id="mentor">
+                    Mentor
+                  </label>
                 </div>
-
-                <div className="login">
-                  Have an Account?<a href="/login">Sign In.</a>
+              </div>
+              <div class="choice_mentee">
+                <div class="insert_checkbox">
+                  <input
+                    type="checkbox"
+                    aria-label="mentee"
+                    name="need_mentoring"
+                    value={"on" ? true : false}
+                  />
+                  <label id="mentee" class="checkbox_class">
+                    Mentee
+                  </label>
                 </div>
-              </form>
+              </div>
             </div>
-          </div>
-        </div>
+            </form-group>
+            <button
+              class="btn btn-success"
+              id="signup"
+              variant="success"
+              type="submit"
+              name="submit"
+              value="Signup"
+            >
+              Sign Up
+            </button>
+            <div class="login">
+              {" "}
+              Have an Account?
+              <strong>
+                <a href="/login"> Sign In</a>
+              </strong>
+            </div>
+          </section>
+        </form>
       </div>
-    </div>
+    </section>
+    <Footer />
+    </React.Fragment>
     
   );
 }

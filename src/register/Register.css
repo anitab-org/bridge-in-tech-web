@@ -1,36 +1,11 @@
-.container {
-    background: #f7f9fa;
-    /*background-image: url("../assets/images/side_image.jpg");*/
-    font-family: MetaProBold;
-    height: auto;
-    width: 100%;
-    padding: 0px 20px;
-    -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.4);
-    -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.4);
-    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.4);
-}
-
-.register-form {
-    width: 100%;
-    /*position: absolute;*/
-    font-style: normal;
-    text-align: left;
-    height: 54px;
-    left: 728px;
-    padding-right: 140px;
-    padding-left: 96px;
-    left: 728px;
-    /*padding-left: 2em;*/
-}
-
 #form h1 {
-    top: 107px;
-    width: 438px;
     font-weight: 500;
     font-size: 36px;
     line-height: 54px;
     color: hsl(180, 100%, 0%);
-    margin: 0px;
+    margin: 0px!important;
+    padding-top: 35px;
+    text-align: left;
 }
 
 #form h4 {
@@ -43,21 +18,128 @@
     margin: 0px;
 }
 
-#form label {
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 27px;
-    width: 200px;
-    color: #1f2430;
-    padding-top: 24px;
+#form a {
+    text-decoration: none;
+    color: var(--primary-blue);
 }
 
-#form input {
+#form a:hover {
+    cursor: pointer;
+}
+
+.small {
+    font-size: 80%;
+    text-align: center;
+}
+
+.split-screen {
+    display: flex;
+    flex-direction: row;
+}
+
+.left {
+    display: flex;
+    text-align: left;
+    background-image: url(../assets/images/side_image.jpg);
+    height: 964px;
+    width: 630px;
+}
+
+.right {
+    display: flex;
+    padding-right: 140px;
+    padding-left: 96px;
+    text-align: left;
+    width: 808px;
+    height: 964px;
+}
+
+.right .register {
+    text-align: left;
+    position: relative;
+    width: 808px;
+    height: 964px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
     width: 569.23px;
     height: 56px;
     border: 1px solid #337ab7;
     border-radius: 5px;
     margin: 0px;
+}
+
+#form label {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    width: 300px;
+    color: #1f2430;
+    padding-top: 24px;
+}
+
+
+/*#form .password i {
+    background-image: url("../assets/images/Hide.jpg");
+    position: relative;
+    left: 385.11px;
+    top: 5px;
+    background: #230B34;
+    width: 18.43px;
+    height: 17px;
+}*/
+
+.checkbox_class input {
+    position: absolute;
+    cursor: pointer;
+}
+
+#terms {
+    font-family: Meta Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 27px;
+    padding-left: 24px;
+    padding-top: 0px !important;
+    color: rgba(31, 36, 48, 0.6);
+}
+
+.insert_checkbox {
+    display: flex;
+    flex-direction: row;
+    padding-top: 24px;
+}
+
+.insert_checkbox input {
+    width: 28px;
+    height: 28px;
+    border: 1px solid rgba(31, 36, 48, 0.6);
+    box-sizing: border-box;
+    border-radius: 4px;
+    display: block;
+    position: relative;
+    cursor: pointer;
+    background: #E5E5E5;
+    margin: 0px !important
+}
+
+.insert_checkbox input :hover {
+    width: 28px;
+    height: 28px;
+    border: 1px solid rgba(31, 36, 48, 0.6);
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.insert_checkbox input :checked ::after {
+    position: relative;
+    width: 11.5px;
+    height: 9px;
+    border-radius: 4px;
+    background: #4892C7;
 }
 
 .error {
@@ -72,31 +154,23 @@
     font-size: 0.8em;
 }
 
-#form .fields {
-    /*border: 1px solid #1C6EA4;
-    width: 100%;
-    height: 2em;
-    /* Rectangle 63
-    position: absolute; */
-    border: 1px solid rgba(31, 36, 48, 0.6);
-    border-radius: 5px;
-    width: 569.23px;
-    height: 56px;
-}
-
 #signup {
     width: 569px;
     height: 63px;
-    left: 728px;
-    top: 894px;
     background: #4892c7;
     box-shadow: 0px 4px 10px rgba(72, 146, 199, 0.1);
     border-radius: 5px;
-    padding: 0px;
+    font-family: Meta Pro;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    color: #FFFFFF;
 }
 
 .login {
     padding-top: 24px;
+    width: 569px;
+    padding-bottom: 34px;
     font-size: 16px;
     line-height: 21px;
     text-align: center;
@@ -113,16 +187,6 @@
     color: rgba(31, 36, 48, 0.6);
 }
 
-#terms {
-    text-decoration: none;
-    width: 300px;
-    top: calc(50% - 27px / 2 - 30px);
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 27px;
-    color: rgba(31, 36, 48, 0.6);
-}
-
 .terms-and-privacy-modal ul {
     padding-left: 24px;
     text-decoration: none;
@@ -133,16 +197,45 @@
     color: rgba(31, 36, 48, 0.6);
 }
 
+.choice {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 80px;
+}
+
+#mentee,
 #mentor {
-    position: absolute;
+    position: relative;
     width: 56px;
     height: 18px;
-    left: 772px;
-    top: 792px;
+    padding-left: 24px;
+    padding-top: 0px !important;
     font-family: Meta Pro;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
     line-height: 100%;
     color: rgba(31, 36, 48, 0.6);
+}
+
+@media screen and (max-width: 803px) {
+    .split-screen {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .left,
+    .right {
+        width: 100%;
+        display: flex;
+        height: 50%;
+    }
+    .right {
+        padding: 15px;
+        align-items: center;
+    }
+    #form input,
+    label {
+        width: auto;
+    }
 }
