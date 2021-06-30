@@ -14,6 +14,7 @@
     flex-flow: column;
     justify-content: center;
     align-items: center;
+    bottom: 95.11%;
 }
 .navbar-expand-lg .navbar-nav .dropdown-menu {
     position: static;
