@@ -70,8 +70,6 @@ export default function Login() {
                   <p>Glad to see you again, kindly provide the details below and lets get you back on track again.</p>
               </div>
 
-            
-
 
               <form className="login-form mx-auto" onSubmit={handleSubmit}/>
                         <form-group controlId="formUserame">
