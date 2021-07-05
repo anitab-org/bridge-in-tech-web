@@ -2,11 +2,7 @@
     font-family: MetaProBold;
     src: url("./assets/fonts/MetaPro-Bold.otf") format("opentype");
   }
-  
-  @font-face {
-    font-family: MetaProRegular;
-    src: url("./assets/fonts/MetaPro-Normal.otf") format("opentype");
-  }
+
   .topnav{
     display: flex;
     height:auto;
