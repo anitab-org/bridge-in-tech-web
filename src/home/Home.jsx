@@ -4,6 +4,7 @@ import './Home.css';
 import ReadAboutUs from './ReadAboutUs'
 import GetInTouch from './GetInTouch'
 import FAQ from "./FAQ";
+import VideoSection from "./VideoSection";
 export default function Home() {
 
     return (
@@ -20,6 +21,7 @@ export default function Home() {
                     </p>
                 </div>
             </section>
+            <VideoSection />
             <ReadAboutUs />
             <FAQ />
             <GetInTouch />
