@@ -1,0 +1,41 @@
+.video-section-card {
+  margin: 0.5rem;
+  width: 30%;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  padding: 1rem;
+}
+.video_card_count {
+  font-family: MetaPro;
+  font-style: normal;
+  font-weight: 800;
+  color: rgba(37, 93, 173, 1);
+}
+.video_card_title {
+  font-family: MetaPro;
+  font-style: normal;
+  font-weight: 700;
+}
+.video_card_description {
+  font-family: MetaPro;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  margin-top: 0.5rem;
+}
+/* MEDIA QUERIES */
+@media screen and (max-width: 782px) {
+  .video-section-card {
+    height: 350px;
+  }
+}
+@media screen and (max-width: 469px) {
+  .video-section-card {
+    width: 80%;
+    height: 200px;
+  }
+}
