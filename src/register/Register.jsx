@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import "./Register.css";
 import { Redirect, Link } from "react-router-dom";
 import { AuthContext } from "../AuthContext";
-import {BASE_API} from "../config";
+import {BASE_API, CORS_ORIGIN} from "../config";
 import {SERVICE_UNAVAILABLE_ERROR} from "../messages";
 import TermsAndPrivacyPolicyModal from "./TermsAndPrivacyPolicyModal";
 
@@ -36,6 +36,7 @@ export default function Register() {
                 headers: {
                     "Accept": "application/json",
                     "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin": {CORS_ORIGIN}
                 },
                 body: JSON.stringify(payload)
             };

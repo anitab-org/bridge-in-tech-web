@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { BASE_API } from "../config";
+import { BASE_API, CORS_ORIGIN } from "../config";
 import { AuthContext } from "../AuthContext";
 import "./MySpace.css";
 import { SERVICE_UNAVAILABLE_ERROR } from "../messages";
@@ -21,6 +21,7 @@ export default function AdditionalInfo() {
         "Authorization": `Bearer ${access_token}`,
         "Accept": "application/json",
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": {CORS_ORIGIN}
       },
     };
 
@@ -59,6 +60,7 @@ export default function AdditionalInfo() {
         "Authorization": `Bearer ${access_token}`,
         "Accept": "application/json",
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": {CORS_ORIGIN}
       },
       body: JSON.stringify(payload)
     };
