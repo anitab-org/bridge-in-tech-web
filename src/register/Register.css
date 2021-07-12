@@ -75,6 +75,7 @@
     justify-content: left;
     width: 100%;
     align-items: flex-start;
+    object-fit: cover;
 }
 
 .left {
@@ -83,10 +84,12 @@
     background-image: url(../assets/images/side_image.jpg);
     height: 964px;
     width: 630px;
+    object-fit: cover;
 }
 
 .right {
     display: flex;
+    flex-grow: 4;
     padding-right: 140px;
     padding-left: 96px;
     text-align: left;
@@ -96,14 +99,14 @@
 .right .register {
     text-align: left;
     position: relative;
-    width: 808px;
+    min-width: 808px;
     height: 964px;
 }
 
 form input[type="text"],
 form input[type="email"],
 form input[type="password"] {
-    width: 569.23px;
+    min-width: 569.23px;
     height: 56px;
     border: 1px solid #337ab7;
     border-radius: 5px;
