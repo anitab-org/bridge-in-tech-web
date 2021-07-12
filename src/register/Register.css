@@ -1,3 +1,45 @@
+.preloader {
+    border: 5px solid orangered;
+    border-top: 5px solid white;
+    border-radius: 50%;
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    top: 20%;
+    left: calc(50vw - 75px);
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.preloader:before,
+.preloader:after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: calc(50vh - 75px);
+    left: calc(50vw - 75px);
+    transform: translate(-50%, -50%);
+}
+
 #form h1 {
     font-weight: 500;
     font-size: 36px;
@@ -27,14 +69,12 @@
     cursor: pointer;
 }
 
-.small {
-    font-size: 80%;
-    text-align: center;
-}
-
 .split-screen {
     display: flex;
     flex-direction: row;
+    justify-content: left;
+    width: 100%;
+    align-items: flex-start;
 }
 
 .left {
@@ -50,7 +90,6 @@
     padding-right: 140px;
     padding-left: 96px;
     text-align: left;
-    width: 808px;
     height: 964px;
 }
 
@@ -179,7 +218,7 @@ form input[type="password"] {
 
 .terms-and-privacy-modal a {
     text-decoration: none;
-    width: 300px;
+    width: 800px;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
