@@ -122,16 +122,15 @@ form input[type="password"] {
     padding-top: 24px;
 }
 
-
-/*#form .password i {
-    background-image: url("../assets/images/Hide.jpg");
+#form img {
     position: relative;
-    left: 385.11px;
-    top: 5px;
-    background: #230B34;
-    width: 18.43px;
-    height: 17px;
-}*/
+    right: 40px;
+}
+
+#form img :hover {
+    cursor: pointer;
+    fill: #230B34;
+}
 
 .checkbox_class input {
     position: absolute;
