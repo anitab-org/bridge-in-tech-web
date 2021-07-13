@@ -28,7 +28,6 @@ import FAQ from "./home/FAQ"
 import Nav from "./Navigation"
 import Sidebar from "./sidebar/Sidebar"
 
-
 export default function Routes() {
   return (
     <Router basename="/bridge-in-tech-web">
