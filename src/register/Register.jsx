@@ -12,7 +12,7 @@ import showPwd from "../assets/images/show_pwd_icon.svg";
 export default function Register() {
   const { isAuth } = useContext(AuthContext);
   const [isValidName, setIsValidName] = useState(true);
-  const [isValidUsername, setIsValidUsername] = useState(true);
+  
   const [isValidEmail, setIsValidEmail] = useState(true);
   const [isValidPassword, setIsValidPassword] = useState(true);
   const [isValidConfirmPassword, setIsValidConfirmPassword] = useState(true);
@@ -95,7 +95,7 @@ export default function Register() {
     <Redirect to="/" />
   ) : (
     <React.Fragment>
-      {IsLoading == true ? (
+      {IsLoading === true ? (
         <div className="preloader"></div>
       ) : (
         <section className="screen">
@@ -154,6 +154,34 @@ export default function Register() {
                       </span>
                     )}
                   </form-group>
+                  
+                                      <form-group controlId="formPassword">
+                                              <div className="input-control">
+                                                  <label id="Password">Password :</label>
+                                                  <input
+                                                      aria-labelledby="Password"
+                                                      id="Password"
+                                                      className="feilds"
+                                                      placeholder="At least 8 characters"
+                                                      type={isPasswordShown ? "text" : "password"}
+                                                      name="Password"
+                                                      minLength={8}
+                                                      maxLength={64}
+                                                      onChange={validatePassword}
+                                                      required
+                                                  />
+                                                  <img
+                                                      title={isPasswordShown ? "text" : "password"}
+                                                      src={isPasswordShown ? showPwd : hidePwd}
+                                                      onClick={() =>
+                                                          setIsPasswordShown((prevState) => !prevState)
+                                                      }
+                                                  />
+                                              </div>
+                                              {!isValidPassword && (
+                                                  <span className="error">Must be same as password</span>
+                                              )}
+                                          </form-group>
                   <form-group controlId="formPassword">
                     <div className="input-control">
                       <label id="confirmPassword">Confirm Password :</label>
@@ -161,10 +189,9 @@ export default function Register() {
                         aria-labelledby="confirmPassword"
                         id="confirmPassword"
                         className="feilds"
-                        placeholder="re-type password"
+                        placeholder="Re-type password"
                         type={isConfirmPasswordShown ? "text" : "password"}
                         name="confirmPassword"
-                        placeholder="re-type password"
                         minLength={8}
                         maxLength={64}
                         onChange={validateConfirmPassword}
@@ -264,7 +291,7 @@ export default function Register() {
                     {" "}
                     Have an Account?
                     <strong>
-                      <a href="/login"> Sign In</a>
+                      <Link to="/login"> Sign In</Link>
                     </strong>
                   </div>
                 </section>

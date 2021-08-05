@@ -196,7 +196,7 @@ form input[type="password"] {
 }
 
 #signup {
-    width: 569px;
+    min-width: 569px;
     height: 63px;
     background: #4892c7;
     box-shadow: 0px 4px 10px rgba(72, 146, 199, 0.1);
