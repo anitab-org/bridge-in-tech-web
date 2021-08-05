@@ -154,34 +154,36 @@ export default function Register() {
                       </span>
                     )}
                   </form-group>
-                  
-                                      <form-group controlId="formPassword">
-                                              <div className="input-control">
-                                                  <label id="Password">Password :</label>
-                                                  <input
-                                                      aria-labelledby="Password"
-                                                      id="Password"
-                                                      className="feilds"
-                                                      placeholder="At least 8 characters"
-                                                      type={isPasswordShown ? "text" : "password"}
-                                                      name="Password"
-                                                      minLength={8}
-                                                      maxLength={64}
-                                                      onChange={validatePassword}
-                                                      required
-                                                  />
-                                                  <img
-                                                      title={isPasswordShown ? "text" : "password"}
-                                                      src={isPasswordShown ? showPwd : hidePwd}
-                                                      onClick={() =>
-                                                          setIsPasswordShown((prevState) => !prevState)
-                                                      }
-                                                  />
-                                              </div>
-                                              {!isValidPassword && (
-                                                  <span className="error">Must be same as password</span>
-                                              )}
-                                          </form-group>
+                  <form-group controlId="formPassword">
+                    <div class="input-control">
+                      <label for="password">Password :</label>
+
+                      <input
+                        aria-labelledby="password"
+                        className="feilds"
+                        id="password"
+                        name="password"
+                        placeholder="At least 8 characters"
+                        type={isPasswordShown ? "text" : "password"}
+                        minLength={8}
+                        maxLength={64}
+                        onChange={validatePassword}
+                        required
+                      />
+                      <img
+                        title={isPasswordShown ? "text" : "password"}
+                        src={isPasswordShown ? showPwd : hidePwd}
+                        onClick={() =>
+                          setIsPasswordShown((prevState) => !prevState)
+                        }
+                      />
+                    </div>
+                    {!isValidPassword && (
+                      <span className="error">
+                        Must be between 8-64 characters
+                      </span>
+                    )}
+                  </form-group>
                   <form-group controlId="formPassword">
                     <div className="input-control">
                       <label id="confirmPassword">Confirm Password :</label>
