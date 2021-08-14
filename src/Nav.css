@@ -1,20 +1,57 @@
-.Nav_container{
-    display: flex;
-    width: 100%;
-    height: auto;
-    align-items: center;
-    justify-content: space-around;
-    box-sizing: border-box;
-    padding: 10px;
-    border-bottom: 2px solid #54BCEB;
+@font-face {
+  font-family: MetaProBold;
+  src: url("./assets/fonts/MetaPro-Bold.otf") format("opentype");
 }
 
-.Nav_box{
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
+@font-face {
+  font-family: MetaProRegular;
+  src: url("./assets/fonts/MetaPro-Normal.otf") format("opentype");
 }
-.navbar-expand-lg .navbar-nav .dropdown-menu {
-    position: static;
+.topnav{
+  display: flex;
+  height:auto;
+  width: 100%;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0px 20px;
+
+
 }
+li {
+  font-family: MetaProBold;
+  list-style: none;
+  align-items: center;
+  color: #000000;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+  padding: 20px 26px;
+  text-align: center;
+  white-space: nowrap;
+}
+.li{
+  text-decoration: none;
+}
+.li_signIn{
+  color:#4892C7;
+}
+ 
+ li:hover {
+   text-decoration: underline  blue;
+ }
+ 
+ .active {
+   width: 170px;
+   height: 72px;
+   background: #4892C7;
+   margin:0;
+   color: white;
+ }
+ .ml-auto{
+   padding: 0px 0px;
+ }
+ .button-right{
+   text-align: right;
+ }
+
