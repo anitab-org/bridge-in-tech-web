@@ -132,7 +132,7 @@ export default function Register() {
                   </form-group>
                   <form-group controlId="formName">
                     <div className="input-control">
-                      <label htmlFor="fname">FullName :</label>
+                      <label htmlFor="fname">Full Name :</label>
                       <input
                         aria-labelledby="name"
                         className="feilds"
@@ -163,7 +163,7 @@ export default function Register() {
                         className="feilds"
                         id="password"
                         name="password"
-                        placeholder="At least 8 characters"
+                        placeholder="Password"
                         type={isPasswordShown ? "text" : "password"}
                         minLength={8}
                         maxLength={64}
@@ -191,7 +191,7 @@ export default function Register() {
                         aria-labelledby="confirmPassword"
                         id="confirmPassword"
                         className="feilds"
-                        placeholder="Re-type password"
+                        placeholder="Confirm Password"
                         type={isConfirmPasswordShown ? "text" : "password"}
                         name="confirmPassword"
                         minLength={8}
@@ -284,7 +284,7 @@ export default function Register() {
                     id="signup"
                     variant="success"
                     type="submit"
-                    name="submit"
+                    name="Sign Up"
                     value="Signup"
                   >
                     Sign Up

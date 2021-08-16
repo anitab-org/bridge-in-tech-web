@@ -12,8 +12,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 const server = setupServer(
     rest.post(`${BASE_API}/register`, (req, res, ctx) => {
         req.body = {
-            name: "My Name",
-            username: "MyUsername",
+            fname: "My Name",
             password: "12345678",
             email: "myemail@xxx.xxx",
             terms_and_conditions_checked: true,
@@ -35,9 +34,7 @@ it('allows the user to register successfully', async () => {
     fireEvent.change(screen.getByPlaceholderText('Full Name'), {
         target: { value: 'My Name' },
     })
-    fireEvent.change(screen.getByPlaceholderText('Username'), {
-        target: { value: 'MyUsername' },
-    })
+    
     fireEvent.change(screen.getByPlaceholderText('Email'), {
         target: { value: 'myemail@xxx.xxx' },
     })
@@ -77,9 +74,7 @@ it('blocks the user to register without password confirmation', async () => {
     fireEvent.change(screen.getByPlaceholderText('Full Name'), {
         target: { value: 'My Name' },
     })
-    fireEvent.change(screen.getByPlaceholderText('Username'), {
-        target: { value: 'MyUsername' },
-    })
+   
     fireEvent.change(screen.getByPlaceholderText('Email'), {
         target: { value: 'myemail@xxx.xxx' },
     })
@@ -103,7 +98,7 @@ it('blocks the user to register without password confirmation', async () => {
     })
     
     fireEvent.click(screen.getByRole('button', { name: "Sign Up" }), {
-        target: { value: 'true' },
+        target: { value: true },
     })
 
     expect(screen.queryByLabelText("response")).not.toBeInTheDocument();
@@ -116,8 +111,8 @@ it('handles password toggle', () => {
     expect(screen.getByPlaceholderText('Password').type).toEqual("password")
     expect(screen.getByPlaceholderText('Confirm Password').type).toEqual("password")
 
-    fireEvent.click(screen.getByLabelText('Show Password', { name: "show_password_checkbox" }), {
-        target: { value: true },
+    fireEvent.click(screen.getByTitle('password'), {
+        target: { value: 'true' },
     })
 
     expect(screen.getByPlaceholderText('Password').type).toEqual("text")
@@ -127,13 +122,10 @@ it('handles password toggle', () => {
 it('checks empty field warning', async () => {
    render(<Router><Register /></Router>)
 
-   fireEvent.change(screen.getByLabelText("Name :", { selector: "input" }), {
+   fireEvent.change(screen.getByLabelText("Full Name :", { selector: "input" }), {
         target: { value: '' },
     })
 
-   fireEvent.change(screen.getByLabelText("Username :", { selector: "input" }), {
-        target: { value: '' },
-    })
 
    fireEvent.change(screen.getByLabelText("Email :", { selector: "input" }), {
         target: { value: '' },
@@ -154,8 +146,7 @@ it('checks empty field warning', async () => {
     });
     
    await wait(() => {
-       expect(screen.getByLabelText("Name :", { selector: "input" })).toBeRequired();
-       expect(screen.getByLabelText("Username :", { selector: "input" })).toBeRequired();
+       expect(screen.getByLabelText("Full Name :", { selector: "input" })).toBeRequired();
        expect(screen.getByLabelText("Email :", { selector: "input" })).toBeRequired();
        expect(screen.getByLabelText("Password :", { selector: "input" })).toBeRequired();
        expect(screen.getByLabelText("Confirm Password :", { selector: "input" })).toBeRequired();
@@ -165,12 +156,8 @@ it('checks empty field warning', async () => {
 it('checks validation message warning', async () => {
    render(<Router><Register /></Router>)
 
-   fireEvent.change(screen.getByLabelText("Name :", { selector: "input" }), {
+   fireEvent.change(screen.getByLabelText("Full Name :", { selector: "input" }), {
         target: { value: '%' },
-    })
-
-   fireEvent.change(screen.getByLabelText("Username :", { selector: "input" }), {
-        target: { value: '&' },
     })
 
    fireEvent.change(screen.getByLabelText("Email :", { selector: "input" }), {
@@ -192,8 +179,7 @@ it('checks validation message warning', async () => {
     });
     
    await wait(() => {
-       expect(screen.getByLabelText("Name :", { selector: "input" })).toBeInvalid();
-       expect(screen.getByLabelText("Username :", { selector: "input" })).toBeInvalid();
+       expect(screen.getByLabelText("Full Name :", { selector: "input" })).toBeInvalid();
        expect(screen.getByLabelText("Email :", { selector: "input" })).toBeInvalid();
        expect(screen.getByLabelText("Password :", { selector: "input" })).toBeInvalid();
        expect(screen.getByLabelText("Confirm Password :", { selector: "input" })).toBeInvalid();
