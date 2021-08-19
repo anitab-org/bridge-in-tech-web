@@ -22,12 +22,12 @@ export default function Register() {
   const [isPasswordShown, setIsPasswordShown] = useState(false);
   const [isConfirmPasswordShown, setIsConfirmPasswordShown] = useState(false);
   const [showTermsModal, setShowTermsModal] = useState(false);
-  const [IsLoading, setIsLoading] = useState(true);
+ /* const [IsLoading, setIsLoading] = useState(true);
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
     }, 2500);
-  });
+  });*/
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (confirmPassword === password) {
@@ -95,9 +95,7 @@ export default function Register() {
     <Redirect to="/" />
   ) : (
     <React.Fragment>
-      {IsLoading === true ? (
-        <div className="preloader"></div>
-      ) : (
+     
         <section className="screen">
           <section className="split-screen">
             <div className="left"></div>
@@ -132,7 +130,7 @@ export default function Register() {
                   </form-group>
                   <form-group controlId="formName">
                     <div className="input-control">
-                      <label htmlFor="fname">Full Name :</label>
+                      <label for="fname">Full Name :</label>
                       <input
                         aria-labelledby="name"
                         className="feilds"
@@ -170,8 +168,8 @@ export default function Register() {
                         onChange={validatePassword}
                         required
                       />
-                      <img
-                        title={isPasswordShown ? "text" : "password"}
+                      <img title="password_icon"
+                        type={isPasswordShown ? "text" : "password"}
                         src={isPasswordShown ? showPwd : hidePwd}
                         onClick={() =>
                           setIsPasswordShown((prevState) => !prevState)
@@ -199,8 +197,8 @@ export default function Register() {
                         onChange={validateConfirmPassword}
                         required
                       />
-                      <img
-                        title={isConfirmPasswordShown ? "text" : "password"}
+                      <img title="confirmpassword_icon"
+                        type={isConfirmPasswordShown ? "text" : "password"}
                         src={isConfirmPasswordShown ? showPwd : hidePwd}
                         onClick={() =>
                           setIsConfirmPasswordShown((prevState) => !prevState)
@@ -302,7 +300,7 @@ export default function Register() {
           </section>
           <Footer />
         </section>
-      )}
+      
     </React.Fragment>
   );
 }

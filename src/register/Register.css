@@ -241,7 +241,7 @@ form input[type="password"] {
 .choice {
     display: flex;
     flex-direction: row;
-    padding-bottom: 80px;
+    padding-bottom: 70px;
 }
 
 #mentee,

@@ -111,8 +111,11 @@ it('handles password toggle', () => {
     expect(screen.getByPlaceholderText('Password').type).toEqual("password")
     expect(screen.getByPlaceholderText('Confirm Password').type).toEqual("password")
 
-    fireEvent.click(screen.getByTitle('password'), {
-        target: { value: 'true' },
+    fireEvent.click(screen.getByTitle('password_icon'), {
+        target: { onclick: 'True'}
+    })
+    fireEvent.click(screen.getByTitle('confirmpassword_icon'), {
+        target: { onclick: 'True'}
     })
 
     expect(screen.getByPlaceholderText('Password').type).toEqual("text")
