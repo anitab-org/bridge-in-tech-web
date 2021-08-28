@@ -12,7 +12,6 @@ import showPwd from "../assets/images/show_pwd_icon.svg";
 export default function Register() {
   const { isAuth } = useContext(AuthContext);
   const [isValidName, setIsValidName] = useState(true);
-  
   const [isValidEmail, setIsValidEmail] = useState(true);
   const [isValidPassword, setIsValidPassword] = useState(true);
   const [isValidConfirmPassword, setIsValidConfirmPassword] = useState(true);
@@ -22,12 +21,6 @@ export default function Register() {
   const [isPasswordShown, setIsPasswordShown] = useState(false);
   const [isConfirmPasswordShown, setIsConfirmPasswordShown] = useState(false);
   const [showTermsModal, setShowTermsModal] = useState(false);
- /* const [IsLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2500);
-  });*/
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (confirmPassword === password) {
@@ -169,6 +162,7 @@ export default function Register() {
                         required
                       />
                       <img title="password_icon"
+                      alt="text"
                         type={isPasswordShown ? "text" : "password"}
                         src={isPasswordShown ? showPwd : hidePwd}
                         onClick={() =>
@@ -198,6 +192,7 @@ export default function Register() {
                         required
                       />
                       <img title="confirmpassword_icon"
+                        alt="text"
                         type={isConfirmPasswordShown ? "text" : "password"}
                         src={isConfirmPasswordShown ? showPwd : hidePwd}
                         onClick={() =>
@@ -299,8 +294,7 @@ export default function Register() {
             </div>
           </section>
           <Footer />
-        </section>
-      
+        </section>      
     </React.Fragment>
   );
 }
