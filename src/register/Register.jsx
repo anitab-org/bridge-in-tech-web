@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext} from "react";
 import "./Register.css";
 import Footer from "../home/Footer";
 import { Redirect, Link } from "react-router-dom";
@@ -236,7 +236,7 @@ export default function Register() {
                       />
                     </div>
                     {responseMessage && (
-                      <span className="error" name="response" role="alert">
+                      <span className="error" title="response" role="alert">
                         {responseMessage}
                       </span>
                     )}

@@ -62,9 +62,9 @@ it('allows the user to register successfully', async () => {
         target: { value: 'true' },
     })
 
-    await waitForElement(() => screen.getByLabelText('response'))
+    await waitForElement(() => screen.getByTitle('response'))
 
-    expect(screen.getByLabelText('response')).toHaveTextContent("User was created successfully. A confirmation email has been sent via email. After confirming your email you can login.")
+    expect(screen.getByTitle('response')).toHaveTextContent("User was created successfully. A confirmation email has been sent via email. After confirming your email you can login.")
     
 })
 
