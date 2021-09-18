@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0ca436e16bf12753256e98a7fa65e04f",
+    "revision": "07bf5165ec2ed2d9034c0b436bfdb7de",
     "url": "/bridge-in-tech-web/index.html"
   },
   {
-    "revision": "faded755f7067fe9bf9a",
-    "url": "/bridge-in-tech-web/static/css/main.8d4967d3.chunk.css"
+    "revision": "e28b955c1e436fdad2c1",
+    "url": "/bridge-in-tech-web/static/css/main.43e0e9c4.chunk.css"
   },
   {
-    "revision": "3895353e2ff2fa15f819",
-    "url": "/bridge-in-tech-web/static/js/2.ca349ef5.chunk.js"
+    "revision": "635d05b9df8f67398d05",
+    "url": "/bridge-in-tech-web/static/js/2.7996449f.chunk.js"
   },
   {
-    "revision": "14060d5403b5cb599a71704f7b391b06",
-    "url": "/bridge-in-tech-web/static/js/2.ca349ef5.chunk.js.LICENSE.txt"
+    "revision": "b76cd0b7294280e24e2077be230640d3",
+    "url": "/bridge-in-tech-web/static/js/2.7996449f.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "faded755f7067fe9bf9a",
-    "url": "/bridge-in-tech-web/static/js/main.8fc16908.chunk.js"
+    "revision": "e28b955c1e436fdad2c1",
+    "url": "/bridge-in-tech-web/static/js/main.13c843d4.chunk.js"
   },
   {
     "revision": "387a0f0da9d0a288f4c3",
