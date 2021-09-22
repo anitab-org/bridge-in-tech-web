@@ -1,8 +1,0 @@
-language: node_js
-node_js:
-  - 12.16
-cache:
-  npm: false
-script:
-  - npm test
-  - CI=false npm run build
