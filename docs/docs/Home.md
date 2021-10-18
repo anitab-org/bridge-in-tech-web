@@ -3,6 +3,13 @@ id: home
 title: Home
 slug: /
 ---
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://github.com/anitab-org/bridge-in-tech-web)
+[![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/anitab-org/bridge-in-tech-web)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/anitab-org/bridge-in-tech-web)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/anitab-org/bridge-in-tech-web/pulls)
+
+
+
 
 Welcome to the bridge-in-tech-web wiki!
 
