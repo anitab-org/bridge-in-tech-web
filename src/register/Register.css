@@ -99,7 +99,7 @@
 .right .register {
     text-align: left;
     position: relative;
-    min-width: 808px;
+    width: 808px;
     height: 964px;
 }
 
@@ -267,7 +267,7 @@ form input[type="password"] {
     }
     .left,
     .right {
-        width: 100%;
+        width: 80%;
         display: flex;
         height: 50%;
     }
