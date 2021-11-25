@@ -11,6 +11,7 @@ import showPwd from "../assets/images/show_pwd_icon.svg";
 
 export default function Register() {
   const { isAuth } = useContext(AuthContext);
+  const [isValidUsername, setIsValidUsername] = useState(true);
   const [isValidName, setIsValidName] = useState(true);
   const [isValidEmail, setIsValidEmail] = useState(true);
   const [isValidPassword, setIsValidPassword] = useState(true);
@@ -65,7 +66,9 @@ export default function Register() {
       setIsValidName(e.target.checkValidity());
     }
   };
-
+  const validateUsername = (e) => {
+    setIsValidUsername(e.target.checkValidity());
+  };
   const validateEmail = (e) => {
     setIsValidEmail(e.target.checkValidity());
   };
@@ -99,33 +102,12 @@ export default function Register() {
                   Lets start your account setup so you can have access to a
                   great pool of talent.
                 </h4>
-                <form-group controlId="formEmail">
-                  <div className="input-control">
-                    <label for="email">Email :</label>
-                    <input
-                      aria-labelledby="email"
-                      className="feilds"
-                      id="email"
-                      name="email"
-                      type="email"
-                      placeholder="Email"
-                      pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
-                      onChange={validateEmail}
-                      required
-                    />
-                  </div>
-                  {!isValidEmail && (
-                    <span className="error">
-                      Must match standard email format xxx@xxx.xxx
-                    </span>
-                  )}
-                </form-group>
                 <form-group controlId="formName">
                   <div className="input-control">
                     <label for="fname">Full Name :</label>
                     <input
                       aria-labelledby="name"
-                      className="feilds"
+                      className="field"
                       id="fname"
                       name="fname"
                       type="text"
@@ -144,13 +126,58 @@ export default function Register() {
                     </span>
                   )}
                 </form-group>
+                <form-group controlId="formUserName">
+                  <div className="input-control">
+                    <label id="username">Username :</label>
+                    <input
+                      aria-labelledby="username"
+                      className="field"
+                      type="text"
+                      name="username"
+                      placeholder="Username"
+                      minLength={5}
+                      maxLength={25}
+                      pattern="^[a-zA-Z0-9/_]+$"
+                      onChange={validateUsername}
+                      required
+                    />
+                  </div>
+                  {!isValidUsername && (
+                    <span className="error">
+                      Must be between 5-25 characters long. Can only contain
+                      alphabets, numbers and underscore '_'
+                    </span>
+                  )}
+                </form-group>
+                <form-group controlId="formEmail">
+                  <div className="input-control">
+                    <label for="email">Email :</label>
+                    <input
+                      aria-labelledby="email"
+                      className="field"
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="Email"
+                      pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+                      onChange={validateEmail}
+                      required
+                    />
+                  </div>
+                  {!isValidEmail && (
+                    <span className="error">
+                      Must match standard email format xxx@xxx.xxx
+                    </span>
+                  )}
+                </form-group>
+
                 <form-group controlId="formPassword">
                   <div className="input-control">
                     <label for="password">Password :</label>
 
                     <input
                       aria-labelledby="password"
-                      className="feilds"
+                      className="field"
                       id="password"
                       name="password"
                       placeholder="Password"
@@ -182,7 +209,7 @@ export default function Register() {
                     <input
                       aria-labelledby="confirmPassword"
                       id="confirmPassword"
-                      className="feilds"
+                      className="field"
                       placeholder="Confirm Password"
                       type={isConfirmPasswordShown ? "text" : "password"}
                       name="confirmPassword"

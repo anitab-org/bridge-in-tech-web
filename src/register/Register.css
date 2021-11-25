@@ -93,7 +93,7 @@
     padding-right: 140px;
     padding-left: 96px;
     text-align: left;
-    height: 964px;
+    height: 1200px;
 }
 
 .right .register {
@@ -123,8 +123,10 @@ form input[type="password"] {
 }
 
 #form img {
-    position: relative;
-    right: 40px;
+    position: absolute;
+    
+    right: 13px;
+    padding-top: 16px;
 }
 
 #form img :hover {
