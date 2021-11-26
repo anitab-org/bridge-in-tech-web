@@ -104,7 +104,7 @@ export default function Register() {
                 </h4>
                 <form-group controlId="formName">
                   <div className="input-control">
-                    <label for="fname">Full Name :</label>
+                    <label htmlFor="fname">Full Name :</label>
                     <input
                       aria-labelledby="name"
                       className="field"
@@ -151,7 +151,7 @@ export default function Register() {
                 </form-group>
                 <form-group controlId="formEmail">
                   <div className="input-control">
-                    <label for="email">Email :</label>
+                    <label htmlFor="email">Email :</label>
                     <input
                       aria-labelledby="email"
                       className="field"
@@ -173,7 +173,7 @@ export default function Register() {
 
                 <form-group controlId="formPassword">
                   <div className="input-control">
-                    <label for="password">Password :</label>
+                    <label htmlFor="password">Password :</label>
 
                     <input
                       aria-labelledby="password"
@@ -205,7 +205,7 @@ export default function Register() {
                 </form-group>
                 <form-group controlId="formPassword">
                   <div className="input-control">
-                    <label id="confirmPassword">Confirm Password :</label>
+                    <label htmlFor="confirmPassword">Confirm Password :</label>
                     <input
                       aria-labelledby="confirmPassword"
                       id="confirmPassword"
