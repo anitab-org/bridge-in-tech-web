@@ -22,6 +22,7 @@ export default function Register() {
   const [isPasswordShown, setIsPasswordShown] = useState(false);
   const [isConfirmPasswordShown, setIsConfirmPasswordShown] = useState(false);
   const [showTermsModal, setShowTermsModal] = useState(false);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (confirmPassword === password) {
@@ -59,6 +60,7 @@ export default function Register() {
         });
     }
   };
+
   const validateName = (e) => {
     if (e.target.value.trim() === "") {
       setIsValidName(false);
