@@ -265,11 +265,6 @@ export default function Register() {
                       }}
                     />
                   </div>
-                  {responseMessage && (
-                    <span className="error" title="response" role="alert">
-                      {responseMessage}
-                    </span>
-                  )}
                 </form-group>
                 <form-group>
                   <label>Available as a :</label>
@@ -302,6 +297,12 @@ export default function Register() {
                     </div>
                   </div>
                 </form-group>
+                {responseMessage && (
+                  <span className="error" title="response" role="alert">
+                    {responseMessage}
+                  </span>
+                )}
+
                 <button
                   className="btn btn-success"
                   id="signup"

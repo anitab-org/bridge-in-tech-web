@@ -208,6 +208,7 @@ form input[type="password"] {
     font-weight: 500;
     font-size: 24px;
     color: #FFFFFF;
+    margin-top: 30px;
 }
 
 .login {
