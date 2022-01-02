@@ -1,0 +1,7 @@
+**/node_modules
+**/dist
+**/package.json
+**/package-lock.json
+**/build
+**/docs
+**/.github

@@ -1,20 +1,19 @@
 module.exports = {
-    title: 'Bridge In Tech Web Docs',
-    tagline: 'Documentation for Bridge In Tech Web',
-    url: 'https://bridge-in-tech-web.surge.sh/',
-    baseUrl: '/',
-    onBrokenLinks: 'throw',
-    onBrokenMarkdownLinks: 'warn',
-    favicon: 'img/favicon.png',
-    organizationName: 'anitab-org',
-    projectName: 'bridge-in-tech-web',
+    title: "Bridge In Tech Web Docs",
+    tagline: "Documentation for Bridge In Tech Web",
+    url: "https://bridge-in-tech-web.surge.sh/",
+    baseUrl: "/",
+    onBrokenLinks: "throw",
+    onBrokenMarkdownLinks: "warn",
+    favicon: "img/favicon.png",
+    organizationName: "anitab-org",
+    projectName: "bridge-in-tech-web",
     themeConfig: {
         announcementBar: {
-            id: 'support_us',
-            content:
-                '⭐️ If you like Bridge-In-Tech-Web, give it a star on <a href="https://github.com/anitab-org/bridge-in-tech-web" rel="noopener noreferrer" target="_blank">GitHub!</a> ⭐️',
-            backgroundColor: '#fafbfc',
-            textColor: '#091E42',
+            id: "support_us",
+            content: '⭐️ If you like Bridge-In-Tech-Web, give it a star on <a href="https://github.com/anitab-org/bridge-in-tech-web" rel="noopener noreferrer" target="_blank">GitHub!</a> ⭐️',
+            backgroundColor: "#fafbfc",
+            textColor: "#091E42",
         },
         colorMode: {
             defaultMode: "light",
@@ -60,15 +59,14 @@ module.exports = {
     },
     presets: [
         [
-            '@docusaurus/preset-classic',
+            "@docusaurus/preset-classic",
             {
                 docs: {
-                    sidebarPath: require.resolve('./sidebars.js'),
-                    editUrl:
-                        'https://github.com/anitab-org/bridge-in-tech-web/tree/develop/docs',
+                    sidebarPath: require.resolve("./sidebars.js"),
+                    editUrl: "https://github.com/anitab-org/bridge-in-tech-web/tree/develop/docs",
                 },
                 theme: {
-                    customCss: require.resolve('./src/css/custom.css'),
+                    customCss: require.resolve("./src/css/custom.css"),
                 },
             },
         ],
