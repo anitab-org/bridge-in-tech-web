@@ -3,3 +3,6 @@
 **/package.json
 **/package-lock.json
 **/.eslintrc
+**/build
+**/docs
+**/.github
