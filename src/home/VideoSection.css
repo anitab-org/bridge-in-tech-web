@@ -1,6 +1,6 @@
 @font-face {
   font-family: MetaPro;
-  src: url("./../assets/fonts/MetaPro-Normal.otf") format("opentype");
+  src: url('./../assets/fonts/MetaPro-Normal.otf') format('opentype');
 }
 .video-section {
   width: 100%;

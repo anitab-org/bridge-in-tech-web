@@ -8,7 +8,7 @@ Welcome to the bridge-in-tech-web wiki!
 
 # About
 
-Bridge-In-Tech is an application inspired by the existing [AnitaB.org Mentorship System](https://github.com/anitab-org/mentorship-backend/wiki). It encourages organizations to collaborate with the mentors and mentees on mentoring programs. Through Bridge-In-Tech, an organization can offer a mentorship program to a mentor and a mentee that is customised to meet the needed skills set within its organisation while providing a safety and supportive environment for these mentor/mentee to work in. This repository is the frontend of the system and it uses Reactjs. 
+Bridge-In-Tech is an application inspired by the existing [AnitaB.org Mentorship System](https://github.com/anitab-org/mentorship-backend/wiki). It encourages organizations to collaborate with the mentors and mentees on mentoring programs. Through Bridge-In-Tech, an organization can offer a mentorship program to a mentor and a mentee that is customised to meet the needed skills set within its organisation while providing a safety and supportive environment for these mentor/mentee to work in. This repository is the frontend of the system and it uses Reactjs.
 
 This project was proposed as [an original project of Google Summer of Code 2020](https://summerofcode.withgoogle.com/organizations/4752039663370240/), by [Maya Treacy](https://github.com/mtreacy002). Maya is going to be mentored by [Ramit Sawhney](https://github.com/ramitsawhney27), [Meenakshi Dhanani](https://github.com/meenakshi-dhanani), [Foong Min Wong](https://github.com/foongminwong) and [Isabel Costa](https://github.com/isabelcosta). Isabel will also have a double role as the project manager. You can see Maya's [proposal here](https://docs.google.com/document/d/1ZZCOoWdn2yb6N3qrrgK0SRDQPcx2Pp7kz3yDXDRSHUs/edit#heading=h.h1xuf6xi92mt).
 
@@ -27,7 +27,6 @@ In order to engage with the community, you can sign up on [AnitaB.org Open Sourc
 A primary goal of AnitaB.org is to be inclusive of the largest number of contributors, with the most varied and diverse backgrounds possible. As such, we are committed to providing a friendly, safe, and welcoming environment for all, regardless of gender, sexual orientation, ability, ethnicity, socioeconomic status, and religion (or lack thereof).
 
 See the full [Code of Conduct](https://github.com/anitab-org/bridge-in-tech-backend/blob/develop/.github/CODE_OF_CONDUCT.md) and the [Reporting Guidelines](https://github.com/anitab-org/bridge-in-tech-backend/blob/develop/.github/REPORTING_GUIDELINES.md).
-
 
 # Contact
 

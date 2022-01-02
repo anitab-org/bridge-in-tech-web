@@ -1,21 +1,19 @@
 @font-face {
   font-family: MetaProBold;
-  src: url("./assets/fonts/MetaPro-Bold.otf") format("opentype");
+  src: url('./assets/fonts/MetaPro-Bold.otf') format('opentype');
 }
 
 @font-face {
   font-family: MetaProRegular;
-  src: url("./assets/fonts/MetaPro-Normal.otf") format("opentype");
+  src: url('./assets/fonts/MetaPro-Normal.otf') format('opentype');
 }
-.topnav{
+.topnav {
   display: flex;
-  height:auto;
+  height: auto;
   width: 100%;
   align-items: center;
   box-sizing: border-box;
   padding: 0px 20px;
-
-
 }
 li {
   font-family: MetaProBold;
@@ -30,28 +28,27 @@ li {
   text-align: center;
   white-space: nowrap;
 }
-.li{
+.li {
   text-decoration: none;
 }
-.li_signIn{
-  color:#4892C7;
+.li_signIn {
+  color: #4892c7;
 }
- 
- li:hover {
-   text-decoration: underline  blue;
- }
- 
- .active {
-   width: 170px;
-   height: 72px;
-   background: #4892C7;
-   margin:0;
-   color: white;
- }
- .ml-auto{
-   padding: 0px 0px;
- }
- .button-right{
-   text-align: right;
- }
 
+li:hover {
+  text-decoration: underline blue;
+}
+
+.active {
+  width: 170px;
+  height: 72px;
+  background: #4892c7;
+  margin: 0;
+  color: white;
+}
+.ml-auto {
+  padding: 0px 0px;
+}
+.button-right {
+  text-align: right;
+}

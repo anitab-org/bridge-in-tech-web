@@ -1,50 +1,44 @@
-import React, { useState, useContext, useEffect } from "react";
-import { Table } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { AuthContext } from "../AuthContext";
-import { BASE_API } from "../config";
-import { SERVICE_UNAVAILABLE_ERROR } from "../messages";
-import "./Organization.css";
+import React, { useState, useContext, useEffect } from 'react';
+import { Table } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../AuthContext';
+import { BASE_API } from '../config';
+import { SERVICE_UNAVAILABLE_ERROR } from '../messages';
+import './Organization.css';
 
 export default function Organizations() {
   const [errorMessage, setErrorMessage] = useState(null);
   const [organizations, setOrganizations] = useState([]);
   const { access_token } = useContext(AuthContext);
 
-
   useEffect(() => {
     const requestOrganizationsList = {
-      method: "GET",
+      method: 'GET',
       headers: {
-        "Authorization": `Bearer ${access_token}`,
-        "Accept": "application/json",
-        "Content-Type": "application/json",
-      },
+        Authorization: `Bearer ${access_token}`,
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      }
     };
 
     fetch(`${BASE_API}/organizations`, requestOrganizationsList)
-      .then(async response => {
+      .then(async (response) => {
         const data = await response.json();
         if (response.ok) {
           return setOrganizations(data);
         }
         setErrorMessage(data.message);
       })
-      .catch(() =>
-        setErrorMessage(SERVICE_UNAVAILABLE_ERROR)
-      )
-
+      .catch(() => setErrorMessage(SERVICE_UNAVAILABLE_ERROR));
   }, [access_token]);
 
-  return errorMessage ?
+  return errorMessage ? (
     <div className="container-fluid">
       <div className="top">
-        <h1>
-          {errorMessage}
-        </h1>
+        <h1>{errorMessage}</h1>
       </div>
     </div>
-    :
+  ) : (
     <>
       <div className="container-organizations">
         <div className="row mb-5">
@@ -72,10 +66,18 @@ export default function Organizations() {
             {organizations.map((organization) => (
               <tr key={organization.id}>
                 <td>{organization.representative_name}</td>
-                <td><Link to={{
-                  pathname: `/organizations/profile/${encodeURI(organization.organization_name)}`,
-                  state: { organization }
-                }}>{organization.organization_name}</Link></td>
+                <td>
+                  <Link
+                    to={{
+                      pathname: `/organizations/profile/${encodeURI(
+                        organization.organization_name
+                      )}`,
+                      state: { organization }
+                    }}
+                  >
+                    {organization.organization_name}
+                  </Link>
+                </td>
                 <td>{organization.email}</td>
                 <td>{organization.website}</td>
                 <td>{organization.timezone}</td>
@@ -84,14 +86,23 @@ export default function Organizations() {
                 <td>tba</td>
                 <td>tba</td>
                 <td>tba</td>
-                <td><Link to={{
-                  pathname: `/organizations/portfolio/${encodeURI(organization.organization_name)}`,
-                  state: { organization }
-                }}>View</Link></td>
+                <td>
+                  <Link
+                    to={{
+                      pathname: `/organizations/portfolio/${encodeURI(
+                        organization.organization_name
+                      )}`,
+                      state: { organization }
+                    }}
+                  >
+                    View
+                  </Link>
+                </td>
               </tr>
             ))}
           </tbody>
         </Table>
       </div>
     </>
+  );
 }

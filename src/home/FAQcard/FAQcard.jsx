@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import "./FAQcard.css";
-import logo_left_arrow from "./../../assets/images/side_arrow.svg";
+import React, { useState } from 'react';
+import './FAQcard.css';
+import logo_left_arrow from './../../assets/images/side_arrow.svg';
 export default function FAQcard(props) {
   const [open, setopen] = useState(false);
   const onClickHandler = () => {

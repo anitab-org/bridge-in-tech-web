@@ -1,12 +1,12 @@
-import React from "react";
-import "./VideoSection.css";
-import VideoSectionCard from "./VideoSectionCard/VideoSectionCard";
+import React from 'react';
+import './VideoSection.css';
+import VideoSectionCard from './VideoSectionCard/VideoSectionCard';
 export default function VideoSection() {
   return (
     <React.Fragment>
       <section className="video-section">
         <h1 className="heading">
-          <span style={{ color: "#ff3300" }}>Why</span> Bridge-In-Tech
+          <span style={{ color: '#ff3300' }}>Why</span> Bridge-In-Tech
         </h1>
         <div className="cards-container">
           <div className="cards-container-content">

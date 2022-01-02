@@ -1,62 +1,62 @@
-.wrapper{
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100vh;
-    background-color: #215cad;
-    border-radius: 5px;
-    z-index: 999;
+.wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  background-color: #215cad;
+  border-radius: 5px;
+  z-index: 999;
 }
-#sidebarCollapse{
-    position: absolute;
-    top: .5rem;
-    right: 1.3rem;
+#sidebarCollapse {
+  position: absolute;
+  top: 0.5rem;
+  right: 1.3rem;
 }
-#sidebar{
-    height: inherit;
-    margin: 1rem;
-    text-align: left;
+#sidebar {
+  height: inherit;
+  margin: 1rem;
+  text-align: left;
 }
-#sidebar ul li a{
-    margin-left: .5rem;
-    color: #e9e9ea;
+#sidebar ul li a {
+  margin-left: 0.5rem;
+  color: #e9e9ea;
 }
-#sidebar .list-item{
-    margin: 1rem 0;
-    font-size: 15px;
-    font-weight: 600;
-    padding: 10px;
+#sidebar .list-item {
+  margin: 1rem 0;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 10px;
 }
-#sidebar .list-item:hover{
+#sidebar .list-item:hover {
   padding: 10px;
   border-radius: 5px;
-  background-color: #362F78;
+  background-color: #362f78;
 }
-#sidebar li a{
-    text-decoration: none;
-    padding-left: .5rem;
+#sidebar li a {
+  text-decoration: none;
+  padding-left: 0.5rem;
 }
-.icon-color{
-    color: #738a9b;
+.icon-color {
+  color: #738a9b;
 }
-.btn-custom{
-    background-color: #c4b9b9;
-    border-radius: 50%;
-    color: #215cad;
-    font-weight: 600;
+.btn-custom {
+  background-color: #c4b9b9;
+  border-radius: 50%;
+  color: #215cad;
+  font-weight: 600;
 }
-.sidebar-header{
-    margin-top: 4rem;
-    text-align: center;
-    color: #e9e9ea;
+.sidebar-header {
+  margin-top: 4rem;
+  text-align: center;
+  color: #e9e9ea;
 }
-#sidebar .dropdown-item:hover{
+#sidebar .dropdown-item:hover {
   background-color: #215cad;
 }
-.usr-image{
+.usr-image {
   border: 2px solid white;
 }
-.collapse{
+.collapse {
   display: none;
 }
 #sidebar.active .sidebar-header h3 {
@@ -79,7 +79,7 @@
   -ms-transform: translateX(50%);
   transform: translateX(50%);
 }
-.hidden{
+.hidden {
   display: none;
 }
 
@@ -92,8 +92,8 @@
   #sidebar {
     margin: 1rem;
   }
-  #sidebarCollapse{
-    right: .5rem;
+  #sidebarCollapse {
+    right: 0.5rem;
   }
   #sidebar.active .sidebar-header h3 {
     display: none;

@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Bokor&family=Open+Sans&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Bokor&family=Open+Sans&display=swap');
 
 #home {
-  background-image: url("../assets/images/bg.png");
+  background-image: url('../assets/images/bg.png');
   background-size: 100%;
   background-repeat: no-repeat;
   height: 80vh;
@@ -21,13 +21,13 @@
   padding: 0;
   margin: 0 !important;
 
-  font-family: "Tahoma";
+  font-family: 'Tahoma';
 }
 #home p {
   margin-top: 20px;
   color: rgb(87, 85, 85);
   font-size: 15px;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   letter-spacing: 1px;
 }
 @media only screen and (max-width: 700px) {

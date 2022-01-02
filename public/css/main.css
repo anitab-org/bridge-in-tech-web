@@ -1,24 +1,24 @@
 body,
 html {
-    height: 100vh;
-    width: 100vw;
-    margin: 0;
-    overflow-x: hidden;
-    overflow-y: hidden;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 html {
-    box-sizing: border-box;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 * {
-    box-sizing: "border-box";
+  box-sizing: 'border-box';
 }
 
 p,
 ul {
-    font-family: "Brandon", "Lato";
+  font-family: 'Brandon', 'Lato';
 }
 
 h1,
@@ -27,7 +27,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Quan", "Cairo"
+  font-family: 'Quan', 'Cairo';
 }
 
 h1,
@@ -38,16 +38,16 @@ h5,
 h6,
 p,
 ul {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .navbar-brand > img {
-    width: 75px;
-    height: 75px;
+  width: 75px;
+  height: 75px;
 }
 
 /* Default */
 body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }

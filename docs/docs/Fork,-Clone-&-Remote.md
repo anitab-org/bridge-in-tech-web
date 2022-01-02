@@ -11,12 +11,11 @@ If you want to contribute to the project you will have to create your own copy o
 
 <img width="788" alt="Screen Shot 2020-07-19 at 9 16 07 am" src="https://user-images.githubusercontent.com/29667122/87863680-cd079d00-c9a0-11ea-836a-eb73da3d89c5.png"/>
 
-
 ## Clone
 
 _**Note**: For this you need to install [git](https://git-scm.com) on your machine. You can download the git tool from [here](https://git-scm.com/downloads)_.
 
-* If you have forked the project, run the following command -
+- If you have forked the project, run the following command -
 
 `git clone https://github.com/YOUR_GITHUB_USER_NAME/bridge-in-tech-web`
 
@@ -43,4 +42,3 @@ origin  https://github.com/YOUR_GITHUB_USER_NAME/bridge-in-tech-web (push)
 upstream        https://github.com/anitab-org/bridge-in-tech-web.git (fetch)
 upstream        https://github.com/anitab-org/bridge-in-tech-web.git (push)
 ```
-

@@ -1,6 +1,6 @@
-import React from "react";
-import "./FAQ.css";
-import FAQcard from "./FAQcard/FAQcard";
+import React from 'react';
+import './FAQ.css';
+import FAQcard from './FAQcard/FAQcard';
 export default function FAQ() {
   return (
     <section className="faq_section">

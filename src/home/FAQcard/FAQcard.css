@@ -14,8 +14,7 @@
 }
 .faq_card:hover {
   cursor: pointer;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
-    rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
     rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
   border-radius: 12px;
 }
@@ -64,7 +63,7 @@
   .card_text {
     font-size: 16px;
   }
-    .accordion_text {
+  .accordion_text {
     font-size: 14px;
   }
 }

@@ -48,15 +48,16 @@ Without body
 ```
 docs: update screenshots in the documentation
 ```
+
 or
 
 With body
 
 ```
-fix: fix crash caused by new libraries 
+fix: fix crash caused by new libraries
 
-After merging PRs #126 and #130 crashes were occurring. 
-These crashes were because of deprecated functions. 
-Found a solution here (https://stackoverflow.com/questions/22718185) 
+After merging PRs #126 and #130 crashes were occurring.
+These crashes were because of deprecated functions.
+Found a solution here (https://stackoverflow.com/questions/22718185)
 This will resolve issue #140
 ```

@@ -1,10 +1,10 @@
 @font-face {
   font-family: MetaPro;
-  src: url("./../assets/fonts/MetaPro-Normal.otf") format("opentype");
+  src: url('./../assets/fonts/MetaPro-Normal.otf') format('opentype');
 }
 @font-face {
   font-family: Poppins;
-  src: url("./../assets/fonts/Poppins-Light.ttf") format("truetype");
+  src: url('./../assets/fonts/Poppins-Light.ttf') format('truetype');
 }
 .faq_section {
   width: 100%;

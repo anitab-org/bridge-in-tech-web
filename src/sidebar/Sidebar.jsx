@@ -1,42 +1,42 @@
-import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
-import { Tooltip, OverlayTrigger } from "react-bootstrap";
+import React, { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { Tooltip, OverlayTrigger } from 'react-bootstrap';
 
-import { AuthContext } from "../AuthContext";
-import "./sidebar.css";
-import image from "../assets/images/AnitaBLogo.png";
+import { AuthContext } from '../AuthContext';
+import './sidebar.css';
+import image from '../assets/images/AnitaBLogo.png';
 
-export default function Sidebar(){
+export default function Sidebar() {
   const { user, isAuth } = useContext(AuthContext);
-  const [isNotActive, setNotActive] = useState("true");
-  const [isDropdownActive, setDropdownActive] = useState("false");
+  const [isNotActive, setNotActive] = useState('true');
+  const [isDropdownActive, setDropdownActive] = useState('false');
   var barsIcon = <i className="fas fa-bars"></i>;
   var crossIcon = <i className="fas fa-times-circle"></i>;
   return (
-    <div className={!isAuth ? "hidden" : ""}>
+    <div className={!isAuth ? 'hidden' : ''}>
       <div className="wrapper">
-        <nav id="sidebar" className={isNotActive ? "active" : ""}>
+        <nav id="sidebar" className={isNotActive ? 'active' : ''}>
           <button
             type="button"
             id="sidebarCollapse"
             onClick={() => setNotActive(!isNotActive)}
             className="btn btn-custom"
           >
-            <span className={isNotActive ? "" : "hidden"}>{barsIcon}</span>
-            <span className={isNotActive ? "hidden" : ""}>{crossIcon}</span>
+            <span className={isNotActive ? '' : 'hidden'}>{barsIcon}</span>
+            <span className={isNotActive ? 'hidden' : ''}>{crossIcon}</span>
           </button>
-            <div className="sidebar-header">
-              <img
-                alt="user_logo"
-                src={image}
-                className="rounded-circle usr-image"
-                height={isNotActive ? "20" : "70"}
-                width={isNotActive ? "20" : "70"}
-              ></img>
-              <h3>{user}</h3>
-            </div>
+          <div className="sidebar-header">
+            <img
+              alt="user_logo"
+              src={image}
+              className="rounded-circle usr-image"
+              height={isNotActive ? '20' : '70'}
+              width={isNotActive ? '20' : '70'}
+            ></img>
+            <h3>{user}</h3>
+          </div>
 
-          <ul className ="list-unstyled components">
+          <ul className="list-unstyled components">
             <li className="list-item">
               <i className="fas fa-briefcase icon-color"></i>
               <Link to="/members">Members</Link>
@@ -51,7 +51,9 @@ export default function Sidebar(){
                 key="bottom"
                 placement="bottom"
                 overlay={
-                  <Tooltip id={`tooltip-$'bottom'`}>{!isDropdownActive ? "Close My Space" : "Open My Space"}</Tooltip>
+                  <Tooltip id={`tooltip-$'bottom'`}>
+                    {!isDropdownActive ? 'Close My Space' : 'Open My Space'}
+                  </Tooltip>
                 }
               >
                 <Link
@@ -66,9 +68,7 @@ export default function Sidebar(){
                 </Link>
               </OverlayTrigger>
               <ul
-                className={
-                  isDropdownActive ? "list-unstyled  collapse" : "list-unstyled"
-                }
+                className={isDropdownActive ? 'list-unstyled  collapse' : 'list-unstyled'}
                 id="homeSubmenu"
               >
                 <li className="dropdown-item">
@@ -98,4 +98,4 @@ export default function Sidebar(){
       </div>
     </div>
   );
-};
+}

@@ -1,40 +1,39 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from "./home/Home";
-import Members from "./members/Members";
-import MemberPortfolio from "./members/MemberPortfolio";
-import Member from "./members/Member";
-import Portfolio from "./myspace/Portfolio";
-import ErrorPage from "./errorPage/ErrorPage"
-import PersonalDetails from "./myspace/PersonalDetails";
-import AdditionalInfo from "./myspace/AdditionalInfo";
-import PersonalBackground from "./myspace/PersonalBackground";
-import Organizations from "./organizations/Organizations";
-import Organization from "./organizations/Organization";
-import EditPrograms from "./myorganization/EditPrograms";
-import EditOrganization from "./myorganization/EditOrganization";
-import EditProgram from "./myorganization/EditProgram";
-import Program from "./organizations/Program";
-import Register from "./register/Register";
-import Login from "./login/Login";
-import ProtectedRoute from "./ProtectedRoute";
-import AuthProvider from "./AuthContext";
-import Programs from "./organizations/Programs";
-import About from "./home/About";
-import ReadAboutUs from "./home/ReadAboutUs"
-import GetInTouch from "./home/GetInTouch"
-import Benefit from "./home/Benefit"
-import FAQ from "./home/FAQ"
-import Nav from "./Navigation"
-import Sidebar from "./sidebar/Sidebar"
-
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Home from './home/Home';
+import Members from './members/Members';
+import MemberPortfolio from './members/MemberPortfolio';
+import Member from './members/Member';
+import Portfolio from './myspace/Portfolio';
+import ErrorPage from './errorPage/ErrorPage';
+import PersonalDetails from './myspace/PersonalDetails';
+import AdditionalInfo from './myspace/AdditionalInfo';
+import PersonalBackground from './myspace/PersonalBackground';
+import Organizations from './organizations/Organizations';
+import Organization from './organizations/Organization';
+import EditPrograms from './myorganization/EditPrograms';
+import EditOrganization from './myorganization/EditOrganization';
+import EditProgram from './myorganization/EditProgram';
+import Program from './organizations/Program';
+import Register from './register/Register';
+import Login from './login/Login';
+import ProtectedRoute from './ProtectedRoute';
+import AuthProvider from './AuthContext';
+import Programs from './organizations/Programs';
+import About from './home/About';
+import ReadAboutUs from './home/ReadAboutUs';
+import GetInTouch from './home/GetInTouch';
+import Benefit from './home/Benefit';
+import FAQ from './home/FAQ';
+import Nav from './Navigation';
+import Sidebar from './sidebar/Sidebar';
 
 export default function Routes() {
   return (
     <Router basename="/bridge-in-tech-web">
-        <AuthProvider>
-          <Sidebar/>
-          <Nav/>
+      <AuthProvider>
+        <Sidebar />
+        <Nav />
         <Switch>
           <Route exact path="/">
             <Home />
