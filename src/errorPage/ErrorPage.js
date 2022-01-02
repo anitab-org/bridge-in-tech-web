@@ -9,7 +9,7 @@ export default function ErrorPage() {
         <h1>404</h1>
         <h4>Oops! Page Not Found</h4>
         <p>
-          Sorry, the page you were looking for doesn't exist. If you think something is wrong, try
+          Sorry, the page you were looking for does not exist. If you think something is wrong, try
           again.
         </p>
         <button className="button">

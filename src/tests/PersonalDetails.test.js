@@ -79,7 +79,7 @@ it('should display personal details returned from get call', async () => {
 
 it('should send modified fields in payload to update', async () => {
   server.use(
-    rest.put(`${BASE_API}/user/personal_details`, (req, res, ctx) => {
+    rest.put(`${BASE_API}/user/personal_details`, (req) => {
       expect(req.headers.get('Authorization')).toEqual('Bearer test_access_token');
       expect(req.body).toEqual({
         need_mentoring: false,
