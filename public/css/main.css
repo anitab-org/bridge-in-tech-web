@@ -27,7 +27,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Quan", "Cairo"
+    font-family: "Quan", "Cairo";
 }
 
 h1,
@@ -49,5 +49,5 @@ ul {
 
 /* Default */
 body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }

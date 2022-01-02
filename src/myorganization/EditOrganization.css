@@ -6,48 +6,48 @@
     -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.4);
     -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.4);
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.4);
-  }
-  
-  label {
+}
+
+label {
     color: #24b9b6;
     font-size: 1.2em;
     font-weight: 400;
-  }
-  
-  h1 {
+}
+
+h1 {
     color: #24b9b6;
     padding-top: 0.5em;
-  }
-  
-  .error {
+}
+
+.error {
     color: red;
-  }
-  .error-message {
+}
+.error-message {
     color: #ff6565;
     padding: 0.5em 0.2em;
     height: 1em;
     position: absolute;
     font-size: 0.8em;
-  }
-  
-  .field {
+}
+
+.field {
     border: 1px solid #1c6ea4;
     width: 100%;
     height: 2em;
-  }
-  
-  .button-group {
+}
+
+.button-group {
     width: 100%;
-  }
-  
-  .organization-form {
+}
+
+.organization-form {
     width: 80%;
     text-align: left;
     padding-top: 2em;
     padding-bottom: 2em;
-  }
+}
 
-  .disabled-link {
-  pointer-events: none;
-  opacity: 0.6
+.disabled-link {
+    pointer-events: none;
+    opacity: 0.6;
 }

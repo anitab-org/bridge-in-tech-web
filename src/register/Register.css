@@ -1,5 +1,5 @@
 .container {
-    background: #F7F9FA;
+    background: #f7f9fa;
     height: auto;
     width: 70%;
     margin: 5em auto;
@@ -9,14 +9,14 @@
 }
 
 label {
-    color: #24B9B6;
+    color: #24b9b6;
     font-size: 1.2em;
     font-weight: 400;
 }
 
 h1 {
-    color: #24B9B6;
-    padding-top: .5em;
+    color: #24b9b6;
+    padding-top: 0.5em;
 }
 
 .error {
@@ -24,15 +24,15 @@ h1 {
 }
 
 .error-message {
-    color: #FF6565;
-    padding: .5em .2em;
+    color: #ff6565;
+    padding: 0.5em 0.2em;
     height: 1em;
     position: absolute;
-    font-size: .8em;
+    font-size: 0.8em;
 }
 
 .field {
-    border: 1px solid #1C6EA4;
+    border: 1px solid #1c6ea4;
     width: 100%;
     height: 2em;
 }
@@ -42,20 +42,20 @@ h1 {
 }
 
 .register-form {
-width: 80%;
-text-align: left;
-padding-top: 2em;
-padding-bottom: 2em;
+    width: 80%;
+    text-align: left;
+    padding-top: 2em;
+    padding-bottom: 2em;
 }
 
-#loginBtn{
+#loginBtn {
     text-decoration: none;
 }
 /* Terms & Privacy Policy Modal styles */
-.terms-and-privacy-modal a{
+.terms-and-privacy-modal a {
     text-decoration: none;
 }
 
-.terms-and-privacy-modal ul{
+.terms-and-privacy-modal ul {
     padding-left: 20px;
 }

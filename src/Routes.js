@@ -5,7 +5,7 @@ import Members from "./members/Members";
 import MemberPortfolio from "./members/MemberPortfolio";
 import Member from "./members/Member";
 import Portfolio from "./myspace/Portfolio";
-import ErrorPage from "./errorPage/ErrorPage"
+import ErrorPage from "./errorPage/ErrorPage";
 import PersonalDetails from "./myspace/PersonalDetails";
 import AdditionalInfo from "./myspace/AdditionalInfo";
 import PersonalBackground from "./myspace/PersonalBackground";
@@ -21,93 +21,92 @@ import ProtectedRoute from "./ProtectedRoute";
 import AuthProvider from "./AuthContext";
 import Programs from "./organizations/Programs";
 import About from "./home/About";
-import ReadAboutUs from "./home/ReadAboutUs"
-import GetInTouch from "./home/GetInTouch"
-import Benefit from "./home/Benefit"
-import FAQ from "./home/FAQ"
-import Nav from "./Navigation"
-import Sidebar from "./sidebar/Sidebar"
-
+import ReadAboutUs from "./home/ReadAboutUs";
+import GetInTouch from "./home/GetInTouch";
+import Benefit from "./home/Benefit";
+import FAQ from "./home/FAQ";
+import Nav from "./Navigation";
+import Sidebar from "./sidebar/Sidebar";
 
 export default function Routes() {
-  return (
-    <Router basename="/bridge-in-tech-web">
-        <AuthProvider>
-          <Sidebar/>
-          <Nav/>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route exact path="/faq">
-            <FAQ />
-          </Route>
-          <Route exact path="/getInTouch">
-            <GetInTouch />
-          </Route>
-          <Route exact path="/about">
-            <About />
-          </Route>
-          <Route exact path="/aboutUs">
-            <ReadAboutUs />
-          </Route>
-          <Route exact path="/benefit">
-            <Benefit />
-          </Route>
-          <ProtectedRoute exact path="/members">
-            <Members />
-          </ProtectedRoute>
-          <ProtectedRoute path="/members/portfolio/">
-            <MemberPortfolio />
-          </ProtectedRoute>
-          <ProtectedRoute path="/members/profile/">
-            <Member />
-          </ProtectedRoute>
-          <ProtectedRoute exact path="/organizations">
-            <Organizations />
-          </ProtectedRoute>
-          <ProtectedRoute path="/organizations/portfolio/">
-            <Programs />
-          </ProtectedRoute>
-          <ProtectedRoute path="/organizations/profile/">
-            <Organization />
-          </ProtectedRoute>
-          <ProtectedRoute path="/organizations/programs/">
-            <Program />
-          </ProtectedRoute>
-          <ProtectedRoute exact path="/portfolio">
-            <Portfolio />
-          </ProtectedRoute>
-          <ProtectedRoute exact path="/personal-details">
-            <PersonalDetails />
-          </ProtectedRoute>
-          <ProtectedRoute exact path="/additional-info">
-            <AdditionalInfo />
-          </ProtectedRoute>
-          <ProtectedRoute exact path="/personal-background">
-            <PersonalBackground />
-          </ProtectedRoute>
-          <ProtectedRoute exact path="/request-history"></ProtectedRoute>
-          <ProtectedRoute exact path="/organization-portfolio">
-            <EditPrograms />
-          </ProtectedRoute>
-          <ProtectedRoute exact path="/organization-profile">
-            <EditOrganization />
-          </ProtectedRoute>
-          <ProtectedRoute path="/organization-programs/">
-            <EditProgram />
-          </ProtectedRoute>
-          <Route path="/register">
-            <Register />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route>
-            <ErrorPage />
-          </Route>
-        </Switch>
-      </AuthProvider>
-    </Router>
-  );
+    return (
+        <Router basename="/bridge-in-tech-web">
+            <AuthProvider>
+                <Sidebar />
+                <Nav />
+                <Switch>
+                    <Route exact path="/">
+                        <Home />
+                    </Route>
+                    <Route exact path="/faq">
+                        <FAQ />
+                    </Route>
+                    <Route exact path="/getInTouch">
+                        <GetInTouch />
+                    </Route>
+                    <Route exact path="/about">
+                        <About />
+                    </Route>
+                    <Route exact path="/aboutUs">
+                        <ReadAboutUs />
+                    </Route>
+                    <Route exact path="/benefit">
+                        <Benefit />
+                    </Route>
+                    <ProtectedRoute exact path="/members">
+                        <Members />
+                    </ProtectedRoute>
+                    <ProtectedRoute path="/members/portfolio/">
+                        <MemberPortfolio />
+                    </ProtectedRoute>
+                    <ProtectedRoute path="/members/profile/">
+                        <Member />
+                    </ProtectedRoute>
+                    <ProtectedRoute exact path="/organizations">
+                        <Organizations />
+                    </ProtectedRoute>
+                    <ProtectedRoute path="/organizations/portfolio/">
+                        <Programs />
+                    </ProtectedRoute>
+                    <ProtectedRoute path="/organizations/profile/">
+                        <Organization />
+                    </ProtectedRoute>
+                    <ProtectedRoute path="/organizations/programs/">
+                        <Program />
+                    </ProtectedRoute>
+                    <ProtectedRoute exact path="/portfolio">
+                        <Portfolio />
+                    </ProtectedRoute>
+                    <ProtectedRoute exact path="/personal-details">
+                        <PersonalDetails />
+                    </ProtectedRoute>
+                    <ProtectedRoute exact path="/additional-info">
+                        <AdditionalInfo />
+                    </ProtectedRoute>
+                    <ProtectedRoute exact path="/personal-background">
+                        <PersonalBackground />
+                    </ProtectedRoute>
+                    <ProtectedRoute exact path="/request-history"></ProtectedRoute>
+                    <ProtectedRoute exact path="/organization-portfolio">
+                        <EditPrograms />
+                    </ProtectedRoute>
+                    <ProtectedRoute exact path="/organization-profile">
+                        <EditOrganization />
+                    </ProtectedRoute>
+                    <ProtectedRoute path="/organization-programs/">
+                        <EditProgram />
+                    </ProtectedRoute>
+                    <Route path="/register">
+                        <Register />
+                    </Route>
+                    <Route path="/login">
+                        <Login />
+                    </Route>
+                    <Route>
+                        <ErrorPage />
+                    </Route>
+                </Switch>
+            </AuthProvider>
+        </Router>
+    );
 }

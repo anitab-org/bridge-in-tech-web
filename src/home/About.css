@@ -1,19 +1,19 @@
 .container {
-  width: 100%;
-  box-shadow: none;
-  background-color: #fff;
-  word-spacing: 2px;
+    width: 100%;
+    box-shadow: none;
+    background-color: #fff;
+    word-spacing: 2px;
 }
 
 h1 {
-  color: #990666;
-  padding-top: 0.5em;
-  text-align: center;
-  font-weight: 900;
-  margin: 1rem !important;
+    color: #990666;
+    padding-top: 0.5em;
+    text-align: center;
+    font-weight: 900;
+    margin: 1rem !important;
 }
 
 a {
-  color: #57d5ff;
-  text-decoration: underline;
+    color: #57d5ff;
+    text-decoration: underline;
 }

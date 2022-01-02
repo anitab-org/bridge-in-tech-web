@@ -1,14 +1,14 @@
 @font-face {
     font-family: MetaProBold;
     src: url("./../assets/fonts/MetaPro-Font/MetaPro-Bold.otf") format("opentype");
-  }
+}
 
-  @font-face {
+@font-face {
     font-family: MetaProRegular;
     src: url("./../assets/fonts/MetaPro-Font/MetaPro-Normal.otf") format("opentype");
-  }
+}
 
-.GITcontainer{
+.GITcontainer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,67 +16,66 @@
     box-sizing: border-box;
     width: 100%;
     background-color: #ffffff;
-
 }
 
-.formContainer{
+.formContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     box-sizing: border-box;
-    width:46%;
+    width: 46%;
     padding: 4rem 0rem 3rem 4rem;
 }
 
-form{
-    width:100%;
+form {
+    width: 100%;
 }
-.message{
+.message {
     height: 7rem;
 }
 
-label{
+label {
     font-family: MetaProBold;
     font-size: 1.2rem;
     line-height: 1.6rem;
-    color: #1F2430 !important;
+    color: #1f2430 !important;
 }
 
-.button{
-    background: #4892C7;
+.button {
+    background: #4892c7;
     box-shadow: 0px 4px 10px rgba(72, 146, 199, 0.1);
     border: none;
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: 1.5rem;
 }
 
-input{
-    height:3.5rem;
-    width:90%;
+input {
+    height: 3.5rem;
+    width: 90%;
     margin-bottom: 2rem;
     border: 1px solid rgba(31, 36, 48, 0.6);
     border-radius: 5px;
-    padding:0 2rem;
+    padding: 0 2rem;
 }
 
-::placeholder{
+::placeholder {
     font-family: MetaProRegular;
     font-size: 1rem;
     line-height: 1.5rem;
     color: rgba(31, 36, 48, 0.6);
 }
 
-.textContainer{
+.textContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     box-sizing: border-box;
-    width:50%;
+    width: 50%;
 }
 
-.heading{
+.heading {
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -85,12 +84,11 @@ input{
     font-family: MetaProBold;
     font-size: 4rem;
     line-height: 97.8%;
-    color: #1F2430;
+    color: #1f2430;
     width: 60%;
-
 }
 
-.subheading{
+.subheading {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -99,51 +97,46 @@ input{
     font-family: MetaProRegular;
     font-size: 1.5rem;
     line-height: 2rem;
-    width:60%;
+    width: 60%;
 }
 
-@media screen and (max-width: 583px){
+@media screen and (max-width: 583px) {
+    .GITcontainer {
+        flex-direction: column-reverse;
+    }
 
-.GITcontainer{
-    flex-direction: column-reverse;
+    .textContainer {
+        width: 100%;
+        margin-bottom: 3rem;
+    }
+
+    .formContainer {
+        width: 100%;
+        padding: 2rem 3rem;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    .heading {
+        align-items: center;
+        width: 80%;
+    }
+
+    .subheading {
+        text-align: center;
+        line-height: 1.8rem;
+        width: 90%;
+    }
 }
 
-.textContainer{
-    width:100%;
-    margin-bottom: 3rem;
-}
-
-.formContainer{
-    width:100%;
-    padding: 2rem 3rem;
-}
-
-input{
-    width:100%;
-}
-
-.heading{
-    align-items: center;
-    width: 80%;
-
-}
-
-.subheading{
-    text-align: center;
-    line-height: 1.8rem;
-    width:90%;
-}
-
-}
-
-@media screen and (max-width: 365px){
-    .textContainer{
+@media screen and (max-width: 365px) {
+    .textContainer {
         margin-bottom: 1.5rem;
     }
-    .heading{
+    .heading {
         align-items: center;
         font-size: 3rem;
     }
 }
-
-
