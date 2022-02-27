@@ -1,11 +1,15 @@
 import React from 'react';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
-import { render, fireEvent, screen, waitForElement } from '@testing-library/react';
+import { render, fireEvent, screen, waitForElement, waitForDomChange, wait } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Login from "../login/Login";
 import { act } from 'react-dom/test-utils';
 import { BASE_API } from "../config";
+import { Route, Router } from 'react-router-dom';
+import { createMemoryHistory } from 'history';
+import { AuthContext } from '../AuthContext';
+import Home from '../home/Home';
 
 const server = setupServer(
     rest.post(`${BASE_API}/login`, (req, res, ctx) => {
@@ -138,3 +142,29 @@ it('handles password toggle', () => {
     
     expect(screen.getByPlaceholderText('Password').type).toEqual("text")
 })
+
+it('redirects to homepage after successful login', async () => {
+
+    const history = createMemoryHistory({
+        initialEntries: ["/login"]
+    });
+
+    // on rendering Login, the provide isAuth context value should trigger a redirect to Home
+    // but it isn't working this way. it simply checks the path that I've sent in the initialEntries
+    render(
+        <AuthContext.Provider value={{ isAuth: false }}>
+            <Router history={history}>
+                <Route path="/login">
+                    <Login />
+                </Route>
+                <Route path="/">
+                    <Home />
+                </Route>
+            </Router>
+        </AuthContext.Provider>
+    );
+
+    await wait(()=> {
+        expect(history.location.pathname).toEqual('/');
+    });
+});
