@@ -1,11 +1,9 @@
-import { render } from '@testing-library/react';
 import React from 'react';
-import { Router } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
+import { render } from '@testing-library/react';
 import { AuthContext } from '../AuthContext';
 import Navigation from '../Navigation';
-import { createMemoryHistory } from 'history';
 
-const history = createMemoryHistory();
 const mockAuthContext = { isAuth: true, user: "AnitaB" };
 
 describe('Navigation', () => {
@@ -14,11 +12,12 @@ describe('Navigation', () => {
         
         const { getByText } = render(
             <AuthContext.Provider value={mockAuthContext}>
-               <Router history={history}>
+               <BrowserRouter>
                     <Navigation />
-               </Router>
+               </BrowserRouter>
             </AuthContext.Provider>
         );
+        
         expect(getByText(`Welcome back, ${mockAuthContext.user}!`)).toBeInTheDocument();
     });
 });
