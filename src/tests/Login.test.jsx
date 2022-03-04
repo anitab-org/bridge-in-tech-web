@@ -147,6 +147,8 @@ it('redirects to Home if user is logged in', () => {
     const history = createBrowserHistory();
     history.replace = jest.fn();
 
+    const pathToHome = '/';
+
     render(
         <AuthContext.Provider value={{ isAuth: true }}>
             <Router history={history}>
@@ -158,6 +160,6 @@ it('redirects to Home if user is logged in', () => {
     expect(screen.queryByRole('button', { name: "Login" })).not.toBeInTheDocument();
 
     expect(history.replace).toHaveBeenCalledWith(expect.objectContaining({
-        pathname: '/'
+        pathname: pathToHome,
     })); 
 });
