@@ -1,22 +1,188 @@
-.container {
-    background: #F7F9FA;
-    height: auto;
-    width: 70%;
-    margin: 5em auto;
-    -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.4);
-    -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.4);
-    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.4);
+.preloader {
+    border: 5px solid orangered;
+    border-top: 5px solid white;
+    border-radius: 50%;
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    top: 20%;
+    left: calc(50vw - 75px);
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
 }
 
-label {
-    color: #24B9B6;
-    font-size: 1.2em;
-    font-weight: 400;
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
 }
 
-h1 {
-    color: #24B9B6;
-    padding-top: .5em;
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.preloader:before,
+.preloader:after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: calc(50vh - 75px);
+    left: calc(50vw - 75px);
+    transform: translate(-50%, -50%);
+}
+
+#form h1 {
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 54px;
+    color: hsl(180, 100%, 0%);
+    margin: 0px!important;
+    padding-top: 35px;
+    text-align: left;
+}
+
+#form h4 {
+    width: 572px;
+    top: 161px;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 27px;
+    color: #1f2430;
+    margin: 0px;
+}
+
+#form a {
+    text-decoration: none;
+    color: var(--primary-blue);
+}
+
+#form a:hover {
+    cursor: pointer;
+}
+
+.split-screen {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    width: 100%;
+    align-items: flex-start;
+    object-fit: cover;
+}
+
+.left {
+    display: flex;
+    text-align: left;
+    background-image: url(../assets/images/side_image.jpg);
+    height: 964px;
+    width: 630px;
+    object-fit: cover;
+}
+
+.right {
+    display: flex;
+    flex-grow: 4;
+    padding-right: 140px;
+    padding-left: 96px;
+    text-align: left;
+    height: 1200px;
+}
+
+.right .register {
+    text-align: left;
+    position: relative;
+    width: 808px;
+    height: 964px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+    min-width: 569.23px;
+    height: 56px;
+    border: 1px solid #337ab7;
+    border-radius: 5px;
+    margin: 0px;
+}
+
+#form label {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    width: 300px;
+    color: #1f2430;
+    padding-top: 24px;
+}
+
+#form img {
+    position: absolute;
+    
+    right: 13px;
+    padding-top: 16px;
+}
+
+#form img :hover {
+    cursor: pointer;
+    fill: #230B34;
+}
+
+.checkbox_class input {
+    position: absolute;
+    cursor: pointer;
+}
+
+#terms {
+    font-family: Meta Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 27px;
+    padding-left: 24px;
+    padding-top: 0px !important;
+    color: rgba(31, 36, 48, 0.6);
+}
+
+.insert_checkbox {
+    display: flex;
+    flex-direction: row;
+    padding-top: 24px;
+}
+
+.insert_checkbox input {
+    width: 28px;
+    height: 28px;
+    border: 1px solid rgba(31, 36, 48, 0.6);
+    box-sizing: border-box;
+    border-radius: 4px;
+    display: block;
+    position: relative;
+    cursor: pointer;
+    background: #E5E5E5;
+    margin: 0px !important
+}
+
+.insert_checkbox input :hover {
+    width: 28px;
+    height: 28px;
+    border: 1px solid rgba(31, 36, 48, 0.6);
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.insert_checkbox input :checked ::after {
+    position: relative;
+    width: 11.5px;
+    height: 9px;
+    border-radius: 4px;
+    background: #4892C7;
 }
 
 .error {
@@ -24,38 +190,96 @@ h1 {
 }
 
 .error-message {
-    color: #FF6565;
-    padding: .5em .2em;
+    color: #ff6565;
+    padding: 0.5em 0.2em;
     height: 1em;
     position: absolute;
-    font-size: .8em;
+    font-size: 0.8em;
 }
 
-.field {
-    border: 1px solid #1C6EA4;
-    width: 100%;
-    height: 2em;
+#signup {
+    min-width: 569px;
+    height: 63px;
+    background: #4892c7;
+    box-shadow: 0px 4px 10px rgba(72, 146, 199, 0.1);
+    border-radius: 5px;
+    font-family: Meta Pro;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    color: #FFFFFF;
+    margin-top: 30px;
 }
 
-.button-group {
-    width: 100%;
+.login {
+    padding-top: 24px;
+    width: 569px;
+    padding-bottom: 34px;
+    font-size: 16px;
+    line-height: 21px;
+    text-align: center;
+    color: rgba(31, 36, 48, 0.6);
 }
 
-.register-form {
-width: 80%;
-text-align: left;
-padding-top: 2em;
-padding-bottom: 2em;
-}
-
-#loginBtn{
+.terms-and-privacy-modal a {
     text-decoration: none;
-}
-/* Terms & Privacy Policy Modal styles */
-.terms-and-privacy-modal a{
-    text-decoration: none;
+    width: 800px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 27px;
+    color: rgba(31, 36, 48, 0.6);
 }
 
-.terms-and-privacy-modal ul{
-    padding-left: 20px;
+.terms-and-privacy-modal ul {
+    padding-left: 24px;
+    text-decoration: none;
+    left: 772px;
+    top: calc(50% - 27px / 2 - 30px);
+    font-size: 18px;
+    line-height: 27px;
+    color: rgba(31, 36, 48, 0.6);
+}
+
+.choice {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 70px;
+}
+
+#mentee,
+#mentor {
+    position: relative;
+    width: 56px;
+    height: 18px;
+    padding-left: 24px;
+    padding-top: 0px !important;
+    font-family: Meta Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 100%;
+    color: rgba(31, 36, 48, 0.6);
+}
+
+@media screen and (max-width: 803px) {
+    .split-screen {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .left,
+    .right {
+        width: 80%;
+        display: flex;
+        height: 50%;
+    }
+    .right {
+        padding: 15px;
+        align-items: center;
+    }
+    #form input,
+    label {
+        width: auto;
+    }
 }

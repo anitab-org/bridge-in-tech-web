@@ -26,14 +26,12 @@ import GetInTouch from "./home/GetInTouch"
 import Benefit from "./home/Benefit"
 import FAQ from "./home/FAQ"
 import Nav from "./Navigation"
-import Sidebar from "./sidebar/Sidebar"
 
 
 export default function Routes() {
   return (
     <Router basename="/bridge-in-tech-web">
         <AuthProvider>
-          <Sidebar/>
           <Nav/>
         <Switch>
           <Route exact path="/">
