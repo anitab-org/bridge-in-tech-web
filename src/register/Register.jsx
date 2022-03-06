@@ -101,7 +101,7 @@ export default function Register() {
               <section className="register">
                 <h1>Welcome To Bridge In Tech</h1>
                 <h4>
-                  Lets start your account setup so you can have access to a
+                  Let's start your account setup so you can have access to a
                   great pool of talent.
                 </h4>
                 <form-group controlId="formName">
