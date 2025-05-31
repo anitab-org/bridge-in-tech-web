@@ -76,31 +76,34 @@ export default function Login() {
 
           <form className="login-form" onSubmit={handleSubmit}>
             <div className="form-group">
-              <label>Username or email</label>
+              <label htmlFor="username">Username or Email:</label>
               <input
                 type="text"
+                id="username"
                 name="username"
-                placeholder="youranziglorious@gmail.com"
+                placeholder="Username or Email"
                 required
               />
             </div>
 
             <div className="form-group">
-              <label>Password</label>
+              <label htmlFor="password">Password :</label>
               <input
                 type={isPasswordShown ? "text" : "password"}
+                id="password"
                 name="password"
-                placeholder="at least 8 character"
+                placeholder="Password"
                 required
               />
             </div>
 
-            <div className="form-group flex " style={{ alignItems: "center" }}>
+            <div className="form-group flex" style={{ alignItems: "center" }}>
               <input
                 type="checkbox"
                 id="showPassword"
                 onChange={handleTogglePasswordDisplay}
                 style={{ marginRight: 8 }}
+                name="show_password_checkbox"
               />
               <label htmlFor="showPassword">
                 Show Password
@@ -119,7 +122,7 @@ export default function Login() {
             )}
 
             <button type="submit" className="sign-in-btn">
-              Sign In
+              Login
             </button>
 
             <p className="signup-link">
